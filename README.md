@@ -196,6 +196,86 @@ A comprehensive `README.md` file documents the project’s purpose, features, te
 
 This project demonstrates the successful integration of **user-centred design**, **responsive interface development**, and **database-driven server-side functionality** to deliver a fully operational restaurant booking system. The final outcome reflects both **technical competence** and **professional presentation**, meeting the standards expected at **Level 5 Web Application Development**.
 
+## UX Strategy
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+The UX strategy for the **Portuguese Kitchen Booking System** is structured around a **user-centred design approach**, ensuring that the application meets the practical needs of both customers and administrators while remaining accessible, intuitive, and efficient (Interaction Design Foundation, 2023).
+
+The strategy is divided into three key phases:
+
+- Research and Planning  
+- Design Principles  
+- Testing and Feedback
+
+Throughout development, the UX strategy prioritises **accessibility**, **clarity**, **responsiveness**, **data accuracy**, and **ease of interaction**, in line with **Web Accessibility Initiative (WAI)** guidelines and modern usability standards (W3C, 2023).
+
+### Research and Planning
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+This phase focuses on identifying and understanding the primary user groups for the booking system, including:
+
+- Restaurant customers and diners  
+- Families and group diners  
+- Restaurant administrators and staff  
+
+User needs, expectations, and goals are explored through the creation of **user personas** and **usage scenarios**, reflecting real-world restaurant booking behaviours such as selecting a date and time, submitting reservation details, and receiving booking confirmation (Nielsen Norman Group, 2022).
+
+Key research considerations include:
+
+- How users expect to book tables online  
+- What information users require before confirming a reservation  
+- How administrators manage bookings efficiently  
+
+Features and content are prioritised based on relevance to each user group, ensuring that booking forms, availability information, and confirmation feedback are clearly presented and easy to understand (Code Institute, 2025).
+
+### Design Principles
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+- **Accessibility:**  
+  Semantic HTML5 and a logical heading structure are used throughout the application. Form fields include clear labels and validation messages to support screen reader users. Colour contrast and readable typography are applied to ensure inclusive access, particularly for booking forms and confirmation alerts (W3C, 2023).
+
+- **Responsiveness:**  
+  A mobile-first approach is implemented using **CSS Grid**, **Flexbox**, and **media queries** to ensure consistent usability across desktop, tablet, and mobile devices (Mozilla Developer Network, 2024). Booking forms and navigation elements adapt seamlessly to different screen sizes.
+
+- **Navigation:**  
+  Clear and consistent navigation allows users to move intuitively between viewing restaurant information, checking availability, making reservations, and managing bookings. The booking journey is designed to minimise steps and reduce friction (Interaction Design Foundation, 2023).
+
+- **Visual Hierarchy:**  
+  Typography, spacing, and layout consistency are used to guide user attention towards key actions such as submitting a booking or reviewing reservation details. White space is applied strategically to reduce cognitive load and improve readability (Mozilla Developer Network, 2024).
+
+- **Interactivity:**  
+  Interactive elements such as booking forms, confirmation messages, and admin management views provide immediate and meaningful feedback. Clear calls to action guide users through the reservation process from start to completion.
+
+- **Performance:**  
+  Efficient server-side processing and optimised database queries ensure fast response times when submitting or retrieving booking data. Pages are structured to load efficiently without unnecessary delays.
+
+- **Error Handling:**  
+  Comprehensive server-side validation ensures that incomplete or invalid booking data is handled gracefully. User-friendly error messages clearly explain required corrections, while confirmation messages reinforce successful actions (Mozilla Developer Network, 2024).
+
+### Testing and Feedback
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+Manual usability testing is conducted across **desktop**, **tablet**, and **mobile** devices to ensure consistent behaviour and responsiveness. Particular emphasis is placed on the booking workflow, form interaction, and administrative booking management.
+
+The following testing strategies are applied:
+
+- **Form validation testing** for missing or invalid input  
+- **CRUD functionality testing** for creating, viewing, updating, and deleting bookings  
+- **Cross-browser testing** using Chrome, Firefox, and Edge (Mozilla Developer Network, 2024)  
+- **HTML and CSS validation** using W3C validation tools (W3C, 2023)  
+
+Performance and accessibility are evaluated using **browser developer tools** and **Google Lighthouse**, focusing on load efficiency, accessibility scores, and usability metrics. Keyboard-only navigation and screen reader compatibility are also tested to support users with disabilities (WebAIM, 2023).
+
+Feedback gathered during testing is used to refine user flow, improve clarity, and enhance overall usability, particularly within the reservation journey.
+
+---
+
+This UX strategy ensures that the **Portuguese Kitchen Booking System** delivers a **clear**, **accessible**, and **professionally structured user experience**, reflecting best practices in **data-centric full-stack web development** and aligning with the expectations of **Milestone Project 3**.
+
 ## References
 
 [⬆ Back to Table of contents](#table-of-contents)
@@ -216,6 +296,23 @@ Available at: https://developer.mozilla.org/
 Available at: https://developer.mozilla.org/
   (Accessed: 27 December 2025).
 
+- **Mozilla Developer Network (2024).** CSS Layout: Flexbox and Grid.  
+Available at: https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout  
+  (Accessed: 27 December 2025).
+
+- **Mozilla Developer Network (2024).** Form Validation.  
+Available at: https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation  
+  (Accessed: 27 December 2025).
+
 - **Interaction Design Foundation (2023).** User-Centred Design and Usability Principles.
 Available at: https://www.interaction-design.org/
  (Accessed: 27 December 2025).
+
+- **Nielsen Norman Group (2022).** User Personas and Scenario-Based Design. 
+Available at: https://www.nngroup.com/articles/personas-scenarios/  
+  (Accessed: 27 December 2025).
+
+- **Web Accessibility Initiative (WAI), W3C (2023).** Web Content Accessibility Guidelines (WCAG) 2.2. 
+Available at: https://www.w3.org/WAI/standards-guidelines/wcag/  
+  (Accessed: 27 December 2025).
+
