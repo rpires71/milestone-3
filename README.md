@@ -9,8 +9,8 @@
 
 ## Table of contents
 
-- [Milestone Project 2](README.md#milestone-project-2)
-- [Holiday Destination Finder](README.md#holiday-destination-finder)
+- [Milestone Project 3](README.md#milestone-project-3)
+- [Holiday Destination Finder](README.md#portuguese-kitchen)
   - [Project Overview](README.md#project-overview)
   - [Project Goals](README.md#project-goals)
   - [Purpose of the Website](README.md#purpose-of-the-website)
@@ -18,12 +18,12 @@
 - [References](README-PT2.md#references)
 
 
-# Milestone Project 2
+# Milestone Project 3
 
-Development Milestone Project 2 - Interactive Front-End Development
+Development Milestone Project 3 - Data Centric Development
 [⬆ Back to Table of contents](#table-of-contents)
 
-# Holiday Destination Finder
+# Portuguese Kitchen Booking System
 
 [⬆ Back to Table of contents](#table-of-contents)
 
@@ -31,125 +31,142 @@ Development Milestone Project 2 - Interactive Front-End Development
 
 [⬆ Back to Table of contents](#table-of-contents)
 
-I have chosen to personally develop a **Holiday Destination Finder** website, which forms part of the **Interactive Front-End Development – Milestone Project 2** for the **Level 5 Diploma in Web Application Development** (Code Institute, 2025). The website integrates a **Google Maps interface** and provides users with access to booking links for **activities, accommodation, flights, and travel packages**, while also offering an interactive platform for researching travel destinations and viewing **attractions, restaurants, and hotels**.
+The **Portuguese Kitchen Booking System** is a full-stack, database-driven web application developed as part of the **Back End Development – Milestone Project 3** for the **Level 5 Diploma in Web Application Development** (Code Institute, 2025). The project simulates a real-world restaurant booking system for a Portuguese-style restaurant, allowing users to **view availability, make table reservations, and manage bookings** through an intuitive online interface.
 
-Across all devices, the website delivers an **intuitive and engaging user experience**, ensuring that it is **fully responsive and accessible**, with a design that adheres to **user-centric development principles** (W3C, 2023). To facilitate straightforward navigation and interaction, the site employs **semantic HTML** and a **meaningful visual hierarchy**, with the user interface structured around a **clear and consistent layout** (Mozilla Developer Network, 2024).
+The application has been designed with a strong focus on **usability, accessibility, and responsive design**, ensuring a consistent and user-friendly experience across desktop, tablet, and mobile devices. **Semantic HTML**, a clear **visual hierarchy**, and logical navigation are used throughout to support a straightforward booking journey and to align with modern **user-centred design principles**.
 
-In terms of the project's technical implementation, the main technologies used are **HTML5**, **CSS3**, and **JavaScript**, incorporating **responsive design techniques** and **modern front-end features** such as **dynamic DOM manipulation**, **CSS transitions**, and **CSS Grid layouts** (Mozilla Developer Network, 2024). The website enables users to interact with map markers and visually explore destinations through **real-time, location-based data**, achieved by integrating the **Google Maps JavaScript API** (Google Developers, 2024).
+From a technical perspective, the project uses **Python and a back-end web framework** to handle server-side logic, combined with **HTML5, CSS3, and template-based rendering** to dynamically display content. A **relational database** supports full **CRUD (Create, Read, Update, Delete)** functionality, enabling booking data to be securely stored, retrieved, updated, and removed as required. **Server-side validation** and **error handling** are implemented to maintain data integrity and provide clear feedback to users.
 
-To connect users with **reputable travel platforms**, additional interactivity is provided through **external booking links**, **animated search feedback**, and **filter buttons**.
+The project follows **professional development and deployment practices**, including the use of **environment variables** for sensitive configuration, dependency management via a `requirements.txt` file, and deployment to a **cloud-based hosting platform**. Comprehensive **manual testing** has been carried out to verify functionality, responsiveness, usability, and data handling, with findings documented as part of the project submission.
 
-In alignment with the expectations of **modern front-end development**, this professional and interactive web application demonstrates my ability to combine **user-focused design** and **real-world functionality** with strong **practical front-end coding skills**.
+Overall, the Portuguese Kitchen Booking System demonstrates my ability to build a **publishable, real-world full-stack web application**, combining robust back-end development, database management, and user-focused design to deliver a practical and scalable restaurant booking solution.
+
 
 ## Project Goals
 
 [⬆ Back to Table of contents](#table-of-contents)
 
-The primary objective of the **Holiday Destination Finder** project is to allow users to explore, research, and plan holiday destinations through the design and development of a **user-centred interactive front-end web application** that is both dynamic and fully operational.
+The primary objective of the **Portuguese Kitchen Booking System** project is to design and develop a **user-centred, full-stack web application** that allows users to **view availability, make table reservations, and manage restaurant bookings** through a secure and intuitive online platform.
 
-By incorporating **API-based interactivity**, **responsive interface design**, and **accessible navigation structures**, the project aims to satisfy all requirements outlined within the **Code Institute Interactive Front-End Development – Milestone Project 2** specification (Code Institute, 2025).
+By incorporating **database-driven functionality**, **server-side logic**, **responsive interface design**, and **accessible navigation structures**, the project aims to fully satisfy the requirements outlined in the **Code Institute Back End Development – Milestone Project 3** specification (Code Institute, 2025).
 
-1. **Dynamic Front-End Functionality**
+### 1. Dynamic Full-Stack Functionality
 
-   Without dependence on external frameworks, all interactivity and DOM manipulation are achieved through the development of a fully interactive website utilising **custom HTML5**, **CSS3**, and **JavaScript**.
+The application provides full **CRUD (Create, Read, Update, Delete)** functionality, enabling users to create new bookings, view existing reservations, update booking details, and cancel reservations where applicable.
 
-   Real-time, location-specific data such as hotels, restaurants, attractions, cafés, and other points of interest are dynamically rendered through the integration of the **Google Maps JavaScript API**, **Google Places API (New)**, and **Google Geocoding API** (Google Developers, 2024).
+All server-side logic is handled using **Python and a back-end web framework**, with dynamic content rendered through **template-based views**. Booking data is securely stored and managed using a **relational database**, ensuring data persistence and integrity across user sessions.
 
-2. **Responsive User Experience**
+### 2. Responsive and Accessible User Experience
 
-   To deliver a seamless and consistent user experience by ensuring that the interface is **fully responsive across contemporary devices and varying screen resolutions**.
+The project is designed to deliver a **consistent and responsive user experience** across desktop, tablet, and mobile devices, ensuring accessibility and usability regardless of screen size or device type.
 
-   To adhere to the **Web Accessibility Initiative (WAI)** guidelines when applying **user-focused design principles** to enhance accessibility, navigation, and usability (W3C, 2023).
+Accessibility considerations are incorporated in line with the **Web Accessibility Initiative (WAI)** guidelines, including clear navigation, readable typography, appropriate contrast, and meaningful form feedback to support inclusive user interaction (W3C, 2023).
 
-3. **User Interaction and Feedback**
+### 3. User Interaction and Feedback
 
-   To provide adaptive responses to user interactions, including destination searches, booking button actions, and filtering functionality through the implementation of **JavaScript-driven interactivity**.
+The system provides clear and immediate feedback to users during key interactions such as booking submissions, form validation, and error handling.
 
-   To enhance usability and engagement by incorporating **visual indicators and animations** during searches, filter operations, and map interactions (Mozilla Developer Network, 2024).
+Server-side validation ensures that booking data is accurate and complete before being stored, while user-friendly messages guide users through the booking process and highlight any required corrections or confirmation of successful actions.
 
-4. **Information Architecture and Navigation**
+### 4. Information Architecture and Navigation
 
-   To establish a coherent structure by implementing a consistent section hierarchy and a clear primary navigation menu through the design of a **well-organised and logical layout**.
+A **logical information architecture** is implemented through a clear page hierarchy and consistent navigation structure, ensuring that users can easily move between pages such as viewing availability, making reservations, and managing bookings.
 
-   To support accessibility, search engine optimisation (SEO), and maintainable front-end development standards through the application of **semantic HTML** (Mozilla Developer Network, 2024).
+The use of **semantic HTML** enhances accessibility, maintainability, and search engine optimisation (SEO), while supporting best practices in modern web application development (Mozilla Developer Network, 2024).
 
-5. **Integration with External Services**
 
-   Collaborating with trusted third-party platforms such as **Booking.com**, **Google Flights**, **Expedia**, and **GetYourGuide** to incorporate **external booking integrations** for flights, accommodation, leisure activities, and comprehensive travel packages.
+### 5. Secure Data Handling and Configuration
 
-   To ensure that these integrations enhance the overall user experience without compromising accessibility, functionality, or usability.
+Sensitive configuration data, including secret keys and environment-specific settings, are managed using **environment variables** to ensure security and flexibility across development and deployment environments.
 
-6. **Version Control and Deployment**
+The application incorporates appropriate **error handling and data validation** mechanisms to protect user data and maintain system stability.
 
-   Throughout the project lifecycle, **Git and GitHub** are utilised to facilitate continuous version control, monitor development progress, and uphold transparency within the development process.
+### 6. Version Control and Deployment
 
-   To comply with contemporary web deployment standards and guarantee public accessibility, the final iteration of the project is deployed to **GitHub Pages** (Code Institute, 2025).
+Throughout the development lifecycle, **Git and GitHub** are used to manage version control, track changes, and document development progress in a transparent and professional manner.
 
-7. **Documentation and Attribution**
+The final version of the application is deployed to a **cloud-based hosting platform**, ensuring public accessibility and demonstrating an understanding of modern deployment workflows for full-stack applications (Code Institute, 2025).
 
-   To compile detailed project documentation outlining the purpose, functionality, and technical scope within a comprehensive `README.md` file.
+### 7. Documentation and Attribution
 
-   To credit all external resources, libraries, or tutorials in line with **Code Institute’s attribution and academic integrity policy** (Code Institute, 2025).
+Comprehensive project documentation is provided within the `README.md` file, outlining the project’s purpose, features, technologies used, and deployment details.
+
+All external resources, libraries, and references are clearly credited in accordance with **Code Institute’s attribution and academic integrity guidelines** (Code Institute, 2025).
 
 ---
 
 ### Outcome
 
-By accomplishing these objectives, the project demonstrates advanced proficiency in front-end web development, effective utilisation of **JavaScript for dynamic interactivity**, and an in-depth understanding of **practical, user-oriented web design**.
+By achieving these objectives, the **Portuguese Kitchen Booking System** demonstrates a strong level of proficiency in **back-end web application development**, including the effective use of **server-side logic**, **database-driven functionality**, and **template-based rendering** to deliver a fully operational booking platform.
 
-While reflecting the standards expected at Level 5 in **Web Application Development**, the final product showcases both **technical competence** and **professional presentation**, (Code Institute, 2025).
+In line with the standards expected at **Level 5 Web Application Development**, the completed project showcases both **technical competence** and **professional presentation**, reflecting a clear understanding of **user-focused design**, **secure data handling**, and **real-world application development practices** (Code Institute, 2025).
 
 ## Purpose of the Website
 
 [⬆ Back to Table of contents](#table-of-contents)
 
-I have developed the **Holiday Destination Finder** website, which forms a core component of the **Level 5 Diploma in Web Application Development** and constitutes my **Interactive Front-End Development – Milestone Project 2**.
+I have developed the **Portuguese Kitchen Booking System**, which forms a core component of the **Level 5 Diploma in Web Application Development** and constitutes my **Full Stack Web Application Development – Milestone Project 3**.
 
-This project demonstrates advanced JavaScript functionality and practical real-world application, aiming to deliver a dynamic, user-oriented front-end web solution. The website functions as an interactive travel platform where users can explore destinations, view attractions, restaurants, cafés, and hotels, and access trusted booking links for complete travel packages, activities, flights, and accommodation.
+This project demonstrates the practical application of **server-side development**, **database-driven functionality**, and **user-centred design**, resulting in a fully functional restaurant booking platform. The system enables users to explore the restaurant, view key information, and make table reservations through an intuitive and structured web interface.
 
-For users planning and organising their holidays, the website provides an intuitive and engaging experience by integrating location-based technologies with user-centred design principles. Through the incorporation of the **Google Maps JavaScript API**, **Google Places API (New)**, and **Google Geocoding API**, users are able to visually explore destinations and interact with dynamic map markers that display relevant, real-time information.
+Designed to reflect a real-world restaurant environment, the booking system allows users to submit reservation requests that are securely processed and stored within a relational database. Administrators are able to manage bookings and content through a protected administration interface, ensuring efficient control over restaurant operations.
 
-To strengthen the connection between discovery and travel planning, additional interactivity is achieved through booking integrations with reputable travel providers such as **Expedia**, **Booking.com**, and **GetYourGuide**.
+The application has been developed using **Django**, **Python**, **HTML**, **CSS**, **JavaScript**, and **PostgreSQL**, incorporating **template-based rendering**, **CRUD functionality**, and **form validation** to ensure data integrity and a reliable user experience. Responsive design principles and **semantic HTML** are applied throughout to guarantee accessibility and usability across multiple devices.
 
-From a development standpoint, this project employs **responsive web design**, **semantic HTML**, and **modular JavaScript** to demonstrate strong technical competence and adherence to professional front-end development standards.
+From a development perspective, the project adheres to professional full stack development standards by implementing **secure authentication**, **environment-based configuration**, and **structured application architecture**. Version control is maintained using **Git and GitHub**, and the final application is deployed to **Heroku**, ensuring public accessibility and compliance with modern deployment practices.
 
-The final deliverable is a visually engaging and accessible web application that aligns with current industry practices in front-end development and showcases the ability to translate user requirements into a fully functional and user-friendly solution.
+The completed **Portuguese Kitchen Booking System** is a polished and accessible web application that demonstrates the ability to translate real-world business requirements into a secure, database-backed solution, reflecting both **technical competence** and **professional presentation** in line with current industry expectations.
 
 ## Target Audiences
 
 [⬆ Back to Table of contents](#table-of-contents)
 
-By utilising this interactive and informative platform, several interconnected user groups with a shared interest in exploring, researching, and planning holidays will recognise that the **Holiday Destination Finder** website has been specifically developed to meet their needs. Each audience benefits from tailored functionality and a user experience that emphasises accessibility, engagement, and operational efficiency (W3C, 2023; Interaction Design Foundation, 2023).
+By utilising this interactive and informative platform, several interconnected user groups with a shared interest in dining experiences and restaurant bookings will recognise that the **Portuguese Kitchen Booking System** has been specifically developed to meet their needs. Each audience benefits from tailored functionality and a user experience that prioritises **accessibility**, **clarity**, and **operational efficiency** (W3C, 2023; Interaction Design Foundation, 2023).
 
-**1. Travellers and Holiday Planners:**
+## 1. Restaurant Customers and Diners
 
-The platform enables users to research destinations, view attractions, and explore nearby restaurants, cafés, and hotels, making it particularly suitable for individuals seeking inspiration for upcoming holidays.
+The booking system enables customers to explore the restaurant offering, view essential information, and reserve tables through a simple and intuitive interface. This makes the platform particularly suitable for individuals or couples seeking a reliable and convenient way to plan dining experiences in advance.
 
-Users are supported in making informed travel decisions and organising their trips through visual interaction with locations, dynamic map markers, and search filtering, facilitated by the integration of the **Google Maps JavaScript API**, **Google Places API (New)**, and **Google Geocoding API** (Google Developers, 2024).
+Users are supported in making informed booking decisions through clear presentation of availability, structured reservation forms, and confirmation feedback, ensuring a smooth and frustration-free user journey.
 
-**2. Travel Enthusiasts and Explorers:**
+## 2. Families and Group Bookings
 
-By navigating interactive destination information and real-time data, users can discover new locations and cultural experiences. Their sense of exploration and discovery is enhanced through visual engagement with detailed points of interest and the integration of location-based content (Mozilla Developer Network, 2024).
+The system is designed to accommodate families and larger groups by allowing flexible reservation requests while maintaining clarity and ease of use. Responsive design ensures that bookings can be made seamlessly across mobile devices, tablets, and desktop systems, supporting users who may plan meals collaboratively or on the move.
 
-**3. Group Travellers and Families:**
+By streamlining the booking process, the platform reduces friction and enhances confidence when organising group dining arrangements.
 
-Through trusted travel partners such as **Booking.com**, **Expedia**, and **GetYourGuide**, families and group travellers can access reliable booking integrations. This secure and user-friendly environment, offering practical travel solutions, provides functionality that streamlines the planning process and strengthens the connection between users and their travel arrangements (Booking.com, 2024; Expedia Group, 2024; GetYourGuide, 2024).
+## 3. Restaurant Owners and Administrators
 
-**4. Travel Service Providers and Industry Professionals:**
+For restaurant staff and administrators, the booking system provides a secure and centralised environment for managing reservations and customer data. Through the protected admin interface, authorised users can view, update, and manage bookings efficiently, supporting daily restaurant operations and capacity planning.
 
-The website demonstrates effective **API integration** and **responsive front-end development**, resulting in enhanced user engagement within the travel and tourism industry. It can also serve as a valuable reference resource for industry collaboration or educational demonstration, enabling professionals to gain insight into the website’s front-end interactivity, accessibility functionality, and design principles (Code Institute, 2025; Mozilla Developer Network, 2024).
+This functionality reflects real-world restaurant management workflows and highlights the system’s practical business value.
+
+## 4. Hospitality Professionals and Educational Reviewers
+
+The project demonstrates effective implementation of **full stack web development principles**, including database integration, secure authentication, and server-side processing. As such, it serves as a valuable reference for hospitality professionals, assessors, and educational reviewers seeking insight into modern, user-centred booking systems.
+
+The application showcases how **technical functionality**, **accessibility considerations**, and **professional presentation** can be combined to deliver a robust, real-world web solution (Code Institute, 2025).
 
 ---
 
-Supported by contemporary front-end technologies and user-centred design principles, the **Holiday Destination Finder** provides a clear, accessible, and interactive web experience. Whether researching destinations or booking a trip, it ensures that every user within these distinct audiences is effectively accommodated.
+Supported by contemporary web technologies and user-centred design principles, the **Portuguese Kitchen Booking System** delivers a clear, accessible, and intuitive booking experience. Whether browsing restaurant information or reserving a table, the system ensures that the needs of all user groups are effectively supported through consistent design, responsive layout, and straightforward interaction flows.
 
 ## References
 
 [⬆ Back to Table of contents](#table-of-contents)
 
-- **Code Institute (2025).** _Data Centric Development – Milestone Project 3 Specification._
-  Dublin: Code Institute.
+- **Code Institute (2025).** Data Centric Development – Milestone Project 3 Specification.
+Dublin: Code Institute. Available at: https://learn.codeinstitute.net
+ (Accessed: 27 December 2025).
 
-- **Google Developers (2024).** _Google Maps JavaScript API Documentation._
-  Available at: [https://developers.google.com/maps/documentation/javascript](https://developers.google.com/maps/documentation/javascript)
-  (Accessed: 29 October 2025).
+- **W3C – World Wide Web Consortium (2023).** Web Content Accessibility Guidelines (WCAG) 2.2.
+Available at: https://www.w3.org/WAI/standards-guidelines/wcag/
+ (Accessed: 27 December 2025).
+
+- **Mozilla Developer Network (MDN) (2024).** HTML, CSS and Web Development Documentation.
+Available at: https://developer.mozilla.org/
+ (Accessed: 27 December 2025).
+
+- **Interaction Design Foundation (2023).** User-Centred Design and Usability Principles.
+Available at: https://www.interaction-design.org/
+ (Accessed: 27 December 2025).
