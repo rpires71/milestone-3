@@ -10,11 +10,18 @@
 ## Table of contents
 
 - [Milestone Project 3](README.md#milestone-project-3)
-- [Holiday Destination Finder](README.md#portuguese-kitchen)
+- [Portuguese Kitchen Booking System](README.md#portuguese-kitchen-booking-system)
   - [Project Overview](README.md#project-overview)
   - [Project Goals](README.md#project-goals)
   - [Purpose of the Website](README.md#purpose-of-the-website)
   - [Target Audiences](README.md#target-audiences)
+  - [Key Features and Skills Demonstrated ](#key-features-and-skills-demonstrated)
+  - [UX Strategy](#ux-strategy)
+    - [Research and Planning](#research-and-planning)
+    - [Design Principles](#design-principles)
+    - [Testing and Feedback](#testing-and-feedback)
+  - [Features](#features)
+  - [Future Features](#future-features)
 - [References](README-PT2.md#references)
 
 
@@ -151,21 +158,63 @@ The application showcases how **technical functionality**, **accessibility consi
 
 Supported by contemporary web technologies and user-centred design principles, the **Portuguese Kitchen Booking System** delivers a clear, accessible, and intuitive booking experience. Whether browsing restaurant information or reserving a table, the system ensures that the needs of all user groups are effectively supported through consistent design, responsive layout, and straightforward interaction flows.
 
+## Key Features and Skills Demonstrated
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+The development of this interactive, user-focused full-stack web application, **Portuguese Kitchen Booking System**, demonstrates a strong level of technical competence and professional design practice. Modern web technologies, server-side development principles, and accessibility standards have been applied to deliver a secure, reliable, and user-friendly restaurant booking platform.
+
+- **Database-Driven Functionality and Server-Side Processing**
+
+To support real-world booking operations, the application implements a **relational database** to store and manage reservation data, enabling full **CRUD (Create, Read, Update, Delete)** functionality. Server-side logic is handled using **Python and the Django web framework**, allowing booking availability, form submissions, and data validation to be processed securely and efficiently (Code Institute, 2025).
+
+- **Responsive and Accessible Interface Design**
+
+To ensure consistent usability across desktop, tablet, and mobile devices, **responsive web design techniques** incorporating **CSS Grid**, **Flexbox**, and **media queries** were applied (Mozilla Developer Network, 2024). Accessibility considerations were implemented in line with the **Web Accessibility Initiative (WAI)** guidelines published by the **World Wide Web Consortium (W3C, 2023)**, using semantic HTML, clear navigation structures, and meaningful visual hierarchy.
+
+- **Dynamic User Interaction and Validation**
+
+Dynamic behaviour within the application is achieved through a combination of **template-based rendering**, **server-side validation**, and **JavaScript-enhanced interactivity**. Users receive clear feedback during booking submissions, error handling, and confirmation stages, ensuring a transparent and user-friendly reservation process (Mozilla Developer Network, 2024).
+
+- **User-Centred Design and Visual Consistency**
+
+The interface has been designed with a strong emphasis on **user-centred design principles**, prioritising clarity, ease of navigation, and accessibility. Consistent typography, colour hierarchy, and layout structure contribute to a visually coherent experience that supports efficient task completion and reduces user friction (Interaction Design Foundation, 2023).
+
+- **Secure Configuration and Deployment Practices**
+
+Sensitive configuration data, including secret keys and environment-specific settings, are managed using **environment variables**, ensuring secure separation between development and production environments. The completed application is deployed to a **cloud-based hosting platform**, demonstrating compliance with modern full-stack deployment workflows (Code Institute, 2025).
+
+- **Version Control and Development Workflow**
+
+**Git and GitHub** were utilised throughout the development lifecycle to manage version control, track progress, and maintain a transparent development history. This approach supports iterative development and reflects professional software engineering practices (Code Institute, 2025).
+
+- **Professional Documentation and Code Quality**
+
+A comprehensive `README.md` file documents the project’s purpose, features, technologies used, testing processes, and deployment steps. The codebase follows modular, maintainable conventions and includes appropriate in-line comments, ensuring readability and long-term maintainability in line with professional development standards (Code Institute, 2025).
+
+---
+
+This project demonstrates the successful integration of **user-centred design**, **responsive interface development**, and **database-driven server-side functionality** to deliver a fully operational restaurant booking system. The final outcome reflects both **technical competence** and **professional presentation**, meeting the standards expected at **Level 5 Web Application Development**.
+
 ## References
 
 [⬆ Back to Table of contents](#table-of-contents)
 
 - **Code Institute (2025).** Data Centric Development – Milestone Project 3 Specification.
 Dublin: Code Institute. Available at: https://learn.codeinstitute.net
- (Accessed: 27 December 2025).
+  (Accessed: 27 December 2025).
 
 - **W3C – World Wide Web Consortium (2023).** Web Content Accessibility Guidelines (WCAG) 2.2.
 Available at: https://www.w3.org/WAI/standards-guidelines/wcag/
- (Accessed: 27 December 2025).
+  (Accessed: 27 December 2025).
 
 - **Mozilla Developer Network (MDN) (2024).** HTML, CSS and Web Development Documentation.
 Available at: https://developer.mozilla.org/
- (Accessed: 27 December 2025).
+  (Accessed: 27 December 2025).
+
+- **Mozilla Developer Network (MDN) (2024).** Responsive Web Design and Front-End Development Documentation.
+Available at: https://developer.mozilla.org/
+  (Accessed: 27 December 2025).
 
 - **Interaction Design Foundation (2023).** User-Centred Design and Usability Principles.
 Available at: https://www.interaction-design.org/
