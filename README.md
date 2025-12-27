@@ -276,6 +276,49 @@ Feedback gathered during testing is used to refine user flow, improve clarity, a
 
 This UX strategy ensures that the **Portuguese Kitchen Booking System** delivers a **clear**, **accessible**, and **professionally structured user experience**, reflecting best practices in **data-centric full-stack web development** and aligning with the expectations of **Milestone Project 3**.
 
+## Features
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+The **Portuguese Kitchen Booking System** is a full-stack, database-driven web application developed to simulate a real-world restaurant reservation platform. A key feature of the system is its ability to allow users to **view restaurant information, check table availability, and submit booking requests** through a structured and interactive web interface that reflects contemporary web application standards (Code Institute, 2025).
+
+Rather than relying on third-party travel or mapping APIs, the system focuses on **server-side logic and database integration** to manage booking data securely and efficiently. All reservation details, including **date selection**, **guest numbers**, and **contact information**, are processed through validated forms and stored within a **relational PostgreSQL database**, ensuring data persistence and integrity. Logical defaults, such as preventing bookings for past dates and enforcing sensible guest limits, are implemented to support accurate and user-friendly submissions.
+
+The booking workflow provides users with clear feedback at every stage of interaction. **Server-side validation** ensures that incomplete or invalid submissions are identified before processing, while **confirmation and error messages** guide users through the reservation process in a clear and accessible manner. This structured approach enhances usability and reduces the likelihood of booking errors, contributing to a smooth and reliable user experience.
+
+From a design perspective, the application follows a **mobile-first, responsive layout**, utilising **CSS Grid**, **Flexbox**, and media queries to ensure consistent display and usability across desktop, tablet, and mobile devices (Mozilla Developer Network, 2024). The interface maintains a clean and professional aesthetic, with consistent typography, spacing, and visual hierarchy guiding users naturally through the booking journey.
+
+Interactive enhancements such as **hover effects**, **form feedback states**, and **progressive content loading** are incorporated to improve engagement without compromising performance. Error handling is implemented gracefully, providing informative alerts when required fields are missing or when invalid input is detected, ensuring users are supported throughout their interaction with the system.
+
+Overall, the **Portuguese Kitchen Booking System** delivers a refined, accessible, and user-centred reservation experience. By combining **robust back-end development**, **secure data handling**, and **responsive front-end design**, the project demonstrates the practical application of full-stack development principles and reflects the standards expected at **Level 5 Web Application Development**.
+
+---
+
+## Future Features
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+As part of the planned future development of the **Portuguese Kitchen Booking System**, several enhancements have been identified to further improve usability, personalisation, and operational efficiency within a secure, data-driven environment.
+
+Registered users will be able to **save favourite reservations**, **store preferred booking details**, and **track past and upcoming bookings** through a secure authentication system. These features aim to support repeat customers by streamlining the booking process and enhancing user engagement. A planned **customer feedback and review system** will allow diners to leave ratings and comments following their visit, providing valuable insights for both prospective customers and restaurant administrators.
+
+To improve reservation accuracy and flexibility, enhanced filtering options are planned, including **party size selection**, **time-slot availability**, **seating preferences**, and **special dietary requirements**. These filters will enable users to tailor bookings more precisely while allowing administrators to manage capacity and table allocation more effectively.
+
+To support informed booking decisions, future iterations of the system will integrate **external APIs** to provide contextual information such as **local weather forecasts** for dining dates (OpenWeather, 2024). This feature is particularly useful for outdoor seating considerations. Additionally, a **booking management dashboard** will allow users to organise multiple reservations, modify existing bookings, and plan dining schedules in advance.
+
+For transparency and operational insight, a **pricing and availability comparison view** is planned, enabling administrators to analyse peak times, booking trends, and demand patterns. Integration with additional third-party services may be introduced to support promotional offers or special events (Booking.com, 2024; Expedia Group, 2024).
+
+Social engagement will be enhanced through **social sharing functionality**, allowing users to share confirmed reservations or restaurant experiences via social media platforms. This feature supports organic promotion while improving customer engagement (Meta for Developers, 2024; X Developers, 2024).
+
+Accessibility remains a key priority for future development. Planned enhancements include expanded **ARIA labelling**, improved **keyboard navigation**, and optional **high-contrast display modes** to ensure full compliance with **Web Accessibility Initiative (WAI)** guidelines (W3C, 2023).
+
+To accommodate a diverse user base, **automatic language detection** based on browser settings will support multilingual content delivery. Performance optimisations such as **lazy loading of assets**, improved database query efficiency, and caching strategies will be implemented to ensure reliable performance, even on slower network connections (Mozilla Developer Network, 2024).
+
+Finally, the system is intended to evolve into a **Progressive Web App (PWA)**, enabling users to install the application on their devices and access selected features offline. This enhancement will improve accessibility, performance, and overall user experience while aligning the project with modern full-stack web application standards (Google Developers, 2024).
+
+---
+
+
 ## References
 
 [⬆ Back to Table of contents](#table-of-contents)
@@ -304,6 +347,18 @@ Available at: https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout
 Available at: https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation  
   (Accessed: 27 December 2025).
 
+- **Mozilla Developer Network (MDN) (2024).** CSS Grid Layout.
+Available at: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout
+  (Accessed: 27 December 2025).
+
+- **Mozilla Developer Network (MDN) (2024).** HTML: Semantic elements.
+Available at: https://developer.mozilla.org/en-US/docs/Glossary/Semantics
+  (Accessed: 27 December 2025).
+
+- **Mozilla Developer Network (2024).** Web Performance Optimisation and Lazy Loading.
+Available at: https://developer.mozilla.org/en-US/docs/Web/Performance  
+  (Accessed: 27 December 2025).
+
 - **Interaction Design Foundation (2023).** User-Centred Design and Usability Principles.
 Available at: https://www.interaction-design.org/
  (Accessed: 27 December 2025).
@@ -314,5 +369,29 @@ Available at: https://www.nngroup.com/articles/personas-scenarios/
 
 - **Web Accessibility Initiative (WAI), W3C (2023).** Web Content Accessibility Guidelines (WCAG) 2.2. 
 Available at: https://www.w3.org/WAI/standards-guidelines/wcag/  
+  (Accessed: 27 December 2025).
+
+- **Booking.com (2024).** Partner Solutions and Booking Platform Overview.
+Available at: https://partner.booking.com/  
+  (Accessed: 27 December 2025).
+
+- **Expedia Group (2024).** Expedia Group Developer Platform. 
+Available at: https://developers.expediagroup.com/  
+  (Accessed: 27 December 2025).
+
+- **Google Developers (2024).** Progressive Web Apps (PWA) Documentation. 
+Available at: https://developer.chrome.com/docs/webapps/  
+  (Accessed: 27 December 2025).
+
+- **Meta for Developers (2024).** Sharing Content on Facebook and Instagram. 
+Available at: https://developers.facebook.com/docs/sharing/  
+  (Accessed: 27 December 2025).
+
+- **OpenWeather (2024).** OpenWeather API Documentation.
+Available at: https://openweathermap.org/api  
+  (Accessed: 27 December 2025).
+
+- **X Developers (2024).** _X (formerly Twitter) Platform Developer Documentation._  
+Available at: https://developer.x.com/  
   (Accessed: 27 December 2025).
 
