@@ -755,6 +755,28 @@ Consistent navigation and footer elements are maintained to provide a familiar e
 
 ---
 
+### Login
+
+The User Login page provides registered users with secure access to their accounts, allowing them to manage reservations and interact with personalised booking features. The interface is intentionally minimal, requesting only essential credentials to ensure a quick and straightforward login process.
+
+Consistent navigation and footer elements maintain continuity across the website, supporting ease of use and accessibility. This page reinforces the system’s secure authentication flow while preserving a clean and professional user experience.
+
+<details>
+<summary><strong>View wireframes (Desktop / Tablet / Mobile)</strong></summary>
+
+**Desktop**  
+<img width="673" height="817" alt="login-desktop" src="https://github.com/user-attachments/assets/23564553-1948-414b-9353-311c3339f1b4" />
+
+**Tablet**  
+<img width="673" height="1232" alt="login-tablet" src="https://github.com/user-attachments/assets/49d3e9c7-4c4d-4e8a-978d-76c0471ed41a" />
+
+**Mobile**  
+<img width="511" height="1929" alt="login-mobile" src="https://github.com/user-attachments/assets/f3a652ce-4a14-420c-bd86-a4890ac2459f" />
+
+</details>
+
+---
+
 ## References
 
 [⬆ Back to Table of contents](#table-of-contents)
