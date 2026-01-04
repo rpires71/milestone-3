@@ -843,6 +843,28 @@ Users are able to edit or cancel their reservation directly from this page, rein
 
 ---
 
+### User Profile
+
+The User Profile page allows authenticated users to view and update their personal information, including contact details required for managing reservations. Core account data, such as the username, is protected from modification to maintain data integrity.
+
+This page supports a personalised user experience by displaying membership information and booking activity, reinforcing secure account management and reflecting real-world user profile functionality within a full-stack booking system.
+
+<details>
+<summary><strong>View wireframes (Desktop / Tablet / Mobile)</strong></summary>
+
+**Desktop**  
+<img width="673" height="785" alt="user-profile-desktop" src="https://github.com/user-attachments/assets/8aeade6d-722d-4807-9966-c41b051aae16" />
+
+**Tablet**  
+<img width="673" height="1040" alt="user-profile-tablet" src="https://github.com/user-attachments/assets/d8f08994-5b25-40cf-9ad6-37d8ad64d5d2" />
+
+**Mobile**  
+<img width="327" height="1656" alt="user-profile-mobile" src="https://github.com/user-attachments/assets/d18e505b-ac54-433c-a8ef-aadb7dde713d" />
+
+</details>
+
+---
+
 ## References
 
 [⬆ Back to Table of contents](#table-of-contents)
