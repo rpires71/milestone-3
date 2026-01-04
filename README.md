@@ -777,7 +777,7 @@ Consistent navigation and footer elements maintain continuity across the website
 
 ---
 
-### Book
+### Booking
 
 The booking page allows authenticated users to make a reservation at the Portuguese Kitchen through a clear and structured booking form. Users can select a date, time, and number of guests, with availability checks provided before confirming a reservation to prevent scheduling conflicts.
 
@@ -799,7 +799,7 @@ The design prioritises simplicity, accessibility, and efficient user flow, guidi
 
 ---
 
-### Booking History
+### User Booking History
 
 The Booking History page allows logged-in users to view and manage their reservations in one central location. Upcoming bookings are clearly separated from past reservations, providing users with an at-a-glance overview of their dining plans.
 
@@ -816,6 +816,28 @@ Users can view booking details, edit existing reservations, or cancel upcoming b
 
 **Mobile**  
 <img width="327" height="1762" alt="my-book-mobile" src="https://github.com/user-attachments/assets/1488597f-7f5d-4e44-be11-27207dbb9951" />
+
+</details>
+
+---
+
+### User Booking Details
+
+The Booking Details page provides users with a clear and comprehensive view of an individual reservation, displaying all relevant information including date, time, number of guests, and contact details. This page supports transparency and reassurance by confirming the booking status and reference number.
+
+Users are able to edit or cancel their reservation directly from this page, reinforcing recognisable real-world booking workflows and demonstrating full CRUD functionality within a secure, user-authenticated environment.
+
+<details>
+<summary><strong>View wireframes (Desktop / Tablet / Mobile)</strong></summary>
+
+**Desktop**  
+<img width="673" height="785" alt="details-book-desktop" src="https://github.com/user-attachments/assets/c0be2aa9-c3f9-4829-b185-70436f5ff5af" />
+
+**Tablet**  
+<img width="673" height="1040" alt="details-book-tablet" src="https://github.com/user-attachments/assets/bd5e260d-7de8-4ad9-bbe9-8ac0351bc465" />
+
+**Mobile**  
+<img width="327" height="1762" alt="details-book-mobile" src="https://github.com/user-attachments/assets/4ee3914d-282e-4ad3-8542-7a5f5d4871e1" />
 
 </details>
 
