@@ -733,6 +733,28 @@ Overall, the Menu page supports the booking journey by combining clarity, access
 
 ---
 
+### Registration
+
+The User Registration page allows customers to create an account quickly and securely, enabling access to personalised features such as managing bookings and viewing reservation history. The form collects only essential information to keep the registration process clear, simple, and user-friendly.
+
+Consistent navigation and footer elements are maintained to provide a familiar experience across the site, reinforcing usability and accessibility. Overall, this page supports the booking system by enabling secure user access while maintaining a clean and intuitive interface aligned with real-world restaurant platforms.
+
+<details>
+<summary><strong>View wireframes (Desktop / Tablet / Mobile)</strong></summary>
+
+**Desktop**  
+<img width="673" height="997" alt="registration-desktop" src="https://github.com/user-attachments/assets/278cf09d-6198-4bce-b9bc-29c751b5f559" />
+
+**Tablet**  
+<img width="673" height="1232" alt="registration-tablet" src="https://github.com/user-attachments/assets/e1be4b07-5022-4a07-b41e-5bd69381ce64" />
+
+**Mobile**  
+<img width="511" height="2049" alt="registration-mobile" src="https://github.com/user-attachments/assets/fdcc6b5a-5b9c-466b-9133-40bc1327b872" />
+
+</details>
+
+---
+
 ## References
 
 [⬆ Back to Table of contents](#table-of-contents)
