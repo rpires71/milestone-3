@@ -777,6 +777,28 @@ Consistent navigation and footer elements maintain continuity across the website
 
 ---
 
+### Book
+
+The booking page allows authenticated users to make a reservation at the Portuguese Kitchen through a clear and structured booking form. Users can select a date, time, and number of guests, with availability checks provided before confirming a reservation to prevent scheduling conflicts.
+
+The design prioritises simplicity, accessibility, and efficient user flow, guiding customers through the booking process with clear feedback and confirmation actions. Consistent navigation and footer elements ensure continuity across the site, while the booking functionality reflects real-world restaurant reservation workflows and secure data handling practices.
+
+<details>
+<summary><strong>View wireframes (Desktop / Tablet / Mobile)</strong></summary>
+
+**Desktop**  
+<img width="673" height="817" alt="book-desktop" src="https://github.com/user-attachments/assets/5467a9f8-f9db-4ac1-8443-5f11c42f8ef7" />
+
+**Tablet**  
+<img width="673" height="1054" alt="book-tablet" src="https://github.com/user-attachments/assets/1c80865f-528b-4249-8b11-6b22689049c1" />
+
+**Mobile**  
+<img width="327" height="1943" alt="book-mobile" src="https://github.com/user-attachments/assets/fa08c8b1-02c1-4dc1-82b0-1f2da8f4a53e" />
+
+</details>
+
+---
+
 ## References
 
 [⬆ Back to Table of contents](#table-of-contents)
