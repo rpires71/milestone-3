@@ -865,6 +865,28 @@ This page supports a personalised user experience by displaying membership infor
 
 ---
 
+### Admin Dashboard
+
+The Admin Dashboard provides restaurant staff with a centralised overview of daily operations, presenting key booking statistics such as total guests, confirmed and pending reservations, and overall capacity usage.
+
+Designed to support efficient restaurant management, the dashboard displays bookings in a structured table, allowing administrators to view booking details, monitor statuses, and take actions such as confirming, seating, or completing reservations. This page reflects real-world operational workflows, enabling staff to manage bookings clearly and effectively through a secure administrative interface.
+
+<details>
+<summary><strong>View wireframes (Desktop / Tablet / Mobile)</strong></summary>
+
+**Desktop**  
+<img width="673" height="1197" alt="admin-dashboard-desktop" src="https://github.com/user-attachments/assets/c9cf29f6-35c4-4e1c-a49e-c20d7f1be4a1" />
+
+**Tablet**  
+<img width="673" height="1397" alt="admin-dashboard-tablet" src="https://github.com/user-attachments/assets/34ebb95d-b2ec-4243-878f-f6405509daac" />
+
+**Mobile**  
+<img width="327" height="2181" alt="admin-dashboard-mobile" src="https://github.com/user-attachments/assets/79450432-1449-46d4-b2eb-fd3501b9f48e" />
+
+</details>
+
+---
+
 ## References
 
 [⬆ Back to Table of contents](#table-of-contents)
