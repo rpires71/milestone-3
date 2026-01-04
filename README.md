@@ -709,6 +709,30 @@ The project focuses on delivering modern web functionality, secure data handling
 
 ---
 
+### Menu
+
+The Menu page presents a clear and focused overview of the Portuguese Kitchen’s food offering, displaying two starters, two main dishes, and two desserts, each with descriptions and prices. The layout is intentionally simple, allowing users to quickly understand the restaurant’s cuisine before making a reservation.
+
+A consistent top navigation menu enables seamless movement between the Home, Booking, and Login/Register, while the footer section provides essential information such as opening hours and contact details.
+
+Overall, the Menu page supports the booking journey by combining clarity, accessibility, and structured content presentation, reinforcing the system's role as a practical and user-friendly restaurant booking platform.
+
+<details>
+<summary><strong>View wireframes (Desktop / Tablet / Mobile)</strong></summary>
+
+**Desktop**  
+<img width="673" height="1465" alt="menu-desktop" src="https://github.com/user-attachments/assets/c6719182-3d1e-4f25-bb0b-5cdfa234a5db" />
+
+**Tablet**  
+<img width="673" height="1722" alt="menu-tablet" src="https://github.com/user-attachments/assets/6e238bbc-356e-4d04-9256-702dead12a09" />
+
+**Mobile**  
+<img width="327" height="3065" alt="menu-mobile" src="https://github.com/user-attachments/assets/d1c1f4ca-7456-4a5a-8f2a-d003fe3c69a0" />
+
+</details>
+
+---
+
 ## References
 
 [⬆ Back to Table of contents](#table-of-contents)
