@@ -677,6 +677,38 @@ Wireframes also enabled constructive reflection and refinement during the concep
 
 ---
 
+## Portuguese Kitchen Booking System Wireframes
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+The wireframes presented here correspond to the ten pages planned for inclusion in this Portuguese Kitchen Booking System website. Each page is shown in three versions: desktop, tablet, and mobile.
+
+---
+
+### Homepage
+
+The Portuguese Kitchen Booking System has been designed to provide a simple, reliable, and user-friendly way to reserve tables online. This homepage introduces visitors to the purpose and vision of the platform, establishing its role as a modern restaurant booking solution tailored to both customers and restaurant staff.
+
+The primary aim of the website is to make the table reservation process clear, accessible, and efficient, allowing users to plan their dining experience with confidence. By presenting essential information clearly and guiding users through an intuitive booking journey, the system ensures a smooth and enjoyable experience from arrival to confirmation.
+
+The project focuses on delivering modern web functionality, secure data handling, and a responsive design, while maintaining a welcoming and professional tone. Through clarity, usability, and trust-focused features, visitors quickly understand how the system supports restaurant reservations and why it has been developed as a practical, real-world booking platform.
+
+<details>
+<summary><strong>View wireframes (Desktop / Tablet / Mobile)</strong></summary>
+
+**Desktop**  
+<img width="673" height="817" alt="home-desktop" src="https://github.com/user-attachments/assets/f4cf89db-b726-4b05-9567-cf99e798e43e" />
+
+**Tablet**  
+<img width="673" height="1345" alt="home-tablet" src="https://github.com/user-attachments/assets/b973b873-c380-495f-8d1e-eb4d165c01ec" />
+
+**Mobile**  
+<img width="511" height="1996" alt="home-mobile" src="https://github.com/user-attachments/assets/cf7f2173-56d4-4fc0-b65e-bc4314549457" />
+
+</details>
+
+---
+
 ## References
 
 [⬆ Back to Table of contents](#table-of-contents)
