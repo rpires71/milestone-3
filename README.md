@@ -799,6 +799,28 @@ The design prioritises simplicity, accessibility, and efficient user flow, guidi
 
 ---
 
+### Booking History
+
+The Booking History page allows logged-in users to view and manage their reservations in one central location. Upcoming bookings are clearly separated from past reservations, providing users with an at-a-glance overview of their dining plans.
+
+Users can view booking details, edit existing reservations, or cancel upcoming bookings where applicable, reflecting full CRUD functionality within a real-world booking context. This page enhances user control and transparency while maintaining a clean, accessible layout consistent with the rest of the system.
+
+<details>
+<summary><strong>View wireframes (Desktop / Tablet / Mobile)</strong></summary>
+
+**Desktop**  
+<img width="673" height="785" alt="my-book-desktop" src="https://github.com/user-attachments/assets/2e0a3372-3edf-4946-b0b7-233b02976226" />
+
+**Tablet**  
+<img width="673" height="1040" alt="my-book-tablet" src="https://github.com/user-attachments/assets/14508080-deb6-4a84-b26e-416787c0f61d" />
+
+**Mobile**  
+<img width="327" height="1762" alt="my-book-mobile" src="https://github.com/user-attachments/assets/1488597f-7f5d-4e44-be11-27207dbb9951" />
+
+</details>
+
+---
+
 ## References
 
 [⬆ Back to Table of contents](#table-of-contents)
