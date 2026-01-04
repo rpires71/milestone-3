@@ -887,6 +887,28 @@ Designed to support efficient restaurant management, the dashboard displays book
 
 ---
 
+### Admin Booking Details
+
+The Admin Booking Details page allows authorised staff to view full reservation information in a clear and structured format. It displays key booking data, including reference number, status, date, time, guest count, and customer contact details.
+
+This page supports efficient booking management by enabling administrators to edit, cancel, or print reservations directly from the interface. A clear navigation option back to the dashboard ensures smooth workflow continuity. The design reflects real-world restaurant operations, prioritising clarity, accuracy, and ease of use within a secure administrative environment.
+
+<details>
+<summary><strong>View wireframes (Desktop / Tablet / Mobile)</strong></summary>
+
+**Desktop**  
+<img width="673" height="927" alt="admin-book-management-desktop" src="https://github.com/user-attachments/assets/db8a3c41-174a-47db-b8d6-52f269a67a30" />
+
+**Tablet**  
+<img width="673" height="1397" alt="admin-book-management-tablet" src="https://github.com/user-attachments/assets/89105dca-db1c-4f99-9bdb-90d36e7b26d7" />
+
+**Mobile**  
+<img width="327" height="2181" alt="admin-book-management-mobile" src="https://github.com/user-attachments/assets/bba38531-85af-4766-810c-229e66f4c8f0" />
+
+</details>
+
+---
+
 ## References
 
 [⬆ Back to Table of contents](#table-of-contents)
