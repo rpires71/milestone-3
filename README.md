@@ -34,6 +34,7 @@
   - [User Story 7: View View Dietary Information (Customer)](#user-story-7-view-dietary-information-customer)
   - [User Story 8: Receive Email Confirmation (Customer)](#user-story-8-receive-email-confirmation-customer)
   - [User Story 9: View Booking History (Customer)](#user-story-9-view-booking-history-customer)
+  - [User Story 10: Special Requests (Customer)](#user-story-10-special-requests-customer)
 - [References](README.md#references)
 
 
@@ -1323,6 +1324,52 @@ This page supports efficient booking management by enabling administrators to ed
 **AC8 – Responsive and Accessible Display**
 
 - [ ] When the client views their booking history on mobile, tablet, or desktop, the page remains readable and usable across screen sizes and follows accessibility best practice (keyboard navigation, readable contrast, semantic structure).
+
+---
+
+## User Story 10: Special Requests (Customer)
+## As a customer, I want to **add special requests** so that **I can check if the menu suits my requirements.**
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+
+### **Acceptance Criteria:**
+
+**AC1 – Special Requests Field is Available during Booking**
+
+- [ ] When the client is making a booking and viewing the booking form, they can see a **Special Requests** input field (e.g., a text area).
+
+**AC2 – Special Requests Are Optional**
+
+- [ ] When the client completes the booking form and leaves the **Special Requests** field blank, the booking can still be submitted successfully.
+
+**AC3 – Special Requests are Saved with the Booking**
+
+- [ ] When the client enters a special request and submits the booking form, the request is stored and linked to that booking in the database.
+
+**AC4 – Input is Validated and Limited**
+
+- [ ] When the client enters text into the **Special Requests** field and submits the booking, the system validates the input (e.g., maximum character limit) and displays a clear error message if the limit is exceeded.
+
+**AC5 – Special Requests are Visible in Booking Confirmation**
+
+- [ ] When the booking is successfully created and the customer views the confirmation page, their special request is displayed as part of the booking summary (or shown as "None" if not provided).
+
+**AC6 – Special Requests are Visible in Booking History/Details**
+
+- [ ] When the customer views their booking history or booking details and opens a specific booking, the special request (if provided) is displayed.
+
+**AC7 – Special Requests can be Updated when Editing a Booking**
+
+- [ ] When the client edits an existing booking (where editing is allowed) and updates the **Special Requests** field before saving changes, the updated request is stored and displayed in the booking details.
+
+**AC8 – Admin can View Special Requests**
+
+- [ ] When an administrator or staff member views a booking in the admin dashboard and opens the booking record, the **Special Requests** information is visible to support service preparation.
+
+**AC9 – Secure Handling of User Input**
+
+- [ ] When the client submits special‑request text and the system stores and displays it, the input is handled securely (e.g., sanitised or escaped) to prevent malicious content from being executed.
 
 ---
 
