@@ -35,7 +35,8 @@
   - [User Story 8: Receive Email Confirmation (Customer)](#user-story-8-receive-email-confirmation-customer)
   - [User Story 9: View Booking History (Customer)](#user-story-9-view-booking-history-customer)
   - [User Story 10: Special Requests (Customer)](#user-story-10-special-requests-customer)
-  - [User Story 11: View All Bookings for the Day (Staff)](#user-story-11-view-all-bookings=for-the-day-staff)
+  - [User Story 11: View All Bookings for the Day (Staff)](#user-story-11-view-all-bookings-for-the-day-staff)
+  - [User Story 12: Search Bookings by Name (Staff)](#user-story-12-search-bookings-by-name-staff)
 - [References](README.md#references)
 
 
@@ -1374,7 +1375,7 @@ This page supports efficient booking management by enabling administrators to ed
 
 ---
 
-## User Story 11: Special Requests (Customer)
+## User Story 11: View All Bookings for the Day (Staff)
 ## As a staff member, I want to **view all bookings for today** so that **I can prepare tables.**
 
 [⬆ Back to Table of contents](#table-of-contents)
@@ -1427,6 +1428,65 @@ This page supports efficient booking management by enabling administrators to ed
 **AC9 – Secure Data Handling**
 
 - [ ] **Only necessary customer information is shown and handled securely** in accordance with data‑protection practices.
+
+---
+
+## User Story 12: Search Bookings by Name (Staff)
+## As a staff member, I want to **search bookings by name** so that **I can quickly find customer reservations.**
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+### **Acceptance Criteria:**
+
+**AC1 – Staff-Only Access**
+
+- [ ] When a user is logged in and attempts to access the booking search functionality, the feature is available only to staff or admin users.
+
+**AC2 – Search Input Availability**
+
+- [ ] When a staff member is on the bookings management page and the page loads, a clearly visible search input field is available for entering a customer name.
+
+**AC3 – Case-Insensitive Name Search**
+
+- [ ] When a staff member enters a customer name (full or partial) and submits the search, the system returns bookings that match the name regardless of letter case.
+
+**AC4 – Partial Match Support**
+
+- [ ] When a staff member enters part of a customer’s name and performs a search, all bookings containing the matching text in the customer name are displayed.
+
+**AC5 – Search Results Accuracy**
+
+- [ ] When a search query is submitted and results are displayed, only bookings that match the entered customer name are shown.
+
+**AC6 – Clear Results Presentation**
+
+- [ ] When matching bookings are found and results are displayed, each booking includes key information such as:
+
+- customer name
+
+- booking date
+
+- booking time
+
+- number of guests
+
+- booking status
+
+**AC7 – No Results Feedback**
+
+- [ ] When no bookings match the search criteria and the search is executed, a clear message is displayed indicating that no matching bookings were found.
+
+**AC8 – Reset or Clear Search**
+
+- [ ] When a staff member has performed a search and then clears the search input or selects a reset option, the full bookings list is restored.
+
+**AC9 – Performance and Responsiveness**
+
+- [ ] When a large number of bookings exist and a staff member performs a search, results are returned quickly without noticeable delay.
+
+**AC10 – Secure Handling of Search Data**
+
+- [ ] When client data is searched and displayed, only authorised staff can view the information, and it is handled securely in line with data‑protection requirements.
 
 ---
 
