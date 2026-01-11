@@ -928,7 +928,7 @@ This page supports efficient booking management by enabling administrators to ed
 ---
 
 ## User Story 1: View Available Time Slots (Customer) 
-## As a customer, I want to **view available time slots** so **I can book a table at my preferred time.**
+## As a customer, I want to **view available time slots** so **I can book a table at my preferred time. (must-have)**
 
 [⬆ Back to Table of contents](#table-of-contents)
 
@@ -970,7 +970,7 @@ This page supports efficient booking management by enabling administrators to ed
 ---
 
 ## User Story 2: Specify the Number of Guests (Customer)
-## As a customer, I want to **specify the number of guests** so  that **the system allocates an appropriate table.**
+## As a customer, I want to **specify the number of guests** so  that **the system allocates an appropriate table. (must-have)**
 
 [⬆ Back to Table of contents](#table-of-contents)
 
@@ -1011,7 +1011,7 @@ This page supports efficient booking management by enabling administrators to ed
 ---
 
 ## User Story 3: View a Booking Confirmation (Customer)
-## As a customer, I want to **view my booking confirmation** so that **I have a record of my reservation.**
+## As a customer, I want to **view my booking confirmation** so that **I have a record of my reservation. (must-have)**
 
 [⬆ Back to Table of contents](#table-of-contents)
 
@@ -1057,7 +1057,7 @@ This page supports efficient booking management by enabling administrators to ed
 ---
 
 ## User Story 4: Modify Booking Date/Time (Customer)
-## As a customer, I want to **modify my booking date/time** so that **I can adjust plans if needed.**
+## As a customer, I want to **modify my booking date/time** so that **I can adjust plans if needed. (must-have)**
 
 [⬆ Back to Table of contents](#table-of-contents)
 
@@ -1106,7 +1106,7 @@ This page supports efficient booking management by enabling administrators to ed
 ---
 
 ## User Story 5: Cancel a Booking (Customer)
-## As a customer, I want to **cancel my booking** so **I can release the table I can't attend.**
+## As a customer, I want to **cancel my booking** so **I can release the table I can't attend. (must-have)**
 
 [⬆ Back to Table of contents](#table-of-contents)
 
@@ -1155,7 +1155,7 @@ This page supports efficient booking management by enabling administrators to ed
 ---
 
 ## User Story 6: View Restaurant Menu (Customer)
-## As a customer, I want to **view the restaurant menu** so **I can see what's offered before booking.**
+## As a customer, I want to **view the restaurant menu** so **I can see what's offered before booking. (must-have)**
 
 [⬆ Back to Table of contents](#table-of-contents)
 
@@ -1196,7 +1196,7 @@ This page supports efficient booking management by enabling administrators to ed
 ---
 
 ## User Story 7: View Dietary Information (Customer)
-## As a customer, I want to **see dietary information** so **I can check if the menu suits my requirements.**
+## As a customer, I want to **see dietary information** so **I can check if the menu suits my requirements. (should-have)**
 
 [⬆ Back to Table of contents](#table-of-contents)
 
@@ -1237,7 +1237,7 @@ This page supports efficient booking management by enabling administrators to ed
 ---
 
 ## User Story 8: Receive Email Confirmation (Customer)
-## As a customer, I want to **receive email confirmation** so that **I have proof of my booking.**
+## As a customer, I want to **receive email confirmation** so that **I have proof of my booking. (could-have)**
 
 [⬆ Back to Table of contents](#table-of-contents)
 
@@ -1291,7 +1291,7 @@ This page supports efficient booking management by enabling administrators to ed
 ---
 
 ## User Story 9: View Booking History (Customer)
-## As a customer, I want to **view my booking history** so **I can track past visits.**
+## As a customer, I want to **view my booking history** so **I can track past visits. (should-have)**
 
 [⬆ Back to Table of contents](#table-of-contents)
 
@@ -1336,7 +1336,7 @@ This page supports efficient booking management by enabling administrators to ed
 ---
 
 ## User Story 10: Special Requests (Customer)
-## As a customer, I want to **add special requests** so that **I can check if the menu suits my requirements.**
+## As a customer, I want to **add special requests** so that **I can check if the menu suits my requirements. (could-have)**
 
 [⬆ Back to Table of contents](#table-of-contents)
 
@@ -1382,7 +1382,7 @@ This page supports efficient booking management by enabling administrators to ed
 ---
 
 ## User Story 11: View All Bookings for the Day (Staff)
-## As a staff member, I want to **view all bookings for today** so that **I can prepare tables.**
+## As a staff member, I want to **view all bookings for today** so that **I can prepare tables. (must-have)**
 
 [⬆ Back to Table of contents](#table-of-contents)
 
@@ -1438,7 +1438,7 @@ This page supports efficient booking management by enabling administrators to ed
 ---
 
 ## User Story 12: Search Bookings by Name (Staff)
-## As a staff member, I want to **search bookings by name** so that **I can quickly find customer reservations.**
+## As a staff member, I want to **search bookings by name** so that **I can quickly find customer reservations. (must-have)**
 
 [⬆ Back to Table of contents](#table-of-contents)
 
@@ -1497,7 +1497,7 @@ This page supports efficient booking management by enabling administrators to ed
 ---
 
 ## User Story 13: Mark Tables as Occupied/Available (Staff)
-## As a staff member, I want to **mark tables as occupied/available** so that **booking status is current.**
+## As a staff member, I want to **mark tables as occupied/available** so that **booking status is current. (should-have)**
 
 [⬆ Back to Table of contents](#table-of-contents)
 
@@ -1546,7 +1546,7 @@ This page supports efficient booking management by enabling administrators to ed
 ---
 
 ## User Story 14: Update Booking Status (Staff)
-## As a **staff member**, I want to **update booking status** (confirmed, seated, completed) so that **I can track the booking lifecycle.**
+## As a **staff member**, I want to **update booking status** (confirmed, seated, completed) so that **I can track the booking lifecycle. (should-have)**
 
 [⬆ Back to Table of contents](#table-of-contents)
 
@@ -1595,7 +1595,7 @@ This page supports efficient booking management by enabling administrators to ed
 ---
 
 ## User Story 15: Manage Table Configuration (Admin)
-## As an **admin**, I want to **manage table configuration** so that **I can adjust capacity and availability.**
+## As an **admin**, I want to **manage table configuration** so that **I can adjust capacity and availability. (should-have)**
 
 [⬆ Back to Table of contents](#table-of-contents)
 
@@ -1660,7 +1660,7 @@ This page supports efficient booking management by enabling administrators to ed
 ---
 
 ## User Story 16: Manage Time Slots (Admin)
-## As an **admin**, I want to **manage time slots** so that **I can control when bookings are accepted.**
+## As an **admin**, I want to **manage time slots** so that **I can control when bookings are accepted. (must-have)**
 
 [⬆ Back to Table of contents](#table-of-contents)
 
@@ -1731,7 +1731,7 @@ This page supports efficient booking management by enabling administrators to ed
 ---
 
 ## User Story 17: View Booking Statistics (Admin)
-## As an **admin**, I want to **view booking statistics** so that **I can analyse restaurant usage patterns.**
+## As an **admin**, I want to **view booking statistics** so that **I can analyse restaurant usage patterns. (should-have)**
 
 [⬆ Back to Table of contents](#table-of-contents)
 
@@ -1800,7 +1800,7 @@ This page supports efficient booking management by enabling administrators to ed
 ---
 
 ## User Story 18: Manage Menu Items (Admin)
-## As an **admin**, I want to **manage menu items** so that **customers see current offerings.**
+## As an **admin**, I want to **manage menu items** so that **customers see current offerings. (could-have)**
 
 [⬆ Back to Table of contents](#table-of-contents)
 
