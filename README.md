@@ -26,6 +26,7 @@
   - [Wireframes](#wireframes)
   - [Portuguese Kitchen Booking System Wireframes](#portuguese-kitchen-booking-system-wireframes)
   - [User Story 1: View Available Time Slots (Customer)](#user-story-1-view-available-time-slots-customer)
+  - [User Story 2: Specify the Number of Guests (Customer)](#user-story-2-specify-the-number-of-guests-customer)
 - [References](README.md#references)
 
 
@@ -949,6 +950,47 @@ This page supports efficient booking management by enabling administrators to ed
 **AC8 – Error Handling**
 
 - [ ] If a client attempts to view available time slots without selecting a date, or after selecting an invalid one, a user‑friendly validation message is displayed.
+
+---
+
+## User Story 2: Specify the Number of Guests (Customer)
+## As a customer, I want to **specify the number of guests** so  that **the system allocates an appropriate table.**
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+### **Acceptance Criteria:**
+
+**AC1 – Guest Number Input Available**
+
+- [ ] When a client is using the booking form and viewing the reservation fields, a clearly labelled input for the number of guests is available.
+
+**AC2 – Valid Guest Range**
+
+- [ ] When a client enters a guest number while using the form, the system accepts only values within the permitted range.
+
+**AC3 – Validation for Invalid Input**
+
+- [ ] When a client enters an invalid value while attempting to submit the booking, the system displays a validation message and prevents submission.
+
+**AC4 – Table Allocation Logic**
+
+- [ ] When a client selects a valid number of guests and availability is verified, the system allocates a table that meets or exceeds the required capacity.
+
+**AC5 – No Suitable Table Available**
+
+- [ ] If no table is available to accommodate the selected number of guests at the chosen date and time, the system displays a message explaining that no suitable table is available and prompts the user to adjust their selection.
+
+**AC6 – Data Saved Correctly**
+
+- [ ] When a booking is successfully created and stored, the number of guests is saved in the database and displayed correctly in the booking confirmation and/or booking history.
+
+**AC7 – Accessibility and Usability**
+
+- [ ] When the booking form is used on various devices with assistive technologies, the guest‑number input is keyboard accessible, screen‑reader friendly, and functions reliably across mobile, tablet, laptop, and desktop.
+
+**AC8 – Editing a Booking**
+
+- [ ] When a client edits the number of guests in an existing booking, the system re‑validates the value and checks table‑allocation rules before saving the changes.
 
 ---
 
