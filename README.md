@@ -42,6 +42,7 @@
   - [User Story 15: Manage Table Configuration (Admin)](#user-story-15-manage-table-configuration-admin)
   - [User Story 16: Manage Time Slots (Admin)](#user-story-16-manage-time-slots-admin)
   - [User Story 17: View Booking Statistics (Admin)](#user-story-17-view-booking-statistics-admin)
+  - [User Story 18: Manage Menu Items (Admin)](#user-story-18-manage-menu-items-admin)
 - [References](README.md#references)
 
 
@@ -1795,6 +1796,73 @@ This page supports efficient booking management by enabling administrators to ed
 **AC12 – Export/Download Option (Optional Enhancement)**
 
 - [ ] When an admin chooses to export records (if implemented), the system downloads the statistics in a usable format (e.g., CSV) matching the selected date range.
+
+---
+
+## User Story 18: Manage Menu Items (Admin)
+## As an **admin**, I want to **manage menu items** so that **customers see current offerings.**
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+### **Acceptance Criteria:**
+
+**AC1 – Admin-Only Access**
+
+- [ ] When a user is logged in and accesses the menu‑management area, only users with admin privileges can access it; non‑admin users are denied or redirected.
+
+**AC2 – View Menu Items List**
+
+- [ ] When an admin opens the menu‑management page and it loads, a list or table of existing menu items is displayed (e.g., name, category, price, availability status).
+
+**AC3 – Add a New Menu Item**
+
+- [ ] When an admin is on the menu‑management page and submits a valid "Add menu item" form, the new item is saved to the database and appears in the admin list.
+
+**AC4 – Required Field Validation**
+
+- [ ] When an admin creates or edits a menu item and required fields are missing or invalid, the form does not submit and clear validation messages are shown.
+
+- required‑field validation
+
+Minimum required fields typically include:
+
+- item name
+
+- category (e.g., starter, main, dessert)
+
+- price
+
+**AC5 – Edit an Existing Menu Item**
+
+- [ ] When an admin selects an existing menu item, updates its details, and saves, the changes are stored and immediately reflected in the admin list.
+
+**AC6 – Delete a Menu Item**
+
+- [ ] When an admin chooses to delete a menu item and confirms the deletion, the item is removed from the database and no longer appears to customers.
+
+**AC7 – Control Customer Visibility (Available / Hidden)**
+
+- [ ] When an admin manages menu items and marks an item as available or hidden/unavailable, only available items appear on the customer‑facing menu page.
+
+**AC8 – Category Display on Customer Menu**
+
+- [ ] When menu categories exist (starters, mains, desserts, etc.) and customers view the menu page, items are displayed under the correct category based on the admin‑set category field.
+
+**AC9 – Price Formatting**
+
+- [ ] When an admin enters a price and the item is displayed to customers, the price appears in a consistent currency format (e.g., £12.50) and is stored accurately.
+
+**AC10 – Image Handling (If Implemented)**
+
+- [ ] When menu images are supported and an admin uploads or assigns an image to a menu item, the image displays correctly on customer menu tiles, and invalid file types or sizes are rejected with a clear error.
+
+**AC11 – Data Integrity and Safe Deletion**
+
+- [ ] When an admin deletes or hides an item and the customer menu loads, the menu page remains functional with no broken links, missing images, or server errors.
+
+**AC12 – Accessibility and Usability**
+
+- [ ] When admins or customers use assistive technologies to view menu‑management forms or the customer menu, pages use clear labels, meaningful validation feedback, and accessible navigation (keyboard‑friendly and readable).
 
 ---
 
