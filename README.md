@@ -31,6 +31,7 @@
   - [User Story 4: Modify Booking Date/Time (Customer)](#user-story-4-modify-booking-datetime-customer)
   - [User Story 5: Cancel a Booking (Customer)](#user-story-5-cancel-a-booking-customer)
   - [User Story 6: View Restaurant Menu (Customer)](#user-story-6-view-restaurant-menu-customer)
+  - [User Story 7: View View Dietary Information (Customer)](#user-story-7-view-dietary-information-customer)
 - [References](README.md#references)
 
 
@@ -1180,6 +1181,47 @@ This page supports efficient booking management by enabling administrators to ed
 **AC8 – Error Handling for Missing Menu Data**
 
 - [ ] When menu items are stored in the database (or rendered from templates) and the menu data is unavailable or empty, the user sees a friendly message such as “Menu currently unavailable — please check back soon” instead of a broken page. 
+
+---
+
+## User Story 7: View Dietary Information (Customer)
+## As a customer, I want to **see dietary information** so **I can check if the menu suits my requirements.**
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+### **Acceptance Criteria:**
+
+**AC1 – Dietary Information is Visible on the Menu**
+
+- [ ] When a client is viewing the Menu page and items are displayed, each item shows clear dietary information (e.g., V for vegetarian, GF for gluten‑free, DF for dairy‑free) presented as **icons, labels,** or **short tags**.
+
+**AC2 – Dietary Key/Legend is Provided**
+
+- [ ] When dietary tags or icons are used and the customer views the menu, a **legend or key** is available explaining what each dietary label means.
+
+**AC3 – Allergens are Clearly Identified**
+
+- [ ] When a customer has allergy concerns and views the menu, items display **relevant allergen information** (e.g., contains milk, eggs, fish, nuts) or include a **‘Contains allergens’ indicator** with details available.
+
+**AC4 – Information is Accurate and Consistent**
+
+- [ ] When dietary information is displayed across the menu and the customer compares items, **labels are applied consistently** using the same rules (e.g., “GF” only used when the dish is genuinely gluten‑free, not “can be made GF” unless stated).
+
+**AC5 – Optional Filtering (If Implemented)**
+
+- [ ] When the menu includes dietary filters and the customer selects a filter (e.g., “Vegetarian” or “Gluten‑Free”), only **matching items** are shown (or clearly highlighted), and the filter can be removed to return to the full menu.
+
+**AC6 – Accessible Presentation**
+
+- [ ] When a client uses assistive technology to navigate the menu, dietary labels or icons are **readable**, include accessible text (not colour‑only), and can be interpreted by **screen readers** (e.g., via aria‑labels or visible text).
+
+**AC7 – Mobile Responsiveness**
+
+- [ ] When a customer views the menu on mobile or tablet and the layout adjusts, **dietary tags remain visible** and do not overlap prices, titles, or descriptions.
+
+**AC8 – Missing Data Handling**
+
+- [ ] When an item does not yet have dietary information recorded and the customer views that item, the system displays a **clear fallback message** such as “Dietary info not available” rather than showing incorrect or blank labels.
 
 ---
 
