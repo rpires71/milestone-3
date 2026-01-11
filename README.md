@@ -30,6 +30,7 @@
   - [User Story 3: View a Booking Confirmation (Customer)](#user-story-3-view-a-booking-confirmation-customer)
   - [User Story 4: Modify Booking Date/Time (Customer)](#user-story-4-modify-booking-datetime-customer)
   - [User Story 5: Cancel a Booking (Customer)](#user-story-5-cancel-a-booking-customer)
+  - [User Story 6: View Restaurant Menu (Customer)](#user-story-6-view-restaurant-menu-customer)
 - [References](README.md#references)
 
 
@@ -1138,6 +1139,47 @@ This page supports efficient booking management by enabling administrators to ed
 **AC10 – Accessible and Responsive Cancellation Flow**
 
 - [ ] When the client cancels a booking on mobile, tablet, or desktop, or when using assistive technology, the cancellation process is responsive, keyboard accessible, and provides clear labels and feedback messages.
+
+---
+
+## User Story 6: View Restaurant Menu (Customer)
+## As a customer, I want to **view the restaurant menu** so **I can see what's offered before booking.**
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+### **Acceptance Criteria:**
+
+**AC1 – Menu Page Is Accessible From Main Navigation**
+
+- [ ] When a visitor is on any page of the website and uses the top navigation, they can access the Menu page in a single click.
+
+**AC2 – Menu Content Displays Correctly**
+
+- [ ] When a visitor opens the Menu page and it loads, the menu displays clearly organised sections (e.g., Starters, Mains, Desserts) with item names and prices.
+
+**AC3 – Menu Items Include Essential Information**
+
+- [ ] When the menu is displayed and the visitor views it, each item shows the dish name, price, and image. 
+
+**AC4 – Menu Page Supports Booking Journey**
+
+- [ ] When a visitor is on the Menu page and decides to reserve a table, they can navigate to the Booking page using the top navigation or a call‑to‑action button. 
+
+**AC5 – Menu Page Works for Logged-Out and Logged-In Users**
+
+- [ ] When a client opens the Menu page, whether logged in or not, the menu remains fully visible without restrictions. 
+
+**AC6 – Responsive Layout Across Devices**
+
+- [ ] When a visitor views the Menu page on mobile, tablet, or desktop, the layout adapts to the screen, and all menu sections and prices remain readable, aligned, and usable without horizontal scrolling. 
+
+**AC7 – Accessibility Standards Followed**
+
+- [ ] When the Menu page includes images and headings and a screen reader is used, images have appropriate alt text, headings follow a logical structure, and text contrast supports readability.
+
+**AC8 – Error Handling for Missing Menu Data**
+
+- [ ] When menu items are stored in the database (or rendered from templates) and the menu data is unavailable or empty, the user sees a friendly message such as “Menu currently unavailable — please check back soon” instead of a broken page. 
 
 ---
 
