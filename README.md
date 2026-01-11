@@ -40,6 +40,7 @@
   - [User Story 13: Mark Tables as Occupied/Available (Staff)](#user-story-13-mark-tables-as-occupiedavailable-staff)
   - [User Story 14: Update Booking Status (Staff)](#user-story-14-update-booking-status-staff)
   - [User Story 15: Manage Table Configuration (Admin)](#user-story-15-manage-table-configuration-admin)
+  - [User Story 16: Manage Time Slots (Admin)](#user-story-16-manage-time-slots-admin)
 - [References](README.md#references)
 
 
@@ -1653,6 +1654,77 @@ This page supports efficient booking management by enabling administrators to ed
 **AC12 – Audit Logging**
 
 - [ ] When a table‑configuration change is made and the update is saved, the system records who made the change and when, for administrative tracking.
+
+---
+
+## User Story 16: Manage Time Slots (Admin)
+## As an **admin**, I want to **manage time slots** so that **I can control when bookings are accepted.**
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+### **Acceptance Criteria:**
+
+**AC1 – Admin-Only Access**
+
+- [ ] When a user is logged in and attempts to access time‑slot management, only users with admin privileges can view or edit time slots.
+
+**AC2 – View Existing Time Slots**
+
+- [ ] When an admin opens the time‑slot management page and it loads, all configured time slots are displayed (e.g., start time, end time or duration, active/inactive status, applicable days).
+
+**AC3 – Create New Time Slots**
+
+- [ ] When an admin is managing time slots and adds a new one, they must be able to set at minimum:
+
+- start time
+
+- end time or duration
+
+- applicable days (e.g., Mon–Sun)
+
+- active status
+
+- immediate saving and display 
+
+**AC4 – Edit Time Slots**
+
+- [ ] When a time slot exists and the admin edits it (time, days, active status), the updated values are validated and saved successfully.
+
+**AC5 – Enable/Disable Time Slots**
+
+- [ ] When a time slot exists and the admin marks it as inactive, the slot is no longer available to customers when booking, while existing bookings for that slot remain unchanged.
+
+**AC6 – Prevent Duplicate or Overlapping Slots**
+
+- [ ] When an admin creates or edits a slot and it overlaps with or duplicates another active slot for the same day(s), the system prevents saving and displays a clear error message.
+
+**AC7 – Booking Form Uses Active Time Slots Only**
+
+- [ ] When customers make a booking and the booking form loads available times, only active time slots for the selected date or day are shown.
+
+**AC8 – Respect Restaurant Opening Times**
+
+- [ ] When restaurant opening and closing hours are configured and an admin creates or edits a time slot, the system prevents slots outside opening hours and provides feedback.
+
+**AC9 – Capacity Awareness per Slot**
+
+- [ ] When capacity rules (tables or seat limits) are configured and customers choose a time slot, the system offers the slot only if capacity is available for the selected party size.
+
+**AC10 – Persist Changes**
+
+- [ ] When an admin saves changes to time slots and later revisits or refreshes the page, the saved time slots remain correct and consistent.
+
+**AC11 – Confirmation and Feedback**
+
+- [ ] When an admin successfully adds, updates, or disables a time slot and the action completes, a success message confirms the change.
+
+**AC12 – Error Handling**
+
+- [ ] When a save operation fails (due to validation errors or system issues) and the admin submits changes, the system displays a clear error message and does not apply partial updates.
+
+**AC12 – Audit Logging**
+
+- [ ] When an admin makes a change to time slots and the update is saved, the system records who made the change and when, for accountability.
 
 ---
 
