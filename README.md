@@ -33,6 +33,7 @@
   - [User Story 6: View Restaurant Menu (Customer)](#user-story-6-view-restaurant-menu-customer)
   - [User Story 7: View View Dietary Information (Customer)](#user-story-7-view-dietary-information-customer)
   - [User Story 8: Receive Email Confirmation (Customer)](#user-story-8-receive-email-confirmation-customer)
+  - [User Story 9: View Booking History (Customer)](#user-story-9-view-booking-history-customer)
 - [References](README.md#references)
 
 
@@ -1277,6 +1278,51 @@ This page supports efficient booking management by enabling administrators to ed
 **AC8 – Timely Delivery**
 
 - [ ] When a booking is confirmed and the system sends the confirmation email, it is dispatched immediately or within a reasonable timeframe (e.g., within a few minutes).
+
+---
+
+## User Story 9: View Booking History (Customer)
+## As a customer, I want to **view my booking history** so **I can track past visits.**
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+### **Acceptance Criteria:**
+
+**AC1 – Booking History Is Available to Logged-In Users**
+
+- [ ] When the client is logged in and navigates to My Bookings or Booking History, they can view a list of their bookings.
+
+**AC2 – Booking History Shows Only the Customer’s Own Bookings**
+
+- [ ] When the client is logged in and the booking history is displayed, it shows only bookings linked to that user account and not those of other users.
+
+**AC3 – Bookings Are Displayed in a Clear, Structured Format**
+
+- [ ] When bookings exist for the client and the booking history page loads, each booking is shown with key details such as:
+- booking reference/ID
+- date and time
+- number of guests
+- status (e.g., Confirmed / Cancelled / Completed)
+
+**AC4 – Sorting Supports Tracking Past Visits**
+
+- [ ] When the booking history list is displayed, bookings are ordered in a logical way (e.g., most recent first) to help clients track past visits easily.
+
+**AC5 – Past vs Upcoming Bookings are Clearly Identified**
+
+- [ ] When the booking history contains a mix of dates, it is clear which bookings are upcoming and which are in the past (e.g., via labels, status, or sectioning).
+
+**AC6 – Empty State Messaging**
+
+- [ ] When the client has no bookings and opens the booking history page, a clear message is shown (e.g., “You have no bookings yet”), along with a link or button to make a new booking.
+
+**AC7 – Access to Booking Details from History**
+
+- [ ] When the client views their list of bookings and selects one (e.g., “View details”), they are taken to a booking‑detail view showing full information for that reservation.
+
+**AC8 – Responsive and Accessible Display**
+
+- [ ] When the client views their booking history on mobile, tablet, or desktop, the page remains readable and usable across screen sizes and follows accessibility best practice (keyboard navigation, readable contrast, semantic structure).
 
 ---
 
