@@ -1953,6 +1953,65 @@ This considered use of colour enhances user confidence during the booking proces
 
 ---
 
+## Typography Justification for Portuguese Kitchen Booking System Website
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+### Overview
+
+For the Portuguese Kitchen Booking System website, the typography has been carefully selected to support a welcoming, professional, and trustworthy dining experience while ensuring accessibility and clarity for all users (99designs, 2024; Google Fonts, 2024; DesigningIt, 2024).
+
+The target audience includes restaurant customers such as couples, families, local diners, and tourists seeking an authentic Portuguese dining experience. As the platform facilitates key interactions including table reservations, menu browsing, and customer enquiries, the chosen typography prioritises readability, warmth, and usability across devices (99designs, 2024; DesigningIt, 2024).
+
+The selected typeface pairing—Montserrat for headings and Lato for body text—reflects modern web design conventions commonly used in hospitality and booking systems. This combination balances contemporary aesthetics with approachability, reinforcing the brand’s culinary identity while remaining highly legible and accessible (Google Fonts, 2024; DesigningIt, 2024).
+
+### Typography Goals
+
+The chosen combination of typefaces was selected to ensure the website is:
+
+- Easy to read and accessible for all users
+- Professional and trustworthy for transactional interactions such as bookings
+- Warm, friendly, and appropriate for a food and hospitality context
+- Fully responsive and legible across all screen sizes and devices
+- Flexible enough to support longer content such as menus, booking forms, confirmations, and informational pages  
+
+This approach aligns with recognised UX and accessibility best practices (Interaction Design Foundation, 2023; Google Fonts, 2024; DesigningIt, 2024).
+
+### Primary Typeface – Montserrat (Headings)
+
+The geometric sans-serif typeface **Montserrat** is used for all primary headings, section titles, navigation items, feature labels, and call-to-action text.
+
+**Justification:**  
+Montserrat’s clean lines, balanced proportions, and structured appearance establish a clear visual hierarchy, allowing users to quickly scan important information such as page titles, menu categories, and booking actions (e.g. *“Book a Table”* or *“Confirm Reservation”*). Its modern yet neutral tone supports a professional restaurant brand while remaining visually appealing and consistent across browsers and devices (Google Fonts, 2024; 99designs, 2024; DesigningIt, 2024).
+
+### Secondary Typeface – Lato (Body Text)
+
+The humanist sans-serif typeface **Lato** is used for body text, menu descriptions, form labels, confirmation messages, and supporting informational content (Google Fonts, 2024; 99designs, 2024; Interaction Design Foundation, 2023).
+
+**Justification:**  
+Lato’s open letterforms and soft curves enhance readability, particularly at smaller sizes and on mobile devices. This makes it well suited for longer text blocks such as menu items, reservation details, and explanatory copy. Its friendly and approachable character complements the hospitality-focused nature of the website, helping users feel comfortable and confident when entering personal information or completing bookings (Google Fonts, 2024; 99designs, 2024; Interaction Design Foundation, 2023).
+
+### Implementation
+
+To ensure consistency, performance, and maintainability, only two typefaces are used across the website:
+
+- **Montserrat** – for headings, navigation, key labels, and call-to-action buttons  
+- **Lato** – for body text, paragraphs, form inputs, menus, and supporting content  
+
+This restrained typographic approach improves visual coherence and reduces cognitive load for users.
+
+### Typography Specifications
+
+- **Body text minimum size:** `16px` (in line with accessibility and readability guidelines)
+- **Font weights:**  
+  - `400` for body content  
+  - `600–700` for headings and call-to-action buttons  
+- **System fallback stack:** `'Arial', sans-serif`  
+
+These specifications ensure compliance with accessibility standards while maintaining a polished and professional visual presentation across all devices and screen sizes.
+
+---
+
 ## References
 
 [⬆ Back to Table of contents](#table-of-contents)
@@ -2017,6 +2076,10 @@ Available at: https://www.interaction-design.org/
 Available at: https://www.interaction-design.org/literature/topics/color-theory
   (Accessed: 11 January 2026).
 
+- **Interaction Design Foundation (2023)** Typography for user interfaces.
+Available at: https://www.interaction-design.org/literature/topics/typography
+  (Accessed: 11 January 2026).
+
 - **Nielsen Norman Group (2022).** User Personas and Scenario-Based Design. 
 Available at: https://www.nngroup.com/articles/personas-scenarios/  
   (Accessed: 27 December 2025).
@@ -2036,6 +2099,14 @@ Available at: https://developers.expediagroup.com/
 - **Google Developers (2024).** Progressive Web Apps (PWA) Documentation. 
 Available at: https://developer.chrome.com/docs/webapps/  
   (Accessed: 27 December 2025).
+
+- **Google Fonts (2024) Montserrat.**
+Available at: https://fonts.google.com/specimen/Montserrat
+  (Accessed: 11 January 2026).
+
+- **Google Fonts (2024) Lato.**
+Available at: https://fonts.google.com/specimen/Lato
+  (Accessed: 11 January 2026).
 
 - **Meta for Developers (2024).** Sharing Content on Facebook and Instagram. 
 Available at: https://developers.facebook.com/docs/sharing/  
@@ -2075,6 +2146,14 @@ Available at: https://getbootstrap.com/docs/5.3/getting-started/introduction/
 
 - **DesigningIt (2024)** Web color palettes and accessibility best practices.
 Available at: https://designingit.com/web-design-color-palettes-accessibility
+  (Accessed: 11 January 2026).
+
+- **DesigningIt (2024)** Typography principles for modern web design.
+Available at: https://designingit.com/typography-in-web-design
+  (Accessed: 11 January 2026).
+
+- **99designs (2024)** Typography in web design: Best practices and examples.
+Available at: https://99designs.co.uk/blog/design-basics/web-typography/
   (Accessed: 11 January 2026).
 
 
