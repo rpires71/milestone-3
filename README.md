@@ -28,6 +28,7 @@
   - [User Story 1: View Available Time Slots (Customer)](#user-story-1-view-available-time-slots-customer)
   - [User Story 2: Specify the Number of Guests (Customer)](#user-story-2-specify-the-number-of-guests-customer)
   - [User Story 3: View a Booking Confirmation (Customer)](#user-story-3-view-a-booking-confirmation-customer)
+  - [User Story 4: Modify Booking Date/Time (Customer)](#user-story-4-modify-booking-datetime-customer)
 - [References](README.md#references)
 
 
@@ -995,7 +996,7 @@ This page supports efficient booking management by enabling administrators to ed
 
 ---
 
-## User Story 3: Specify the Number of Guests (Customer)
+## User Story 3: View a Booking Confirmation (Customer)
 ## As a customer, I want to **view my booking confirmation** so that **I have a record of my reservation.**
 
 [⬆ Back to Table of contents](#table-of-contents)
@@ -1038,6 +1039,55 @@ This page supports efficient booking management by enabling administrators to ed
 **AC9 – Accessible and Responsive Layout**
 
 - [ ] When the client views the confirmation on mobile, tablet, desktop, or using assistive technology, the content is responsive, keyboard‑navigable, and readable with clear heading structure.
+
+---
+
+## User Story 4: Modify Booking Date/Time (Customer)
+## As a customer, I want to **modify my booking date/time** so that **I can adjust plans if needed.**
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+### **Acceptance Criteria:**
+
+**AC1 – Edit Option Available for Existing Bookings**
+
+- [ ] When a client is logged in and has an existing booking, they can see an option to modify the booking date and time when viewing their Booking History or Booking Details.
+
+**AC2 – Only Own Bookings Can Be Modified**
+
+- [ ] When a logged‑in client attempts to edit a booking, they can only modify bookings that belong to their own account.
+
+**AC3 – Booking Eligibility Rules Enforced**
+
+- [ ] When the client selects **Edit** and the booking is outside the permitted modification window (e.g., too close to the booking time) or has a locked status, the system prevents editing and displays a clear message explaining why.
+
+**AC4 – Available Time Slots Shown for the Selected Date**
+
+- [ ] When the client is editing their booking and chooses a different date, the system displays only the available time slots for that date, based on capacity rules.
+
+**AC5 – Validation Prevents Invalid Date/Time**
+
+- [ ] When the client submits modifications and the new date or time is invalid (e.g., a past date, outside opening hours, or fully booked), the system blocks submission and displays a clear validation message.
+
+**AC6 – Successful Update Persists in Database**
+
+- [ ] When the client submits a valid new date and time and the update is confirmed, the booking is updated in the database and the new details are reflected in Booking Details and Booking History.
+
+**AC7 – Confirmation of Changes Provided**
+
+- [ ] When the booking has been successfully updated, the system displays a confirmation message summarising the previous and updated date/time (or at minimum the updated details).
+
+**AC8 – No Double Booking / Capacity Conflicts**
+
+- [ ] When the client submits a new time slot that becomes unavailable due to another booking being made at the same time, the system prevents the update and prompts the client to choose another available slot.
+
+**AC9 – Cancel Option During Edit**
+
+- [ ] When the client is on the edit page or form and chooses **Cancel** or navigates away, no changes are saved and the original booking remains unchanged.
+
+**AC10 – Accessible and Responsive Editing Flow**
+
+- [ ] When the client modifies a booking on mobile, tablet, desktop, or using assistive technology, the edit form is responsive, keyboard accessible, and provides meaningful labels and error feedback.
 
 ---
 
