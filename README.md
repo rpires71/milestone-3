@@ -29,6 +29,7 @@
   - [User Story 2: Specify the Number of Guests (Customer)](#user-story-2-specify-the-number-of-guests-customer)
   - [User Story 3: View a Booking Confirmation (Customer)](#user-story-3-view-a-booking-confirmation-customer)
   - [User Story 4: Modify Booking Date/Time (Customer)](#user-story-4-modify-booking-datetime-customer)
+  - [User Story 5: Cancel a Booking (Customer)](#user-story-5-cancel-a-booking-customer)
 - [References](README.md#references)
 
 
@@ -1088,6 +1089,55 @@ This page supports efficient booking management by enabling administrators to ed
 **AC10 – Accessible and Responsive Editing Flow**
 
 - [ ] When the client modifies a booking on mobile, tablet, desktop, or using assistive technology, the edit form is responsive, keyboard accessible, and provides meaningful labels and error feedback.
+
+---
+
+## User Story 5: Cancel a Booking (Customer)
+## As a customer, I want to **cancel my booking** so **I can release the table I can't attend.**
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+### **Acceptance Criteria:**
+
+**AC1 – Cancel Option Available for Active Bookings**
+
+- [ ] When a client is logged in and has an active booking, they can see a clear **Cancel Booking** option when viewing their Booking History or Booking Details.
+
+**AC2 – Only Own Bookings Can Be Cancelled**
+
+- [ ] When a logged‑in client attempts to cancel a booking, they can only cancel bookings that belong to their own account.
+
+**AC3 – Cancellation Eligibility Rules Enforced**
+
+- [ ] When the client selects **Cancel Booking** and the booking is outside the permitted cancellation window (e.g., too close to the booking time) or is already completed or cancelled, the system prevents cancellation and displays a clear explanatory message.
+
+**AC4 – Cancellation Confirmation Required**
+
+- [ ] When the client selects **Cancel Booking**, the system prompts for confirmation, and the client must explicitly confirm the cancellation before it is processed.
+
+**AC5 – Booking Status Updated Correctly**
+
+- [ ] When the client confirms the cancellation and it is processed, the booking status is updated to Cancelled in the database.
+
+**AC6 – Table Availability Released**
+
+- [ ] When a booking is successfully cancelled and availability is recalculated, the cancelled time slot becomes available again for other customers to book.
+
+**AC7 – Cancellation Feedback Provided**
+
+- [ ] When the cancellation is successful, the system displays a confirmation message indicating that the booking has been cancelled.
+
+**AC8 – Booking History Reflects Cancellation**
+
+- [ ] When a booking has been cancelled and the client views their Booking History, the booking is clearly marked as Cancelled and can no longer be modified.
+
+**AC9 – No Changes Without Confirmation**
+
+- [ ] When the client opens the cancellation flow but chooses **Cancel** or closes the confirmation dialogue, no changes are made and the booking remains unchanged.
+
+**AC10 – Accessible and Responsive Cancellation Flow**
+
+- [ ] When the client cancels a booking on mobile, tablet, or desktop, or when using assistive technology, the cancellation process is responsive, keyboard accessible, and provides clear labels and feedback messages.
 
 ---
 
