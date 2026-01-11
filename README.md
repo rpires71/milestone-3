@@ -32,6 +32,7 @@
   - [User Story 5: Cancel a Booking (Customer)](#user-story-5-cancel-a-booking-customer)
   - [User Story 6: View Restaurant Menu (Customer)](#user-story-6-view-restaurant-menu-customer)
   - [User Story 7: View View Dietary Information (Customer)](#user-story-7-view-dietary-information-customer)
+  - [User Story 8: Receive Email Confirmation (Customer)](#user-story-8-receive-email-confirmation-customer)
 - [References](README.md#references)
 
 
@@ -1222,6 +1223,60 @@ This page supports efficient booking management by enabling administrators to ed
 **AC8 – Missing Data Handling**
 
 - [ ] When an item does not yet have dietary information recorded and the customer views that item, the system displays a **clear fallback message** such as “Dietary info not available” rather than showing incorrect or blank labels.
+
+---
+
+## User Story 8: Receive Email Confirmation (Customer)
+## As a customer, I want to **receive email confirmation** so that **I have proof of my booking.**
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+### **Acceptance Criteria:**
+
+**AC1 – Confirmation Email is Sent After Successful Booking**
+
+- [ ] When a client successfully makes a booking and it is confirmed by the system, an email confirmation is automatically sent to the address provided during booking.
+
+**AC2 – Email Contains Essential Booking Details**
+
+- [ ] When a confirmation email is sent and the client opens it, it includes:
+
+- restaurant name
+
+- booking reference number
+
+- date and time of the reservation
+
+- number of guests
+
+- customer name
+
+- restaurant contact details or location
+
+**AC3 – Clear and Professional Email Format**
+
+- [ ] When the confirmation email is sent and the client reads it, the message is clearly structured, professionally written, and easy to understand.
+
+
+**AC4 – Email Matches Stored Booking Data**
+
+- [ ] When the booking exists in the database and the confirmation email is generated, all details in the email match the saved booking record exactly.
+
+**AC5 – Email Delivery Failure Handling**
+
+- [ ] When the email cannot be delivered (e.g., invalid email address or mail server issue) and the system detects the failure, the booking remains confirmed and the system logs the error or displays a suitable notification for administrators.
+
+**AC6 – Confirmation is Sent Only Once per Booking**
+
+- [ ] When a booking is created successfully, the client receives only one confirmation email for that booking (unless the booking is later modified or intentionally resent).
+
+**AC7 – Accessibility and Readability**
+
+- [ ] When a client uses assistive technologies and reads the email on different devices or via a screen reader, the content is readable, uses plain text or accessible HTML, and does not rely on images alone.
+
+**AC8 – Timely Delivery**
+
+- [ ] When a booking is confirmed and the system sends the confirmation email, it is dispatched immediately or within a reasonable timeframe (e.g., within a few minutes).
 
 ---
 
