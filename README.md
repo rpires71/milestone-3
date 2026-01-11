@@ -41,6 +41,7 @@
   - [User Story 14: Update Booking Status (Staff)](#user-story-14-update-booking-status-staff)
   - [User Story 15: Manage Table Configuration (Admin)](#user-story-15-manage-table-configuration-admin)
   - [User Story 16: Manage Time Slots (Admin)](#user-story-16-manage-time-slots-admin)
+  - [User Story 17: View Booking Statistics (Admin)](#user-story-17-view-booking-statistics-admin)
 - [References](README.md#references)
 
 
@@ -1725,6 +1726,75 @@ This page supports efficient booking management by enabling administrators to ed
 **AC12 – Audit Logging**
 
 - [ ] When an admin makes a change to time slots and the update is saved, the system records who made the change and when, for accountability.
+
+---
+
+## User Story 17: View Booking Statistics (Admin)
+## As an **admin**, I want to **view booking statistics** so that **I can analyse restaurant usage patterns.**
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+### **Acceptance Criteria:**
+
+**AC1 – Admin-Only Access**
+
+- [ ] When a user is logged in and attempts to access booking statistics, only users with admin privileges can view the statistics dashboard.
+
+**AC2 – Statistics Dashboard Availability**
+
+- [ ] When an admin opens the booking‑statistics page and it loads, the system displays an overview of statistics without errors and within a reasonable time.
+
+**AC3 – Date Range Filtering**
+
+- [ ] When an admin views booking statistics and selects a date range (e.g., last 7 days, last 30 days, custom range), all displayed statistics update to reflect only bookings within that range.
+
+**AC4 – Core Metrics Displayed**
+
+- [ ] When an admin views the dashboard and statistics are shown, the following metrics are displayed at minimum:
+
+- total bookings
+
+- total guests (sum of party sizes)
+
+- cancelled bookings count
+
+- completed bookings count (if status tracking exists)
+
+**AC5 – Usage Pattern Insights**
+
+- [ ] When an admin views statistics for a date range, the dashboard displays at least one usage‑pattern view such as:
+
+- bookings by day of week
+
+- bookings by time slot
+
+**AC6 – Status Breakdown (If Status Exists)**
+
+- [ ] When booking statuses exist (e.g., confirmed, seated, completed, cancelled) and the admin views the dashboard, bookings are broken down by status for the selected date range.
+
+**AC7 – Data Accuracy and Consistency**
+
+- [ ] When bookings exist in the database and an admin compares statistics with the booking list for the same date range, totals and breakdowns match the underlying records.
+
+**AC8 – Handles No-Data Scenarios**
+
+- [ ] When there are no bookings in the selected date range and the admin views statistics, the dashboard displays “No data available for this period” (or equivalent) and shows zeros rather than errors.
+
+**AC9 – Real-Time / Recently Updated Data**
+
+- [ ] When an admin creates, updates, or cancels a booking and then revisits or refreshes the statistics page, the dashboard reflects the updated data.
+
+**AC10 – Accessible Presentation**
+
+- [ ] When an admin uses assistive technologies to view charts or tables, the statistics are readable and accessible (clear headings, meaningful labels, sufficient contrast), and key metrics are available in text form rather than charts alone.
+
+**AC11 – Performance for Large Data Sets**
+
+- [ ] When a large number of booking records exist and the admin loads statistics for a broad date range, the page remains responsive and loads within a reasonable time (e.g., caching or aggregation used where appropriate).
+
+**AC12 – Export/Download Option (Optional Enhancement)**
+
+- [ ] When an admin chooses to export records (if implemented), the system downloads the statistics in a usable format (e.g., CSV) matching the selected date range.
 
 ---
 
