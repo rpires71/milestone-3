@@ -25,6 +25,7 @@
   - [Technologies Used](#technologies-used)
   - [Wireframes](#wireframes)
   - [Portuguese Kitchen Booking System Wireframes](#portuguese-kitchen-booking-system-wireframes)
+  - [User Story 1: View Available Time Slots (Customer)](#user-story-1-view-available-time-slots-customer)
 - [References](README.md#references)
 
 
@@ -906,6 +907,48 @@ This page supports efficient booking management by enabling administrators to ed
 <img width="327" height="2181" alt="admin-book-management-mobile" src="https://github.com/user-attachments/assets/bba38531-85af-4766-810c-229e66f4c8f0" />
 
 </details>
+
+---
+
+## User Story 1: View Available Time Slots (Customer) 
+## As a customer, I want to **view available time slots** so **I can book a table at my preferred time.**
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+### **Acceptance Criteria:**
+
+**AC1 – Time Slot Visibility**
+
+- [ ] When a customer accesses the booking page and selects a valid date, a clearly presented list of available time slots for that date is displayed.
+
+**AC2 – Availability Accuracy**
+
+- [ ] Existing bookings are stored in the database, and when valid time slots are displayed, only those with remaining availability are shown as selectable.
+
+**AC3 – Fully Booked Time Slots**
+
+- [ ] When availability is displayed, any time slot that has reached its maximum number of bookings is either hidden or shown as disabled.
+
+
+**AC4 – Real-Time Data Handling**
+
+- [ ] If another booking is made for the same date and time, the availability list is updated upon reload or refresh to ensure the information displayed remains accurate.
+
+**AC5 – User Feedback**
+
+- [ ] If no time slots are available for the selected date, a message is displayed informing the user that no availability exists.
+
+**AC6 – Usability and Clarity**
+
+- [ ] When the availability list is displayed, the time slots are presented in a logical order with clear and readable formatting.
+
+**AC7 – Accessibility**
+
+- [ ] When a client is using assistive technologies, the available time slots are fully accessible via keyboard navigation and screen readers.
+
+**AC8 – Error Handling**
+
+- [ ] If a client attempts to view available time slots without selecting a date, or after selecting an invalid one, a user‑friendly validation message is displayed.
 
 ---
 
