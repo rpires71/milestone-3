@@ -43,8 +43,10 @@
   - [User Story 16: Manage Time Slots (Admin)](#user-story-16-manage-time-slots-admin)
   - [User Story 17: View Booking Statistics (Admin)](#user-story-17-view-booking-statistics-admin)
   - [User Story 18: Manage Menu Items (Admin)](#user-story-18-manage-menu-items-admin)
+  - [Colour Palette Justification for Portuguese Restaurant Kitchen System Website](#colour-palette-justification-for-portuguese-kitchen-booking-system-website)
+  - [Typography Justification for Portuguese Kitchen Booking System Website](#typography-justification-for-portuguese-kitchen-booking-system-website)
+  - [Accessibility Implementation, User Flow and Navigation Strategies](#accessibility-implementation-user-flow-and-navigation-strategies)
 - [References](README.md#references)
-
 
 # Milestone Project 3
 
@@ -1866,6 +1868,91 @@ Minimum required fields typically include:
 
 ---
 
+## Colour Palette Justification for Portuguese Kitchen Booking System Website
+
+[⬆ Back to Table of Contents](#table-of-contents)
+
+### Chosen Colour Palette
+
+| Colour Name     | Hex Code  | Usage                                                                 |
+|-----------------|-----------|-----------------------------------------------------------------------|
+| Azulejo Blue    | `#1F4E79` | Primary brand colour; navigation bar, header sections, and key accents |
+| Olive Green     | `#6B8E23` | Secondary tone; section dividers, icons, and subtle highlights        |
+| Terracotta Red  | `#C44536` | Call-to-action buttons, booking actions, and interactive elements     |
+| Linen Cream     | `#FAF7F2` | Main background colour providing warmth and visual comfort            |
+| Espresso Brown  | `#3A2F2A` | Headings, body text, and footer background                             |
+| Porcelain White | `#FFFFFF` | Card backgrounds, forms, and modal components   
+
+### Overview and Rationale
+
+To reflect the warmth, authenticity, and cultural richness of Portuguese cuisine, the colour palette for the Portuguese Kitchen Booking System website has been carefully selected to evoke comfort, tradition, and trust while maintaining a contemporary digital aesthetic (Agrawal, 2025; Baradell, 2023; DesigningIt, 2024).
+
+As the platform supports core interactions such as table reservations, menu browsing, and customer enquiries, the palette balances inviting warmth with professional clarity. Earth-inspired tones echo traditional Portuguese kitchens and Mediterranean dining culture, while clear contrast and hierarchy support usability and accessibility across devices.
+
+### Justification
+
+**Cultural Blue for Trust and Identity**
+
+Azulejo Blue (`#1F4E79`) draws inspiration from traditional Portuguese *azulejo* tiles, reinforcing cultural identity while conveying trust, reliability, and professionalism (Baradell, 2023; DesigningIt, 2024). As the primary brand colour, it anchors navigation elements and headers, giving users confidence when booking tables or submitting personal details.
+
+**Warm Accents to Encourage Bookings**
+
+Terracotta Red (`#C44536`) is used strategically for call-to-action buttons such as **“Book a Table”** and **“Confirm Reservation.”** This colour references traditional clay cookware and Mediterranean warmth, creating a sense of appetite, urgency, and engagement without overwhelming the interface (Agrawal, 2025; DesigningIt, 2024).
+
+**Natural Tones for Comfort and Atmosphere**
+
+Olive Green (`#6B8E23`) subtly reinforces associations with fresh ingredients, olive oil, and authentic Portuguese cooking. Used sparingly for icons and separators, it enhances visual interest while maintaining harmony with the warmer tones (Baradell, 2023).
+
+**Neutral Foundation for Readability and Accessibility**
+
+Linen Cream (`#FAF7F2`) and Porcelain White (`#FFFFFF`) provide a calm, uncluttered foundation that allows menus, booking forms, and imagery to stand out clearly. These tones reduce visual fatigue and support extended reading, particularly when users browse menus or reservation details (DesigningIt, 2024).
+
+**Professionalism and Legibility through Espresso Brown**
+
+Espresso Brown (`#3A2F2A`) is applied to headings and body text to ensure strong contrast and comfortable readability. Dark but warm, it avoids the harshness of pure black while meeting WCAG contrast requirements for accessible typography (W3C, 2023).
+
+### Consistent Branding and Hierarchical Balance
+
+The six-colour palette establishes a cohesive visual hierarchy across navigation bars, booking forms, menu cards, and confirmation screens. Primary and accent colours guide user attention, while neutral tones ensure balance and visual stability. This consistency reinforces brand recognition and supports a polished, professional user experience aligned with modern restaurant booking platforms (DesigningIt, 2024).
+
+### Applied Colour Theory Principles
+
+**1. Analogous Harmony**
+
+Warm earth tones (Terracotta Red, Espresso Brown, Linen Cream) are naturally harmonised with Olive Green, reflecting the organic, food-centred nature of the brand and creating a welcoming dining atmosphere (Baradell, 2023).
+
+**2. Complementary Contrast**
+
+Azulejo Blue is complemented by warm Terracotta Red accents, effectively directing user focus toward interactive elements such as booking actions and confirmations (Agrawal, 2025).
+
+**3. Psychological Impact**
+
+Warm colours stimulate appetite and comfort, while blue tones reinforce trust and professionalism—an essential balance for a food-based transactional website (Agrawal, 2025; Baradell, 2023).
+
+**4. Accessibility and Readability**
+
+High-contrast text-to-background pairings ensure compliance with WCAG 2.1 guidelines. Light backgrounds support dark typography, ensuring clarity across different screen sizes and lighting conditions (W3C, 2023).
+
+**5. Visual Consistency and Brand Recognition**
+
+The palette is consistently applied across all components, including cards, modals, forms, and navigation. Combined with Bootstrap 5 and custom CSS variables, this approach ensures a responsive and recognisable brand identity across devices (Bootstrap, 2024; DesigningIt, 2024).
+
+### Strategic Use of Colour
+
+- **Emphasis**: Booking and confirmation buttons use Terracotta Red (`#C44536`) to encourage action  
+- **Hierarchy**: Azulejo Blue (`#1F4E79`) for navigation and section headings; Espresso Brown (`#3A2F2A`) for body text  
+- **Consistency**: The defined palette is applied uniformly across menus, booking flows, and UI components  
+- **Balance**: Olive Green (`#6B8E23`) introduces subtle contrast without visual overload  
+- **Contrast**: Linen Cream (`#FAF7F2`) and Porcelain White (`#FFFFFF`) provide clear separation from text and controls  
+
+### Summary
+
+The Portuguese Kitchen Booking System website employs a culturally informed and psychologically balanced colour palette to create a warm, trustworthy, and accessible user experience. By combining Mediterranean earth tones with traditional Portuguese blue accents, the interface reflects the brand’s culinary identity while supporting modern usability principles (Interaction Design Foundation, 2023; DesigningIt, 2024).
+
+This considered use of colour enhances user confidence during the booking process, supports accessibility, and reinforces a cohesive brand presence—ensuring the platform feels both authentic and professional within a competitive digital restaurant landscape.
+
+---
+
 ## References
 
 [⬆ Back to Table of contents](#table-of-contents)
@@ -1877,6 +1964,10 @@ Dublin: Code Institute. Available at: https://learn.codeinstitute.net
 - **W3C – World Wide Web Consortium (2023).** Web Content Accessibility Guidelines (WCAG) 2.2.
 Available at: https://www.w3.org/WAI/standards-guidelines/wcag/
   (Accessed: 27 December 2025).
+
+- **W3C (2023) Web Content Accessibility Guidelines (WCAG) 2.1.**
+Available at: https://www.w3.org/TR/WCAG21/
+  (Accessed: 11 January 2026).
 
 - **Mozilla Developer Network (MDN) (2024).** HTML, CSS and Web Development Documentation.
 Available at: https://developer.mozilla.org/
@@ -1922,6 +2013,10 @@ Available at: https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing
 Available at: https://www.interaction-design.org/
   (Accessed: 27 December 2025).
 
+- **Interaction Design Foundation (2023)** Color theory for designers.
+Available at: https://www.interaction-design.org/literature/topics/color-theory
+  (Accessed: 11 January 2026).
+
 - **Nielsen Norman Group (2022).** User Personas and Scenario-Based Design. 
 Available at: https://www.nngroup.com/articles/personas-scenarios/  
   (Accessed: 27 December 2025).
@@ -1965,4 +2060,21 @@ Available at: https://jshint.com/
 - **jQuery Foundation (2024).** jQuery API Documentation. 
 Available at: https://api.jquery.com/  
   (Accessed: 29 December 2025).
+
+- **Agrawal, S. (2025)** Color psychology in UX design: How colors influence user behavior.
+Available at: https://www.uxdesign.cc/color-psychology-in-ux-design
+  (Accessed: 11 January 2026).
+
+- **Baradell, L. (2023)** The psychology of color in web design.
+Available at: https://www.interaction-design.org/literature/article/the-psychology-of-color-in-web-design
+  (Accessed: 11 January 2026).
+
+- **Bootstrap (2024)** Bootstrap 5 documentation.
+Available at: https://getbootstrap.com/docs/5.3/getting-started/introduction/
+  (Accessed: 11 January 2026).
+
+- **DesigningIt (2024)** Web color palettes and accessibility best practices.
+Available at: https://designingit.com/web-design-color-palettes-accessibility
+  (Accessed: 11 January 2026).
+
 
