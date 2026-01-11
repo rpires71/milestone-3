@@ -39,6 +39,7 @@
   - [User Story 12: Search Bookings by Name (Staff)](#user-story-12-search-bookings-by-name-staff)
   - [User Story 13: Mark Tables as Occupied/Available (Staff)](#user-story-13-mark-tables-as-occupiedavailable-staff)
   - [User Story 14: Update Booking Status (Staff)](#user-story-14-update-booking-status-staff)
+  - [User Story 15: Manage Table Configuration (Admin)](#user-story-15-manage-table-configuration-admin)
 - [References](README.md#references)
 
 
@@ -1587,6 +1588,71 @@ This page supports efficient booking management by enabling administrators to ed
 **AC10 – Filtering and Search Compatibility**
 
 - [ ] When bookings can be filtered or searched and a staff member filters by status (e.g., show Seated bookings), bookings appear correctly according to their current saved status. 
+
+---
+
+## User Story 15: Manage Table Configuration (Admin)
+## As an **admin**, I want to **manage table configuration** so that **I can adjust capacity and availability.**
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+### **Acceptance Criteria:**
+
+**AC1 – Admin-Only Access**
+
+- [ ] When a user is logged in and accesses table‑configuration settings, only users with admin privileges can view or modify the configuration. 
+
+**AC2 – View Existing Table Configuration**
+
+- [ ] When an admin opens the table‑management area and the page loads, all tables are displayed with key details (e.g., table ID/number, capacity, current availability status). 
+
+**AC3 – Create New Tables**
+
+- [ ] When an admin is managing tables and adds a new table, they must be able to define at minimum:
+
+- table identifier (number/name)
+
+- seating capacity
+
+- initial availability status
+
+- immediate visibility after creation
+
+**AC4 – Update Table Capacity**
+
+- [ ] When an existing table is selected and the admin updates its seating capacity, the new capacity is validated (positive integer) and saved successfully.
+
+**AC5 – Manage Table Availability Status**
+
+- [ ] When a table exists and the admin changes its availability status, it can be marked as **Available** or **Unavailable**, and unavailable tables cannot be allocated to new bookings.
+
+**AC6 – Prevent Conflicting Changes**
+
+- [ ] When a table is currently assigned to an active booking and the admin attempts to reduce its capacity below the booked guest count or mark it unavailable, the system prevents the change and displays a clear warning message.
+
+**AC7 – Persist Configuration Changes**
+
+- [ ] When an admin saves table‑configuration changes and the page is refreshed or revisited, all changes persist correctly in the database.
+
+**AC8 – Capacity Reflected in Booking System**
+
+- [ ] When table configuration has been updated and customers search for availability, the booking system reflects the updated capacity and availability rules.
+
+**AC9 – Confirmation and Feedback**
+
+- [ ] When an admin successfully updates table configuration and the action completes, a confirmation message is displayed indicating the changes were saved.
+
+**AC10 – Error Handling**
+
+- [ ] When an error occurs during table‑configuration updates and the system cannot save the changes, an error message is shown and no partial updates are applied.
+
+**AC11 – Delete or Disable Tables**
+
+- [ ] When an admin no longer needs a table and chooses to delete or disable it, the system confirms the action and ensures the table is removed from future booking availability without affecting historical records.
+
+**AC12 – Audit Logging**
+
+- [ ] When a table‑configuration change is made and the update is saved, the system records who made the change and when, for administrative tracking.
 
 ---
 
