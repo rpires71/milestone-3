@@ -37,6 +37,7 @@
   - [User Story 10: Special Requests (Customer)](#user-story-10-special-requests-customer)
   - [User Story 11: View All Bookings for the Day (Staff)](#user-story-11-view-all-bookings-for-the-day-staff)
   - [User Story 12: Search Bookings by Name (Staff)](#user-story-12-search-bookings-by-name-staff)
+  - [User Story 13: Mark Tables as Occupied/Available (Staff)](#user-story-13-mark-tables-as-occupiedavailable-staff)
 - [References](README.md#references)
 
 
@@ -1487,6 +1488,55 @@ This page supports efficient booking management by enabling administrators to ed
 **AC10 – Secure Handling of Search Data**
 
 - [ ] When client data is searched and displayed, only authorised staff can view the information, and it is handled securely in line with data‑protection requirements.
+
+---
+
+## User Story 13: Mark Tables as Occupied/Available (Staff)
+## As a staff member, I want to **mark tables as occupied/available** so that **booking status is current.**
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+### **Acceptance Criteria:**
+
+**AC1 – Staff-Only Access**
+
+- [ ] When a user is logged in and accesses table‑management features, only staff or admin users can mark tables as occupied or available.
+
+**AC2 – Table Status Visibility**
+
+- [ ] When a staff member views the table or bookings management page and it loads, each table clearly displays its current status (e.g., Available or Occupied).
+
+**AC3 – Ability to Update Table Status**
+
+- [ ] When a staff member selects a table and chooses to update its status, they can mark the table as either Occupied or Available.
+
+**AC4 – Real-Time Status Update**
+
+- [ ] When a table’s status is changed and the update is confirmed, the new status is applied immediately and reflected in the system.
+
+**AC5 – Booking Status Synchronisation**
+
+- [ ] When a table is marked as Occupied and it is linked to an active booking, the associated booking status is updated accordingly (e.g., In Use).
+
+**AC6 – Prevention of Conflicting Bookings**
+
+- [ ] When a table is marked as Occupied while new bookings are being made, the system prevents that table from being assigned until it is marked as Available again.
+
+**AC7 – Visual Status Indicators**
+
+- [ ] When tables are displayed in the system and their status changes, clear visual indicators (such as colour coding or icons) reflect the current state.
+
+**AC8 – Confirmation Feedback**
+
+- [ ] When a staff member updates a table’s status and the action is completed, a confirmation message is displayed to indicate the update was successful.
+
+**AC9 – Error Handling**
+
+- [ ] When an error occurs while updating a table’s status and the system cannot complete the action, a clear error message is shown and the previous status remains unchanged.
+
+**AC10 – Audit and Accountability (Optional)**
+
+- [ ] When a table’s status is changed and the update is saved, the system records which staff member made the change and when, for tracking purposes.
 
 ---
 
