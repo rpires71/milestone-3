@@ -38,6 +38,7 @@
   - [User Story 11: View All Bookings for the Day (Staff)](#user-story-11-view-all-bookings-for-the-day-staff)
   - [User Story 12: Search Bookings by Name (Staff)](#user-story-12-search-bookings-by-name-staff)
   - [User Story 13: Mark Tables as Occupied/Available (Staff)](#user-story-13-mark-tables-as-occupiedavailable-staff)
+  - [User Story 14: Update Booking Status (Staff)](#user-story-14-update-booking-status-staff)
 - [References](README.md#references)
 
 
@@ -1537,6 +1538,55 @@ This page supports efficient booking management by enabling administrators to ed
 **AC10 – Audit and Accountability (Optional)**
 
 - [ ] When a table’s status is changed and the update is saved, the system records which staff member made the change and when, for tracking purposes.
+
+---
+
+## User Story 14: Update Booking Status (Staff)
+## As a **staff member**, I want to **update booking status** (confirmed, seated, completed) so that **I can track the booking lifecycle.**
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+### **Acceptance Criteria:**
+
+**AC1 – Staff-Only Access**
+
+- [ ] When a user is logged in and attempts to update a booking status, only staff or admin users can perform the action.
+
+**AC2 – Status Is Visible on Booking Records**
+
+- [ ] When a staff member views the bookings list or booking‑detail page and booking information is displayed, the current status (e.g., Confirmed, Seated, Completed) is clearly shown for each booking. 
+
+**AC3 – Allowed Status Options**
+
+- [ ] When a staff member updates a booking and opens the status control, they can select only from the allowed statuses: Confirmed, Seated, Completed. 
+
+**AC4 – Valid Status Progression**
+
+- [ ] When a booking already has a status and a staff member changes it, the system enforces logical progression (e.g., Confirmed - Seated - Completed) and prevents invalid transitions (e.g., Completed - Seated). 
+
+**AC5 – Status Update Saves Successfully**
+
+- [ ] When a staff member selects a new status and submits the change, and the system processes the update, the new status is saved to the database and persists after a page refresh. 
+
+**AC6 – Immediate UI Feedback**
+
+- [ ] When a booking status is updated and the update completes, the staff member sees an immediate confirmation message and the updated status is reflected clearly in the interface. 
+
+**AC7 – Booking List Reflects Updates**
+
+- [ ] When a booking status has been updated and the staff member returns to the bookings list, the list shows the updated status for that booking. 
+
+**AC8 – Error Handling and Data Integrity**
+
+- [ ] When an error occurs during a status update (e.g., server failure, validation issue) and the system cannot save the change, an error message is displayed and the booking status remains unchanged. 
+
+**AC9 – Audit Trail**
+
+- [ ] When a booking status is updated and the change is saved, the system records who made the change and when (e.g., “Updated by [staff user] on [date/time]”). 
+
+**AC10 – Filtering and Search Compatibility**
+
+- [ ] When bookings can be filtered or searched and a staff member filters by status (e.g., show Seated bookings), bookings appear correctly according to their current saved status. 
 
 ---
 
