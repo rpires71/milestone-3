@@ -35,6 +35,7 @@
   - [User Story 8: Receive Email Confirmation (Customer)](#user-story-8-receive-email-confirmation-customer)
   - [User Story 9: View Booking History (Customer)](#user-story-9-view-booking-history-customer)
   - [User Story 10: Special Requests (Customer)](#user-story-10-special-requests-customer)
+  - [User Story 11: View All Bookings for the Day (Staff)](#user-story-11-view-all-bookings=for-the-day-staff)
 - [References](README.md#references)
 
 
@@ -1370,6 +1371,62 @@ This page supports efficient booking management by enabling administrators to ed
 **AC9 – Secure Handling of User Input**
 
 - [ ] When the client submits special‑request text and the system stores and displays it, the input is handled securely (e.g., sanitised or escaped) to prevent malicious content from being executed.
+
+---
+
+## User Story 11: Special Requests (Customer)
+## As a staff member, I want to **view all bookings for today** so that **I can prepare tables.**
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+### **Acceptance Criteria:**
+
+**AC1 – Staff-Only Access**
+
+- [ ] Access is restricted to staff or admin users when a logged‑in user attempts to view today’s bookings. 
+
+**AC2 – Display Today’s Bookings Automatically**
+
+- [ ] All bookings for the current date are shown by default when a staff member opens the bookings dashboard.
+
+**AC3 – Relevant Booking Information Is Shown**
+
+- [ ] When today’s bookings are displayed, each entry includes:
+
+- booking time
+
+- number of guests
+
+- customer name
+
+- special requests (if any)
+
+- booking status (e.g., confirmed, cancelled)
+
+
+**AC4 – Bookings Are Ordered by Time**
+
+- [ ] Bookings are listed in chronological order when multiple bookings exist for the day.
+
+**AC5 – No Bookings Message**
+
+- [ ] A clear message is displayed when no bookings exist for today.
+
+**AC6 – Real-Time or Refreshed Data**
+
+- [ ] **The list reflects the latest booking data** when a booking is created, updated, or cancelled and the page is refreshed (or auto‑refreshed, if implemented).
+
+**AC7 – Visual Clarity for Preparation**
+
+- [ ] Bookings are presented in a clear, readable layout that supports quick staff preparation (e.g., spacing, labels, emphasis on time and guest count).
+
+**AC8 – Time Zone Accuracy**
+
+- [ ] **Booking times reflect the restaurant’s local time** when today’s bookings are displayed.
+
+**AC9 – Secure Data Handling**
+
+- [ ] **Only necessary customer information is shown and handled securely** in accordance with data‑protection practices.
 
 ---
 
