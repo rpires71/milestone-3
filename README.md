@@ -27,6 +27,7 @@
   - [Portuguese Kitchen Booking System Wireframes](#portuguese-kitchen-booking-system-wireframes)
   - [User Story 1: View Available Time Slots (Customer)](#user-story-1-view-available-time-slots-customer)
   - [User Story 2: Specify the Number of Guests (Customer)](#user-story-2-specify-the-number-of-guests-customer)
+  - [User Story 3: View a Booking Confirmation (Customer)](#user-story-3-view-a-booking-confirmation-customer)
 - [References](README.md#references)
 
 
@@ -991,6 +992,52 @@ This page supports efficient booking management by enabling administrators to ed
 **AC8 – Editing a Booking**
 
 - [ ] When a client edits the number of guests in an existing booking, the system re‑validates the value and checks table‑allocation rules before saving the changes.
+
+---
+
+## User Story 3: Specify the Number of Guests (Customer)
+## As a customer, I want to **view my booking confirmation** so that **I have a record of my reservation.**
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+### **Acceptance Criteria:**
+
+**AC1 – Confirmation Displayed After Successful Booking**
+
+- [ ] When the customer submits a valid booking request and the booking is successfully created, the system displays a booking confirmation..
+
+**AC2 – Confirmation Contains Key Booking Details**
+
+- [ ] When the confirmation is displayed and the client reviews it, it includes the booking reference, date, time, number of guests, and customer name.
+
+**AC3 – Clear Success Messaging**
+
+- [ ] When the booking confirmation is shown, the system provides a clear success message.
+
+
+**AC4 – Confirmation Is Accessible Later**
+
+- [ ] When the client has made a booking and visits My Bookings or Booking History, they can view the confirmation record for that reservation.
+
+**AC5 – Only the Correct User Can View It**
+
+- [ ] When the client is logged in and attempts to view a booking confirmation, they can only access confirmations belonging to their own account.
+
+**AC6 – Confirmation Still Works After Refresh / Revisit**
+
+- [ ] When the booking has been created and the client refreshes the confirmation page or returns to it later, the details are retrieved correctly from the database.
+
+**AC7 – Print/Save Option Available**
+
+- [ ] When the client is viewing a booking confirmation and wishes to keep a copy, the page provides an option to print or save it (e.g., via a CTA button or link) without breaking the layout.
+
+**AC8 – Error Handling for Missing/Invalid Booking**
+
+- [ ] When a booking confirmation link is invalid or the booking does not exist, the system displays a user‑friendly error message and provides a link back to the homepage.
+
+**AC9 – Accessible and Responsive Layout**
+
+- [ ] When the client views the confirmation on mobile, tablet, desktop, or using assistive technology, the content is responsive, keyboard‑navigable, and readable with clear heading structure.
 
 ---
 
