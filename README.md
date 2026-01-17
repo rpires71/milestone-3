@@ -43,8 +43,9 @@
   - [User Story 16: Manage Time Slots (Admin)](#user-story-16-manage-time-slots-admin)
   - [User Story 17: View Booking Statistics (Admin)](#user-story-17-view-booking-statistics-admin)
   - [User Story 18: Manage Menu Items (Admin)](#user-story-18-manage-menu-items-admin)
-  - [Colour Palette Justification for Portuguese Restaurant Kitchen System Website](#colour-palette-justification-for-portuguese-kitchen-booking-system-website)
+  - [Colour Palette Justification for Portuguese Kitchen Booking System Website](#colour-palette-justification-for-portuguese-kitchen-booking-system-website)
   - [Typography Justification for Portuguese Kitchen Booking System Website](#typography-justification-for-portuguese-kitchen-booking-system-website)
+  - [Database Design for the Portuguese Kitchen Booking System Website](#database-design-for-the-portuguese-kitchen-booking-system-website)
   - [Accessibility Implementation, User Flow and Navigation Strategies](#accessibility-implementation-user-flow-and-navigation-strategies)
 - [References](README.md#references)
 
@@ -2009,6 +2010,56 @@ This restrained typographic approach improves visual coherence and reduces cogni
 - **System fallback stack:** `'Arial', sans-serif`  
 
 These specifications ensure compliance with accessibility standards while maintaining a polished and professional visual presentation across all devices and screen sizes.
+
+---
+
+## Database Design for the Portuguese Kitchen Booking System Website
+
+[⬆ Back to Table of Contents](#table-of-contents)
+
+---
+
+### Overview
+
+The Portuguese Kitchen Booking System uses a **relational database** design with **8 models** (including Django's built-in User model) across four Django apps:
+
+- **user** app: 1 model (Django built-in `User`)
+- **accounts** app: 1 model (`CustomerProfile`)
+- **bookings** app: 3 models (`Booking`, `Table`, `TimeSlot`)
+- **menu** app: 3 models (`MenuCategory`, `MenuItem`, `DietaryTag`)
+
+#### Database System
+
+- **Development:** SQLite3  
+- **Production:** PostgreSQL 15  
+
+
+### Entity Relationship Diagram (ERD)
+
+<img width="1099" height="757" alt="Entity Relationship Diagram" src="https://github.com/user-attachments/assets/3db055bd-aa3f-43e1-a188-e6d4a5d84ca9" />
+
+
+### Models / Tables (8 total)
+
+1. **User** (Django built-in)
+2. **CustomerProfile** (one-to-one relationship with `User`)
+3. **Booking** (core transactional model)
+4. **Table** (restaurant seating)
+5. **TimeSlot** (reservation time slots)
+6. **MenuCategory** (menu organisation)
+7. **MenuItem** (individual menu items)
+8. **DietaryTag** (dietary information)
+
+### Relationships Identified
+
+- **User -> CustomerProfile** (one-to-one)
+- **User -> Booking** (one-to-many)
+- **Booking -> Table** (one-to-many)
+- **Booking -> TimeSlot** (one-to-many)
+- **MenuCategory -> MenuItem** (one-to-many)
+- **MenuItem -> DietaryTag** (many-to-many)
+
+This database design is based on established relational modelling practices commonly used in restaurant management platforms and booking systems. The development of the entity relationships — including **many-to-many dietary tagging, menu categorisation, and one-to-many booking structures** — was informed by existing restaurant reservation database patterns, ERD modelling guidelines, and the official Django documentation (Django Software Foundation, 2024; Vertabelo, 2023).
 
 ---
 
