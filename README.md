@@ -68,7 +68,7 @@ The application has been designed with a strong focus on **usability, accessibil
 
 From a technical perspective, the project uses **Python and a back-end web framework** to handle server-side logic, combined with **HTML5, CSS3, and template-based rendering** to dynamically display content. A **relational database** supports full **CRUD (Create, Read, Update, Delete)** functionality, enabling booking data to be securely stored, retrieved, updated, and removed as required. **Server-side validation** and **error handling** are implemented to maintain data integrity and provide clear feedback to users.
 
-The project follows **professional development and deployment practices**, including the use of **environment variables** for sensitive configuration, dependency management via a `requirements.txt` file, and deployment to a **cloud-based hosting platform**. Comprehensive **manual testing** has been carried out to verify functionality, responsiveness, usability, and data handling, with findings documented as part of the project submission.
+The project follows **professional development and deployment practices**, including the use of **environment variables** for sensitive configuration, dependency management via a 'requirements.txt' file, and deployment to a **cloud-based hosting platform**. Comprehensive **manual testing** has been carried out to verify functionality, responsiveness, usability, and data handling, with findings documented as part of the project submission.
 
 Overall, the Portuguese Kitchen Booking System demonstrates my ability to build a **publishable, real-world full-stack web application**, combining robust back-end development, database management, and user-focused design to deliver a practical and scalable restaurant booking solution.
 
@@ -120,7 +120,7 @@ The final version of the application is deployed to a **cloud-based hosting plat
 
 ### 7. Documentation and Attribution
 
-Comprehensive project documentation is provided within the `README.md` file, outlining the project’s purpose, features, technologies used, and deployment details.
+Comprehensive project documentation is provided within the 'README.md' file, outlining the project’s purpose, features, technologies used, and deployment details.
 
 All external resources, libraries, and references are clearly credited in accordance with **Code Institute’s attribution and academic integrity guidelines** (Code Institute, 2025).
 
@@ -214,7 +214,7 @@ Sensitive configuration data, including secret keys and environment-specific set
 
 - **Professional Documentation and Code Quality**
 
-A comprehensive `README.md` file documents the project’s purpose, features, technologies used, testing processes, and deployment steps. The codebase follows modular, maintainable conventions and includes appropriate in-line comments, ensuring readability and long-term maintainability in line with professional development standards (Code Institute, 2025).
+A comprehensive 'README.md' file documents the project’s purpose, features, technologies used, testing processes, and deployment steps. The codebase follows modular, maintainable conventions and includes appropriate in-line comments, ensuring readability and long-term maintainability in line with professional development standards (Code Institute, 2025).
 
 ---
 
@@ -380,9 +380,9 @@ Additional extensions, such as **Live Server**, allowed for real-time previews o
 
 ### HTML5
 
-The latest version of the HyperText Markup Language used to organise content on the web is **HTML5**. This website syntax code provides an accessible and semantic foundation, improving the clarity and organisation of the content by using meaningful elements such as `<header>`, `<nav>`, `<main>`, `<section>`, and `<footer>`.
+The latest version of the HyperText Markup Language used to organise content on the web is **HTML5**. This website syntax code provides an accessible and semantic foundation, improving the clarity and organisation of the content by using meaningful elements such as '<header>', '<nav>', '<main>', '<section>', and '<footer>'.
 
-For users relying on screen readers, these syntax tags enhance accessibility and make the site's structure easier for search engines to understand, which improves SEO. Without relying on external plugins, enabling rich media integration can be done by using multimedia elements like `<video>` and `<audio>`, which HTML also supports.
+For users relying on screen readers, these syntax tags enhance accessibility and make the site's structure easier for search engines to understand, which improves SEO. Without relying on external plugins, enabling rich media integration can be done by using multimedia elements like '<video>' and '<audio>', which HTML also supports.
 
 To improve user interaction and validation, HTML also includes powerful **form controls** and **attributes**. Overall, enhanced user experience, improved performance, and better cross-browser compatibility is achieved by HTML5, ensuring that the website is built on modern, standards-compliant code.
 
@@ -1877,12 +1877,12 @@ Minimum required fields typically include:
 
 | Colour Name     | Hex Code  | Usage                                                                 |
 |-----------------|-----------|-----------------------------------------------------------------------|
-| Azulejo Blue    | `#1F4E79` | Primary brand colour; navigation bar, header sections, and key accents |
-| Olive Green     | `#6B8E23` | Secondary tone; section dividers, icons, and subtle highlights        |
-| Terracotta Red  | `#C44536` | Call-to-action buttons, booking actions, and interactive elements     |
-| Linen Cream     | `#FAF7F2` | Main background colour providing warmth and visual comfort            |
-| Espresso Brown  | `#3A2F2A` | Headings, body text, and footer background                             |
-| Porcelain White | `#FFFFFF` | Card backgrounds, forms, and modal components   
+| Azulejo Blue    | '#1F4E79' | Primary brand colour; navigation bar, header sections, and key accents |
+| Olive Green     | '#6B8E23' | Secondary tone; section dividers, icons, and subtle highlights        |
+| Terracotta Red  | '#C44536' | Call-to-action buttons, booking actions, and interactive elements     |
+| Linen Cream     | '#FAF7F2' | Main background colour providing warmth and visual comfort            |
+| Espresso Brown  | '#3A2F2A' | Headings, body text, and footer background                             |
+| Porcelain White | '#FFFFFF' | Card backgrounds, forms, and modal components   
 
 ### Overview and Rationale
 
@@ -1894,23 +1894,23 @@ As the platform supports core interactions such as table reservations, menu brow
 
 **Cultural Blue for Trust and Identity**
 
-Azulejo Blue (`#1F4E79`) draws inspiration from traditional Portuguese *azulejo* tiles, reinforcing cultural identity while conveying trust, reliability, and professionalism (Baradell, 2023; DesigningIt, 2024). As the primary brand colour, it anchors navigation elements and headers, giving users confidence when booking tables or submitting personal details.
+Azulejo Blue ('#1F4E79') draws inspiration from traditional Portuguese *azulejo* tiles, reinforcing cultural identity while conveying trust, reliability, and professionalism (Baradell, 2023; DesigningIt, 2024). As the primary brand colour, it anchors navigation elements and headers, giving users confidence when booking tables or submitting personal details.
 
 **Warm Accents to Encourage Bookings**
 
-Terracotta Red (`#C44536`) is used strategically for call-to-action buttons such as **“Book a Table”** and **“Confirm Reservation.”** This colour references traditional clay cookware and Mediterranean warmth, creating a sense of appetite, urgency, and engagement without overwhelming the interface (Agrawal, 2025; DesigningIt, 2024).
+Terracotta Red ('#C44536') is used strategically for call-to-action buttons such as **“Book a Table”** and **“Confirm Reservation.”** This colour references traditional clay cookware and Mediterranean warmth, creating a sense of appetite, urgency, and engagement without overwhelming the interface (Agrawal, 2025; DesigningIt, 2024).
 
 **Natural Tones for Comfort and Atmosphere**
 
-Olive Green (`#6B8E23`) subtly reinforces associations with fresh ingredients, olive oil, and authentic Portuguese cooking. Used sparingly for icons and separators, it enhances visual interest while maintaining harmony with the warmer tones (Baradell, 2023).
+Olive Green ('#6B8E23') subtly reinforces associations with fresh ingredients, olive oil, and authentic Portuguese cooking. Used sparingly for icons and separators, it enhances visual interest while maintaining harmony with the warmer tones (Baradell, 2023).
 
 **Neutral Foundation for Readability and Accessibility**
 
-Linen Cream (`#FAF7F2`) and Porcelain White (`#FFFFFF`) provide a calm, uncluttered foundation that allows menus, booking forms, and imagery to stand out clearly. These tones reduce visual fatigue and support extended reading, particularly when users browse menus or reservation details (DesigningIt, 2024).
+Linen Cream ('#FAF7F2') and Porcelain White ('#FFFFFF') provide a calm, uncluttered foundation that allows menus, booking forms, and imagery to stand out clearly. These tones reduce visual fatigue and support extended reading, particularly when users browse menus or reservation details (DesigningIt, 2024).
 
 **Professionalism and Legibility through Espresso Brown**
 
-Espresso Brown (`#3A2F2A`) is applied to headings and body text to ensure strong contrast and comfortable readability. Dark but warm, it avoids the harshness of pure black while meeting WCAG contrast requirements for accessible typography (W3C, 2023).
+Espresso Brown ('#3A2F2A') is applied to headings and body text to ensure strong contrast and comfortable readability. Dark but warm, it avoids the harshness of pure black while meeting WCAG contrast requirements for accessible typography (W3C, 2023).
 
 ### Consistent Branding and Hierarchical Balance
 
@@ -1940,11 +1940,11 @@ The palette is consistently applied across all components, including cards, moda
 
 ### Strategic Use of Colour
 
-- **Emphasis**: Booking and confirmation buttons use Terracotta Red (`#C44536`) to encourage action  
-- **Hierarchy**: Azulejo Blue (`#1F4E79`) for navigation and section headings; Espresso Brown (`#3A2F2A`) for body text  
+- **Emphasis**: Booking and confirmation buttons use Terracotta Red ('#C44536') to encourage action  
+- **Hierarchy**: Azulejo Blue ('#1F4E79') for navigation and section headings; Espresso Brown ('#3A2F2A') for body text  
 - **Consistency**: The defined palette is applied uniformly across menus, booking flows, and UI components  
-- **Balance**: Olive Green (`#6B8E23`) introduces subtle contrast without visual overload  
-- **Contrast**: Linen Cream (`#FAF7F2`) and Porcelain White (`#FFFFFF`) provide clear separation from text and controls  
+- **Balance**: Olive Green ('#6B8E23') introduces subtle contrast without visual overload  
+- **Contrast**: Linen Cream ('#FAF7F2') and Porcelain White ('#FFFFFF') provide clear separation from text and controls  
 
 ### Summary
 
@@ -2003,11 +2003,11 @@ This restrained typographic approach improves visual coherence and reduces cogni
 
 ### Typography Specifications
 
-- **Body text minimum size:** `16px` (in line with accessibility and readability guidelines)
+- **Body text minimum size:** '16px' (in line with accessibility and readability guidelines)
 - **Font weights:**  
-  - `400` for body content  
-  - `600–700` for headings and call-to-action buttons  
-- **System fallback stack:** `'Arial', sans-serif`  
+  - '400' for body content  
+  - '600–700' for headings and call-to-action buttons  
+- **System fallback stack:** ''Arial', sans-serif'  
 
 These specifications ensure compliance with accessibility standards while maintaining a polished and professional visual presentation across all devices and screen sizes.
 
@@ -2023,10 +2023,10 @@ These specifications ensure compliance with accessibility standards while mainta
 
 The Portuguese Kitchen Booking System uses a **relational database** design with **8 models** (including Django's built-in User model) across four Django apps:
 
-- **user** app: 1 model (Django built-in `User`)
-- **accounts** app: 1 model (`CustomerProfile`)
-- **bookings** app: 3 models (`Booking`, `Table`, `TimeSlot`)
-- **menu** app: 3 models (`MenuCategory`, `MenuItem`, `DietaryTag`)
+- **user** app: 1 model (Django built-in 'User')
+- **accounts** app: 1 model ('CustomerProfile')
+- **bookings** app: 3 models ('Booking', 'Table', 'TimeSlot')
+- **menu** app: 3 models ('MenuCategory', 'MenuItem', 'DietaryTag')
 
 #### Database System
 
@@ -2042,7 +2042,7 @@ The Portuguese Kitchen Booking System uses a **relational database** design with
 ### Models / Tables (8 total)
 
 1. **User** (Django built-in)
-2. **CustomerProfile** (one-to-one relationship with `User`)
+2. **CustomerProfile** (one-to-one relationship with 'User')
 3. **Booking** (core transactional model)
 4. **Table** (restaurant seating)
 5. **TimeSlot** (reservation time slots)
@@ -2060,6 +2060,163 @@ The Portuguese Kitchen Booking System uses a **relational database** design with
 - **MenuItem -> DietaryTag** (many-to-many)
 
 This database design is based on established relational modelling practices commonly used in restaurant management platforms and booking systems. The development of the entity relationships — including **many-to-many dietary tagging, menu categorisation, and one-to-many booking structures** — was informed by existing restaurant reservation database patterns, ERD modelling guidelines, and the official Django documentation (Django Software Foundation, 2024; Vertabelo, 2023).
+
+### Database Normal Forms and Their Importance
+
+To organise data efficiently and logically in relational database design, database normal forms are a set of established principles used to achieve this objective. To prevent anomalies during data insertion, updating, or deletion, and to reduce data redundancy, the structuring of tables and their relationships is required, and this is known as the process of normalisation.
+
+Data should be stored following the guidance provided by the introduction of specific rules known as normal forms, such as **First Normal Form**, **Second Normal Form**, and **Third Normal Form**. As a database progresses through these normal forms, it becomes more consistent, easier to maintain, and less prone to errors caused by duplicated or poorly structured data.
+
+In transactional systems, such as booking or reservation platforms where data accuracy and reliability are essential, the application of database normal forms is particularly important. A well-normalised database provides a strong foundation for performance optimisation, reporting, and future development, while also supporting data integrity and improved scalability.
+
+To conform to **Third Normal Form (3NF)**, structural adjustments and refinements have been applied to the Portuguese Kitchen Booking System database. During the design process, entities were separated to ensure that each table represents a single, well-defined concept and that all non-key attributes depend solely on the primary key of their respective tables. To prevent transitive dependencies and update anomalies, redundant data was removed and relationships were established using foreign keys. Reliable transactional behaviour for bookings, table allocation, and menu management is supported through this normalised structure, resulting in reduced data duplication and improved data integrity.
+
+### Fully Compliant 3rd Normal Form Design
+
+The database schema for the Portuguese Kitchen Booking System was designed using established relational database normalisation principles to ensure data integrity, minimise redundancy, and support efficient querying and scalability. The final schema conforms to **Third Normal Form (3NF)**.
+
+#### 1st Normal Form (1NF) 
+
+##### Requirements
+
+    - Each table has a primary key
+    - All attributes are atomic
+    - No repeating groups or multi-valued fields
+
+##### Databse Design
+
+    - Every entity uses a single-field primary key (id)
+    - All fields store single, indivisible values
+    - Many-to-many relationships (e.g. MenuItem <-> DietaryTag) are correctly modelled rather than stored as lists
+
+All entities use a single-field surrogate primary key ('id'), and many-to-many relationships—such as dietary requirements applied to menu items—are implemented through relational links rather than storing multiple values within a single field. This ensures consistency and simplifies data manipulation.
+
+#### 2nd Normal Form (2NF)
+
+##### Requirements
+
+    - Must already be in 1NF
+    - No partial dependencies on a composite primary key
+    
+##### Database Design
+
+    - All tables use surrogate primary keys rather than composite keys
+    - Therefore, every non-key attribute depends on the entire primary key by definition
+    
+This approach ensures clarity of responsibility within each entity and avoids unnecessary coupling between unrelated data attributes.
+
+#### 3rd Normal Form (3NF)
+
+##### Requirements
+
+    - Must already be in 2NF
+    - No transitive dependencies (non-key attributes depending on other non-key attributes)
+
+As a result, all non-key attributes in each table depend solely on the primary key of that table, with no transitive dependencies present.
+
+## Database Table Purposes and Design Justification
+
+The database schema for the Portuguese Kitchen Booking System is composed of clearly defined entities, each representing a distinct real-world concept within the restaurant booking domain. Separating concerns into individual tables supports data integrity, maintainability, and scalability while aligning with Third Normal Form (3NF) principles.
+
+The purpose and justification for each table are outlined below.
+
+### Table-by-table verification
+
+#### User
+
+    - Attributes (email, first_name, last_name, flags) all describe the user identified by id
+    - No derived or dependent attributes
+    - No transitive dependencies
+
+**Purpose:**
+
+The 'User' table stores core authentication and identity information for individuals interacting with the system, including customers and administrative staff.
+
+**Justification:**
+
+This table leverages the standard user model pattern commonly used in web frameworks such as Django. By isolating authentication-related data (e.g. email, name, permissions) from booking-specific or customer preferences, the design supports security, extensibility, and role-based access control. This separation ensures that user credentials and permissions remain independent of booking logic.
+
+#### CustomerProfile
+
+    - Attributes (dietary_requirements, special_requests, created_at) describe the profile entity
+    - user_id is a 1:1 foreign key and acts as a candidate key
+    - No duplicated attributes from User
+    - Clean 3NF-compliant extension pattern
+
+**Purpose:**  
+
+The 'CustomerProfile' table stores customer-specific information related to dining preferences, such as dietary requirements and special requests.
+
+**Justification:**
+
+A one-to-one relationship with 'User' allows the system to extend user data without modifying the core authentication structure. This approach adheres to normalisation principles by preventing the overloading of the 'User' table with domain-specific attributes while allowing future expansion (e.g. loyalty preferences or accessibility needs).
+
+#### Booking
+    - All fields depend directly on Booking.id
+    - status, number_of_guests, booking_date, and timestamps describe the booking event
+    - Foreign keys reference other entities without duplicating their attributes
+    - No transitive dependency present
+
+**Purpose:**
+
+The 'Booking' table represents a reservation made by a user, capturing details such as date, time slot, assigned table, number of guests, and booking status.
+
+**Justification:**
+
+This table acts as the central transactional entity within the system. By referencing 'User', 'Table', and 'TimeSlot' via foreign keys, it avoids duplicating related data while maintaining clear relational links. Status tracking and timestamps support real-world booking workflows, including confirmations, cancellations, and no-shows, ensuring accurate operational management.
+
+#### MenuItem / MenuCategory / DietaryTag
+    
+    - Category details are stored once in MenuCategory
+    - Dietary attributes are normalised via a many-to-many relationship
+    - Menu items do not duplicate category or tag attributes
+    - Correct separation of concerns
+
+**Purpose:**  
+
+- The 'MenuItem' table stores individual dishes offered by the restaurant, including descriptions, pricing, availability, and images.
+- The 'MenuCategory' table organises menu items into logical groupings such as starters, mains, desserts, and drinks.
+- The 'DietaryTag' table defines dietary classifications such as vegetarian, vegan, gluten-free, or dairy-free.
+
+**Justification:**
+
+- Each menu item is linked to a single category while supporting multiple dietary tags through a many-to-many relationship. This design ensures flexibility in menu presentation and avoids duplication of dietary information, supporting both usability and normalisation.
+- Separating categories from menu items prevents repeated category labels and supports consistent ordering and display across the user interface. This structure improves maintainability and allows categories to be managed independently of individual menu items.
+- Dietary requirements are modelled as a standalone entity to support reuse across multiple menu items. This approach avoids repeating dietary labels and enables consistent filtering, labelling, and accessibility for users with specific dietary needs.
+
+#### TimeSlot
+
+    - Attributes describe the slot (time, max_capacity, is_active)
+    - No derived or dependent attributes
+    - Fully normalised
+
+**Purpose:**
+
+The 'TimeSlot' table defines discrete reservation times during service hours and manages capacity constraints per slot.
+
+**Justification:**
+
+By modelling time slots as a separate entity, the system avoids duplicating time data across bookings and allows capacity limits to be enforced consistently. This structure supports scalable reservation logic and simplifies changes to service schedules without affecting historical booking records.
+
+#### Table
+
+    - Attributes describe the table itself (capacity, location, description)
+    - Availability is a state of the table, not duplicated elsewhere
+    - No transitive dependencies
+
+**Purpose:** 
+
+The 'Table' table represents physical tables within the restaurant, including capacity, location, and availability.
+
+**Justification:**
+
+Separating physical tables into their own entity allows capacity and seating logic to be managed independently of bookings. This design enables accurate allocation of tables based on party size and location preferences while supporting future enhancements such as floor plans or table grouping.
+
+### Final Conclusion
+
+Following the removal of redundant attributes and the separation of related entities into distinct tables, the database schema conforms to **Third Normal Form (3NF)**. Each non-key attribute depends solely on the primary key of its respective table, with no partial or transitive dependencies present. This ensures data integrity, minimises redundancy, and supports scalable relational operations.
+
+Each table within the database serves a single, well-defined purpose and represents a distinct concept within the restaurant booking domain. By separating authentication, customer preferences, bookings, seating, scheduling, and menu data into dedicated entities, the schema maintains Third Normal Form compliance while supporting a robust, scalable, and maintainable system architecture.
 
 ---
 
@@ -2207,4 +2364,27 @@ Available at: https://designingit.com/typography-in-web-design
 Available at: https://99designs.co.uk/blog/design-basics/web-typography/
   (Accessed: 11 January 2026).
 
+- **Django Software Foundation (2024)** Django model field reference.
+Available at: https://docs.djangoproject.com/en/stable/ref/models/fields/
+  (Accessed: 11 January 2026).
+  
+- **Django Software Foundation (2024)** Django model relationships.
+Available at: https://docs.djangoproject.com/en/stable/topics/db/models/#relationships
+  (Accessed: 11 January 2026).
+  
+- **Lucid Software Inc. (2024)** Entity relationship diagram (ERD) tutorial.
+Available at: https://www.lucidchart.com/pages/er-diagrams
+  (Accessed: 11 January 2026).
+  
+- **Vertabelo (2023)** Restaurant database model.
+Available at: https://vertabelo.com/blog/restaurant-database-model/
+  (Accessed: 11 January 2026).
+  
+- **GeeksforGeeks (2023)** Database design for online reservation systems.
+Available at: https://www.geeksforgeeks.org/database-design-for-online-reservation-system/
+  (Accessed: 11 January 2026).
+  
+- **PostgreSQL Global Development Group (2024)** PostgreSQL documentation: Data types.
+Available at: https://www.postgresql.org/docs/current/datatype.html
+  (Accessed: 11 January 2026).
 
