@@ -3066,6 +3066,78 @@ The database models implement three types of relationships as defined in the ERD
 
 **Junction Table:** Django automatically creates `menu_menuitem_dietary_info` table to manage the many-to-many relationship between MenuItem and DietaryTag.
 
+### Implementation Process
+
+#### Step 1: Model Creation
+
+Models were created in three separate Python files following Django's modular application structure:
+
+```bash
+accounts/models.py    # CustomerProfile
+bookings/models.py    # Table, TimeSlot, Booking
+menu/models.py        # MenuCategory, MenuItem, DietaryTag
+```
+
+#### Step 2: Migration Generation
+
+Django's migration system was used to generate database schema from model definitions:
+
+```bash
+python manage.py makemigrations
+```
+
+**Output:**
+
+```
+Migrations for 'accounts':
+  accounts/migrations/0001_initial.py
+    - Create model CustomerProfile
+Migrations for 'bookings':
+  bookings/migrations/0001_initial.py
+    - Create model Table
+    - Create model TimeSlot
+    - Create model Booking
+Migrations for 'menu':
+  menu/migrations/0001_initial.py
+    - Create model MenuCategory
+    - Create model DietaryTag
+    - Create model MenuItem
+```
+
+#### Step 3: Migration Application
+
+Migrations were applied to create the actual database tables:
+
+```bash
+python manage.py migrate
+```
+
+**Output:**
+```
+Running migrations:
+  Applying accounts.0001_initial... OK
+  Applying bookings.0001_initial... OK
+  Applying menu.0001_initial... OK
+```
+
+#### Step 4: Verification
+
+Database schema was verified to ensure all tables were created correctly:
+
+**Tables Created:**
+
+- `accounts_customerprofile`
+- `bookings_table`
+- `bookings_timeslot`
+- `bookings_booking`
+- `menu_menucategory`
+- `menu_dietarytag`
+- `menu_menuitem`
+- `menu_menuitem_dietary_info` (junction table - auto-created)
+
+Plus Django's built-in tables (auth_user, django_session, etc.)
+
+
 ---
 
 ## References
@@ -3224,6 +3296,14 @@ Available at: https://docs.djangoproject.com/en/stable/topics/db/models/#relatio
 Available at: https://docs.djangoproject.com/en/4.2/
   (Accessed: 17 January 2026).
 
+- **Django Software Foundation (2024)** Django documentation: Models and databases. Version 4.2.
+Available at: https://docs.djangoproject.com/en/4.2/topics/db/models/
+  (Accessed: 17 January 2026).
+
+- **Django Software Foundation (2024)** Django documentation: Model field reference. Version 4.2.
+Available at: https://docs.djangoproject.com/en/4.2/ref/models/fields/
+  (Accessed: 17 January 2026).
+
 - **Lucid Software Inc. (2024)** Entity relationship diagram (ERD) tutorial.
 Available at: https://www.lucidchart.com/pages/er-diagrams
   (Accessed: 11 January 2026).
@@ -3247,3 +3327,7 @@ Available at: https://docs.python.org/3/tutorial/venv.html
 - **Vincent, W. S. (2020)** Django for beginners: Build websites with Python and Django. 3rd edn.
 Self-published.
   (Accessed: 18 January 2026).
+
+
+
+
