@@ -48,7 +48,7 @@
   - [Database Design for the Portuguese Kitchen Booking System Website](#database-design-for-the-portuguese-kitchen-booking-system-website)
   - [Django Framework Setup and Configuration](#django-framework-setup-and-configuration)
   - [Database Models Implementation](#database-models-implementation)
-  - [Django Admin Configuration and Sample Data](django-admin-configuration-and-sample-data)
+  - [Django Admin Configuration and Sample Data](#django-admin-configuration-and-sample-data)
   - [Accessibility Implementation, User Flow and Navigation Strategies](#accessibility-implementation-user-flow-and-navigation-strategies)
 - [References](README.md#references)
 
