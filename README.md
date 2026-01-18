@@ -48,6 +48,7 @@
   - [Database Design for the Portuguese Kitchen Booking System Website](#database-design-for-the-portuguese-kitchen-booking-system-website)
   - [Django Framework Setup and Configuration](#django-framework-setup-and-configuration)
   - [Database Models Implementation](#database-models-implementation)
+  - [Django Admin Configuration and Sample Data](django-admin-configuration-and-sample-data)
   - [Accessibility Implementation, User Flow and Navigation Strategies](#accessibility-implementation-user-flow-and-navigation-strategies)
 - [References](README.md#references)
 
@@ -2872,7 +2873,7 @@ Calculates how many more guests can be accommodated for this time slot on a spec
 
 **Relationships:**
 
-- **One-to-Many:** TimeSlot → Booking (one slot can have multiple bookings)
+- **One-to-Many:** TimeSlot -> Booking (one slot can have multiple bookings)
 
 ###### **Booking Model**
 
@@ -2881,7 +2882,7 @@ Core transactional model representing customer table reservations.
 **Purpose:**
 
 - Store customer booking details
-- Track booking lifecycle (Pending → Confirmed → Seated → Completed)
+- Track booking lifecycle (Pending -> Confirmed -> Seated -> Completed)
 - Maintain booking history and audit trail
 
 **Fields:**
@@ -3137,6 +3138,635 @@ Database schema was verified to ensure all tables were created correctly:
 
 Plus Django's built-in tables (auth_user, django_session, etc.)
 
+---
+
+## Django Admin Configuration and Sample Data
+
+[⬆ Back to Table of Contents](#table-of-contents)
+
+### Django Admin Configuration
+
+### Overview
+
+Following the implementation of database models, the Django admin interface was configured to provide staff with comprehensive tools for data management. Django's built-in admin interface offers a production-ready content management system without requiring custom administrative views, significantly accelerating development whilst maintaining professional functionality (Vincent, 2020, Chapter 5).
+
+The admin configuration customises the interface for each model, implementing search, filtering, ordering, and display options tailored to the specific requirements of restaurant management workflows.
+
+### Admin Registration Process
+
+#### Purpose of Admin Interface
+
+The Django admin interface serves multiple critical functions throughout the development and operational lifecycle:
+
+**Development Phase:**
+
+- Test model definitions and relationships
+- Add sample data for development and testing
+- Verify database constraints and validation rules
+- Debug model behaviour and business logic
+
+**Production Phase:**
+
+- Manage restaurant configuration (tables, time slots, menu items)
+- Process and update customer bookings
+- Monitor booking status and table assignments
+- Update menu availability and pricing
+- View customer profiles and requirements
+
+**Rationale:** The admin interface provides immediate CRUD (Create, Read, Update, Delete) functionality for all models without requiring custom views, forms, or templates, following Django's principle of "don't repeat yourself" (DRY) (Vincent, 2020, Chapter 5).
+
+### Admin Configuration by Application
+
+#### Accounts Application
+
+##### File: `accounts/admin.py`
+
+The accounts application admin configuration provides tools for viewing and managing customer profiles.
+
+**Registered Model:**
+
+- `CustomerProfile` - Extended user profile information
+
+**Admin Features Implemented:**
+
+**List Display:**
+
+- User (username)
+- Created at timestamp
+- Has dietary requirements (boolean indicator)
+- Has special requests (boolean indicator)
+
+**Search Functionality:**
+
+- Search by username
+- Search by email address
+- Search by first name
+- Search by last name
+
+**Filtering Options:**
+
+- Filter by profile creation date
+
+**Read-Only Fields:**
+
+- User (prevents accidental profile reassignment)
+- Created at (automatically set timestamp)
+
+**Custom Methods:**
+
+**`has_dietary_requirements(obj)`** 
+
+Returns boolean indicating whether the customer has specified dietary requirements. Displayed as a checkmark (v) or cross (x) icon in the admin list view for quick visual identification.
+
+**`has_special_requests(obj)`**
+
+Returns boolean indicating whether the customer has default special requests. Provides visual indication of customers with specific preferences.
+
+**Rationale:** The configuration emphasises read-only access to prevent accidental modification of user associations whilst providing comprehensive search capabilities for staff to quickly locate customer profiles (Vincent, 2020, Chapter 5).
+
+#### Bookings Application
+
+##### File: `bookings/admin.py`
+
+The bookings application admin configuration provides comprehensive restaurant booking management tools.
+
+**Registered Models:**
+
+- `Table` - Restaurant seating configuration
+- `TimeSlot` - Available booking times
+- `Booking` - Customer reservations
+
+##### **Table Admin Configuration**
+
+**List Display:**
+
+- Table number
+- Capacity (number of seats)
+- Location (Window, Corner, Centre, Private)
+- Availability status
+
+**List Editable Fields:**
+
+- Availability status (can be toggled directly from list view)
+
+**Filtering Options:**
+
+- Filter by location
+- Filter by availability status
+- Filter by capacity
+
+**Search Functionality:**
+
+- Search by table number
+- Search by description
+
+**Ordering:**
+
+- Tables ordered by table number (ascending)
+
+**Rationale:** Quick-edit functionality for availability status enables staff to rapidly mark tables as unavailable for maintenance without navigating to individual edit pages (Vincent, 2020, Chapter 5).
+
+##### **TimeSlot Admin Configuration**
+
+**List Display:**
+
+- Time (HH:MM format)
+- Maximum capacity
+- Active status
+
+**List Editable Fields:**
+
+- Maximum capacity (adjustable directly from list view)
+- Active status (enable/disable slots instantly)
+
+**Filtering Options:**
+
+- Filter by active status
+
+**Ordering:**
+
+- Time slots ordered chronologically
+
+**Rationale:** Direct editing of capacity and status enables rapid adjustment of restaurant capacity based on staffing levels, seasonal demand, or special events (Vincent, 2020, Chapter 5).
+
+##### **Booking Admin Configuration**
+
+**List Display:**
+
+- Reference number (unique booking identifier)
+- User (customer username)
+- Booking date
+- Time slot
+- Number of guests (party size)
+- Assigned table
+- Status (Pending, Confirmed, Seated, etc.)
+- Created at timestamp
+
+**List Editable Fields:**
+
+- Status (update booking status directly from list)
+- Table assignment (assign tables without opening individual bookings)
+
+**Filtering Options:**
+
+- Filter by booking status
+- Filter by booking date
+- Filter by time slot
+- Filter by creation timestamp
+
+**Search Functionality:**
+
+- Search by reference number
+- Search by customer username
+- Search by customer email
+- Search by customer first name
+- Search by customer last name
+
+**Read-Only Fields:**
+
+- Reference number (auto-generated, cannot be changed)
+- Created at timestamp
+- Updated at timestamp
+- Cancelled at timestamp
+
+**Fieldsets Organisation:**
+
+The booking detail view is organised into logical sections:
+
+1. **Booking Information** - Core booking details (reference, user, date, time, guests)
+2. **Assignment** - Table allocation and status management
+3. **Additional Information** - Special requests and notes
+4. **Timestamps** - Audit trail (collapsible section)
+
+**Ordering:**
+
+- Bookings ordered by date (newest first), then by time
+
+**Pagination:**
+
+- 25 bookings per page for optimal performance
+
+**Rationale:** Comprehensive filtering and search capabilities enable staff to quickly locate specific bookings whilst list-editable fields facilitate rapid status updates and table assignments during busy service periods (Vincent, 2020, Chapter 5).
+
+#### Menu Application
+
+##### File: `menu/admin.py`
+
+The menu application admin configuration provides tools for managing menu structure, items, and dietary information.
+
+**Registered Models:**
+
+- `MenuCategory` - Menu sections (Starters, Mains, Desserts, Drinks)
+- `DietaryTag` - Dietary information labels
+- `MenuItem` - Individual dishes
+
+##### **MenuCategory Admin Configuration**
+
+**List Display:**
+
+- Category name
+- Display order (numerical ordering value)
+- Item count (number of items in category)
+
+**List Editable Fields:**
+
+- Display order (adjust category ordering directly from list)
+
+**Ordering:**
+
+- Categories ordered by display order, then alphabetically
+
+**Custom Methods:**
+
+**`item_count(obj)`**  
+
+Displays the number of menu items assigned to each category, providing immediate visibility of menu structure and helping identify empty or overpopulated categories.
+
+**Rationale:** Direct editing of display order enables rapid menu reorganisation without navigating to individual category pages (Vincent, 2020, Chapter 5).
+
+##### **DietaryTag Admin Configuration**
+
+**List Display:**
+
+- Icon (emoji or symbol)
+- Tag name (e.g., Vegetarian, Vegan)
+- Item count (number of items with this tag)
+
+**Search Functionality:**
+
+- Search by tag name
+
+**Ordering:**
+
+- Tags ordered alphabetically by name
+
+**Custom Methods:**
+
+**`item_count(obj)`**  
+
+Displays the number of menu items associated with each dietary tag, providing visibility of dietary option coverage across the menu.
+
+**Rationale:** Item count helps identify underutilised tags or dietary categories requiring additional menu options (Vincent, 2020, Chapter 5).
+
+#### **MenuItem Admin Configuration**
+
+**List Display:**
+
+- Item name
+- Category (Starters, Mains, etc.)
+- Price (in GBP)
+- Availability status
+- Dietary tags (comma-separated list)
+
+**List Editable Fields:**
+
+- Availability status (quickly mark items as unavailable)
+
+**Filtering Options:**
+
+- Filter by category
+- Filter by availability status
+- Filter by dietary tags
+
+**Search Functionality:**
+
+- Search by item name
+- Search by description
+
+**Many-to-Many Field Display:**
+
+- Dietary tags displayed using horizontal filter widget for easy multi-selection
+
+**Fieldsets Organisation:**
+
+The menu item detail view is organised into sections:
+
+1. **Basic Information** - Name, category, description
+2. **Pricing and Availability** - Price, availability status
+3. **Dietary Information** - Associated dietary tags
+4. **Image** - Optional dish photograph
+
+**Ordering:**
+
+- Items ordered by category display order, then alphabetically
+
+**Custom Methods:**
+
+**`get_dietary_tags(obj)`**
+
+Returns a comma-separated string of dietary tags with icons for display in the list view, providing immediate visibility of dietary information without opening individual items.
+
+**Rationale:** Comprehensive filtering by category and dietary tags enables efficient menu management whilst quick-edit availability facilitates rapid response to ingredient shortages or seasonal changes (Vincent, 2020, Chapter 5).
+
+### Admin Interface Features Summary
+
+#### Enhanced Functionality Implemented
+
+**Search Capabilities:**
+
+- All models implement appropriate search fields
+- Cross-relationship searches (e.g., search bookings by customer name)
+- Text field searches (descriptions, names, notes)
+
+**Filtering Options:**
+
+- Date-based filtering (created dates, booking dates)
+- Status filtering (availability, booking status, active status)
+- Relationship filtering (category, location, dietary tags)
+
+**List Editing:**
+
+- Status fields editable directly from list views
+- Ordering values adjustable without page navigation
+- Availability toggles for rapid updates
+
+**Ordering Configuration:**
+
+- Logical default ordering for all models
+- Newest-first for transactional data (bookings, profiles)
+- Numerical/chronological ordering for configuration data (tables, time slots)
+
+**Visual Enhancements:**
+
+- Boolean fields displayed as checkmark/cross icons
+- Custom column labels for improved clarity
+- Organised fieldsets for complex models
+
+**Rationale:** These enhancements significantly improve administrative efficiency by reducing the number of clicks and page loads required for common operations (Vincent, 2020, Chapter 5).
+
+### Accessing the Admin Interface
+
+#### URL and Authentication
+
+**Admin URL:** `http://127.0.0.1:8000/admin/` (development)
+
+**Authentication Requirements:**
+
+- Superuser account required for full access
+- Staff status required for limited access
+- Regular users cannot access admin interface
+
+**Creating Additional Admin Users:**
+
+```bash
+# Create a new superuser
+python manage.py createsuperuser
+
+# Follow prompts:
+# Username: [enter username]
+# Email: [enter email]
+# Password: [enter password]
+# Password (again): [confirm password]
+```
+
+**Security Considerations:**
+
+- Admin interface protected by Django's authentication system
+- Sessions timeout after period of inactivity
+- Password requirements enforced (minimum length, complexity)
+- Failed login attempts logged for security monitoring
+
+**Production Configuration:**
+
+- Admin URL should be changed from default `/admin/` path
+- HTTPS required for production deployment
+- IP restriction recommended for sensitive operations
+- Two-factor authentication recommended for additional security
+
+### Sample Data Population
+
+### Overview
+
+Following admin interface configuration, comprehensive sample data was populated to support development, testing, and demonstration of the Portuguese Kitchen booking system. Sample data enables thorough testing of model relationships, business logic, and user workflows whilst providing realistic content for frontend development (Vincent, 2020, Chapter 5).
+
+The sample data reflects authentic Portuguese cuisine and restaurant operations, ensuring the demonstration environment accurately represents real-world usage scenarios.
+
+### Sample Data Strategy
+
+#### Purpose of Sample Data
+
+**Development Benefits:**
+
+- Test model definitions and relationships
+- Verify database constraints and validation
+- Develop and test queries
+- Validate business logic implementation
+
+**Testing Benefits:**
+
+- Create realistic test scenarios
+- Test edge cases (fully booked slots, capacity limits)
+- Verify form validation and error handling
+- Test search and filtering functionality
+
+**Demonstration Benefits:**
+
+- Showcase complete system functionality
+- Provide realistic user experience
+- Demonstrate data relationships
+- Support portfolio presentation
+
+**Rationale:** Comprehensive sample data enables thorough testing whilst providing professional demonstration content that accurately represents the intended production environment (Vincent, 2020, Chapter 5).
+
+### Data Population Process
+
+#### Method: Django Admin Interface
+
+Sample data was populated manually through the Django admin interface rather than using automated fixtures or scripts. This approach was chosen because:
+
+1. **Validation Testing** - Manual entry tests form validation and admin interface functionality
+2. **Relationship Verification** - Confirms foreign key and many-to-many relationships function correctly
+3. **Business Logic Testing** - Triggers model save methods and signals during data entry
+4. **Admin Interface Testing** - Validates admin configuration and usability
+
+**Alternative Approaches:**
+
+- **Fixtures** - JSON/YAML files loaded via `loaddata` command (suitable for deployment)
+- **Management Commands** - Custom Django commands for automated data generation
+- **Database Seeding Scripts** - Python scripts using Django ORM
+
+**Rationale:** Manual population through admin interface provided the most comprehensive testing of both models and admin configuration whilst requiring no additional code (Vincent, 2020, Chapter 5).
+
+### Sample Data Specifications
+
+#### Tables Configuration
+
+**Quantity:** 10 tables  
+
+**Purpose:** Provide varied seating options covering different party sizes and preferences
+
+<img width="1601" height="530" alt="image" src="https://github.com/user-attachments/assets/84b17075-e66f-4e27-97d6-ffbbd3fd66cb" />
+
+**Distribution:**
+
+- 2-person tables: 3 (30%)
+- 4-person tables: 4 (40%)
+- 6-person tables: 2 (20%)
+- 8-person tables: 1 (10%)
+
+**Total Capacity:** 44 seats
+
+**Location Distribution:**
+
+- Window: 3 tables (most desirable)
+- Centre: 3 tables (main dining area)
+- Corner: 2 tables (intimate/private)
+- Private: 2 tables (special occasions)
+
+**Rationale:** Table distribution reflects typical restaurant configuration with emphasis on mid-size tables (4 people) whilst providing options for couples, families, and larger groups (Vincent, 2020, Chapter 4).
+
+#### Time Slots Configuration
+
+**Quantity:** 10 time slots  
+
+**Purpose:** Cover lunch and dinner service periods with staggered arrival times
+
+<img width="1585" height="607" alt="image" src="https://github.com/user-attachments/assets/18da11d7-7804-4845-894a-ea784ffc8e70" />
+
+**Capacity Strategy:**
+
+- Lower capacity at opening and closing times (fewer staff)
+- Increased capacity during peak periods (19:00-19:30)
+- 30-minute intervals allow efficient table turnover
+
+**Rationale:** Time slot configuration reflects realistic restaurant operations with dynamic capacity management based on anticipated demand and staffing levels (Vincent, 2020, Chapter 4).
+
+#### Menu Categories Configuration
+
+**Quantity:** 4 categories  
+
+**Purpose:** Organise menu into logical course structure
+
+<img width="1582" height="358" alt="image" src="https://github.com/user-attachments/assets/f13fd2ac-9c7e-46bd-85dd-2581f6f09739" />
+
+**Ordering Strategy:**
+
+- Increments of 10 allow future insertion of categories
+- Traditional course progression (starters -> mains -> desserts -> drinks)
+
+**Rationale:** Standard category structure follows conventional restaurant menu organisation familiar to customers (Vincent, 2020, Chapter 4).
+
+#### Dietary Tags Configuration
+
+**Quantity:** 8 tags  
+
+**Purpose:** Communicate dietary suitability and allergen information
+
+<img width="1595" height="446" alt="image" src="https://github.com/user-attachments/assets/1ad793d5-4ffb-4f53-9f45-b50bab974f96" />
+
+**Coverage:**
+
+- Dietary preferences: Vegetarian, Vegan
+- Allergen information: Gluten-Free, Dairy-Free, Nuts, Fish, Shellfish
+- Taste indicator: Spicy
+
+**Rationale:** Comprehensive dietary tagging supports customer safety and dietary requirements whilst complying with allergen labelling regulations (Food Standards Agency, 2021).
+
+### Menu Items Configuration
+
+**Quantity:** 20 items
+
+**Purpose:** Showcase authentic Portuguese cuisine with varied dietary options
+
+<img width="1580" height="819" alt="image" src="https://github.com/user-attachments/assets/6bde2d0e-ffc3-40d2-ad37-06a2ea8b47f2" />
+
+##### **Sample Menu Items:**
+
+**Starters:**
+
+1. Caldo Verde (£6.50) - Traditional green soup
+2. Pastéis de Bacalhau (£7.50) - Codfish fritters [Fish]
+3. Pão com Chouriço (£8.00) - Grilled chorizo with bread
+4. Queijo da Serra (£9.00) - Mountain cheese [Vegetarian]
+5. Ameijoas à Bulhão Pato (£12.00) - Clams in white wine [Shellfish]
+
+**Mains:**
+
+6. Bacalhau à Brás (£16.50) - Salt cod with potatoes [Fish]
+7. Frango Piri-Piri (£14.50) - Grilled chicken [Spicy, Gluten-Free, Dairy-Free]
+8. Arroz de Marisco (£18.50) - Seafood rice [Shellfish, Fish]
+9. Costeletas de Borrego (£22.00) - Lamb chops [Gluten-Free]
+10. Espetada Mista (£17.00) - Mixed meat skewers
+11. Polvo à Lagareiro (£24.00) - Roasted octopus [Fish, Gluten-Free]
+12. Vegetable Cataplana (£14.00) - Vegetable stew [Vegan, Gluten-Free, Dairy-Free]
+
+**Desserts:**
+
+13. Pastel de Nata (£3.50) - Custard tart [Vegetarian]
+14. Arroz Doce (£5.50) - Rice pudding [Vegetarian]
+15. Pudim Flan (£6.00) - Crème caramel [Vegetarian]
+16. Bolo de Chocolate (£6.50) - Chocolate cake [Vegetarian, Contains Nuts]
+
+**Drinks:**
+
+17. Vinho Verde (£6.00) - Portuguese green wine [Vegan]
+18. Port Wine (£7.50) - Traditional port [Vegan]
+19. Sagres Beer (£4.50) - Portuguese lager [Vegan]
+20. Fresh Orange Juice (£4.00) - Freshly squeezed [Vegan, Gluten-Free]
+
+**Authenticity:**
+
+- All dishes are traditional Portuguese cuisine
+- Authentic Portuguese names used
+- Descriptions include preparation methods and key ingredients
+- Pricing reflects London restaurant standards
+
+**Rationale:** Authentic Portuguese menu provides realistic demonstration content whilst showcasing system's capability to handle varied dietary requirements and price points (Vincent, 2020, Chapter 4).
+
+### Data Quality Considerations
+
+#### Validation Testing
+
+Sample data entry tested the following validation rules:
+
+**Field Validators:**
+
+- Table capacity minimum value (>= 1)
+- Booking guest count range (1-8)
+- Price decimal precision (2 decimal places)
+
+**Unique Constraints:**
+
+- Table numbers must be unique
+- Dietary tag names must be unique
+- Booking reference numbers must be unique
+
+**Required Fields:**
+
+- All mandatory fields enforced
+- Optional fields correctly allow blank values
+
+**Choices Fields:**
+
+- Location choices limited to predefined options
+- Status choices restricted to valid statuses
+
+**Rationale:** Comprehensive validation testing during data entry confirmed that database constraints and model validators function correctly (Vincent, 2020, Chapter 4).
+
+### Sample Bookings
+
+#### Test Booking Scenarios
+
+Several test bookings were created to verify booking system functionality:
+
+<img width="1573" height="816" alt="image" src="https://github.com/user-attachments/assets/3b39d2a6-0be9-46aa-81b2-0b337bdea3c4" />
+
+**Test Scenarios Covered:**
+
+1. Standard booking (4 guests, evening slot)
+2. Small party booking (2 guests, window table)
+3. Large party booking (8 guests, private table)
+4. Lunch booking (different time slot)
+5. Booking with special requests
+
+**Verification Points:**
+- Reference numbers auto-generated correctly
+- Timestamps recorded accurately
+- Status workflow functions as expected
+- Table assignments work correctly
+- Special requests stored properly
+
+**Rationale:** Test bookings verified that the booking model's auto-generation features, timestamps, and relationships function correctly (Vincent, 2020, Chapter 4).
 
 ---
 
@@ -3304,6 +3934,10 @@ Available at: https://docs.djangoproject.com/en/4.2/topics/db/models/
 Available at: https://docs.djangoproject.com/en/4.2/ref/models/fields/
   (Accessed: 17 January 2026).
 
+- **Django Software Foundation (2024)** Django documentation: The Django admin site. Version 4.2.
+Available at: https://docs.djangoproject.com/en/4.2/ref/contrib/admin/
+  (Accessed: 17 January 2026).
+
 - **Lucid Software Inc. (2024)** Entity relationship diagram (ERD) tutorial.
 Available at: https://www.lucidchart.com/pages/er-diagrams
   (Accessed: 11 January 2026).
@@ -3327,6 +3961,8 @@ Available at: https://docs.python.org/3/tutorial/venv.html
 - **Vincent, W. S. (2020)** Django for beginners: Build websites with Python and Django. 3rd edn.
 Self-published.
   (Accessed: 18 January 2026).
+
+
 
 
 
