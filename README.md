@@ -3938,6 +3938,10 @@ Available at: https://docs.djangoproject.com/en/4.2/ref/models/fields/
 Available at: https://docs.djangoproject.com/en/4.2/ref/contrib/admin/
   (Accessed: 17 January 2026).
 
+- **Django Software Foundation (2024)** Django documentation: Providing initial data. Version 4.2.
+Available at: https://docs.djangoproject.com/en/4.2/howto/initial-data/
+  (Accessed: 17 January 2026).
+
 - **Lucid Software Inc. (2024)** Entity relationship diagram (ERD) tutorial.
 Available at: https://www.lucidchart.com/pages/er-diagrams
   (Accessed: 11 January 2026).
@@ -3962,8 +3966,9 @@ Available at: https://docs.python.org/3/tutorial/venv.html
 Self-published.
   (Accessed: 18 January 2026).
 
-
-
+- **Food Standards Agency (2021)** Food allergen labelling and information requirements.
+Available at: https://www.food.gov.uk/business-guidance/allergen-guidance-for-food-businesses
+  (Accessed: 18 January 2026).
 
 
 
