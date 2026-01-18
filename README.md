@@ -45,11 +45,11 @@
   - [User Story 18: Manage Menu Items (Admin)](#user-story-18-manage-menu-items-admin)
   - [Colour Palette Justification for Portuguese Kitchen Booking System Website](#colour-palette-justification-for-portuguese-kitchen-booking-system-website)
   - [Typography Justification for Portuguese Kitchen Booking System Website](#typography-justification-for-portuguese-kitchen-booking-system-website)
+  - [Accessibility Implementation, User Flow and Navigation Strategies](#accessibility-implementation-user-flow-and-navigation-strategies)
   - [Database Design for the Portuguese Kitchen Booking System Website](#database-design-for-the-portuguese-kitchen-booking-system-website)
   - [Django Framework Setup and Configuration](#django-framework-setup-and-configuration)
   - [Database Models Implementation](#database-models-implementation)
   - [Django Admin Configuration and Sample Data](#django-admin-configuration-and-sample-data)
-  - [Accessibility Implementation, User Flow and Navigation Strategies](#accessibility-implementation-user-flow-and-navigation-strategies)
 - [References](README.md#references)
 
 # Milestone Project 3
@@ -2016,11 +2016,103 @@ These specifications ensure compliance with accessibility standards while mainta
 
 ---
 
+## Accessibility Implementation, User Flow and Navigation Strategies
+
+**Portuguese Kitchen Booking System Website**
+
+[⬆ Back to Table of Contents](#table-of-contents)
+
+During the development of the **Portuguese Kitchen Booking System**, accessibility was treated as a core design requirement rather than an afterthought. The system is designed to ensure that all users, including those with visual, auditory, cognitive, or motor impairments, can independently browse menus, make reservations, submit enquiries, and navigate confirmation workflows.
+
+All accessibility decisions were guided by the **Web Content Accessibility Guidelines (WCAG) 2.1**, ensuring alignment with internationally recognised accessibility standards and best practices (W3C, 2018).
+
+### Key Accessibility Features
+
+**Semantic HTML**
+
+The website structure makes consistent use of semantic elements such as `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, and `<footer>` to define page regions clearly.  
+**Purpose in this project:** Enables users to navigate menu sections, booking forms, and informational content in a logical and predictable manner.  
+**Justification:** Semantic HTML improves screen reader interpretation, enhances usability, and supports assistive technologies effectively (W3C, 2018; Mozilla Developer Network, 2023).
+
+**Keyboard Navigation**
+
+All interactive elements, including navigation links, menu cards, booking buttons, and form controls, are fully operable using a keyboard, with visible focus indicators applied.  
+**Purpose in this project:** Allows users to complete table reservations and navigate menus without requiring a mouse.  
+**Justification:** Supports users with motor impairments and complies with WCAG 2.1 Success Criterion 2.1.1 (Keyboard Accessible) (W3C, 2018).
+
+**Colour Contrast**
+
+Text, icons, and interactive elements meet or exceed a minimum contrast ratio of 4.5:1, validated using contrast-checking tools.  
+**Purpose in this project:** Ensures that menu descriptions, booking buttons, and form labels remain legible for users with low vision or colour perception difficulties.  
+**Justification:** Meets WCAG 2.1 Success Criterion 1.4.3 (Contrast Minimum) (WebAIM, 2024).
+
+**Responsive Typography**
+
+Typography is implemented using scalable `rem` units based on a 16px root size.  
+**Purpose in this project:** Ensures readable menu content, booking details, and confirmation messages across desktop, tablet, and mobile devices.  
+**Justification:** Supports users with visual or cognitive impairments by respecting browser zoom and user-defined accessibility settings (W3C, 2018; Nielsen Norman Group, 2020).
+
+**ARIA (Accessible Rich Internet Applications)**
+
+ARIA attributes such as `aria-label`, `aria-describedby`, and `role` are used where additional context is required beyond native HTML semantics.  
+**Purpose in this project:** Enhances screen reader interpretation of booking buttons, form validation messages, and dynamic feedback such as reservation confirmations.  
+**Justification:** Improves accessibility in interactive components where native HTML alone may not provide sufficient semantic information (WAI-ARIA, 2017).
+
+**Alt Text and Descriptive Links**
+
+All images include meaningful `alt` text, and links use descriptive language such as “View Menu” or “Book a Table” rather than generic phrases.  
+**Purpose in this project:** Ensures that non-visual users can understand menu imagery and navigation options through assistive technologies.  
+**Justification:** Complies with WCAG 2.1 Success Criteria 1.1.1 (Non-text Content) and 2.4.4 (Link Purpose) (W3C, 2018).
+
+**Accessible Forms and Error Messaging** 
+
+Form inputs include associated labels, descriptive error messages, and guidance text using `aria-describedby`.  
+**Purpose in this project:** Allows users to clearly identify and correct errors when entering booking details such as date, time, or number of guests.  
+**Justification:** Accessible validation supports users with cognitive, visual, or motor impairments and reduces form abandonment (Nielsen Norman Group, 2020).
+
+## User Flow and Navigation Strategy
+
+[⬆ Back to Table of Contents](#table-of-contents)
+
+The navigation and user flow of the Portuguese Kitchen Booking System has been designed to guide users efficiently through key tasks:
+
+1. **Explore the restaurant and menu**
+2. **Select a booking date and time**
+3. **Submit a table reservation**
+4. **Receive confirmation or feedback**
+
+### Logic Flow
+
+- **Home Page** introduces the restaurant, highlights featured menu items, and provides immediate access to the booking call-to-action.
+- **Menu Page** allows users to browse food categories, dietary information, and item descriptions in a structured layout.
+- **Booking Page** enables users to select a date, time slot, and party size through a guided form process.
+- **Confirmation and Feedback** screens provide clear messaging regarding booking success or required corrections.
+
+### Intended Enhancements
+
+- **Skip to Content** link to support screen reader and keyboard users.
+- **Consistent component patterns** across menu cards and booking forms to reduce cognitive load.
+- **Mobile-first responsive layout** for users booking tables on handheld devices.
+- **Clear information hierarchy** prioritising primary actions such as “Book a Table” and “View Menu”.
+
+### Summary of Justified Accessibility and Flow Features
+
+| Feature                        | Purpose                                     | Standard / Justification         |
+|--------------------------------|---------------------------------------------|----------------------------------|
+| Semantic HTML                  | Improves assistive technology navigation    | W3C (2018); MDN (2023)           |
+| Keyboard Navigation            | Enables non-mouse interaction               | WCAG 2.1 SC 2.1.1                |
+| Colour Contrast                | Improves legibility and clarity              | WCAG 2.1 SC 1.4.3; WebAIM (2024) |
+| Scalable Typography            | Enhances readability across devices          | NN Group (2020)                  |
+| ARIA Support                   | Improves screen reader interpretation        | WAI-ARIA (2017)                  |
+| Descriptive Links and Alt Text | Provides contextual meaning for all users    | WCAG SC 2.4.4; SC 1.1.1          |
+| Accessible Forms               | Improves data entry and error correction     | NN Group (2020)                  |
+| Clear Navigation Flow          | Supports intuitive booking completion        | User-centred design principles   |
+
+---
+
 ## Database Design for the Portuguese Kitchen Booking System Website
 
 [⬆ Back to Table of Contents](#table-of-contents)
-- [Database Models Implementation](#database-models-implementation)
----
 
 ### Overview
 
