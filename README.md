@@ -47,6 +47,7 @@
   - [Typography Justification for Portuguese Kitchen Booking System Website](#typography-justification-for-portuguese-kitchen-booking-system-website)
   - [Database Design for the Portuguese Kitchen Booking System Website](#database-design-for-the-portuguese-kitchen-booking-system-website)
   - [Django Framework Setup and Configuration](#django-framework-setup-and-configuration)
+  - [Database Models Implementation](#database-models-implementation)
   - [Accessibility Implementation, User Flow and Navigation Strategies](#accessibility-implementation-user-flow-and-navigation-strategies)
 - [References](README.md#references)
 
@@ -2017,7 +2018,7 @@ These specifications ensure compliance with accessibility standards while mainta
 ## Database Design for the Portuguese Kitchen Booking System Website
 
 [⬆ Back to Table of Contents](#table-of-contents)
-
+- [Database Models Implementation](#database-models-implementation)
 ---
 
 ### Overview
@@ -2730,6 +2731,340 @@ python manage.py collectstatic
 # Deactivate virtual environment
 deactivate
 ```
+---
+
+## Database Models Implementation
+
+[⬆ Back to Table of Contents](#table-of-contents)
+
+### Overview
+
+Following the database design documented in the [Database Design](#database-design) section, the Portuguese Kitchen Booking System implements **8 database models** using Django's Object-Relational Mapping (ORM) system. The models translate the Entity Relationship Diagram (ERD) into functional Python classes, providing a robust foundation for data management and business logic (Vincent, 2020, Chapter 4).
+
+The models are organised across three Django applications (`accounts`, `bookings`, and `menu`), following Django's principle of modular application design. This separation of concerns ensures maintainability, reusability, and logical organisation of related functionality (Vincent, 2020, Chapter 4).
+
+### Model Architecture
+
+#### Application Structure
+
+The database models are distributed across three Django applications, each handling a specific domain of functionality:
+
+| Application | Models | Purpose |
+|-------------|--------|---------|
+| **accounts** | CustomerProfile (1) | User profile management and extended user information |
+| **bookings** | Table, TimeSlot, Booking (3) | Restaurant table management and reservation system |
+| **menu** | MenuCategory, MenuItem, DietaryTag (3) | Menu display and dietary information management |
+| **Django built-in** | User (1) | Authentication and user account management |
+
+**Total Models:** 8 (including Django's built-in User model)
+
+### Model Definitions
+
+#### Accounts Application
+
+##### File: `accounts/models.py`
+
+The accounts application contains one model that extends Django's built-in User model to store customer-specific information.
+
+###### **CustomerProfile Model**
+
+Extends the User model using a one-to-one relationship to store additional customer information without modifying Django's core authentication system (Vincent, 2020, Chapter 8).
+
+**Purpose:**
+
+- Store customer dietary requirements and allergies
+- Save default special requests for bookings
+- Maintain customer-specific preferences
+
+**Fields:**
+
+| Field Name | Type | Constraints | Purpose |
+|------------|------|-------------|---------|
+| `user` | OneToOneField(User) | CASCADE, unique | Link to Django User model |
+| `dietary_requirements` | TextField | blank=True, null=True | Customer dietary needs/allergies |
+| `special_requests` | TextField | blank=True, null=True | Default booking preferences |
+| `created_at` | DateTimeField | auto_now_add=True | Profile creation timestamp |
+
+**Key Features:**
+
+- **Automatic Creation:** Django signals automatically create a CustomerProfile when a new User is registered
+- **Cascade Deletion:** Profile is deleted when the associated User account is deleted
+- **Optional Fields:** Dietary requirements and special requests are optional
+
+**Relationships:**
+
+- **One-to-One:** User <-> CustomerProfile (each user has exactly one profile)
+
+#### Bookings Application
+
+##### File: `bookings/models.py`
+
+The bookings application contains three models that work together to manage the restaurant reservation system.
+
+###### **Table Model**
+
+Represents physical tables in the restaurant with capacity and location information.
+
+**Purpose:**
+
+- Define restaurant seating capacity
+- Organise tables by location (Window, Corner, Centre, Private)
+- Manage table availability status
+
+**Fields:**
+
+| Field Name | Type | Constraints | Purpose |
+|------------|------|-------------|---------|
+| `table_number` | IntegerField | unique=True | Physical table identifier |
+| `capacity` | IntegerField | MinValueValidator(1) | Maximum number of guests |
+| `location` | CharField(20) | choices=LOCATION_CHOICES | Table location in restaurant |
+| `is_available` | BooleanField | default=True | Availability for bookings |
+| `description` | TextField | blank=True | Additional table information |
+
+**Location Choices:**
+
+- `Window` - Window seating with view
+- `Corner` - Corner tables (more private)
+- `Centre` - Central dining area
+- `Private` - Private dining rooms or booths
+
+**Key Features:**
+
+- **Unique Table Numbers:** Each table has a unique identifier
+- **Flexible Capacity:** Supports tables of varying sizes (validated minimum 1)
+- **Soft Deletion:** Tables can be made unavailable without deletion, preserving booking history
+
+**Relationships:**
+
+- **One-to-Many:** Table -> Booking (one table can have multiple bookings)
+
+###### **TimeSlot Model**
+
+Defines available booking time slots during restaurant service hours.
+
+**Purpose:**
+
+- Manage restaurant operating hours
+- Control capacity per time slot
+- Enable/disable specific time slots
+
+**Fields:**
+
+| Field Name | Type | Constraints | Purpose |
+|------------|------|-------------|---------|
+| `time` | TimeField | - | Booking time (e.g., 19:00) |
+| `max_capacity` | IntegerField | blank=True, null=True | Maximum guests for this slot |
+| `is_active` | BooleanField | default=True | Whether slot accepts bookings |
+
+**Key Features:**
+
+- **Time-Only Storage:** Stores time without date, allowing reuse across multiple days
+- **Flexible Capacity:** Optional capacity limit per slot (defaults to 40 if not set)
+- **Capacity Calculation:** Built-in method to calculate remaining capacity for a specific date
+
+**Methods:**
+
+**`get_available_capacity(booking_date)`**  
+Calculates how many more guests can be accommodated for this time slot on a specific date by:
+1. Summing guests from all active bookings (Pending, Confirmed, Seated)
+2. Subtracting from maximum capacity
+3. Returning remaining capacity
+
+**Relationships:**
+
+- **One-to-Many:** TimeSlot → Booking (one slot can have multiple bookings)
+
+###### **Booking Model**
+
+Core transactional model representing customer table reservations.
+
+**Purpose:**
+
+- Store customer booking details
+- Track booking lifecycle (Pending → Confirmed → Seated → Completed)
+- Maintain booking history and audit trail
+
+**Fields:**
+
+| Field Name | Type | Constraints | Purpose |
+|------------|------|-------------|---------|
+| `user` | ForeignKey(User) | CASCADE | Customer who made booking |
+| `table` | ForeignKey(Table) | SET_NULL, nullable | Assigned table (can be set later) |
+| `timeslot` | ForeignKey(TimeSlot) | PROTECT | Reserved time slot |
+| `booking_date` | DateField | - | Date of reservation |
+| `number_of_guests` | IntegerField | Min: 1, Max: 8 | Party size |
+| `status` | CharField(20) | choices=STATUS_CHOICES | Current booking status |
+| `reference_number` | CharField(8) | unique=True, auto-generated | Unique booking reference |
+| `special_requests` | TextField | blank=True | Customer requests/notes |
+| `created_at` | DateTimeField | auto_now_add=True | Booking creation time |
+| `updated_at` | DateTimeField | auto_now=True | Last modification time |
+| `cancelled_at` | DateTimeField | blank=True, null=True | Cancellation timestamp |
+
+**Status Choices:**
+
+- `Pending` - Initial state after customer books
+- `Confirmed` - Staff confirmed availability
+- `Seated` - Customer arrived and seated
+- `Completed` - Meal finished
+- `Cancelled` - Booking cancelled
+- `No-Show` - Customer didn't arrive
+
+**Key Features:**
+
+- **Auto-Generated Reference:** Unique 8-character alphanumeric code (e.g., "A7B3K9M2")
+- **Audit Trail:** Tracks creation, updates, and cancellation timestamps
+- **Flexible Table Assignment:** Tables can be assigned immediately or later by staff
+- **Database Constraints:** `unique_together` prevents double-booking (same user, date, slot)
+
+**Methods:**
+
+**`generate_reference_number()`**  
+Generates a unique 8-character alphanumeric reference code for customer communication.
+
+**`cancel()`**  
+Cancels the booking and records cancellation timestamp:
+```python
+booking.cancel()
+# Sets status to 'Cancelled' and records cancelled_at timestamp
+```
+
+**Relationships:**
+
+- **Many-to-One:** Booking -> User (user can have multiple bookings)
+- **Many-to-One:** Booking -> Table (table can have multiple bookings)
+- **Many-to-One:** Booking -> TimeSlot (slot can have multiple bookings)
+
+**On Delete Behaviours:**
+
+- **User (CASCADE):** Bookings deleted when user deleted
+- **Table (SET_NULL):** Booking preserved if table deleted (maintains history)
+- **TimeSlot (PROTECT):** Cannot delete slot with active bookings
+
+#### Menu Application
+
+##### File: `menu/models.py`
+
+The menu application contains three models that manage the restaurant menu structure and dietary information.
+
+###### **MenuCategory Model**
+
+Organises menu items into logical sections (Starters, Mains, Desserts, Drinks).
+
+**Purpose:**
+
+- Group menu items by course/type
+- Control display order on menu page
+- Enable flexible menu organisation
+
+**Fields:**
+
+| Field Name | Type | Constraints | Purpose |
+|------------|------|-------------|---------|
+| `name` | CharField(100) | - | Category name (e.g., "Starters") |
+| `display_order` | IntegerField | default=0 | Ordering value (0 = first) |
+
+**Key Features:**
+
+- **Flexible Ordering:** Uses numeric ordering (0, 10, 20...) allowing easy insertion of new categories
+- **Alphabetical Fallback:** Secondary sort by name for categories with same order value
+
+**Relationships:**
+
+- **One-to-Many:** MenuCategory -> MenuItem (category can contain multiple items)
+
+###### **DietaryTag Model**
+
+Stores dietary information tags (Vegetarian, Vegan, Gluten-Free, etc.).
+
+**Purpose:**
+
+- Define dietary classifications
+- Provide visual icons for quick identification
+- Support accessibility and dietary requirements filtering
+
+**Fields:**
+
+| Field Name | Type | Constraints | Purpose |
+|------------|------|-------------|---------|
+| `name` | CharField(50) | unique=True | Tag name (e.g., "Vegetarian") |
+| `icon` | CharField(10) | - | Emoji or symbol (e.g., "Vegetarian symbol") |
+
+**Key Features:**
+
+- **Unique Names:** Database-level constraint prevents duplicate tags
+- **Visual Identification:** Emoji icons improve usability and accessibility
+- **Reusable:** Tags can be applied to multiple menu items
+
+**Relationships:**
+
+- **Many-to-Many:** DietaryTag <-> MenuItem (via junction table)
+
+###### **MenuItem Model**
+
+Represents individual dishes offered by the restaurant.
+
+**Purpose:**
+
+- Store complete dish information (name, description, price)
+- Link dishes to categories and dietary tags
+- Manage dish availability and images
+
+**Fields:**
+
+| Field Name | Type | Constraints | Purpose |
+|------------|------|-------------|---------|
+| `name` | CharField(200) | - | Dish name |
+| `category` | ForeignKey(MenuCategory) | CASCADE | Menu category |
+| `description` | TextField | - | Dish description/ingredients |
+| `price` | DecimalField(5,2) | - | Price in GBP (e.g., 12.50) |
+| `dietary_info` | ManyToManyField(DietaryTag) | blank=True | Dietary tags |
+| `is_available` | BooleanField | default=True | Current availability |
+| `image` | ImageField | blank=True, null=True | Optional dish photo |
+
+**Key Features:**
+
+- **Precise Pricing:** DecimalField avoids floating-point errors (max: £999.99)
+- **Multiple Dietary Tags:** Many-to-many relationship allows items to have multiple tags
+- **Soft Deletion:** Items can be made unavailable without losing data
+- **Image Support:** Optional dish photographs uploaded to `media/menu_items/`
+
+**Relationships:**
+
+- **Many-to-One:** MenuItem -> MenuCategory (item belongs to one category)
+- **Many-to-Many:** MenuItem <-> DietaryTag (item can have multiple tags)
+
+**On Delete Behaviours:**
+
+- **Category (CASCADE):** Items deleted when category deleted
+
+### Database Relationships Summary
+
+#### Relationship Types Implemented
+
+The database models implement three types of relationships as defined in the ERD:
+
+##### **One-to-One Relationships**
+
+| Parent Model | Child Model | Implementation | Purpose |
+|--------------|-------------|----------------|---------|
+| User | CustomerProfile | `OneToOneField` with CASCADE | Extend user with customer data |
+
+##### **One-to-Many Relationships (Foreign Keys)**
+
+| Parent Model | Child Model | On Delete | Purpose |
+|--------------|-------------|-----------|---------|
+| User | Booking | CASCADE | User owns their bookings |
+| Table | Booking | SET_NULL | Preserve booking history |
+| TimeSlot | Booking | PROTECT | Cannot delete slots with bookings |
+| MenuCategory | MenuItem | CASCADE | Category contains items |
+
+##### **Many-to-Many Relationships**
+
+| Model A | Model B | Implementation | Purpose |
+|---------|---------|----------------|---------|
+| MenuItem | DietaryTag | `ManyToManyField` | Items can have multiple tags |
+
+**Junction Table:** Django automatically creates `menu_menuitem_dietary_info` table to manage the many-to-many relationship between MenuItem and DietaryTag.
 
 ---
 
