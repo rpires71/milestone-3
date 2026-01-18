@@ -46,6 +46,7 @@
   - [Colour Palette Justification for Portuguese Kitchen Booking System Website](#colour-palette-justification-for-portuguese-kitchen-booking-system-website)
   - [Typography Justification for Portuguese Kitchen Booking System Website](#typography-justification-for-portuguese-kitchen-booking-system-website)
   - [Database Design for the Portuguese Kitchen Booking System Website](#database-design-for-the-portuguese-kitchen-booking-system-website)
+  - [Django Framework Setup and Configuration](#django-framework-setup-and-configuration)
   - [Accessibility Implementation, User Flow and Navigation Strategies](#accessibility-implementation-user-flow-and-navigation-strategies)
 - [References](README.md#references)
 
@@ -2220,6 +2221,518 @@ Each table within the database serves a single, well-defined purpose and represe
 
 ---
 
+## Django Framework Setup and Configuration
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+### Overview
+
+The Portuguese Kitchen Booking System is built using **Django 4.2.7**, a high-level Python web framework that enables rapid development of secure and maintainable web applications (Django Software Foundation, 2024). Django follows the **Model-View-Template (MVT)** architectural pattern, providing a robust foundation for database-driven applications with built-in features such as authentication, admin interface, and ORM (Object-Relational Mapping).
+
+### Development Environment Setup
+
+#### Prerequisites
+
+Before installing Django, the following requirements must be met:
+
+**System Requirements:**
+- **Python:** Version 3.12.x (Python 3.12 is used for this project)
+- **pip:** Python package installer (included with Python 3.12)
+- **Git:** Version control system
+- **Text Editor/IDE:** Visual Studio Code (recommended) or similar
+
+**Operating System:**
+- Windows 10/11 (development environment used for this project)
+- macOS or Linux (alternative platforms
+
+### Step 1: Virtual Environment Setup
+
+A virtual environment isolates project dependencies from the system-wide Python installation, preventing version conflicts and ensuring reproducibility (Python Software Foundation, 2024).
+
+#### Creating the Virtual Environment
+
+**Windows:**
+```bash
+# Navigate to project directory
+cd C:\Users\username\path\to\milestone-3
+
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+venv\Scripts\activate
+
+# Verify activation (should see (venv) in prompt)
+# (venv) PS C:\Users\username\path\to\milestone-3>
+```
+
+#### Upgrading Core Tools
+
+```bash
+# Upgrade pip, setuptools, and wheel
+python -m pip install --upgrade pip setuptools wheel
+```
+
+**Expected Output:**
+```
+Successfully installed pip-25.3 setuptools-80.9.0 wheel-0.45.1
+```
+
+### Step 2: Installing Django and Dependencies
+
+#### Core Dependencies
+
+The following packages are required for the Portuguese Kitchen Booking System:
+
+| Package | Version | Purpose |
+|---------|---------|---------|
+| Django | 4.2.7 | Web framework |
+| psycopg2-binary | 2.9.9 | PostgreSQL database adapter |
+| python-decouple | 3.8 | Environment variable management |
+| Pillow | 10.1.0 | Image processing |
+| gunicorn | 21.2.0 | WSGI HTTP server (production) |
+
+#### Installation Commands
+
+```bash
+# Ensure virtual environment is activated
+# (venv) should be visible in terminal prompt
+
+# Install Django
+pip install django==4.2.7
+
+# Install PostgreSQL adapter (for production deployment)
+pip install psycopg2-binary==2.9.9
+
+# Install environment variable manager
+pip install python-decouple==3.8
+
+# Install image processing library
+pip install pillow==10.1.0
+
+# Install production server
+pip install gunicorn==21.2.0
+
+# Create requirements.txt
+pip freeze > requirements.txt
+```
+
+#### Verify Installation
+
+```bash
+# Check Django version
+python -m django --version
+# Expected output: 4.2.7
+
+# Check Python version
+python --version
+# Expected output: Python 3.12.x
+
+# List installed packages
+pip list
+```
+### Step 3: Creating the Django Project
+
+Django projects are created using the `django-admin` command-line utility, which generates the initial project structure and configuration files (Django Software Foundation, 2024).
+
+#### Project Initialization
+
+```bash
+# Create Django project in current directory
+# IMPORTANT: Note the dot (.) at the end - creates in current folder
+django-admin startproject portuguese_kitchen .
+```
+
+**CRITICAL:** The dot (`.`) at the end is essential. It creates the project **in the current directory** rather than creating a nested folder structure.
+
+**Without the dot:**
+```
+milestone-3/
+└── portuguese_kitchen/      <- Nested (incorrect)
+    ├── manage.py
+    └── portuguese_kitchen/
+```
+
+**With the dot (correct):**
+```
+milestone-3/
+├── manage.py                <- Root level (correct)
+└── portuguese_kitchen/
+```
+
+#### Project Structure Created
+
+After running `startproject`, the following structure is generated:
+
+```
+milestone-3/
+├── manage.py                    <- Django's command-line utility
+└── portuguese_kitchen/          <- Project configuration package
+    ├── __init__.py             <- Python package marker
+    ├── settings.py             <- Project settings and configuration
+    ├── urls.py                 <- URL routing configuration
+    ├── asgi.py                 <- ASGI configuration for async
+    └── wsgi.py                 <- WSGI configuration for deployment
+```
+
+**File Purposes:**
+
+**`manage.py`**
+- Command-line utility for administrative tasks
+- Used for running the development server, creating migrations, managing database, etc.
+- Should never be edited manually
+
+**`settings.py`**
+- Central configuration file for the Django project
+- Contains database settings, installed apps, middleware, templates, static files configuration
+- Security settings (SECRET_KEY, DEBUG, ALLOWED_HOSTS)
+
+**`urls.py`**
+- Root URL configuration
+- Maps URL patterns to views
+- Routes requests to appropriate applications
+
+**`wsgi.py` / `asgi.py`**
+- Entry points for WSGI/ASGI-compatible web servers
+- Used in production deployment (Heroku, AWS, etc.)
+
+### Step 4: Creating Django Applications
+
+Django projects are organized into modular **applications** (apps), each handling a specific area of functionality (Django Software Foundation, 2024). The Portuguese Kitchen system uses three core applications aligned with the database design:
+
+#### Application Structure
+
+```bash
+# Create accounts app (user profiles and authentication)
+python manage.py startapp accounts
+
+# Create bookings app (reservations and table management)
+python manage.py startapp bookings
+
+# Create menu app (menu items and dietary information)
+python manage.py startapp menu
+```
+#### Generated App Structure
+
+Each `startapp` command creates the following structure:
+
+```
+app_name (accounts, bookings, menu)/
+├── __init__.py              <- Python package marker
+├── admin.py                 <- Admin interface configuration
+├── apps.py                  <- App configuration
+├── models.py                <- Database models (ORM)
+├── tests.py                 <- Unit tests
+├── views.py                 <- Request handlers (business logic)
+└── migrations/              <- Database migration files
+    └── __init__.py
+```
+**File Purposes:**
+
+**`models.py`**
+- Defines database models using Django ORM
+- Each model class represents a database table
+- Contains field definitions, relationships, constraints, and business logic
+
+**`views.py`**
+- Contains view functions or classes
+- Handles HTTP requests and returns responses
+- Connects models (data) with templates (presentation)
+
+**`admin.py`**
+- Configures Django admin interface
+- Registers models for admin access
+- Customizes admin display and functionality
+
+**`migrations/`**
+- Contains database migration files
+- Tracks changes to models over time
+- Ensures database schema stays synchronized with code
+
+### Step 5: Registering Applications
+
+Applications must be registered in `settings.py` before Django can use them (Django Software Foundation, 2024).
+
+#### Configuration
+
+**File:** `portuguese_kitchen/settings.py`
+
+**Locate the `INSTALLED_APPS` list (approximately line 33):**
+
+```python
+INSTALLED_APPS = [
+    # Django built-in apps
+    'django.contrib.admin',           # Admin interface
+    'django.contrib.auth',            # Authentication system
+    'django.contrib.contenttypes',    # Content type framework
+    'django.contrib.sessions',        # Session framework
+    'django.contrib.messages',        # Messaging framework
+    'django.contrib.staticfiles',     # Static files management
+    
+    # Project applications
+    'accounts',                       # User profiles and authentication
+    'bookings',                       # Table reservations and bookings
+    'menu',                           # Menu items and dietary information
+]
+```
+**Application Purposes:**
+
+| Application | Purpose | Models |
+|-------------|---------|--------|
+| `accounts` | User profile management, extended user information | CustomerProfile |
+| `bookings` | Table reservations, time slot management, booking lifecycle | Table, TimeSlot, Booking |
+| `menu` | Menu display, dietary tags, category organization | MenuCategory, MenuItem, DietaryTag |
+
+### Step 6: Initial Database Migration
+
+Django's migration system manages database schema changes through version-controlled migration files (Django Software Foundation, 2024).
+
+#### Running Initial Migrations
+
+```bash
+# Apply Django's built-in migrations
+python manage.py migrate
+```
+
+**Expected Output:**
+```
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying sessions.0001_initial... OK
+```
+
+**Database File Created:**
+- `db.sqlite3` - SQLite database file (development)
+
+**Tables Created:**
+```sql
+auth_user                    -- User authentication
+auth_group                   -- User groups
+auth_permission             -- Permissions system
+django_admin_log            -- Admin activity log
+django_content_type         -- Content type framework
+django_migrations           -- Migration history
+django_session              -- Session management
+```
+
+### Step 7: Creating Superuser
+
+A superuser account provides full administrative access to the Django admin interface (Django Software Foundation, 2024).
+
+#### Superuser Creation
+
+```bash
+python manage.py createsuperuser
+```
+**Interactive Prompts:**
+```
+Username: admin
+Email address: roberto.pires@gmail.com  (optional - can be left blank)
+Password: ********
+Password (again): ********
+```
+**Security Note:**
+- Password must be at least 8 characters
+- Should not be too common (Django validates against common passwords)
+- Does not display as you type (security feature)
+
+**Success Message:**
+```
+Superuser created successfully.
+```
+
+### Step 8: Testing the Development Server
+
+Django includes a lightweight development server for testing (Django Software Foundation, 2024).
+
+#### Starting the Server
+
+```bash
+python manage.py runserver
+```
+**Expected Output:**
+```
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+January 17, 2026 - 15:30:00
+Django version 4.2.7, using settings 'portuguese_kitchen.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+```
+#### Verification
+
+**1. Homepage Test:**
+- Open browser: `http://127.0.0.1:8000/`
+- Expected: Django welcome page with rocket icon 🚀
+- Indicates successful installation
+
+**2. Admin Interface Test:**
+- Open browser: `http://127.0.0.1:8000/admin/`
+- Expected: Django admin login page
+- Login with superuser credentials created in Step 7
+- Expected: Django admin dashboard
+
+**3. Stop Server:**
+- Press `Ctrl+C` in terminal
+
+### Step 9: Version Control Configuration
+
+#### .gitignore Configuration
+
+Create `.gitignore` file in project root to exclude unnecessary files from version control:
+
+```gitignore
+# Python
+*.py[cod]
+*$py.class
+*.so
+.Python
+__pycache__/
+*.pyc
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# Django
+*.log
+db.sqlite3
+db.sqlite3-journal
+media/
+*.pot
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.vscode/
+*.swp
+*.swo
+*~
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Static files
+staticfiles/
+static_root/
+
+# Coverage
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
+# Pytest
+.pytest_cache/
+.cache/
+```
+#### Git Commands
+
+```bash
+# Add all files (respects .gitignore)
+git add .
+
+# Commit initial Django setup
+git commit -m "Django project initialised - apps created and configured"
+
+# Push to GitHub
+git push origin main
+```
+### Step 10: Requirements Documentation
+
+The 'requirements.txt' file ensures consistent dependency versions across development and production environments (Python Software Foundation, 2024).
+
+#### Final requirements.txt
+
+```
+asgiref==3.11.0
+Django==4.2.7
+gunicorn==21.2.0
+packaging==25.0
+Pillow==10.1.0
+psycopg2-binary==2.9.9
+python-decouple==3.8
+setuptools==80.9.0
+sqlparse==0.5.5
+tzdata==2025.3
+wheel==0.45.1
+```
+
+#### Installing from requirements.txt
+
+```bash
+# On a new system or environment
+pip install -r requirements.txt
+```
+#### Common Django Commands Reference
+
+##### Development Commands
+
+```bash
+# Activate virtual environment
+venv\Scripts\activate  # Windows
+source venv/bin/activate  # macOS/Linux
+
+# Run development server
+python manage.py runserver
+
+# Run on specific port
+python manage.py runserver 8080
+
+# Create new app
+python manage.py startapp app_name
+
+# Create migrations after model changes
+python manage.py makemigrations
+
+# Apply migrations to database
+python manage.py migrate
+
+# Create superuser
+python manage.py createsuperuser
+
+# Access Django shell (interactive Python)
+python manage.py shell
+
+# Check for project issues
+python manage.py check
+
+# Collect static files (production)
+python manage.py collectstatic
+
+# Deactivate virtual environment
+deactivate
+```
+
+---
+
 ## References
 
 [⬆ Back to Table of contents](#table-of-contents)
@@ -2371,7 +2884,11 @@ Available at: https://docs.djangoproject.com/en/stable/ref/models/fields/
 - **Django Software Foundation (2024)** Django model relationships.
 Available at: https://docs.djangoproject.com/en/stable/topics/db/models/#relationships
   (Accessed: 11 January 2026).
-  
+
+- **Django Software Foundation (2024)** Django documentation. Version 4.2.
+Available at: https://docs.djangoproject.com/en/4.2/
+  (Accessed: 17 January 2026).
+
 - **Lucid Software Inc. (2024)** Entity relationship diagram (ERD) tutorial.
 Available at: https://www.lucidchart.com/pages/er-diagrams
   (Accessed: 11 January 2026).
@@ -2388,3 +2905,10 @@ Available at: https://www.geeksforgeeks.org/database-design-for-online-reservati
 Available at: https://www.postgresql.org/docs/current/datatype.html
   (Accessed: 11 January 2026).
 
+- **Python Software Foundation (2024)** Virtual environments and packages.
+Available at: https://docs.python.org/3/tutorial/venv.html
+  (Accessed: 17 January 2026).
+
+- **Vincent, W. S. (2022)** Django for beginners: Build websites with Python and Django. 4th edn.
+Self-published.
+  (Accessed: 17 January 2026).
