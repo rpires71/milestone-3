@@ -2909,6 +2909,6 @@ Available at: https://www.postgresql.org/docs/current/datatype.html
 Available at: https://docs.python.org/3/tutorial/venv.html
   (Accessed: 17 January 2026).
 
-- **Vincent, W. S. (2022)** Django for beginners: Build websites with Python and Django. 4th edn.
+- **Vincent, W. S. (2020)** Django for beginners: Build websites with Python and Django. 3rd edn.
 Self-published.
-  (Accessed: 17 January 2026).
+  (Accessed: 18 January 2026).
