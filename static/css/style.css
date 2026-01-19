@@ -1,0 +1,529 @@
+/* stylelint-disable css/no-important */
+/* ======================================================================
+   CSS DESIGN SYSTEM: COLOUR PALETTE, TYPOGRAPHY & UI TOKENS (Variables)
+   ----------------------------------------------------------------------
+   Purpose:
+   This section creates a reusable visual system for the whole website by
+   defining CSS Variables (also called custom properties). These variables
+   store values for colours, fonts, spacing, border curvature, and shadows
+   so the design is consistent and easy to update across all pages.
+
+   Benefits:
+   - Promotes consistent branding across all pages (home, menu, bookings)
+   - Reduces code repetition (instead of writing #8B0000 everywhere,
+     we use var(--portuguese-red))
+   - Enables quick theme changes (changing one value updates the site)
+
+   Where Used:
+   - Navigation bar and brand colours (all pages)
+   - Buttons and interactive booking components
+   - Hero sections and footer styling
+   - Menu cards, booking forms, feature tiles
+   - Borders, background colours and box shadows
+
+   Project Colour Strategy:
+   This palette is based on the Portuguese flag and traditional colours:
+   - --portuguese-red: Primary brand colour (large headings, navbar, borders)
+   - --portuguese-green: Accent colour (success states, highlights)
+   - --portuguese-gold: Call-to-action colour (primary buttons, icons on hover)
+   - --warm-cream & --soft-white: Neutral background tones (contrast against text)
+   - --charcoal-grey: High-contrast readable text colour
+
+   Typography Strategy:
+   - Headings use Playfair Display (elegant, traditional serif for titles)
+   - Body text uses Lato (clean, easy to read for paragraphs)
+
+   UI Token Strategy:
+   - Spacing values avoid random margins and enforce consistency
+   - Border-radius tokens ensure all cards/tiles/buttons look related
+   - Shadow tokens create depth, improving visual hierarchy and usability
+
+   ================================================================ */
+:root {
+  /* Primary Colours - Based on Portuguese Flag and Traditional Aesthetics */
+  --portuguese-red: #8B0000;      /* Deep burgundy red - primary brand */
+  --portuguese-green: #006B3F;    /* Rich forest green - accent */
+  --portuguese-gold: #D4AF37;     /* Warm gold - highlights and CTAs */
+  --warm-cream: #FAF8F3;          /* Soft cream - main background */
+  --soft-white: #FFFFFF;          /* Pure white - cards and sections */
+  --charcoal-grey: #2C3E50;       /* Dark grey-blue - main text */
+  --light-grey: #E8E8E8;          /* Light grey - borders and dividers */
+
+  /* Typography */
+  --font-heading: "Playfair Display", serif;  /* Elegant traditional serif */
+  --font-body: "Lato", sans-serif;            /* Clean readable sans-serif */
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;   /* 8px */
+  --spacing-sm: 1rem;     /* 16px */
+  --spacing-md: 1.5rem;   /* 24px */
+  --spacing-lg: 2rem;     /* 32px */
+  --spacing-xl: 3rem;     /* 48px */
+
+  /* Border Radius */
+  --radius-sm: 5px;
+  --radius-md: 10px;
+  --radius-lg: 15px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ======================================================================
+   GLOBAL STYLES (Base Reset, Typography & Page Behaviour)
+   ----------------------------------------------------------------------
+   Purpose:
+   This section defines universal rules that apply to the entire website
+   before any specific component styling is added. These global settings
+   remove browser inconsistencies, apply the chosen typography system, 
+   and control how the page behaves when scrolling.
+
+   1. CSS Reset using the universal selector (*)
+      - margin: 0 and padding: 0 remove default browser spacing around 
+        all elements (e.g., <p>, <h1>, <section>).  
+      - box-sizing: border-box ensures that padding and borders are 
+        included inside width/height calculations, preventing layout 
+        issues.  
+      - This creates a predictable foundation for responsive design.
+
+   2. Body Styling
+      - font-family: var(--font-body) applies 'Lato' to all readable text,
+        giving the site a modern, clean aesthetic.
+      - font-size: 16px standardises text to an accessible base size.
+      - line-height: 1.6 improves readability across long paragraphs.
+      - color: var(--charcoal-grey) ensures high text contrast against
+        the lighter cream background.
+      - background-color: var(--warm-cream) creates a warm neutral page 
+        background that matches the Portuguese theme.
+      - min-height: 100vh ensures each page fills at least the viewport 
+        height, preventing small pages from looking cut off.
+
+   3. Heading Typography (h1–h6)
+      - font-family: var(--font-heading) uses 'Playfair Display' for headings 
+        to visually distinguish titles from body text.
+      - font-weight: 600 makes headings bold enough to stand out.
+      - color: var(--charcoal-grey) keeps headings legible and consistent.
+
+   4. Smooth Scrolling (html)
+      - scroll-behavior: smooth enables animated scrolling when users 
+        click internal navigation links (e.g., #contact).
+      - Enhances user experience and provides visual feedback.
+
+   Where Used:
+   - index.html – About section, hero banner, footer contact details
+   - menu.html – Menu categories, dish descriptions
+   - bookings.html – Booking form headings, confirmation messages
+   - These global rules ensure all text and spacing across all pages 
+     follows one consistent format based on the project's design system.
+
+   ====================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--charcoal-grey);
+  background-color: var(--warm-cream);
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--charcoal-grey);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ======================================================================
+   NAVIGATION BAR STYLING
+   ----------------------------------------------------------------------
+   Purpose:
+   Customises the Bootstrap navbar to match the Portuguese Kitchen brand.
+   Overrides default Bootstrap colours and adds hover effects.
+   ====================================================================== */
+
+/* Logo text styling */
+.logo-text {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--portuguese-red);
+}
+
+/* Navigation link styling */
+.navbar-nav .nav-link {
+  color: var(--charcoal-grey);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--portuguese-red);
+  background-color: rgba(139, 0, 0, 0.05);
+  border-radius: var(--radius-sm);
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--portuguese-red);
+  font-weight: 700;
+}
+
+/* Bootstrap icon in navbar */
+.navbar-brand .bi {
+  color: var(--portuguese-red);
+}
+
+/* ======================================================================
+   HERO SECTION
+   ----------------------------------------------------------------------
+   Purpose:
+   Full-width banner section with background image and overlay.
+   Creates dramatic first impression with centred text.
+   ====================================================================== */
+.hero-section {
+  position: relative;
+  min-height: 500px;
+  background: linear-gradient(135deg, var(--portuguese-red) 0%, var(--portuguese-green) 100%);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Dark overlay for better text readability */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Content positioning */
+.hero-content {
+  z-index: 10;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+/* Hero headings */
+.hero-section h1 {
+  color: var(--soft-white);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-section p {
+  color: var(--soft-white);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ======================================================================
+   SECTION STYLING
+   ----------------------------------------------------------------------
+   Purpose:
+   Consistent styling for main content sections throughout the site.
+   ====================================================================== */
+.section-heading {
+  font-size: 2.5rem;
+  color: var(--portuguese-red);
+  margin-bottom: 1.5rem;
+}
+
+/* Decorative divider under section headings */
+.section-divider {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, var(--portuguese-red), var(--portuguese-gold));
+  border-radius: 2px;
+}
+
+/* ======================================================================
+   FEATURE CARDS
+   ----------------------------------------------------------------------
+   Purpose:
+   Reusable card component for features, benefits, or highlights.
+   ====================================================================== */
+.feature-card {
+  background-color: var(--soft-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--light-grey);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-icon i {
+  color: var(--portuguese-red);
+}
+
+/* ======================================================================
+   ABOUT CONTENT SECTIONS
+   ----------------------------------------------------------------------
+   Purpose:
+   Styling for text-heavy content areas like "Our Story" and "Philosophy".
+   ====================================================================== */
+.about-content {
+  background-color: var(--soft-white);
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+}
+
+.about-content h3 {
+  color: var(--portuguese-red);
+  border-bottom: 2px solid var(--portuguese-gold);
+  padding-bottom: 0.5rem;
+}
+
+.about-content .lead {
+  font-size: 1.1rem;
+  color: var(--charcoal-grey);
+}
+
+/* ======================================================================
+   CALL TO ACTION SECTION
+   ----------------------------------------------------------------------
+   Purpose:
+   Highlighted section encouraging user action (booking, viewing menu).
+   ====================================================================== */
+.cta-section {
+  background: linear-gradient(135deg, var(--portuguese-red), var(--portuguese-green));
+  color: var(--soft-white);
+  box-shadow: var(--shadow-lg);
+}
+
+.cta-section h2 {
+  color: var(--soft-white);
+}
+
+/* ======================================================================
+   OPENING HOURS CARD
+   ----------------------------------------------------------------------
+   Purpose:
+   Display restaurant opening hours in a structured format.
+   ====================================================================== */
+.opening-hours-card {
+  background-color: var(--soft-white);
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--portuguese-red);
+}
+
+.opening-hours-card .border-bottom {
+  border-color: var(--light-grey) !important;
+}
+
+/* ======================================================================
+   BUTTON STYLING
+   ----------------------------------------------------------------------
+   Purpose:
+   Custom button styles matching the Portuguese Kitchen brand.
+   Overrides Bootstrap default button colours.
+   ====================================================================== */
+.btn-primary {
+  background-color: var(--portuguese-red);
+  border-color: var(--portuguese-red);
+  color: var(--soft-white);
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #6B0000;
+  border-color: #6B0000;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background-color: var(--portuguese-green);
+  border-color: var(--portuguese-green);
+  color: var(--soft-white);
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #005030;
+  border-color: #005030;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ======================================================================
+   FOOTER SECTION
+   ----------------------------------------------------------------------
+   Purpose:
+   Footer styling with contact information tiles.
+   Uses dark background for contrast with main content.
+   ====================================================================== */
+.footer-section {
+  background-color: var(--charcoal-grey);
+  margin-top: 4rem;
+}
+
+/* Contact tile cards in footer */
+.contact-tile {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-tile:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.contact-tile i {
+  color: var(--portuguese-gold);
+}
+
+.contact-tile h5 {
+  color: var(--soft-white);
+  font-family: var(--font-heading);
+}
+
+/* Footer links */
+.footer-section a {
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: var(--portuguese-gold) !important;
+}
+
+/* Copyright text */
+.copyright p {
+  color: var(--light-grey);
+  font-size: 0.9rem;
+}
+
+/* ======================================================================
+   RESPONSIVE DESIGN
+   ----------------------------------------------------------------------
+   Purpose:
+   Media queries for tablet and mobile devices.
+   Adjusts layouts, font sizes, and spacing for smaller screens.
+   ====================================================================== */
+
+/* Tablet and below */
+@media (max-width: 992px) {
+  .hero-section {
+    min-height: 400px;
+  }
+
+  .section-heading {
+    font-size: 2rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 350px;
+  }
+
+  .section-heading {
+    font-size: 1.75rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .feature-card {
+    margin-bottom: 1rem;
+  }
+
+  .btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* ======================================================================
+   UTILITY CLASSES
+   ----------------------------------------------------------------------
+   Purpose:
+   Reusable helper classes for common styling patterns.
+   ====================================================================== */
+.text-primary-custom {
+  color: var(--portuguese-red);
+}
+
+.text-secondary-custom {
+  color: var(--portuguese-green);
+}
+
+.text-accent {
+  color: var(--portuguese-gold);
+}
+
+.bg-cream {
+  background-color: var(--warm-cream);
+}
+
+.bg-white-soft {
+  background-color: var(--soft-white);
+}
+
+/* ======================================================================
+   ACCESSIBILITY ENHANCEMENTS
+   ----------------------------------------------------------------------
+   Purpose:
+   Improves accessibility for keyboard navigation and screen readers.
+   ====================================================================== */
+
+/* Focus states for keyboard navigation */
+a:focus,
+button:focus,
+.btn:focus {
+  outline: 3px solid var(--portuguese-gold);
+  outline-offset: 2px;
+}
+
+/* Skip to main content link (for screen readers) */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--portuguese-red);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
