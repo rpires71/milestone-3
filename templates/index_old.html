@@ -1,0 +1,527 @@
+<!-- Declares this document as an HTML5. -->
+<!DOCTYPE html>
+<!-- 
+Starts this HTML file and sets the language to English.
+All tags from this webpage (head, body, content) will sit inside this <html> element.
+-->
+<html lang="en">
+  <!--
+The head element isn't displayed on the webpage itself but contains important metadata and 
+resources that describes this webpage. It sits at the top of the HTML document.
+-->
+  <head>
+    <!-- 
+    Character encoding: UTF-8 supports most characters/symbols.
+    Viewport: makes layout responsive on mobile (scales to device width). 
+  -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 
+    Basic SEO metadata so search engines understand the page content.
+    These don't affect layout but are good practice in web development.
+  -->
+    <meta name="description" content="Portuguese Kitchen - Authentic Portuguese Restaurant & Table Booking System">
+    <meta
+      name="keywords"
+      content="Portuguese, restaurant, booking, reservation, cuisine, London"
+    >
+    <meta name="author" content="Roberto Pires">
+    <!-- 
+    The <title> tag in HTML defines the title of the webpage. It's placed inside the 
+     <head> section and serves several important purposes:
+    1- Browser tab display: The text inside <title> appears in the browser's tab or window bar.
+    2- Search engines (SEO): It's the clickable headline shown in search results.
+    3- Bookmarks/favorites: When someone bookmarks a page, the title is used as the default name.
+    4- Accessibility: Screen readers announce the title first, helping users understand the page context.
+  -->
+    <title>Portuguese Kitchen - Authentic Portuguese Cuisine & Reservations</title>
+    <!-- 
+    Favicon links: small icons used in browser tabs and bookmarks.
+    (Commented out until favicon images are added)
+  -->
+    <!--
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/static/images/apple-touch-icon.png"
+    >
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/static/images/favicon-32x32.png"
+    >
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/static/images/favicon-16x16.png"
+    >
+    -->
+    <!-- 
+    Bootstrap CSS (via CDN).
+    Provides the responsive grid system and many utility classes
+    that I use throughout the layout (e.g. container, row, col-*, navbar, btn, etc.).
+  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    >
+    <!-- 
+    Bootstrap Icons (via CDN).
+    I use these for decorative and informative icons (e.g. phone, email, checkmarks).
+  -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+    <!-- 
+    Google Fonts preconnect: performance optimisation for loading fonts.
+    I use Montserrat for headings and Lato for body text in accordance with my design.
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Lato:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    >
+    <!-- 
+    Custom CSS.
+    This file defines my colour palette, typography, layout tweaks
+    and also overrides some default Bootstrap styles (e.g. navbar colours).
+  -->
+    <link rel="stylesheet" href="/static/css/style.css">
+  </head>
+  <!-- 
+    The <body> tag in HTML contains all the viewed content of the webpge aside of the title.
+    This tag follows the <head> section and everything inside <body> is what users see and interact
+    with in the browser.
+-->
+  <body>
+    <!-- =========================================================
+       PART 1 of the page: The Bootstrap Navigation Menu
+       ========================================================= -->
+    <!-- 
+    Bootstrap navbar: 
+    - .navbar, .navbar-expand-lg: Collapses the menu on small screens in a responsive manner.
+    - .navbar-light bg-white: Base Bootstrap theming (overridden by my CSS).
+    - .sticky-top: Menu sticks to the top when when scrolling.
+    - .shadow-sm: Small drop shadow for sense of elevation.
+  -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm"
+    >
+      <!-- 
+    <div>: A generic block‑level container in HTML.
+    class="container-fluid": A Bootstrap class that makes the container span the entire width 
+    of the viewport.
+  -->
+      <div class="container-fluid">
+        <!-- 
+        Brand area: logo + site title.
+        The <a> tag in HTML is the anchor element, used to create hyperlinks. It's one of the 
+            most important tags because it lets you connect your page to other pages, files, or 
+            resources.
+        The navbar-brand class is used to identify and style the branding element inside
+         a navigation bar. It's applied to a logo, site name, or brand text that sits at 
+         the left (or start) of the navbar.
+        d-flex and align-items-center from Bootstrap align icon and text horizontally.
+      -->
+        <a class="navbar-brand d-flex align-items-center" href="/">
+          <!-- 
+          Logo/Icon: Portuguese flag or restaurant icon would go here.
+          me-2 adds right margin (Bootstrap utility).
+        -->
+          <i class="bi bi-shop fs-2 me-2 text-primary"></i>
+          <!-- 
+          The <span> tag in HTML is an inline container used to group text or other inline elements 
+            so you can style or manipulate them with CSS or JavaScript. Unlike <div> (which is block‑level), 
+            <span> doesn't create a new line or block — it just wraps content inside the flow of text.
+          Text next to logo: coloured via .logo-text in CSS.
+        -->
+          <span class="logo-text">Portuguese Kitchen</span>
+        </a>
+        <!-- 
+        The <button> tag in HTML is used to create clickable buttons on a webpage. Unlike links (<a>), 
+          buttons are typically used to trigger actions — submitting forms, running JavaScript, or 
+          interacting with UI elements.
+        Navbar toggler (hamburger icon on small screens).
+        data-bs-* attributes are used by Bootstrap's JavaScript to open/close
+        the collapsible menu.
+      -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- 
+        Collapsible navigation links container.
+        .ms-auto pushes the ul to the right.
+      -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <!-- 
+            Each .nav-item uses .nav-link (Bootstrap) plus my custom colours.
+            The current page has .active for visual feedback.
+          -->
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Book a Table</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Register</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- =========================================================
+         PART 2 of the page: Hero Banner Section
+         ======================================================= -->
+    <!-- 
+    Hero section: Full-width banner with background image and centred text overlay.
+    Uses custom .hero-section from CSS plus Bootstrap utilities.
+  -->
+    <section class="hero-section text-white text-center d-flex align-items-center justify-content-center">
+      <div class="hero-overlay"></div>
+      <div class="hero-content position-relative">
+        <h1 class="display-2 fw-bold mb-3">Portuguese Kitchen</h1>
+        <p class="lead mb-4 fs-4">
+          Authentic Portuguese Cuisine in the Heart of London
+        </p>
+        <p class="mb-4 fs-5">
+          Experience the rich flavours of Portugal with traditional recipes passed down through generations
+        </p>
+        <a href="#" class="btn btn-primary btn-lg px-5 py-3">
+          Book Your Table
+        </a>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PART 3 of the page: Main Content - About Us
+         ======================================================= -->
+    <main class="container my-5">
+      <!-- About Us Section -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <h2 class="section-heading text-center mb-4">Welcome to Portuguese Kitchen</h2>
+          <div class="section-divider mx-auto mb-5"></div>
+        </div>
+      </div>
+
+      <div class="row g-4 mb-5">
+        <div class="col-lg-6">
+          <div class="about-content">
+            <h3 class="mb-3">Our Story</h3>
+            <p class="lead">
+              Founded in 2020, Portuguese Kitchen brings the authentic taste of Portugal to London. Our family-run restaurant is dedicated to preserving traditional Portuguese cooking methods whilst creating a warm, welcoming atmosphere for all our guests.
+            </p>
+            <p>
+              Every dish on our menu tells a story of Portugal's rich culinary heritage, from the coastal regions to the inland countryside. We source the finest ingredients, many imported directly from Portugal, to ensure an authentic dining experience.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="about-content">
+            <h3 class="mb-3">Our Philosophy</h3>
+            <p>
+              At Portuguese Kitchen, we believe that food brings people together. Our chefs use time-honoured recipes and traditional techniques to create dishes that transport you straight to the heart of Portugal.
+            </p>
+            <p class="mb-3">
+              Whether you're celebrating a special occasion or simply enjoying a meal with loved ones, we're committed to providing an unforgettable dining experience.
+            </p>
+            <ul class="list-unstyled">
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Authentic Portuguese Recipes</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Fresh, Quality Ingredients</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Warm, Family Atmosphere</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Dietary Options Available</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features Section -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <h2 class="section-heading text-center mb-4">Why Choose Us</h2>
+          <div class="section-divider mx-auto mb-5"></div>
+        </div>
+      </div>
+
+      <div class="row g-4 mb-5">
+        <!-- Feature 1: Authentic Cuisine -->
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card text-center p-4 h-100">
+            <div class="feature-icon mb-3">
+              <i class="bi bi-award-fill fs-1 text-primary"></i>
+            </div>
+            <h5 class="mb-3">Authentic Cuisine</h5>
+            <p class="mb-0">
+              Traditional Portuguese recipes prepared by experienced chefs who learned their craft in Portugal
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 2: Fresh Ingredients -->
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card text-center p-4 h-100">
+            <div class="feature-icon mb-3">
+              <i class="bi bi-egg-fried fs-1 text-primary"></i>
+            </div>
+            <h5 class="mb-3">Fresh Ingredients</h5>
+            <p class="mb-0">
+              We source premium ingredients daily, many imported directly from Portugal
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 3: Cosy Atmosphere -->
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card text-center p-4 h-100">
+            <div class="feature-icon mb-3">
+              <i class="bi bi-house-heart-fill fs-1 text-primary"></i>
+            </div>
+            <h5 class="mb-3">Cosy Atmosphere</h5>
+            <p class="mb-0">
+              Enjoy your meal in our warm, family-friendly environment with traditional Portuguese décor
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 4: Easy Booking -->
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card text-center p-4 h-100">
+            <div class="feature-icon mb-3">
+              <i class="bi bi-calendar-check-fill fs-1 text-primary"></i>
+            </div>
+            <h5 class="mb-3">Easy Booking</h5>
+            <p class="mb-0">
+              Reserve your table online in seconds with our simple booking system
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Call to Action Section -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="cta-section text-center p-5 rounded-3">
+            <h2 class="mb-4">Ready to Experience Portugal?</h2>
+            <p class="lead mb-4">
+              Book your table today and discover the authentic taste of Portuguese cuisine
+            </p>
+            <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+              <a href="#" class="btn btn-secondary btn-lg px-5">
+                View Menu
+              </a>
+              <a href="#" class="btn btn-primary btn-lg px-5">
+                Book a Table
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Opening Hours Section -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <h2 class="section-heading text-center mb-4">Opening Hours</h2>
+          <div class="section-divider mx-auto mb-5"></div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="opening-hours-card p-4 rounded-3">
+            <div class="d-flex justify-content-between mb-3 pb-3 border-bottom">
+              <span class="fw-bold">Monday - Thursday</span>
+              <span>12:00 - 14:30 & 18:00 - 22:00</span>
+            </div>
+            <div class="d-flex justify-content-between mb-3 pb-3 border-bottom">
+              <span class="fw-bold">Friday - Saturday</span>
+              <span>12:00 - 14:30 & 18:00 - 23:00</span>
+            </div>
+            <div class="d-flex justify-content-between">
+              <span class="fw-bold">Sunday</span>
+              <span>12:00 - 20:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- =========================================================
+         PART 4 of the page: Footer Section with Contact Info
+         ======================================================= -->
+    <!-- 
+    Footer: uses custom .footer-section styling plus Bootstrap spacing 
+    and grid layout for the contact tiles.
+
+    <footer> - A semantic HTML5 tag.
+               Represents the footer section of the page (usually contains contact info, links, 
+               copyright, or social media).
+               Should appear once per page, typically at the bottom.
+    
+    footer-section - A custom class (defined in style.css).
+                     Used for additional styling or layout specific to this footer section.
+
+    bg-dark - A Bootstrap background utility.
+              Sets the background colour to dark grey/black.
+
+    text-white - A Bootstrap text colour utility.
+                 Ensures all text inside the footer is white for contrast against the dark 
+                 background.
+
+    py-5 - A Bootstrap padding utility.
+           p = padding, y = vertical (top + bottom), 5 = scale value.
+           Adds padding-top: 3rem and padding-bottom: 3rem (≈48px).
+           Creates generous vertical spacing inside the footer.
+
+    mt-5 - A Bootstrap margin utility.
+           m = margin, t = top, 5 = scale value.
+           Adds margin-top: 3rem (≈48px).
+           Pushes the footer down, creating space above it.
+
+    id="contact" - Assigns an ID attribute.
+                   Useful for linking directly to the footer section (e.g., 
+                   <a href="#contact">Contact Us</a>).
+  -->
+    <footer class="footer-section bg-dark text-white py-5 mt-5" id="contact">
+      <div class="container">
+        <!-- Contact Information Tiles in 4 columns -->
+        <div class="row g-4 mb-4">
+          <!-- Each column becomes full-width on small screens and 1/4 width on large. -->
+          <!-- Address Column 
+        
+          col-md-6 - On medium screens and up (≥768px), the column takes up 6 out of 12 grid 
+                     columns -> 50% width.
+                     So two of these will fit side‑by‑side in a row.
+
+          col-lg-3 - On large screens and up (≥992px), the column takes up 3 out of 12 grid 
+                     columns -> 25% width.
+                     So four of these will fit side‑by‑side in a row.
+
+          Responsive behavior - On small screens (<768px): without a col-sm-* class, the column 
+                                defaults to full width (12/12), stacking vertically.
+                                On medium screens (≥768px): each column is half width (6/12).
+                                On large screens (≥992px): each column is quarter width (3/12)
+        -->
+          <div class="col-md-6 col-lg-3">
+            <!-- 
+            .contact-tile: custom card-style component with hover effects.
+            .bg-secondary.bg-opacity-25: Bootstrap background with transparency.
+          -->
+            <div
+              class="contact-tile text-center p-4 bg-secondary bg-opacity-25 rounded-3 h-100"
+            >
+              <i class="bi bi-geo-alt-fill fs-1 mb-3 text-primary"></i>
+              <h5 class="mb-3">Address</h5>
+              <p class="mb-0">
+                Portuguese Kitchen<br>
+                45 Brick Lane<br>
+                London, UK<br>
+                E1 6PU
+              </p>
+            </div>
+          </div>
+          <!-- Phone Column -->
+          <div class="col-md-6 col-lg-3">
+            <div
+              class="contact-tile text-center p-4 bg-secondary bg-opacity-25 rounded-3 h-100"
+            >
+              <i class="bi bi-telephone-fill fs-1 mb-3 text-primary"></i>
+              <h5 class="mb-3">Phone</h5>
+              <!-- 
+              tel: links allow mobile users to dial directly.
+              text-white text-decoration-none: ensure links match footer styling.
+            -->
+              <p class="mb-1">
+                <a
+                  href="tel:+442071234567"
+                  class="text-white text-decoration-none"
+                >
+                  +44 (0) 207 123 4567
+                </a>
+              </p>
+              <p class="mb-0">
+                <a
+                  href="tel:+442071234568"
+                  class="text-white text-decoration-none"
+                >
+                  +44 (0) 207 123 4568
+                </a>
+              </p>
+            </div>
+          </div>
+          <!-- Email Column -->
+          <div class="col-md-6 col-lg-3">
+            <div
+              class="contact-tile text-center p-4 bg-secondary bg-opacity-25 rounded-3 h-100"
+            >
+              <i class="bi bi-envelope-fill fs-1 mb-3 text-primary"></i>
+              <h5 class="mb-3">Email</h5>
+              <p class="mb-1">
+                <a href="/cdn-cgi/l/email-protection#d8b1b6beb798a8b7aaacadbfadbdabbdb3b1acbbb0bdb6f6bbb7f6adb3" class="text-white text-decoration-none">
+                  <span class="__cf_email__" data-cfemail="c5acaba3aa85b5aab7b1b0a2b0a0b6a0aeacb1a6ada0abeba6aaebb0ae">[email&#160;protected]</span>
+                </a>
+              </p>
+              <p class="mb-0">
+                <!-- mailto: links open the user's default email client. -->
+                <a href="/cdn-cgi/l/email-protection#51333e3e3a383f362211213e23252436243422343a38253239343f7f323e7f243a" class="text-white text-decoration-none">
+                  <span class="__cf_email__" data-cfemail="35575a5a5e5c5b524675455a47414052405046505e5c41565d505b1b565a1b405e">[email&#160;protected]</span>
+                </a>
+              </p>
+            </div>
+          </div>
+          <!-- Hours Column -->
+          <div class="col-md-6 col-lg-3">
+            <div
+              class="contact-tile text-center p-4 bg-secondary bg-opacity-25 rounded-3 h-100"
+            >
+              <i class="bi bi-clock-fill fs-1 mb-3 text-primary"></i>
+              <h5 class="mb-3">Hours</h5>
+              <p class="mb-1 small">Mon-Thu: 12:00-22:00</p>
+              <p class="mb-1 small">Fri-Sat: 12:00-23:00</p>
+              <p class="mb-0 small">Sun: 12:00-20:00</p>
+            </div>
+          </div>
+        </div>
+        <!-- Horizontal divider line between contact tiles and copyright -->
+        <hr class="my-4 bg-secondary">
+        <!-- Simple centred copyright text -->
+        <div class="copyright text-center">
+          <p class="mb-1">
+            &copy; 2026 Portuguese Kitchen. All Rights Reserved.
+          </p>
+          <p class="mb-0">
+            Developed by Roberto Pires | Milestone Project 3 - Full Stack Development
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- 
+    Bootstrap JavaScript bundle:
+    required for dynamic components such as the navbar collapse.
+    It reads data-bs-* attributes in the HTML and wires up interactions.
+  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

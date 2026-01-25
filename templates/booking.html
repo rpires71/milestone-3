@@ -1,0 +1,619 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- Page title -->
+{% block title %}Book a Table - Portuguese Kitchen{% endblock %}
+
+<!-- Mark Book a Table as active in navigation -->
+{% block nav_booking %}active{% endblock %}
+
+<!-- Booking page content -->
+{% block content %}
+
+<!-- Hero Section with Branding -->
+<section class="booking-hero py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-4 text-center mb-4 mb-lg-0">
+        <div class="portuguese-kitchen-logo">
+          <i class="bi bi-pot display-1 text-primary mb-3"></i>
+          <h3 class="fw-bold mb-0">PORTUGUESE<br>KITCHEN</h3>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <h2 class="display-5 fw-bold mb-3">Reserve Your Table</h2>
+        <p class="lead mb-0">
+          Experience Authentic Portuguese Cuisine<br>
+          at the <strong>Portuguese Kitchen, London</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Booking Form Section -->
+<section class="booking-form-section py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        
+        <!-- Booking Form Card -->
+        <div class="booking-card bg-white p-5 rounded-3 shadow-sm">
+          <h2 class="text-center mb-4">Book a table</h2>
+          
+          <form id="bookingForm" method="POST" action="#">
+            {% csrf_token %}
+            
+            <div class="row g-4">
+              
+              <!-- Date Field -->
+              <div class="col-md-6">
+                <label for="booking_date" class="form-label fw-semibold">Date:</label>
+                <div class="input-group">
+                  <input 
+                    type="date" 
+                    class="form-control" 
+                    id="booking_date" 
+                    name="booking_date" 
+                    required
+                    min="{{ today }}"
+                  >
+                  <span class="input-group-text">
+                    <i class="bi bi-calendar3"></i>
+                  </span>
+                </div>
+                <div class="invalid-feedback">
+                  Please select a valid date.
+                </div>
+              </div>
+
+              <!-- Number of Guests Field -->
+              <div class="col-md-6">
+                <label for="number_of_guests" class="form-label fw-semibold">Number of Guests:</label>
+                <select class="form-select" id="number_of_guests" name="number_of_guests" required>
+                  <option value="" selected disabled>Select guests</option>
+                  <option value="1">1 Guest</option>
+                  <option value="2">2 Guests</option>
+                  <option value="3">3 Guests</option>
+                  <option value="4">4 Guests</option>
+                  <option value="5">5 Guests</option>
+                  <option value="6">6 Guests</option>
+                  <option value="7">7 Guests</option>
+                  <option value="8">8 Guests</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select number of guests.
+                </div>
+              </div>
+
+              <!-- Time Field -->
+              <div class="col-md-6">
+                <label for="timeslot" class="form-label fw-semibold">Time:</label>
+                <div class="input-group">
+                  <select class="form-select" id="timeslot" name="timeslot" required disabled>
+                    <option value="" selected>Select date first</option>
+                  </select>
+                  <span class="input-group-text">
+                    <i class="bi bi-clock"></i>
+                  </span>
+                </div>
+                <div class="invalid-feedback">
+                  Please select a time slot.
+                </div>
+              </div>
+
+              <!-- Check Availability Button -->
+              <div class="col-md-6 d-flex align-items-end">
+                <button 
+                  type="button" 
+                  id="checkAvailabilityBtn" 
+                  class="btn btn-outline-primary w-100"
+                  disabled
+                >
+                  Check Availability
+                </button>
+              </div>
+
+              <!-- Availability Message -->
+              <div class="col-12">
+                <div id="availabilityMessage" class="alert d-none" role="alert"></div>
+              </div>
+
+              <!-- Table Available Checkbox -->
+              <div class="col-12">
+                <div class="form-check">
+                  <input 
+                    class="form-check-input" 
+                    type="checkbox" 
+                    id="table_available" 
+                    name="table_available"
+                    disabled
+                  >
+                  <label class="form-check-label" for="table_available">
+                    Table available for selected date & time
+                  </label>
+                </div>
+              </div>
+
+              <!-- Special Requests (Optional) -->
+              <div class="col-12">
+                <label for="special_requests" class="form-label fw-semibold">
+                  Special Requests <span class="text-muted">(Optional)</span>
+                </label>
+                <textarea 
+                  class="form-control" 
+                  id="special_requests" 
+                  name="special_requests" 
+                  rows="3"
+                  maxlength="500"
+                  placeholder="Dietary requirements, accessibility needs, celebration occasions..."
+                ></textarea>
+                <div class="form-text">
+                  Maximum 500 characters
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="col-12">
+                <div class="d-flex gap-3 justify-content-center">
+                  <button 
+                    type="submit" 
+                    id="confirmBookingBtn" 
+                    class="btn btn-primary btn-lg px-5"
+                    disabled
+                  >
+                    Confirm Booking
+                  </button>
+                  <button 
+                    type="button" 
+                    id="cancelBtn" 
+                    class="btn btn-outline-secondary btn-lg px-5"
+                    onclick="window.location.href='/';"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </form>
+
+        </div>
+        <!-- End Booking Card -->
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+<!-- Extra CSS for booking page -->
+{% block extra_css %}
+<style>
+  /* Portuguese Kitchen Logo */
+  .portuguese-kitchen-logo {
+    padding: 1rem;
+  }
+
+  .portuguese-kitchen-logo h3 {
+    font-family: var(--font-heading);
+    color: var(--espresso-brown);
+    line-height: 1.3;
+    font-size: 1.5rem;
+  }
+
+  .portuguese-kitchen-logo i {
+    color: var(--azulejo-blue);
+  }
+
+  /* Booking Hero Section */
+  .booking-hero {
+    border-bottom: 3px solid var(--olive-green);
+    background-color: var(--linen-cream);
+  }
+
+  /* Booking Form Section */
+  .booking-form-section {
+    background-color: var(--linen-cream);
+    min-height: 60vh;
+  }
+
+  /* Booking Card */
+  .booking-card {
+    border: 1px solid #dee2e6;
+  }
+
+  .booking-card h2 {
+    color: var(--azulejo-blue);
+    font-family: var(--font-heading);
+  }
+
+  /* Form Labels */
+  .form-label {
+    color: var(--espresso-brown);
+    margin-bottom: 0.5rem;
+  }
+
+  /* Form Controls */
+  .form-control,
+  .form-select {
+    border: 2px solid #dee2e6;
+    border-radius: 0.375rem;
+    padding: 0.625rem 0.75rem;
+    font-size: 1rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  .form-control:focus,
+  .form-select:focus {
+    border-color: var(--azulejo-blue);
+    box-shadow: 0 0 0 0.2rem rgba(31, 78, 121, 0.25);
+  }
+
+  .form-control:disabled,
+  .form-select:disabled {
+    background-color: #f8f9fa;
+    opacity: 0.6;
+  }
+
+  /* Input Group Icons */
+  .input-group-text {
+    background-color: var(--porcelain-white);
+    border: 2px solid #dee2e6;
+    border-left: none;
+    color: var(--azulejo-blue);
+  }
+
+  .form-control:focus + .input-group-text {
+    border-color: var(--azulejo-blue);
+  }
+
+  /* Buttons */
+  .btn-primary {
+    background-color: var(--terracotta-red);
+    border-color: var(--terracotta-red);
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: #a83829;
+    border-color: #a83829;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  }
+
+  .btn-primary:disabled {
+    background-color: #c4c4c4;
+    border-color: #c4c4c4;
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .btn-outline-primary {
+    color: var(--azulejo-blue);
+    border-color: var(--azulejo-blue);
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline-primary:hover {
+    background-color: var(--azulejo-blue);
+    border-color: var(--azulejo-blue);
+    color: white;
+  }
+
+  .btn-outline-primary:disabled {
+    color: #c4c4c4;
+    border-color: #c4c4c4;
+    cursor: not-allowed;
+  }
+
+  .btn-outline-secondary {
+    color: var(--espresso-brown);
+    border-color: var(--espresso-brown);
+    font-weight: 600;
+  }
+
+  .btn-outline-secondary:hover {
+    background-color: var(--espresso-brown);
+    border-color: var(--espresso-brown);
+    color: white;
+  }
+
+  /* Form Check (Checkbox) */
+  .form-check-input {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid #dee2e6;
+    cursor: pointer;
+  }
+
+  .form-check-input:checked {
+    background-color: var(--olive-green);
+    border-color: var(--olive-green);
+  }
+
+  .form-check-input:focus {
+    border-color: var(--azulejo-blue);
+    box-shadow: 0 0 0 0.2rem rgba(31, 78, 121, 0.25);
+  }
+
+  .form-check-input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .form-check-label {
+    color: var(--espresso-brown);
+    font-weight: 500;
+    margin-left: 0.5rem;
+  }
+
+  /* Alert Messages */
+  .alert {
+    border-radius: 0.375rem;
+    padding: 1rem;
+    margin-bottom: 0;
+  }
+
+  .alert-success {
+    background-color: #d1f2eb;
+    border-color: var(--olive-green);
+    color: #0f5132;
+  }
+
+  .alert-danger {
+    background-color: #f8d7da;
+    border-color: var(--terracotta-red);
+    color: #842029;
+  }
+
+  .alert-info {
+    background-color: #cfe2ff;
+    border-color: var(--azulejo-blue);
+    color: #084298;
+  }
+
+  /* Textarea */
+  textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  /* Form Text Helper */
+  .form-text {
+    color: #6c757d;
+    font-size: 0.875rem;
+  }
+
+  /* Validation States */
+  .was-validated .form-control:invalid,
+  .was-validated .form-select:invalid {
+    border-color: var(--terracotta-red);
+  }
+
+  .was-validated .form-control:valid,
+  .was-validated .form-select:valid {
+    border-color: var(--olive-green);
+  }
+
+  .invalid-feedback {
+    color: var(--terracotta-red);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .booking-card {
+      padding: 2rem 1.5rem !important;
+    }
+
+    .portuguese-kitchen-logo h3 {
+      font-size: 1.25rem;
+    }
+
+    .display-5 {
+      font-size: 2rem;
+    }
+
+    .lead {
+      font-size: 1rem;
+    }
+
+    .btn-lg {
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+    }
+
+    .d-flex.gap-3 {
+      flex-direction: column;
+    }
+
+    .d-flex.gap-3 .btn {
+      width: 100%;
+    }
+  }
+
+  /* Loading State */
+  .btn.loading {
+    position: relative;
+    pointer-events: none;
+  }
+
+  .btn.loading::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin-left: -8px;
+    margin-top: -8px;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: button-loading-spinner 0.6s linear infinite;
+  }
+
+  @keyframes button-loading-spinner {
+    from {
+      transform: rotate(0turn);
+    }
+    to {
+      transform: rotate(1turn);
+    }
+  }
+</style>
+{% endblock %}
+
+<!-- Extra JavaScript for booking page -->
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Form elements
+  const bookingForm = document.getElementById('bookingForm');
+  const dateInput = document.getElementById('booking_date');
+  const guestsSelect = document.getElementById('number_of_guests');
+  const timeslotSelect = document.getElementById('timeslot');
+  const checkAvailabilityBtn = document.getElementById('checkAvailabilityBtn');
+  const confirmBookingBtn = document.getElementById('confirmBookingBtn');
+  const tableAvailableCheckbox = document.getElementById('table_available');
+  const availabilityMessage = document.getElementById('availabilityMessage');
+
+  // Set minimum date to today
+  const today = new Date().toISOString().split('T')[0];
+  dateInput.setAttribute('min', today);
+
+  // Enable Check Availability button when date and guests are selected
+  function checkFormFields() {
+    if (dateInput.value && guestsSelect.value) {
+      checkAvailabilityBtn.disabled = false;
+      timeslotSelect.disabled = false;
+    } else {
+      checkAvailabilityBtn.disabled = true;
+      confirmBookingBtn.disabled = true;
+      tableAvailableCheckbox.disabled = true;
+      tableAvailableCheckbox.checked = false;
+    }
+  }
+
+  dateInput.addEventListener('change', checkFormFields);
+  guestsSelect.addEventListener('change', checkFormFields);
+
+  // Load time slots when date changes
+  dateInput.addEventListener('change', function() {
+    if (this.value) {
+      loadTimeSlots();
+    }
+  });
+
+  // Check Availability button handler
+  checkAvailabilityBtn.addEventListener('click', function() {
+    if (!timeslotSelect.value) {
+      showMessage('Please select a time slot first.', 'danger');
+      return;
+    }
+
+    // Add loading state
+    this.classList.add('loading');
+    this.disabled = true;
+
+    // Simulate availability check (replace with actual AJAX call)
+    setTimeout(function() {
+      checkAvailabilityBtn.classList.remove('loading');
+      checkAvailabilityBtn.disabled = false;
+      
+      // Simulate availability result
+      const isAvailable = Math.random() > 0.3; // 70% chance of availability
+      
+      if (isAvailable) {
+        showMessage('Table available! Please confirm your booking.', 'success');
+        tableAvailableCheckbox.checked = true;
+        tableAvailableCheckbox.disabled = false;
+        confirmBookingBtn.disabled = false;
+      } else {
+        showMessage('Sorry, no tables available for this time. Please select another time slot.', 'danger');
+        tableAvailableCheckbox.checked = false;
+        tableAvailableCheckbox.disabled = true;
+        confirmBookingBtn.disabled = true;
+      }
+    }, 1500);
+  });
+
+  // Form submission handler
+  bookingForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Add HTML5 validation
+    if (!this.checkValidity()) {
+      e.stopPropagation();
+      this.classList.add('was-validated');
+      return;
+    }
+
+    // Check if availability was confirmed
+    if (!tableAvailableCheckbox.checked) {
+      showMessage('Please check availability before confirming booking.', 'danger');
+      return;
+    }
+
+    // Add loading state to confirm button
+    confirmBookingBtn.classList.add('loading');
+    confirmBookingBtn.disabled = true;
+
+    // Simulate form submission (replace with actual AJAX/form post)
+    setTimeout(function() {
+      // In production, this would POST to your Django view
+      alert('Booking confirmed! (This is a demo - integrate with Django backend)');
+      // window.location.href = '/booking/confirmation/';
+    }, 2000);
+  });
+
+  // Load time slots function (placeholder - replace with Django view AJAX call)
+  function loadTimeSlots() {
+    timeslotSelect.innerHTML = '<option value="">Loading...</option>';
+    
+    // Simulate AJAX call to get available time slots
+    setTimeout(function() {
+      // In production, fetch from: /api/timeslots/?date=${dateInput.value}
+      const sampleTimeSlots = [
+        { value: '1', text: '12:00 PM' },
+        { value: '2', text: '12:30 PM' },
+        { value: '3', text: '18:00 PM' },
+        { value: '4', text: '18:30 PM' },
+        { value: '5', text: '19:00 PM' },
+        { value: '6', text: '19:30 PM' },
+        { value: '7', text: '20:00 PM' },
+        { value: '8', text: '20:30 PM' },
+        { value: '9', text: '21:00 PM' },
+        { value: '10', text: '21:30 PM' }
+      ];
+
+      timeslotSelect.innerHTML = '<option value="">Select time</option>';
+      sampleTimeSlots.forEach(function(slot) {
+        const option = document.createElement('option');
+        option.value = slot.value;
+        option.textContent = slot.text;
+        timeslotSelect.appendChild(option);
+      });
+    }, 500);
+  }
+
+  // Show availability message
+  function showMessage(message, type) {
+    availabilityMessage.className = `alert alert-${type}`;
+    availabilityMessage.textContent = message;
+    availabilityMessage.classList.remove('d-none');
+
+    // Auto-hide after 5 seconds
+    setTimeout(function() {
+      availabilityMessage.classList.add('d-none');
+    }, 5000);
+  }
+});
+</script>
+{% endblock %}

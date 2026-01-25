@@ -36,3 +36,7 @@ def home(request):
             and Django. 3rd edn. Self-published, Chapter 6.
     """
     return render(request, 'index.html')
+
+def menu(request):
+    """Display the static menu page."""
+    return render(request, 'menu.html')

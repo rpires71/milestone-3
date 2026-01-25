@@ -24,11 +24,9 @@ urlpatterns = [
     
     # Homepage
     path('', views.home, name='home'),
-    
-    # Placeholder paths for other apps (will be implemented later)
-    # path('menu/', include('menu.urls')),
-    # path('bookings/', include('bookings.urls')),
-    # path('accounts/', include('accounts.urls')),
+    path('menu/', views.menu, name='menu'),
+    path('booking/', include('bookings.urls')), 
+    path('accounts/', include('accounts.urls')),
 ]
 
 # Serve static files during development

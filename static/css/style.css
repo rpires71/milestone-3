@@ -22,16 +22,17 @@
    - Borders, background colours and box shadows
 
    Project Colour Strategy:
-   This palette is based on the Portuguese flag and traditional colours:
-   - --portuguese-red: Primary brand colour (large headings, navbar, borders)
-   - --portuguese-green: Accent colour (success states, highlights)
-   - --portuguese-gold: Call-to-action colour (primary buttons, icons on hover)
-   - --warm-cream & --soft-white: Neutral background tones (contrast against text)
-   - --charcoal-grey: High-contrast readable text colour
+   This palette is based on Portuguese azulejo tiles and traditional aesthetics:
+   - --azulejo-blue: Primary brand colour (navbar, headers, key accents)
+   - --olive-green: Secondary tone (section dividers, icons, subtle highlights)
+   - --terracotta-red: Call-to-action colour (buttons, booking actions, interactive elements)
+   - --linen-cream: Main background colour providing warmth and visual comfort
+   - --espresso-brown: Text colour (headings, body text, footer background)
+   - --porcelain-white: Card backgrounds, forms, and modal components
 
    Typography Strategy:
-   - Headings use Playfair Display (elegant, traditional serif for titles)
-   - Body text uses Lato (clean, easy to read for paragraphs)
+   - Headings use Montserrat (clean geometric sans-serif for structure and clarity)
+   - Body text uses Lato (humanist sans-serif for readability and warmth)
 
    UI Token Strategy:
    - Spacing values avoid random margins and enforce consistency
@@ -40,18 +41,18 @@
 
    ================================================================ */
 :root {
-  /* Primary Colours - Based on Portuguese Flag and Traditional Aesthetics */
-  --portuguese-red: #8B0000;      /* Deep burgundy red - primary brand */
-  --portuguese-green: #006B3F;    /* Rich forest green - accent */
-  --portuguese-gold: #D4AF37;     /* Warm gold - highlights and CTAs */
-  --warm-cream: #FAF8F3;          /* Soft cream - main background */
-  --soft-white: #FFFFFF;          /* Pure white - cards and sections */
-  --charcoal-grey: #2C3E50;       /* Dark grey-blue - main text */
+  /* Primary Colours - Based on Portuguese Azulejo Tiles and Traditional Aesthetics */
+  --azulejo-blue: #1F4E79;        /* Primary brand - navigation, headers, accents */
+  --olive-green: #6B8E23;         /* Secondary - dividers, icons, highlights */
+  --terracotta-red: #C44536;      /* Call-to-action - buttons, interactive elements */
+  --linen-cream: #FAF7F2;         /* Main background - warmth and comfort */
+  --espresso-brown: #3A2F2A;      /* Text - headings, body, footer background */
+  --porcelain-white: #FFFFFF;     /* Cards, forms, modal components */
   --light-grey: #E8E8E8;          /* Light grey - borders and dividers */
 
   /* Typography */
-  --font-heading: "Playfair Display", serif;  /* Elegant traditional serif */
-  --font-body: "Lato", sans-serif;            /* Clean readable sans-serif */
+  --font-heading: "Montserrat", sans-serif;  /* Clean geometric sans-serif */
+  --font-body: "Lato", sans-serif;           /* Humanist sans-serif */
 
   /* Spacing */
   --spacing-xs: 0.5rem;   /* 8px */
@@ -129,8 +130,8 @@ body {
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
-  color: var(--charcoal-grey);
-  background-color: var(--warm-cream);
+  color: var(--espresso-brown);
+  background-color: var(--linen-cream);
   min-height: 100vh;
 }
 
@@ -142,7 +143,7 @@ h5,
 h6 {
   font-family: var(--font-heading);
   font-weight: 600;
-  color: var(--charcoal-grey);
+  color: var(--espresso-brown);
 }
 
 html {
@@ -162,31 +163,31 @@ html {
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--portuguese-red);
+  color: var(--azulejo-blue);
 }
 
 /* Navigation link styling */
 .navbar-nav .nav-link {
-  color: var(--charcoal-grey);
+  color: var(--espresso-brown);
   font-weight: 500;
   padding: 0.5rem 1rem;
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover {
-  color: var(--portuguese-red);
-  background-color: rgba(139, 0, 0, 0.05);
+  color: var(--azulejo-blue);
+  background-color: rgba(31, 78, 121, 0.05);
   border-radius: var(--radius-sm);
 }
 
 .navbar-nav .nav-link.active {
-  color: var(--portuguese-red);
+  color: var(--azulejo-blue);
   font-weight: 700;
 }
 
 /* Bootstrap icon in navbar */
 .navbar-brand .bi {
-  color: var(--portuguese-red);
+  color: var(--azulejo-blue);
 }
 
 /* ======================================================================
@@ -199,7 +200,7 @@ html {
 .hero-section {
   position: relative;
   min-height: 500px;
-  background: linear-gradient(135deg, var(--portuguese-red) 0%, var(--portuguese-green) 100%);
+  background: linear-gradient(135deg, var(--azulejo-blue) 0%, var(--olive-green) 100%);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -224,12 +225,12 @@ html {
 
 /* Hero headings */
 .hero-section h1 {
-  color: var(--soft-white);
+  color: var(--porcelain-white);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-section p {
-  color: var(--soft-white);
+  color: var(--porcelain-white);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
@@ -241,7 +242,7 @@ html {
    ====================================================================== */
 .section-heading {
   font-size: 2.5rem;
-  color: var(--portuguese-red);
+  color: var(--azulejo-blue);
   margin-bottom: 1.5rem;
 }
 
@@ -249,7 +250,7 @@ html {
 .section-divider {
   width: 80px;
   height: 4px;
-  background: linear-gradient(to right, var(--portuguese-red), var(--portuguese-gold));
+  background: linear-gradient(to right, var(--azulejo-blue), var(--olive-green));
   border-radius: 2px;
 }
 
@@ -260,7 +261,7 @@ html {
    Reusable card component for features, benefits, or highlights.
    ====================================================================== */
 .feature-card {
-  background-color: var(--soft-white);
+  background-color: var(--porcelain-white);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -273,7 +274,7 @@ html {
 }
 
 .feature-icon i {
-  color: var(--portuguese-red);
+  color: var(--azulejo-blue);
 }
 
 /* ======================================================================
@@ -283,7 +284,7 @@ html {
    Styling for text-heavy content areas like "Our Story" and "Philosophy".
    ====================================================================== */
 .about-content {
-  background-color: var(--soft-white);
+  background-color: var(--porcelain-white);
   padding: 2rem;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
@@ -291,14 +292,14 @@ html {
 }
 
 .about-content h3 {
-  color: var(--portuguese-red);
-  border-bottom: 2px solid var(--portuguese-gold);
+  color: var(--azulejo-blue);
+  border-bottom: 2px solid var(--olive-green);
   padding-bottom: 0.5rem;
 }
 
 .about-content .lead {
   font-size: 1.1rem;
-  color: var(--charcoal-grey);
+  color: var(--espresso-brown);
 }
 
 /* ======================================================================
@@ -308,13 +309,13 @@ html {
    Highlighted section encouraging user action (booking, viewing menu).
    ====================================================================== */
 .cta-section {
-  background: linear-gradient(135deg, var(--portuguese-red), var(--portuguese-green));
-  color: var(--soft-white);
+  background: linear-gradient(135deg, var(--azulejo-blue), var(--olive-green));
+  color: var(--porcelain-white);
   box-shadow: var(--shadow-lg);
 }
 
 .cta-section h2 {
-  color: var(--soft-white);
+  color: var(--porcelain-white);
 }
 
 /* ======================================================================
@@ -324,9 +325,9 @@ html {
    Display restaurant opening hours in a structured format.
    ====================================================================== */
 .opening-hours-card {
-  background-color: var(--soft-white);
+  background-color: var(--porcelain-white);
   box-shadow: var(--shadow-md);
-  border: 2px solid var(--portuguese-red);
+  border: 2px solid var(--azulejo-blue);
 }
 
 .opening-hours-card .border-bottom {
@@ -341,9 +342,9 @@ html {
    Overrides Bootstrap default button colours.
    ====================================================================== */
 .btn-primary {
-  background-color: var(--portuguese-red);
-  border-color: var(--portuguese-red);
-  color: var(--soft-white);
+  background-color: var(--terracotta-red);
+  border-color: var(--terracotta-red);
+  color: var(--porcelain-white);
   font-weight: 600;
   padding: 0.75rem 2rem;
   border-radius: var(--radius-md);
@@ -351,16 +352,16 @@ html {
 }
 
 .btn-primary:hover {
-  background-color: #6B0000;
-  border-color: #6B0000;
+  background-color: #A33728;
+  border-color: #A33728;
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
 .btn-secondary {
-  background-color: var(--portuguese-green);
-  border-color: var(--portuguese-green);
-  color: var(--soft-white);
+  background-color: var(--olive-green);
+  border-color: var(--olive-green);
+  color: var(--porcelain-white);
   font-weight: 600;
   padding: 0.75rem 2rem;
   border-radius: var(--radius-md);
@@ -368,8 +369,8 @@ html {
 }
 
 .btn-secondary:hover {
-  background-color: #005030;
-  border-color: #005030;
+  background-color: #577018;
+  border-color: #577018;
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -382,7 +383,7 @@ html {
    Uses dark background for contrast with main content.
    ====================================================================== */
 .footer-section {
-  background-color: var(--charcoal-grey);
+  background-color: var(--espresso-brown);
   margin-top: 4rem;
 }
 
@@ -397,11 +398,11 @@ html {
 }
 
 .contact-tile i {
-  color: var(--portuguese-gold);
+  color: var(--olive-green);
 }
 
 .contact-tile h5 {
-  color: var(--soft-white);
+  color: var(--porcelain-white);
   font-family: var(--font-heading);
 }
 
@@ -411,7 +412,7 @@ html {
 }
 
 .footer-section a:hover {
-  color: var(--portuguese-gold) !important;
+  color: var(--olive-green) !important;
 }
 
 /* Copyright text */
@@ -478,23 +479,23 @@ html {
    Reusable helper classes for common styling patterns.
    ====================================================================== */
 .text-primary-custom {
-  color: var(--portuguese-red);
+  color: var(--azulejo-blue);
 }
 
 .text-secondary-custom {
-  color: var(--portuguese-green);
+  color: var(--olive-green);
 }
 
 .text-accent {
-  color: var(--portuguese-gold);
+  color: var(--terracotta-red);
 }
 
 .bg-cream {
-  background-color: var(--warm-cream);
+  background-color: var(--linen-cream);
 }
 
 .bg-white-soft {
-  background-color: var(--soft-white);
+  background-color: var(--porcelain-white);
 }
 
 /* ======================================================================
@@ -508,7 +509,7 @@ html {
 a:focus,
 button:focus,
 .btn:focus {
-  outline: 3px solid var(--portuguese-gold);
+  outline: 3px solid var(--terracotta-red);
   outline-offset: 2px;
 }
 
@@ -517,7 +518,7 @@ button:focus,
   position: absolute;
   top: -40px;
   left: 0;
-  background: var(--portuguese-red);
+  background: var(--azulejo-blue);
   color: white;
   padding: 8px;
   text-decoration: none;
