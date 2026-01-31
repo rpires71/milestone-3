@@ -12,7 +12,7 @@ Date: January 2026
 Course: Code Institute - Milestone Project 3
 """
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import JsonResponse
@@ -294,3 +294,145 @@ def my_bookings(request):
     }
     
     return render(request, 'my_bookings.html', context)
+
+@login_required
+def edit_booking(request, reference):
+    """
+    Edit an existing booking.
+    
+    Only allows editing of:
+    - Bookings owned by the current user
+    - Future bookings (not past dates)
+    - Non-cancelled bookings
+    
+    Args:
+        request: HTTP request object
+        reference: Booking reference number
+        
+    Returns:
+        Rendered edit template or redirect to my_bookings
+        
+    Template: edit_booking.html
+    Context:
+        - form: Pre-filled BookingForm
+        - booking: Original booking instance
+    """
+    # Get booking or 404
+    booking = get_object_or_404(Booking, reference_number=reference)
+    
+    # Security check: Only owner can edit
+    if booking.user != request.user:
+        messages.error(request, 'You can only edit your own bookings.')
+        return redirect('bookings:my_bookings')
+    
+    # Validation: Can't edit past bookings
+    if booking.booking_date < date.today():
+        messages.error(request, 'You cannot edit past bookings.')
+        return redirect('bookings:my_bookings')
+    
+    # Validation: Can't edit cancelled bookings
+    if booking.status == 'Cancelled':
+        messages.error(request, 'You cannot edit cancelled bookings.')
+        return redirect('bookings:my_bookings')
+    
+    if request.method == 'POST':
+        # Create form with POST data and existing instance
+        form = BookingForm(request.POST, instance=booking, user=request.user)
+        
+        if form.is_valid():
+            # Save updates
+            updated_booking = form.save(commit=False)
+            
+            # Ensure user remains the same (security)
+            updated_booking.user = request.user
+            
+            # Keep original reference number
+            updated_booking.reference_number = booking.reference_number
+            
+            # Save to database
+            updated_booking.save()
+            
+            # Success message
+            messages.success(
+                request,
+                f'Booking {booking.reference_number} updated successfully!'
+            )
+            
+            # Redirect to confirmation page
+            return redirect('bookings:confirmation', reference=booking.reference_number)
+        else:
+            # Form has errors
+            messages.error(
+                request,
+                'There was an error updating your booking. Please check the form.'
+            )
+    else:
+        # GET request: Pre-fill form with existing data
+        form = BookingForm(instance=booking, user=request.user)
+    
+    context = {
+        'form': form,
+        'booking': booking,
+        'is_edit': True,
+    }
+    
+    return render(request, 'edit_booking.html', context)
+
+
+@login_required
+def cancel_booking(request, reference):
+    """
+    Cancel an existing booking.
+    
+    Updates booking status to 'Cancelled' and records cancellation timestamp.
+    Only allows cancellation of:
+    - Bookings owned by the current user
+    - Future bookings (not past dates)
+    - Non-cancelled bookings
+    
+    Args:
+        request: HTTP request object
+        reference: Booking reference number
+        
+    Returns:
+        Redirect to my_bookings page with success/error message
+        
+    Security:
+        - Requires POST method to prevent accidental cancellation
+        - Checks user ownership
+        - Validates booking is future and not already cancelled
+    """
+    # Only accept POST requests (security - prevents accidental cancellation via URL)
+    if request.method != 'POST':
+        messages.error(request, 'Invalid request method.')
+        return redirect('bookings:my_bookings')
+    
+    # Get booking or 404
+    booking = get_object_or_404(Booking, reference_number=reference)
+    
+    # Security check: Only owner can cancel
+    if booking.user != request.user:
+        messages.error(request, 'You can only cancel your own bookings.')
+        return redirect('bookings:my_bookings')
+    
+    # Validation: Can't cancel past bookings
+    if booking.booking_date < date.today():
+        messages.error(request, 'You cannot cancel past bookings.')
+        return redirect('bookings:my_bookings')
+    
+    # Validation: Can't cancel already cancelled bookings
+    if booking.status == 'Cancelled':
+        messages.warning(request, 'This booking is already cancelled.')
+        return redirect('bookings:my_bookings')
+    
+    # Cancel the booking using model method
+    booking.cancel()
+    
+    # Success message
+    messages.success(
+        request,
+        f'Booking {booking.reference_number} has been cancelled successfully.'
+    )
+    
+    # Redirect to my bookings
+    return redirect('bookings:my_bookings')

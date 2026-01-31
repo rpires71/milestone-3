@@ -26,6 +26,12 @@ urlpatterns = [
     
     # User booking management (requires login)
     path('my-bookings/', views.my_bookings, name='my_bookings'),
+
+    # User booking editing/updating (requires login)
+    path('edit/<str:reference>/', views.edit_booking, name='edit_booking'),
+
+    # User booking cancellation (requires login)
+    path('cancel/<str:reference>/', views.cancel_booking, name='cancel_booking'),
 ]
 
 

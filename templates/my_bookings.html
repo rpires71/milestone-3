@@ -96,23 +96,27 @@
                 <!-- Card Footer -->
                 <div class="card-footer">
                   <div class="d-grid gap-2">
+                    <!-- View Details Button -->
                     <a href="{% url 'bookings:confirmation' booking.reference_number %}" class="btn btn-outline-primary btn-sm">
                       <i class="bi bi-eye me-1"></i>
                       View Details
                     </a>
-                    <!-- Future: Edit and Cancel buttons -->
-                    <!--
-                    <div class="btn-group">
-                      <a href="#" class="btn btn-outline-secondary btn-sm">
+                    
+                    <!-- Edit and Cancel Buttons -->
+                    <div class="btn-group" role="group">
+                      <a href="{% url 'bookings:edit_booking' booking.reference_number %}" class="btn btn-outline-secondary btn-sm">
                         <i class="bi bi-pencil me-1"></i>
                         Edit
                       </a>
-                      <button class="btn btn-outline-danger btn-sm">
+                      <button 
+                        type="button" 
+                        class="btn btn-outline-danger btn-sm" 
+                        onclick="confirmCancel('{{ booking.reference_number }}', '{{ booking.booking_date|date:"M j, Y" }}', '{{ booking.timeslot.time|time:"g:i A" }}')"
+                      >
                         <i class="bi bi-x-circle me-1"></i>
                         Cancel
                       </button>
                     </div>
-                    -->
                   </div>
                 </div>
               </div>
@@ -214,6 +218,46 @@
 
   </div>
 </section>
+
+<!-- Cancel Confirmation Modal -->
+<div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title" id="cancelModalLabel">
+          <i class="bi bi-exclamation-triangle me-2"></i>
+          Cancel Booking
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-3">Are you sure you want to cancel this booking?</p>
+        <div class="alert alert-warning">
+          <strong>Booking Details:</strong><br>
+          Reference: <span id="modalReference"></span><br>
+          Date: <span id="modalDate"></span><br>
+          Time: <span id="modalTime"></span>
+        </div>
+        <p class="text-danger mb-0">
+          <strong>Warning:</strong> This action cannot be undone.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          <i class="bi bi-x-circle me-2"></i>
+          Keep Booking
+        </button>
+        <form id="cancelForm" method="POST" style="display: inline;">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">
+            <i class="bi bi-trash me-2"></i>
+            Yes, Cancel Booking
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
 
@@ -413,6 +457,11 @@
     background-color: var(--porcelain-white);
   }
 
+  /* Modal */
+  .modal-header.bg-danger {
+    background-color: var(--terracotta-red) !important;
+  }
+
   /* Responsive */
   @media (max-width: 768px) {
     .portuguese-kitchen-logo h3 {
@@ -437,4 +486,25 @@
     }
   }
 </style>
+{% endblock %}
+
+<!-- Extra JavaScript -->
+{% block extra_js %}
+<script>
+// Cancel booking confirmation
+function confirmCancel(reference, date, time) {
+  // Set modal content
+  document.getElementById('modalReference').textContent = reference;
+  document.getElementById('modalDate').textContent = date;
+  document.getElementById('modalTime').textContent = time;
+  
+  // Set form action
+  const form = document.getElementById('cancelForm');
+  form.action = "{% url 'bookings:cancel_booking' 'PLACEHOLDER' %}".replace('PLACEHOLDER', reference);
+  
+  // Show modal
+  const modal = new bootstrap.Modal(document.getElementById('cancelModal'));
+  modal.show();
+}
+</script>
 {% endblock %}
