@@ -379,8 +379,9 @@ class Booking(models.Model):
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name='bookings',
-        help_text="Customer who made the booking"
+        null=True,           # ← ADD THIS
+        blank=True,          # ← ADD THIS
+        help_text="User who made the booking (null for guest bookings)"
     )
     
     # Foreign key to Table model with SET_NULL
@@ -427,6 +428,27 @@ class Booking(models.Model):
         help_text="Number of guests (1-8)"
     )
     
+    # Guest booking fields (for non-authenticated users)
+    guest_name = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+        help_text="Guest's full name (for non-registered users)"
+    )
+
+    guest_email = models.EmailField(
+        blank=True,
+        null=True,
+        help_text="Guest's email address for confirmation"
+    )
+    
+    guest_phone = models.CharField(
+        max_length=20,
+        blank=True,
+        null=True,
+        help_text="Guest's phone number for contact"
+    )
+
     # CharField with choices for booking status
     # choices parameter provides dropdown in forms and admin interface
     # default='Pending' sets initial state for new bookings
@@ -497,7 +519,7 @@ class Booking(models.Model):
         # Database constraint: prevent same user booking same slot on same date
         # Enforced at database level for data integrity
         # Prevents accidental double-booking by same user (Vincent, 2020, Chapter 4)
-        unique_together = [['user', 'booking_date', 'timeslot']]
+        # unique_together = [['user', 'booking_date', 'timeslot']]
 
     def __str__(self):
         """
@@ -515,7 +537,12 @@ class Booking(models.Model):
             >>> str(booking)
             'AB12CD34 - john_smith on 2026-02-14'
         """
-        return f"{self.reference_number} - {self.user.username} on {self.booking_date}"
+        if self.user:
+            customer = self.user.username
+        else:
+            customer = self.guest_name or "Guest"
+        
+        return f"{self.reference_number} - {customer} on {self.booking_date}"
 
     def generate_reference_number(self):
         """

@@ -1,0 +1,329 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- Page title -->
+{% block title %}Booking Confirmation - Portuguese Kitchen{% endblock %}
+
+<!-- Booking confirmation content -->
+{% block content %}
+
+<!-- Confirmation Hero Section -->
+<section class="confirmation-hero py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <!-- Success Icon -->
+        <div class="success-icon mb-4">
+          <i class="bi bi-check-circle-fill text-success" style="font-size: 5rem;"></i>
+        </div>
+        
+        <!-- Confirmation Message -->
+        <h1 class="display-4 fw-bold mb-3">Booking Confirmed!</h1>
+        <p class="lead mb-4">
+          Thank you for choosing Portuguese Kitchen. We look forward to serving you!
+        </p>
+        
+        <!-- Reference Number -->
+        <div class="reference-number p-4 bg-white rounded-3 shadow-sm mb-4">
+          <p class="mb-2 text-muted">Your Booking Reference:</p>
+          <h2 class="fw-bold text-primary mb-0">{{ booking.reference_number }}</h2>
+          <p class="small text-muted mt-2">Please save this number for your records</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Booking Details Section -->
+<section class="booking-details py-5 bg-white">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        
+        <!-- Booking Details Card -->
+        <div class="details-card p-4 border rounded-3 mb-4">
+          <h3 class="mb-4 pb-3 border-bottom">
+            <i class="bi bi-calendar-check me-2 text-primary"></i>
+            Booking Details
+          </h3>
+          
+          <div class="row g-4">
+            <!-- Date -->
+            <div class="col-md-6">
+              <div class="detail-item">
+                <i class="bi bi-calendar3 text-primary me-2"></i>
+                <span class="fw-semibold">Date:</span>
+                <p class="mb-0 mt-1">{{ booking.booking_date|date:"l, F j, Y" }}</p>
+              </div>
+            </div>
+            
+            <!-- Time -->
+            <div class="col-md-6">
+              <div class="detail-item">
+                <i class="bi bi-clock text-primary me-2"></i>
+                <span class="fw-semibold">Time:</span>
+                <p class="mb-0 mt-1">{{ booking.timeslot.time|time:"g:i A" }}</p>
+              </div>
+            </div>
+            
+            <!-- Guests -->
+            <div class="col-md-6">
+              <div class="detail-item">
+                <i class="bi bi-people text-primary me-2"></i>
+                <span class="fw-semibold">Guests:</span>
+                <p class="mb-0 mt-1">{{ booking.number_of_guests }} {{ booking.number_of_guests|pluralize:"Guest,Guests" }}</p>
+              </div>
+            </div>
+            
+            <!-- Status -->
+            <div class="col-md-6">
+              <div class="detail-item">
+                <i class="bi bi-info-circle text-primary me-2"></i>
+                <span class="fw-semibold">Status:</span>
+                <p class="mb-0 mt-1">
+                  <span class="badge bg-warning">{{ booking.status }}</span>
+                </p>
+              </div>
+            </div>
+            
+            <!-- Special Requests (if any) -->
+            {% if booking.special_requests %}
+            <div class="col-12">
+              <div class="detail-item">
+                <i class="bi bi-chat-text text-primary me-2"></i>
+                <span class="fw-semibold">Special Requests:</span>
+                <p class="mb-0 mt-1 text-muted">{{ booking.special_requests }}</p>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        
+        <!-- Contact Details Card -->
+        <div class="details-card p-4 border rounded-3 mb-4">
+          <h3 class="mb-4 pb-3 border-bottom">
+            <i class="bi bi-person-circle me-2 text-primary"></i>
+            Contact Information
+          </h3>
+          
+          <div class="row g-3">
+            {% if booking.user %}
+              <!-- Authenticated User -->
+              <div class="col-12">
+                <i class="bi bi-person text-primary me-2"></i>
+                <span class="fw-semibold">Name:</span> {{ booking.user.first_name }} {{ booking.user.last_name }}
+              </div>
+              <div class="col-12">
+                <i class="bi bi-envelope text-primary me-2"></i>
+                <span class="fw-semibold">Email:</span> {{ booking.user.email }}
+              </div>
+            {% else %}
+              <!-- Guest Booking -->
+              <div class="col-12">
+                <i class="bi bi-person text-primary me-2"></i>
+                <span class="fw-semibold">Name:</span> {{ booking.guest_name }}
+              </div>
+              <div class="col-12">
+                <i class="bi bi-envelope text-primary me-2"></i>
+                <span class="fw-semibold">Email:</span> {{ booking.guest_email }}
+              </div>
+              <div class="col-12">
+                <i class="bi bi-telephone text-primary me-2"></i>
+                <span class="fw-semibold">Phone:</span> {{ booking.guest_phone }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+        
+        <!-- Important Information -->
+        <div class="alert alert-info">
+          <h5 class="alert-heading">
+            <i class="bi bi-info-circle-fill me-2"></i>
+            Important Information
+          </h5>
+          <ul class="mb-0 ps-3">
+            <li>A confirmation email has been sent to your email address</li>
+            <li>Please arrive on time. We can hold your table for 15 minutes</li>
+            <li>If you need to modify or cancel, please contact us at least 24 hours in advance</li>
+            <li>For any questions, call us at <a href="tel:+442071234567">+44 (0) 207 123 4567</a></li>
+          </ul>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center mt-4">
+          <a href="{% url 'home' %}" class="btn btn-outline-primary btn-lg">
+            <i class="bi bi-house me-2"></i>
+            Back to Home
+          </a>
+          <a href="{% url 'menu' %}" class="btn btn-outline-secondary btn-lg">
+            <i class="bi bi-book me-2"></i>
+            View Menu
+          </a>
+          {% if booking.user %}
+          <a href="{% url 'bookings:my_bookings' %}" class="btn btn-primary btn-lg">
+            <i class="bi bi-calendar-range me-2"></i>
+            My Bookings
+          </a>
+          {% endif %}
+        </div>
+        
+        <!-- Print Button -->
+        <div class="text-center mt-4">
+          <button onclick="window.print()" class="btn btn-sm btn-outline-secondary">
+            <i class="bi bi-printer me-2"></i>
+            Print Confirmation
+          </button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+<!-- Extra CSS -->
+{% block extra_css %}
+<style>
+  /* Confirmation Hero */
+  .confirmation-hero {
+    background: linear-gradient(135deg, var(--azulejo-blue) 0%, var(--olive-green) 100%);
+    color: white;
+  }
+
+  /* Success Icon Animation */
+  .success-icon i {
+    animation: scaleIn 0.5s ease-out;
+  }
+
+  @keyframes scaleIn {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Reference Number Card */
+  .reference-number {
+    border: 2px dashed var(--olive-green);
+  }
+
+  .reference-number h2 {
+    color: var(--azulejo-blue);
+    font-family: var(--font-heading);
+    letter-spacing: 2px;
+  }
+
+  /* Booking Details Section */
+  .booking-details {
+    background-color: var(--linen-cream);
+  }
+
+  /* Details Cards */
+  .details-card {
+    background-color: var(--porcelain-white);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .details-card h3 {
+    color: var(--azulejo-blue);
+    font-family: var(--font-heading);
+  }
+
+  /* Detail Items */
+  .detail-item {
+    padding: 0.5rem 0;
+  }
+
+  .detail-item i {
+    font-size: 1.25rem;
+  }
+
+  /* Status Badge */
+  .badge.bg-warning {
+    background-color: var(--olive-green) !important;
+  }
+
+  /* Alert Box */
+  .alert-info {
+    background-color: rgba(31, 78, 121, 0.1);
+    border-color: var(--azulejo-blue);
+    color: var(--espresso-brown);
+  }
+
+  .alert-info .alert-heading {
+    color: var(--azulejo-blue);
+  }
+
+  /* Buttons */
+  .btn-primary {
+    background-color: var(--terracotta-red);
+    border-color: var(--terracotta-red);
+  }
+
+  .btn-primary:hover {
+    background-color: #a83829;
+    border-color: #a83829;
+  }
+
+  .btn-outline-primary {
+    color: var(--azulejo-blue);
+    border-color: var(--azulejo-blue);
+  }
+
+  .btn-outline-primary:hover {
+    background-color: var(--azulejo-blue);
+    border-color: var(--azulejo-blue);
+    color: white;
+  }
+
+  .btn-outline-secondary {
+    color: var(--espresso-brown);
+    border-color: var(--espresso-brown);
+  }
+
+  .btn-outline-secondary:hover {
+    background-color: var(--espresso-brown);
+    border-color: var(--espresso-brown);
+    color: white;
+  }
+
+  /* Print Styles */
+  @media print {
+    .btn, nav, footer {
+      display: none !important;
+    }
+
+    .confirmation-hero {
+      background: white !important;
+      color: black !important;
+    }
+
+    .success-icon i {
+      color: #198754 !important;
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .confirmation-hero h1 {
+      font-size: 2rem;
+    }
+
+    .success-icon i {
+      font-size: 3rem !important;
+    }
+
+    .reference-number h2 {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+{% endblock %}

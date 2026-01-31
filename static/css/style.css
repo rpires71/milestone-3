@@ -31,8 +31,8 @@
    - --porcelain-white: Card backgrounds, forms, and modal components
 
    Typography Strategy:
-   - Headings use Montserrat (clean geometric sans-serif for structure and clarity)
-   - Body text uses Lato (humanist sans-serif for readability and warmth)
+   - Headings use Playfair Display (elegant, traditional serif for titles)
+   - Body text uses Lato (clean, easy to read for paragraphs)
 
    UI Token Strategy:
    - Spacing values avoid random margins and enforce consistency
@@ -51,8 +51,8 @@
   --light-grey: #E8E8E8;          /* Light grey - borders and dividers */
 
   /* Typography */
-  --font-heading: "Montserrat", sans-serif;  /* Clean geometric sans-serif */
-  --font-body: "Lato", sans-serif;           /* Humanist sans-serif */
+  --font-heading: "Playfair Display", serif;  /* Elegant traditional serif */
+  --font-body: "Lato", sans-serif;            /* Clean readable sans-serif */
 
   /* Spacing */
   --spacing-xs: 0.5rem;   /* 8px */

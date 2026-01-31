@@ -1,4 +1,3 @@
-# Create your views here.
 """
 Booking views for Portuguese Kitchen Booking System.
 
@@ -42,17 +41,15 @@ def booking_page(request):
         - today: Current date for minimum date validation
     """
     if request.method == 'POST':
-        form = BookingForm(request.POST)
+        # Pass current user to form for authentication check
+        form = BookingForm(request.POST, user=request.user)
         
         if form.is_valid():
             booking = form.save(commit=False)
             
-            # If user is authenticated, link booking to user
-            if request.user.is_authenticated:
-                booking.user = request.user
-            
             # Generate unique reference number
             booking.reference_number = booking.generate_reference_number()
+            
             
             # Set initial status
             booking.status = 'Pending'
@@ -75,7 +72,8 @@ def booking_page(request):
                 'There was an error with your booking. Please check the form and try again.'
             )
     else:
-        form = BookingForm()
+        # Pass current user to form
+        form = BookingForm(user=request.user)
     
     context = {
         'form': form,
