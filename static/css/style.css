@@ -1,125 +1,40 @@
-/* stylelint-disable css/no-important */
-/* ======================================================================
-   CSS DESIGN SYSTEM: COLOUR PALETTE, TYPOGRAPHY & UI TOKENS (Variables)
-   ----------------------------------------------------------------------
-   Purpose:
-   This section creates a reusable visual system for the whole website by
-   defining CSS Variables (also called custom properties). These variables
-   store values for colours, fonts, spacing, border curvature, and shadows
-   so the design is consistent and easy to update across all pages.
+/* =========================================================
+   PORTUGUESE KITCHEN - MAIN STYLESHEET
+   
+   This stylesheet implements the Portuguese Kitchen brand
+   colour palette and typography system consistently across
+   all pages.
+   
+   Author: Roberto Pires
+   Date: February 2026
+   ========================================================= */
 
-   Benefits:
-   - Promotes consistent branding across all pages (home, menu, bookings)
-   - Reduces code repetition (instead of writing #8B0000 everywhere,
-     we use var(--portuguese-red))
-   - Enables quick theme changes (changing one value updates the site)
-
-   Where Used:
-   - Navigation bar and brand colours (all pages)
-   - Buttons and interactive booking components
-   - Hero sections and footer styling
-   - Menu cards, booking forms, feature tiles
-   - Borders, background colours and box shadows
-
-   Project Colour Strategy:
-   This palette is based on Portuguese azulejo tiles and traditional aesthetics:
-   - --azulejo-blue: Primary brand colour (navbar, headers, key accents)
-   - --olive-green: Secondary tone (section dividers, icons, subtle highlights)
-   - --terracotta-red: Call-to-action colour (buttons, booking actions, interactive elements)
-   - --linen-cream: Main background colour providing warmth and visual comfort
-   - --espresso-brown: Text colour (headings, body text, footer background)
-   - --porcelain-white: Card backgrounds, forms, and modal components
-
-   Typography Strategy:
-   - Headings use Playfair Display (elegant, traditional serif for titles)
-   - Body text uses Lato (clean, easy to read for paragraphs)
-
-   UI Token Strategy:
-   - Spacing values avoid random margins and enforce consistency
-   - Border-radius tokens ensure all cards/tiles/buttons look related
-   - Shadow tokens create depth, improving visual hierarchy and usability
-
-   ================================================================ */
+/* =========================================================
+   CSS CUSTOM PROPERTIES (VARIABLES)
+   Centralised colour palette for easy maintenance
+   ========================================================= */
 :root {
-  /* Primary Colours - Based on Portuguese Azulejo Tiles and Traditional Aesthetics */
-  --azulejo-blue: #1F4E79;        /* Primary brand - navigation, headers, accents */
-  --olive-green: #6B8E23;         /* Secondary - dividers, icons, highlights */
-  --terracotta-red: #C44536;      /* Call-to-action - buttons, interactive elements */
-  --linen-cream: #FAF7F2;         /* Main background - warmth and comfort */
-  --espresso-brown: #3A2F2A;      /* Text - headings, body, footer background */
-  --porcelain-white: #FFFFFF;     /* Cards, forms, modal components */
-  --light-grey: #E8E8E8;          /* Light grey - borders and dividers */
-
+  /* Brand Colours */
+  --azulejo-blue: #1F4E79;      /* Primary brand colour */
+  --olive-green: #6B8E23;        /* Secondary tone */
+  --terracotta-red: #C44536;     /* Call-to-action colour */
+  --linen-cream: #FAF7F2;        /* Main background */
+  --espresso-brown: #3A2F2A;     /* Text colour */
+  --porcelain-white: #FFFFFF;    /* Card backgrounds */
+  
   /* Typography */
-  --font-heading: "Playfair Display", serif;  /* Elegant traditional serif */
-  --font-body: "Lato", sans-serif;            /* Clean readable sans-serif */
-
-  /* Spacing */
-  --spacing-xs: 0.5rem;   /* 8px */
-  --spacing-sm: 1rem;     /* 16px */
-  --spacing-md: 1.5rem;   /* 24px */
-  --spacing-lg: 2rem;     /* 32px */
-  --spacing-xl: 3rem;     /* 48px */
-
-  /* Border Radius */
-  --radius-sm: 5px;
-  --radius-md: 10px;
-  --radius-lg: 15px;
-
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Lato', sans-serif;
+  
   /* Shadows */
-  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* ======================================================================
-   GLOBAL STYLES (Base Reset, Typography & Page Behaviour)
-   ----------------------------------------------------------------------
-   Purpose:
-   This section defines universal rules that apply to the entire website
-   before any specific component styling is added. These global settings
-   remove browser inconsistencies, apply the chosen typography system, 
-   and control how the page behaves when scrolling.
-
-   1. CSS Reset using the universal selector (*)
-      - margin: 0 and padding: 0 remove default browser spacing around 
-        all elements (e.g., <p>, <h1>, <section>).  
-      - box-sizing: border-box ensures that padding and borders are 
-        included inside width/height calculations, preventing layout 
-        issues.  
-      - This creates a predictable foundation for responsive design.
-
-   2. Body Styling
-      - font-family: var(--font-body) applies 'Lato' to all readable text,
-        giving the site a modern, clean aesthetic.
-      - font-size: 16px standardises text to an accessible base size.
-      - line-height: 1.6 improves readability across long paragraphs.
-      - color: var(--charcoal-grey) ensures high text contrast against
-        the lighter cream background.
-      - background-color: var(--warm-cream) creates a warm neutral page 
-        background that matches the Portuguese theme.
-      - min-height: 100vh ensures each page fills at least the viewport 
-        height, preventing small pages from looking cut off.
-
-   3. Heading Typography (h1–h6)
-      - font-family: var(--font-heading) uses 'Playfair Display' for headings 
-        to visually distinguish titles from body text.
-      - font-weight: 600 makes headings bold enough to stand out.
-      - color: var(--charcoal-grey) keeps headings legible and consistent.
-
-   4. Smooth Scrolling (html)
-      - scroll-behavior: smooth enables animated scrolling when users 
-        click internal navigation links (e.g., #contact).
-      - Enhances user experience and provides visual feedback.
-
-   Where Used:
-   - index.html – About section, hero banner, footer contact details
-   - menu.html – Menu categories, dish descriptions
-   - bookings.html – Booking form headings, confirmation messages
-   - These global rules ensure all text and spacing across all pages 
-     follows one consistent format based on the project's design system.
-
-   ====================================================================== */
+/* =========================================================
+   GLOBAL STYLES
+   ========================================================= */
 * {
   margin: 0;
   padding: 0;
@@ -128,403 +43,454 @@
 
 body {
   font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.6;
   color: var(--espresso-brown);
   background-color: var(--linen-cream);
-  min-height: 100vh;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  color: var(--espresso-brown);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* ======================================================================
-   NAVIGATION BAR STYLING
-   ----------------------------------------------------------------------
-   Purpose:
-   Customises the Bootstrap navbar to match the Portuguese Kitchen brand.
-   Overrides default Bootstrap colours and adds hover effects.
-   ====================================================================== */
-
-/* Logo text styling */
-.logo-text {
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
   font-weight: 700;
-  color: var(--azulejo-blue);
-}
-
-/* Navigation link styling */
-.navbar-nav .nav-link {
   color: var(--espresso-brown);
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  transition: color 0.3s ease, background-color 0.3s ease;
+  margin-bottom: 1rem;
 }
 
-.navbar-nav .nav-link:hover {
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+a {
   color: var(--azulejo-blue);
-  background-color: rgba(31, 78, 121, 0.05);
-  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.navbar-nav .nav-link.active {
-  color: var(--azulejo-blue);
-  font-weight: 700;
+a:hover {
+  color: var(--olive-green);
 }
 
-/* Bootstrap icon in navbar */
-.navbar-brand .bi {
-  color: var(--azulejo-blue);
-}
-
-/* ======================================================================
-   HERO SECTION
-   ----------------------------------------------------------------------
-   Purpose:
-   Full-width banner section with background image and overlay.
-   Creates dramatic first impression with centred text.
-   ====================================================================== */
-.hero-section {
-  position: relative;
-  min-height: 500px;
-  background: linear-gradient(135deg, var(--azulejo-blue) 0%, var(--olive-green) 100%);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-/* Dark overlay for better text readability */
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-/* Content positioning */
-.hero-content {
-  z-index: 10;
-  max-width: 800px;
-  padding: 2rem;
-}
-
-/* Hero headings */
-.hero-section h1 {
-  color: var(--porcelain-white);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.hero-section p {
-  color: var(--porcelain-white);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-/* ======================================================================
-   SECTION STYLING
-   ----------------------------------------------------------------------
-   Purpose:
-   Consistent styling for main content sections throughout the site.
-   ====================================================================== */
-.section-heading {
-  font-size: 2.5rem;
-  color: var(--azulejo-blue);
-  margin-bottom: 1.5rem;
-}
-
-/* Decorative divider under section headings */
-.section-divider {
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(to right, var(--azulejo-blue), var(--olive-green));
-  border-radius: 2px;
-}
-
-/* ======================================================================
-   FEATURE CARDS
-   ----------------------------------------------------------------------
-   Purpose:
-   Reusable card component for features, benefits, or highlights.
-   ====================================================================== */
-.feature-card {
+/* =========================================================
+   NAVIGATION BAR
+   ========================================================= */
+.navbar {
   background-color: var(--porcelain-white);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid var(--light-grey);
-}
-
-.feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-}
-
-.feature-icon i {
-  color: var(--azulejo-blue);
-}
-
-/* ======================================================================
-   ABOUT CONTENT SECTIONS
-   ----------------------------------------------------------------------
-   Purpose:
-   Styling for text-heavy content areas like "Our Story" and "Philosophy".
-   ====================================================================== */
-.about-content {
-  background-color: var(--porcelain-white);
-  padding: 2rem;
-  border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
-  height: 100%;
 }
 
-.about-content h3 {
+.navbar-brand {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.5rem;
   color: var(--azulejo-blue);
-  border-bottom: 2px solid var(--olive-green);
-  padding-bottom: 0.5rem;
 }
 
-.about-content .lead {
-  font-size: 1.1rem;
+.navbar-brand:hover {
+  color: var(--olive-green);
+}
+
+.logo-text {
   color: var(--espresso-brown);
 }
 
-/* ======================================================================
-   CALL TO ACTION SECTION
-   ----------------------------------------------------------------------
-   Purpose:
-   Highlighted section encouraging user action (booking, viewing menu).
-   ====================================================================== */
-.cta-section {
-  background: linear-gradient(135deg, var(--azulejo-blue), var(--olive-green));
-  color: var(--porcelain-white);
-  box-shadow: var(--shadow-lg);
+.nav-link {
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--espresso-brown);
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
 }
 
-.cta-section h2 {
-  color: var(--porcelain-white);
+.nav-link:hover,
+.nav-link.active {
+  color: var(--azulejo-blue);
 }
 
-/* ======================================================================
-   OPENING HOURS CARD
-   ----------------------------------------------------------------------
-   Purpose:
-   Display restaurant opening hours in a structured format.
-   ====================================================================== */
-.opening-hours-card {
-  background-color: var(--porcelain-white);
-  box-shadow: var(--shadow-md);
-  border: 2px solid var(--azulejo-blue);
+.navbar .bi {
+  color: var(--azulejo-blue);
 }
 
-.opening-hours-card .border-bottom {
-  border-color: var(--light-grey) !important;
+/* =========================================================
+   HERO SECTIONS - GRADIENT ON ALL PAGES
+   ========================================================= */
+.hero-section,
+.auth-hero,
+.menu-hero,
+.booking-hero,
+.bookings-hero,
+.profile-hero,
+.confirmation-hero {
+  background: linear-gradient(135deg, var(--azulejo-blue) 0%, var(--olive-green) 100%) !important;
+  color: var(--porcelain-white) !important;
+  padding: 3rem 0;
+  margin-bottom: 0;
+  border-bottom: 3px solid var(--olive-green);
 }
 
-/* ======================================================================
-   BUTTON STYLING
-   ----------------------------------------------------------------------
-   Purpose:
-   Custom button styles matching the Portuguese Kitchen brand.
-   Overrides Bootstrap default button colours.
-   ====================================================================== */
-.btn-primary {
-  background-color: var(--terracotta-red);
-  border-color: var(--terracotta-red);
-  color: var(--porcelain-white);
+.hero-section h1,
+.hero-section h2,
+.hero-section h3,
+.auth-hero h1,
+.auth-hero h2,
+.menu-hero h1,
+.menu-hero h2,
+.booking-hero h1,
+.booking-hero h2,
+.bookings-hero h1,
+.bookings-hero h2,
+.profile-hero h1,
+.profile-hero h2,
+.confirmation-hero h1,
+.confirmation-hero h2 {
+  color: var(--porcelain-white) !important;
+}
+
+.hero-section p,
+.hero-section .lead,
+.auth-hero p,
+.menu-hero p,
+.booking-hero p,
+.bookings-hero p,
+.profile-hero p,
+.confirmation-hero p {
+  color: var(--porcelain-white) !important;
+}
+
+.hero-section .bi,
+.auth-hero .bi,
+.menu-hero .bi,
+.booking-hero .bi,
+.bookings-hero .bi,
+.profile-hero .bi,
+.confirmation-hero .bi {
+  color: var(--porcelain-white) !important;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn {
+  font-family: var(--font-body);
   font-weight: 600;
-  padding: 0.75rem 2rem;
-  border-radius: var(--radius-md);
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
   transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background-color: var(--terracotta-red) !important;
+  border-color: var(--terracotta-red) !important;
+  color: var(--porcelain-white) !important;
 }
 
 .btn-primary:hover {
-  background-color: #A33728;
-  border-color: #A33728;
+  background-color: #a83829 !important;
+  border-color: #a83829 !important;
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
 .btn-secondary {
-  background-color: var(--olive-green);
-  border-color: var(--olive-green);
-  color: var(--porcelain-white);
-  font-weight: 600;
-  padding: 0.75rem 2rem;
-  border-radius: var(--radius-md);
-  transition: all 0.3s ease;
+  background-color: var(--azulejo-blue) !important;
+  border-color: var(--azulejo-blue) !important;
+  color: var(--porcelain-white) !important;
 }
 
 .btn-secondary:hover {
-  background-color: #577018;
-  border-color: #577018;
-  transform: translateY(-2px);
+  background-color: #163a5f !important;
+  border-color: #163a5f !important;
+}
+
+.btn-outline-primary {
+  color: var(--azulejo-blue) !important;
+  border-color: var(--azulejo-blue) !important;
+  background-color: transparent !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--azulejo-blue) !important;
+  border-color: var(--azulejo-blue) !important;
+  color: var(--porcelain-white) !important;
+}
+
+.btn-outline-secondary {
+  color: var(--espresso-brown) !important;
+  border-color: var(--espresso-brown) !important;
+  background-color: transparent !important;
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--espresso-brown) !important;
+  border-color: var(--espresso-brown) !important;
+  color: var(--porcelain-white) !important;
+}
+
+.btn-outline-danger {
+  color: var(--terracotta-red) !important;
+  border-color: var(--terracotta-red) !important;
+  background-color: transparent !important;
+}
+
+.btn-outline-danger:hover {
+  background-color: var(--terracotta-red) !important;
+  border-color: var(--terracotta-red) !important;
+  color: var(--porcelain-white) !important;
+}
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+.card,
+.profile-card,
+.booking-card,
+.stats-card,
+.actions-card,
+.details-card {
+  background-color: var(--porcelain-white) !important;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover,
+.profile-card:hover,
+.booking-card:hover {
   box-shadow: var(--shadow-md);
 }
 
-/* ======================================================================
-   FOOTER SECTION
-   ----------------------------------------------------------------------
-   Purpose:
-   Footer styling with contact information tiles.
-   Uses dark background for contrast with main content.
-   ====================================================================== */
+.card-header {
+  background-color: #f8f9fa !important;
+  border-bottom: 2px solid var(--azulejo-blue);
+  font-family: var(--font-heading);
+  color: var(--azulejo-blue) !important;
+}
+
+/* =========================================================
+   FORMS
+   ========================================================= */
+.form-control,
+.form-select {
+  border: 2px solid #dee2e6;
+  border-radius: 5px;
+  padding: 0.75rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--azulejo-blue) !important;
+  box-shadow: 0 0 0 0.2rem rgba(31, 78, 121, 0.25) !important;
+  outline: none;
+}
+
+.form-label {
+  font-weight: 600;
+  color: var(--espresso-brown);
+}
+
+.invalid-feedback {
+  color: var(--terracotta-red);
+}
+
+.is-invalid {
+  border-color: var(--terracotta-red) !important;
+}
+
+/* =========================================================
+   ALERTS
+   ========================================================= */
+.alert-success {
+  background-color: #d4edda;
+  border-color: var(--olive-green);
+  color: #155724;
+}
+
+.alert-danger,
+.alert-error {
+  background-color: #f8d7da;
+  border-color: var(--terracotta-red);
+  color: #721c24;
+}
+
+.alert-warning {
+  background-color: #fff3cd;
+  border-color: #ffc107;
+  color: #856404;
+}
+
+.alert-info {
+  background-color: rgba(31, 78, 121, 0.1);
+  border-color: var(--azulejo-blue);
+  color: var(--espresso-brown);
+}
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+.badge.bg-primary {
+  background-color: var(--azulejo-blue) !important;
+}
+
+.badge.bg-success {
+  background-color: var(--olive-green) !important;
+}
+
+.badge.bg-danger {
+  background-color: var(--terracotta-red) !important;
+}
+
+.badge.bg-warning {
+  background-color: var(--olive-green) !important;
+}
+
+.bg-status-pending {
+  background-color: var(--olive-green) !important;
+}
+
+.bg-status-confirmed {
+  background-color: #28a745 !important;
+}
+
+.bg-status-cancelled {
+  background-color: var(--terracotta-red) !important;
+}
+
+.bg-status-completed {
+  background-color: #6c757d !important;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
 .footer-section {
-  background-color: var(--espresso-brown);
+  background-color: var(--espresso-brown) !important;
+  color: var(--porcelain-white);
+  padding: 3rem 0 1rem;
   margin-top: 4rem;
 }
 
-/* Contact tile cards in footer */
-.contact-tile {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.contact-tile:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-}
-
-.contact-tile i {
-  color: var(--olive-green);
-}
-
-.contact-tile h5 {
+.footer-section h5 {
   color: var(--porcelain-white);
-  font-family: var(--font-heading);
 }
 
-/* Footer links */
 .footer-section a {
+  color: var(--porcelain-white);
   transition: color 0.3s ease;
 }
 
 .footer-section a:hover {
-  color: var(--olive-green) !important;
-}
-
-/* Copyright text */
-.copyright p {
-  color: var(--light-grey);
-  font-size: 0.9rem;
-}
-
-/* ======================================================================
-   RESPONSIVE DESIGN
-   ----------------------------------------------------------------------
-   Purpose:
-   Media queries for tablet and mobile devices.
-   Adjusts layouts, font sizes, and spacing for smaller screens.
-   ====================================================================== */
-
-/* Tablet and below */
-@media (max-width: 992px) {
-  .hero-section {
-    min-height: 400px;
-  }
-
-  .section-heading {
-    font-size: 2rem;
-  }
-
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
-}
-
-/* Mobile devices */
-@media (max-width: 768px) {
-  .hero-section {
-    min-height: 350px;
-  }
-
-  .section-heading {
-    font-size: 1.75rem;
-  }
-
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-  }
-
-  .feature-card {
-    margin-bottom: 1rem;
-  }
-
-  .btn-lg {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-  }
-}
-
-/* ======================================================================
-   UTILITY CLASSES
-   ----------------------------------------------------------------------
-   Purpose:
-   Reusable helper classes for common styling patterns.
-   ====================================================================== */
-.text-primary-custom {
-  color: var(--azulejo-blue);
-}
-
-.text-secondary-custom {
   color: var(--olive-green);
 }
 
-.text-accent {
-  color: var(--terracotta-red);
+.footer-section .bi {
+  color: var(--azulejo-blue);
 }
 
-.bg-cream {
-  background-color: var(--linen-cream);
+/* =========================================================
+   MODALS
+   ========================================================= */
+.modal-header {
+  background: linear-gradient(135deg, var(--azulejo-blue) 0%, var(--olive-green) 100%) !important;
+  color: var(--porcelain-white) !important;
 }
 
-.bg-white-soft {
-  background-color: var(--porcelain-white);
+.modal-header .btn-close {
+  filter: invert(1);
 }
 
-/* ======================================================================
-   ACCESSIBILITY ENHANCEMENTS
-   ----------------------------------------------------------------------
-   Purpose:
-   Improves accessibility for keyboard navigation and screen readers.
-   ====================================================================== */
-
-/* Focus states for keyboard navigation */
-a:focus,
-button:focus,
-.btn:focus {
-  outline: 3px solid var(--terracotta-red);
-  outline-offset: 2px;
+.modal-header.bg-danger {
+  background-color: var(--terracotta-red) !important;
+  background: var(--terracotta-red) !important;
 }
 
-/* Skip to main content link (for screen readers) */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: var(--azulejo-blue);
-  color: white;
-  padding: 8px;
-  text-decoration: none;
-  z-index: 100;
+/* =========================================================
+   TABLES
+   ========================================================= */
+.table thead {
+  background-color: #f8f9fa;
+  font-weight: 600;
 }
 
-.skip-link:focus {
-  top: 0;
+.table-hover tbody tr:hover {
+  background-color: rgba(31, 78, 121, 0.05);
+}
+
+/* =========================================================
+   UTILITIES
+   ========================================================= */
+.text-primary {
+  color: var(--azulejo-blue) !important;
+}
+
+.bg-light {
+  background-color: var(--linen-cream) !important;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+  
+  .hero-section,
+  .auth-hero,
+  .menu-hero,
+  .booking-hero,
+  .bookings-hero,
+  .profile-hero {
+    padding: 2rem 0;
+  }
+}
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+@media print {
+  .navbar,
+  .footer-section,
+  .btn {
+    display: none !important;
+  }
+  
+  .hero-section,
+  .auth-hero {
+    background: white !important;
+    color: black !important;
+  }
 }
