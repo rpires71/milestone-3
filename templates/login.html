@@ -4,17 +4,21 @@
 <!-- Page title -->
 {% block title %}Login - Portuguese Kitchen{% endblock %}
 
+<!-- Mark Login as active in navigation -->
+{% block nav_login %}active{% endblock %}
+
 <!-- Login page content -->
 {% block content %}
 
 <!-- Hero Section -->
-<section class="auth-hero py-5 bg-light">
+<section class="auth-hero">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-lg-4 text-center mb-4 mb-lg-0">
+      <div class="col-lg-4 text-center">
         <div class="portuguese-kitchen-logo">
-          <i class="bi bi-pot display-1 text-primary mb-3"></i>
-          <h3 class="fw-bold mb-0">PORTUGUESE<br>KITCHEN</h3>
+          <img src="{% static 'images/logo-v-3.png' %}" 
+     alt="Portuguese Kitchen logo"
+     class="hero-logo">
         </div>
       </div>
       <div class="col-lg-8">
@@ -28,7 +32,7 @@
 </section>
 
 <!-- Login Form Section -->
-<section class="auth-form-section py-5">
+<section class="auth-form-section py-5" style="padding-top: 3rem !important; padding-bottom: 3rem !important;">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-5 col-md-7">
@@ -66,7 +70,6 @@
                   name="username" 
                   value="{{ form.username.value|default:'' }}"
                   required
-                  autofocus
                 >
                 {% if form.username.errors %}
                   <div class="invalid-feedback">
@@ -180,7 +183,7 @@
 <style>
   /* Portuguese Kitchen Logo */
   .portuguese-kitchen-logo {
-    padding: 1rem;
+    padding: 0.5rem;
   }
 
   .portuguese-kitchen-logo h3 {
@@ -192,11 +195,6 @@
 
   .portuguese-kitchen-logo i {
     color: var(--azulejo-blue);
-  }
-
-  /* Auth Hero */
-  .auth-hero {
-    border-bottom: 3px solid var(--olive-green);
   }
 
   /* Auth Form Section */

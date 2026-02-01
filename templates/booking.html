@@ -11,13 +11,14 @@
 {% block content %}
 
 <!-- Hero Section -->
-<section class="booking-hero py-5">
+<section class="auth-hero">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-lg-4 text-center mb-4 mb-lg-0">
+      <div class="col-lg-4 text-center">
         <div class="portuguese-kitchen-logo">
-          <i class="bi bi-pot display-1 text-primary mb-3"></i>
-          <h3 class="fw-bold mb-0">PORTUGUESE<br>KITCHEN</h3>
+       <img src="{% static 'images/logo-v-3.png' %}" 
+     alt="Portuguese Kitchen logo"
+     class="hero-logo">
         </div>
       </div>
       <div class="col-lg-8">
@@ -219,7 +220,7 @@
 <style>
   /* Portuguese Kitchen Logo */
   .portuguese-kitchen-logo {
-    padding: 1rem;
+    padding: 0.5rem;
   }
 
   .portuguese-kitchen-logo h3 {
@@ -231,11 +232,6 @@
 
   .portuguese-kitchen-logo i {
     color: var(--azulejo-blue);
-  }
-
-  /* Booking Hero */
-  .booking-hero {
-    border-bottom: 3px solid var(--olive-green);
   }
 
   /* Booking Form Section */

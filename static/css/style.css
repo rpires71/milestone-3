@@ -30,6 +30,9 @@
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
   --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+  --hero-height: 250px;          /* ONE height for all heroes */
+  --hero-logo-max: 300px;        /* ONE logo size for all heroes */
 }
 
 /* =========================================================
@@ -104,6 +107,22 @@ a:hover {
   color: var(--olive-green);
 }
 
+.logo-image {
+  height: 50px;
+  width: auto;
+  max-height: 50px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.logo-image:hover {
+  transform: scale(1.05);
+}
+
+.navbar-brand:hover .logo-image {
+  transform: rotate(-5deg) scale(1.05);
+}
+
 .logo-text {
   color: var(--espresso-brown);
 }
@@ -137,10 +156,23 @@ a:hover {
 .confirmation-hero {
   background: linear-gradient(135deg, var(--azulejo-blue) 0%, var(--olive-green) 100%) !important;
   color: var(--porcelain-white) !important;
-  padding: 3rem 0;
-  margin-bottom: 0;
   border-bottom: 3px solid var(--olive-green);
+   /* make height consistent */
+  /* CONSISTENT HEIGHT */
+  min-height: 280px !important;
+  max-height: 280px !important;
+  height: 280px !important;
+  /* OVERRIDE BOOTSTRAP PADDING */
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+  /* CENTER CONTENT VERTICALLY */
+  display: flex !important;
+  align-items: center !important;
+  /* PREVENT OVERFLOW */
+  overflow: hidden !important;
 }
+
+
 
 .hero-section h1,
 .hero-section h2,
@@ -180,6 +212,15 @@ a:hover {
 .confirmation-hero .bi {
   color: var(--porcelain-white) !important;
 }
+
+.hero-logo {
+  max-height: 300px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
 
 /* =========================================================
    BUTTONS
@@ -459,21 +500,71 @@ a:hover {
   background-color: var(--linen-cream) !important;
 }
 
+/* Prevent layout shift from scrollbar */
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
+/* Or force scrollbar always */
+html {
+  overflow-y: scroll;
+}
+
 /* =========================================================
-   RESPONSIVE
+   Responsive hero heights
    ========================================================= */
 @media (max-width: 768px) {
   h1 { font-size: 2rem; }
   h2 { font-size: 1.75rem; }
   h3 { font-size: 1.5rem; }
-  
+
+  /* Hero heights for tablet */
   .hero-section,
   .auth-hero,
   .menu-hero,
   .booking-hero,
   .bookings-hero,
-  .profile-hero {
-    padding: 2rem 0;
+  .profile-hero,
+  .confirmation-hero {
+    min-height: 220px !important;
+    max-height: 220px !important;
+    height: 220px !important;
+  }
+  
+  .hero-logo {
+    max-height: 150px !important;
+  }
+
+  /* Logo sizing for tablet */
+  .logo-image {
+    height: 40px !important;
+    max-height: 40px !important;
+  }
+
+}
+
+@media (max-width: 576px) {
+  .hero-section,
+  .auth-hero,
+  .menu-hero,
+  .booking-hero,
+  .bookings-hero,
+  .profile-hero,
+  .confirmation-hero {
+    min-height: 180px !important;
+    max-height: 180px !important;
+    height: 180px !important;
+  }
+  
+  .hero-logo {
+    max-height: 120px !important;
+  }
+
+  /* Logo sizing for mobile */
+  .logo-image {
+    height: 35px !important;
+    max-height: 35px !important;
   }
 }
 
