@@ -1,0 +1,240 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- Page title -->
+{% block title %}My Profile - Portuguese Kitchen{% endblock %}
+
+<!-- Profile page content -->
+{% block content %}
+
+<!-- Hero Section -->
+<section class="profile-hero py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-4 text-center mb-4 mb-lg-0">
+        <div class="profile-icon">
+          <i class="bi bi-person-circle display-1"></i>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <h1 class="display-5 fw-bold mb-3">My Profile</h1>
+        <p class="lead mb-0">
+          Welcome back, {{ user.first_name|default:user.username }}!
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Profile Content Section -->
+<section class="profile-content py-5">
+  <div class="container">
+    <div class="row g-4">
+      
+      <!-- Left Column -->
+      <div class="col-lg-8">
+        
+        <!-- Account Information Card -->
+        <div class="card mb-4">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h3 class="mb-0">
+              <i class="bi bi-person-badge me-2"></i>
+              Account Information
+            </h3>
+          </div>
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="text-muted small">Username</label>
+                <p class="fw-bold mb-0">{{ user.username }}</p>
+              </div>
+              <div class="col-md-6">
+                <label class="text-muted small">Email</label>
+                <p class="fw-bold mb-0">{{ user.email }}</p>
+              </div>
+              <div class="col-md-6">
+                <label class="text-muted small">First Name</label>
+                <p class="fw-bold mb-0">{{ user.first_name|default:"Not set" }}</p>
+              </div>
+              <div class="col-md-6">
+                <label class="text-muted small">Last Name</label>
+                <p class="fw-bold mb-0">{{ user.last_name|default:"Not set" }}</p>
+              </div>
+              <div class="col-md-6">
+                <label class="text-muted small">Member Since</label>
+                <p class="fw-bold mb-0">{{ user.date_joined|date:"F j, Y" }}</p>
+              </div>
+              <div class="col-md-6">
+                <label class="text-muted small">Last Login</label>
+                <p class="fw-bold mb-0">{{ user.last_login|date:"M j, Y g:i A"|default:"Never" }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Preferences Card -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="mb-0">
+              <i class="bi bi-sliders me-2"></i>
+              Dining Preferences
+            </h3>
+          </div>
+          <div class="card-body">
+            {% if user.customer_profile %}
+              <div class="row g-3">
+                <div class="col-12">
+                  <label class="text-muted small">Dietary Requirements</label>
+                  <p class="mb-0">{{ user.customer_profile.dietary_requirements|default:"No dietary requirements specified" }}</p>
+                </div>
+                <div class="col-12">
+                  <label class="text-muted small">Special Requests</label>
+                  <p class="mb-0">{{ user.customer_profile.special_requests|default:"No special requests" }}</p>
+                </div>
+              </div>
+            {% else %}
+              <p class="text-muted mb-0">No preferences set</p>
+            {% endif %}
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column -->
+      <div class="col-lg-4">
+        
+        <!-- Stats Card -->
+        <div class="card mb-4">
+          <div class="card-header">
+            <h4 class="mb-0">
+              <i class="bi bi-graph-up me-2"></i>
+              Statistics
+            </h4>
+          </div>
+          <div class="card-body">
+            <div class="stat-item mb-3">
+              <div class="d-flex justify-content-between">
+                <span>Total Bookings</span>
+                <span class="badge bg-primary">{{ total_bookings|default:0 }}</span>
+              </div>
+            </div>
+            <div class="stat-item mb-3">
+              <div class="d-flex justify-content-between">
+                <span>Upcoming</span>
+                <span class="badge bg-success">{{ upcoming_count|default:0 }}</span>
+              </div>
+            </div>
+            <div class="stat-item">
+              <div class="d-flex justify-content-between">
+                <span>Completed</span>
+                <span class="badge bg-secondary">{{ completed_count|default:0 }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Actions Card -->
+        <div class="card">
+          <div class="card-header">
+            <h4 class="mb-0">
+              <i class="bi bi-lightning me-2"></i>
+              Quick Actions
+            </h4>
+          </div>
+          <div class="card-body">
+            <div class="d-grid gap-2">
+              <a href="{% url 'bookings:booking' %}" class="btn btn-primary">
+                <i class="bi bi-calendar-plus me-2"></i>
+                New Booking
+              </a>
+              <a href="{% url 'bookings:my_bookings' %}" class="btn btn-outline-primary">
+                <i class="bi bi-calendar-range me-2"></i>
+                My Bookings
+              </a>
+              <a href="{% url 'menu' %}" class="btn btn-outline-secondary">
+                <i class="bi bi-book me-2"></i>
+                View Menu
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+<!-- Extra CSS -->
+{% block extra_css %}
+<style>
+  .profile-hero {
+    background: linear-gradient(135deg, var(--azulejo-blue) 0%, var(--olive-green) 100%);
+    color: white;
+  }
+
+  .profile-icon i {
+    color: white;
+  }
+
+  .profile-content {
+    background-color: var(--linen-cream);
+  }
+
+  .card {
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+  }
+
+  .card-header {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid var(--azulejo-blue);
+    padding: 1.25rem;
+  }
+
+  .card-header h3,
+  .card-header h4 {
+    color: var(--azulejo-blue);
+    font-family: var(--font-heading);
+  }
+
+  .stat-item {
+    padding: 0.75rem;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+  }
+
+  .btn-primary {
+    background-color: var(--terracotta-red);
+    border-color: var(--terracotta-red);
+  }
+
+  .btn-primary:hover {
+    background-color: #a83829;
+    border-color: #a83829;
+  }
+
+  .btn-outline-primary {
+    color: var(--azulejo-blue);
+    border-color: var(--azulejo-blue);
+  }
+
+  .btn-outline-primary:hover {
+    background-color: var(--azulejo-blue);
+    color: white;
+  }
+
+  .btn-outline-secondary {
+    color: var(--espresso-brown);
+    border-color: var(--espresso-brown);
+  }
+
+  .btn-outline-secondary:hover {
+    background-color: var(--espresso-brown);
+    color: white;
+  }
+</style>
+{% endblock %}

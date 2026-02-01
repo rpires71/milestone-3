@@ -14,15 +14,17 @@ Course: Code Institute - Milestone Project 3
 Reference: Vincent, W. S. (2020) Django for beginners. Chapter 8.
 """
 
+from urllib import request
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.contrib.auth.models import User
+from bookings.models import Booking
 from .forms import UserRegistrationForm, UserProfileForm
 from .models import CustomerProfile
-
+from datetime import date, timezone, timezone
 
 def register_view(request):
     """
@@ -166,7 +168,6 @@ def logout_view(request):
     messages.success(request, 'You have been logged out successfully.')
     return redirect('home')
 
-
 @login_required
 def profile_view(request):
     """
@@ -209,11 +210,26 @@ def profile_view(request):
     
     # Get user's booking statistics
     from bookings.models import Booking
+    from datetime import date
+    today = date.today()
+
     total_bookings = Booking.objects.filter(user=request.user).count()
+    
     upcoming_bookings = Booking.objects.filter(
         user=request.user,
-        booking_date__gte=timezone.now().date()
+        booking_date__gte=today
     ).exclude(status='Cancelled').count()
+
+    completed_count = Booking.objects.filter(
+        user=request.user,
+        booking_date__lt=today,
+        status='Confirmed'
+    ).count()
+
+    cancelled_count = Booking.objects.filter(
+        user=request.user,
+        status='Cancelled'
+    ).count()
     
     context = {
         'user': request.user,
@@ -221,6 +237,8 @@ def profile_view(request):
         'form': form,
         'total_bookings': total_bookings,
         'upcoming_bookings': upcoming_bookings,
+        'completed_count': completed_count,
+        'cancelled_count': cancelled_count,
     }
     
     return render(request, 'profile.html', context)
