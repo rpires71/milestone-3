@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- Page title -->
+{% block title %}Portuguese Kitchen - Authentic Portuguese Cuisine & Reservations{% endblock %}
+
+<!-- Mark Home as active in navigation -->
+{% block nav_home %}active{% endblock %}
+
+<!-- Homepage-specific content -->
+{% block content %}
+
+<!-- =========================================================
+     HERO BANNER SECTION
+     ======================================================= -->
+<section class="auth-hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-4 text-center">
+        <div class="portuguese-kitchen-logo">
+           <img src="{% static 'images/logo-v-3.png' %}" 
+     alt="Portuguese Kitchen logo"
+     class="hero-logo">
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <h2 class="display-5 fw-bold mb-3">Authentic Portuguese Cuisine in London</h2>
+        <p class="lead mb-0">
+          Experience the rich flavours of Portugal with traditional recipes passed down through generations
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- =========================================================
+     MAIN CONTENT - About Us
+     ======================================================= -->
+<main class="container my-5">
+  <!-- About Us Section -->
+  <div class="row mb-5">
+    <div class="col-12">
+      <h2 class="section-heading text-center mb-4">Welcome to Portuguese Kitchen</h2>
+      <div class="section-divider mx-auto mb-5"></div>
+    </div>
+  </div>
+
+  <div class="row g-4 mb-5">
+    <div class="col-lg-6">
+      <div class="about-content">
+        <h3 class="mb-3">Our Story</h3>
+        <p class="lead">
+          Founded in 2020, Portuguese Kitchen brings the authentic taste of Portugal to London. Our family-run restaurant is dedicated to preserving traditional Portuguese cooking methods whilst creating a warm, welcoming atmosphere for all our guests.
+        </p>
+        <p>
+          Every dish on our menu tells a story of Portugal's rich culinary heritage, from the coastal regions to the inland countryside. We source the finest ingredients, many imported directly from Portugal, to ensure an authentic dining experience.
+        </p>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="about-content">
+        <h3 class="mb-3">Our Philosophy</h3>
+        <p>
+          At Portuguese Kitchen, we believe that food brings people together. Our chefs use time-honoured recipes and traditional techniques to create dishes that transport you straight to the heart of Portugal.
+        </p>
+        <p class="mb-3">
+          Whether you're celebrating a special occasion or simply enjoying a meal with loved ones, we're committed to providing an unforgettable dining experience.
+        </p>
+        <ul class="list-unstyled">
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Authentic Portuguese Recipes</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Fresh, Quality Ingredients</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Warm, Family Atmosphere</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Dietary Options Available</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="row mb-5">
+    <div class="col-12">
+      <h2 class="section-heading text-center mb-4">Why Choose Us</h2>
+      <div class="section-divider mx-auto mb-5"></div>
+    </div>
+  </div>
+
+  <div class="row g-4 mb-5">
+    <!-- Feature 1: Authentic Cuisine -->
+    <div class="col-md-6 col-lg-3">
+      <div class="feature-card text-center p-4 h-100">
+        <div class="feature-icon mb-3">
+          <i class="bi bi-award-fill fs-1 text-primary"></i>
+        </div>
+        <h5 class="mb-3">Authentic Cuisine</h5>
+        <p class="mb-0">
+          Traditional Portuguese recipes prepared by experienced chefs who learned their craft in Portugal
+        </p>
+      </div>
+    </div>
+
+    <!-- Feature 2: Fresh Ingredients -->
+    <div class="col-md-6 col-lg-3">
+      <div class="feature-card text-center p-4 h-100">
+        <div class="feature-icon mb-3">
+          <i class="bi bi-egg-fried fs-1 text-primary"></i>
+        </div>
+        <h5 class="mb-3">Fresh Ingredients</h5>
+        <p class="mb-0">
+          We source premium ingredients daily, many imported directly from Portugal
+        </p>
+      </div>
+    </div>
+
+    <!-- Feature 3: Cosy Atmosphere -->
+    <div class="col-md-6 col-lg-3">
+      <div class="feature-card text-center p-4 h-100">
+        <div class="feature-icon mb-3">
+          <i class="bi bi-house-heart-fill fs-1 text-primary"></i>
+        </div>
+        <h5 class="mb-3">Cosy Atmosphere</h5>
+        <p class="mb-0">
+          Enjoy your meal in our warm, family-friendly environment with traditional Portuguese décor
+        </p>
+      </div>
+    </div>
+
+    <!-- Feature 4: Easy Booking -->
+    <div class="col-md-6 col-lg-3">
+      <div class="feature-card text-center p-4 h-100">
+        <div class="feature-icon mb-3">
+          <i class="bi bi-calendar-check-fill fs-1 text-primary"></i>
+        </div>
+        <h5 class="mb-3">Easy Booking</h5>
+        <p class="mb-0">
+          Reserve your table online in seconds with our simple booking system
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Call to Action Section -->
+  <div class="row mb-5">
+    <div class="col-12">
+      <div class="cta-section text-center p-5 rounded-3">
+        <h2 class="mb-4">Ready to Experience Portugal?</h2>
+        <p class="lead mb-4">
+          Book your table today and discover the authentic taste of Portuguese cuisine
+        </p>
+        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+          <a href="#" class="btn btn-secondary btn-lg px-5">
+            View Menu
+          </a>
+          <a href="{% url 'bookings:booking' %}" class="btn btn-primary">Book a Table</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Opening Hours Section -->
+  <div class="row mb-5">
+    <div class="col-12">
+      <h2 class="section-heading text-center mb-4">Opening Hours</h2>
+      <div class="section-divider mx-auto mb-5"></div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="opening-hours-card p-4 rounded-3">
+        <div class="d-flex justify-content-between mb-3 pb-3 border-bottom">
+          <span class="fw-bold">Monday - Thursday</span>
+          <span>12:00 - 14:30 & 18:00 - 22:00</span>
+        </div>
+        <div class="d-flex justify-content-between mb-3 pb-3 border-bottom">
+          <span class="fw-bold">Friday - Saturday</span>
+          <span>12:00 - 14:30 & 18:00 - 23:00</span>
+        </div>
+        <div class="d-flex justify-content-between">
+          <span class="fw-bold">Sunday</span>
+          <span>12:00 - 20:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

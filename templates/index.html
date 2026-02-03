@@ -23,164 +23,385 @@
      class="hero-logo">
         </div>
       </div>
-      <div class="col-lg-8">
-        <h2 class="display-5 fw-bold mb-3">Authentic Portuguese Cuisine in London</h2>
-        <p class="lead mb-0">
-          Experience the rich flavours of Portugal with traditional recipes passed down through generations
+      <div class="col-lg-8 text-center text-lg-start">
+        <h2 class="display-5 fw-bold mb-3">Welcome to the Portuguese Kitchen</h2>
+        <p class="lead mb-4">
+          Authentic Portuguese Cuisine in London
         </p>
+        <!-- CTA Buttons in Hero -->
+        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
+          <a href="{% url 'bookings:booking' %}" class="btn btn-primary btn-lg px-4">
+            <i class="bi bi-calendar-check me-2"></i>Book a table
+          </a>
+          <a href="{% url 'menu' %}" class="btn btn-outline-secondary btn-lg px-4">
+            View Menu
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
 <!-- =========================================================
-     MAIN CONTENT - About Us
+     MAIN CONTENT - ABOUT US & IMAGE SLIDER SECTION
      ======================================================= -->
-<main class="container my-5">
-  <!-- About Us Section -->
-  <div class="row mb-5">
-    <div class="col-12">
-      <h2 class="section-heading text-center mb-4">Welcome to Portuguese Kitchen</h2>
-      <div class="section-divider mx-auto mb-5"></div>
-    </div>
-  </div>
-
-  <div class="row g-4 mb-5">
-    <div class="col-lg-6">
-      <div class="about-content">
-        <h3 class="mb-3">Our Story</h3>
-        <p class="lead">
-          Founded in 2020, Portuguese Kitchen brings the authentic taste of Portugal to London. Our family-run restaurant is dedicated to preserving traditional Portuguese cooking methods whilst creating a warm, welcoming atmosphere for all our guests.
-        </p>
-        <p>
-          Every dish on our menu tells a story of Portugal's rich culinary heritage, from the coastal regions to the inland countryside. We source the finest ingredients, many imported directly from Portugal, to ensure an authentic dining experience.
-        </p>
-      </div>
-    </div>
-    <div class="col-lg-6">
-      <div class="about-content">
-        <h3 class="mb-3">Our Philosophy</h3>
-        <p>
-          At Portuguese Kitchen, we believe that food brings people together. Our chefs use time-honoured recipes and traditional techniques to create dishes that transport you straight to the heart of Portugal.
-        </p>
-        <p class="mb-3">
-          Whether you're celebrating a special occasion or simply enjoying a meal with loved ones, we're committed to providing an unforgettable dining experience.
-        </p>
-        <ul class="list-unstyled">
-          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Authentic Portuguese Recipes</li>
-          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Fresh, Quality Ingredients</li>
-          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Warm, Family Atmosphere</li>
-          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Dietary Options Available</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Features Section -->
-  <div class="row mb-5">
-    <div class="col-12">
-      <h2 class="section-heading text-center mb-4">Why Choose Us</h2>
-      <div class="section-divider mx-auto mb-5"></div>
-    </div>
-  </div>
-
-  <div class="row g-4 mb-5">
-    <!-- Feature 1: Authentic Cuisine -->
-    <div class="col-md-6 col-lg-3">
-      <div class="feature-card text-center p-4 h-100">
-        <div class="feature-icon mb-3">
-          <i class="bi bi-award-fill fs-1 text-primary"></i>
+<section class="main-section py-5">
+  <div class="container">
+    <div class="row g-4">
+      <!-- Left Column: About Us with MS2 Scrollbar (5/12 width) -->
+      <div class="col-lg-5">
+        <div class="about-content">
+          <h2 class="mb-4">About Us</h2>
+          
+          <p class="mb-3">
+            Founded in 2020, <strong>Portuguese Kitchen</strong> brings the authentic taste of Portugal to London. Our family-run restaurant is dedicated to preserving traditional Portuguese cooking methods whilst creating a warm, welcoming atmosphere for all our guests.
+          </p>
+          
+          <p class="mb-3">
+            Every dish on our menu tells a story of Portugal's rich culinary heritage, from the coastal regions to the inland countryside. We source the finest ingredients, many imported directly from Portugal, to ensure an authentic dining experience.
+          </p>
+          
+          <p class="mb-3">
+            At Portuguese Kitchen, we believe that food brings people together. Our chefs use time-honoured recipes and traditional techniques to create dishes that transport you straight to the heart of Portugal.
+          </p>
+          
+          <p class="mb-3">
+            Whether you're celebrating a special occasion or simply enjoying a meal with loved ones, we're committed to providing an unforgettable dining experience in the heart of London's vibrant East End.
+          </p>
+          
+          <!-- Features List -->
+          <div class="list-features mt-4">
+            <h5 class="mb-3">Why Choose Us:</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                Authentic Portuguese Recipes
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                Fresh, Quality Ingredients from Portugal
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                Warm, Family-Friendly Atmosphere
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill text-primary me-2"></i>
+                Dietary Options Available
+              </li>
+            </ul>
+          </div>
         </div>
-        <h5 class="mb-3">Authentic Cuisine</h5>
-        <p class="mb-0">
-          Traditional Portuguese recipes prepared by experienced chefs who learned their craft in Portugal
-        </p>
       </div>
-    </div>
-
-    <!-- Feature 2: Fresh Ingredients -->
-    <div class="col-md-6 col-lg-3">
-      <div class="feature-card text-center p-4 h-100">
-        <div class="feature-icon mb-3">
-          <i class="bi bi-egg-fried fs-1 text-primary"></i>
-        </div>
-        <h5 class="mb-3">Fresh Ingredients</h5>
-        <p class="mb-0">
-          We source premium ingredients daily, many imported directly from Portugal
-        </p>
-      </div>
-    </div>
-
-    <!-- Feature 3: Cosy Atmosphere -->
-    <div class="col-md-6 col-lg-3">
-      <div class="feature-card text-center p-4 h-100">
-        <div class="feature-icon mb-3">
-          <i class="bi bi-house-heart-fill fs-1 text-primary"></i>
-        </div>
-        <h5 class="mb-3">Cosy Atmosphere</h5>
-        <p class="mb-0">
-          Enjoy your meal in our warm, family-friendly environment with traditional Portuguese décor
-        </p>
-      </div>
-    </div>
-
-    <!-- Feature 4: Easy Booking -->
-    <div class="col-md-6 col-lg-3">
-      <div class="feature-card text-center p-4 h-100">
-        <div class="feature-icon mb-3">
-          <i class="bi bi-calendar-check-fill fs-1 text-primary"></i>
-        </div>
-        <h5 class="mb-3">Easy Booking</h5>
-        <p class="mb-0">
-          Reserve your table online in seconds with our simple booking system
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Call to Action Section -->
-  <div class="row mb-5">
-    <div class="col-12">
-      <div class="cta-section text-center p-5 rounded-3">
-        <h2 class="mb-4">Ready to Experience Portugal?</h2>
-        <p class="lead mb-4">
-          Book your table today and discover the authentic taste of Portuguese cuisine
-        </p>
-        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-          <a href="#" class="btn btn-secondary btn-lg px-5">
-            View Menu
-          </a>
-          <a href="{% url 'bookings:booking' %}" class="btn btn-primary">Book a Table</a>
+      
+      <!-- Right Column: Image Slider with MS2 Border Effect (7/12 width) -->
+      <div class="col-lg-7">
+        <div id="restaurantCarousel" class="carousel slide shadow-lg rounded-4" data-bs-ride="carousel">
+          <!-- Indicators -->
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#restaurantCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#restaurantCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#restaurantCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#restaurantCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          </div>
+          
+          <!-- Slides -->
+          <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+              <img src="{% static 'images/restaurant-interior.png' %}" class="d-block w-100" alt="Restaurant Interior">
+              <div class="carousel-caption">
+                <h5>Warm & Welcoming Atmosphere</h5>
+                <p>Experience authentic Portuguese hospitality in our cosy restaurant</p>
+              </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+              <img src="{% static 'images/traditional-dishes.png' %}" class="d-block w-100" alt="Traditional Portuguese Dishes">
+              <div class="carousel-caption">
+                <h5>Traditional Portuguese Cuisine</h5>
+                <p>Savour the authentic flavours of Portugal in every dish</p>
+              </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+              <img src="{% static 'images/fresh-ingredients.png' %}" class="d-block w-100" alt="Fresh Ingredients">
+              <div class="carousel-caption">
+                <h5>Fresh, Quality Ingredients</h5>
+                <p>Imported directly from Portugal for authentic taste</p>
+              </div>
+            </div>
+            
+            <!-- Slide 4 -->
+            <div class="carousel-item">
+              <img src="{% static 'images/dining-experience.png' %}" class="d-block w-100" alt="Dining Experience">
+              <div class="carousel-caption">
+                <h5>Unforgettable Dining Experience</h5>
+                <p>Create lasting memories with family and friends</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Controls -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#restaurantCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#restaurantCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- Opening Hours Section -->
-  <div class="row mb-5">
-    <div class="col-12">
-      <h2 class="section-heading text-center mb-4">Opening Hours</h2>
-      <div class="section-divider mx-auto mb-5"></div>
-    </div>
-  </div>
 
-  <div class="row justify-content-center">
-    <div class="col-lg-6">
-      <div class="opening-hours-card p-4 rounded-3">
-        <div class="d-flex justify-content-between mb-3 pb-3 border-bottom">
-          <span class="fw-bold">Monday - Thursday</span>
-          <span>12:00 - 14:30 & 18:00 - 22:00</span>
-        </div>
-        <div class="d-flex justify-content-between mb-3 pb-3 border-bottom">
-          <span class="fw-bold">Friday - Saturday</span>
-          <span>12:00 - 14:30 & 18:00 - 23:00</span>
-        </div>
-        <div class="d-flex justify-content-between">
-          <span class="fw-bold">Sunday</span>
-          <span>12:00 - 20:00</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
+{% endblock %}
 
+<!-- Extra CSS with Exact MS2 Scrollbar & Border Effects -->
+{% block extra_css %}
+<style>
+  /* ============================================================
+     MAIN SECTION - MS2 STYLE
+     ============================================================ */
+  .main-section {
+    background-color: var(--linen-cream);
+    padding: 3rem 0;
+  }
+
+  /* ============================================================
+     ABOUT CONTENT CARD - MS2 SCROLLBAR STYLING
+     ============================================================ */
+  .about-content {
+    background-color: var(--porcelain-white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    height: 600px;
+    border-left: 5px solid var(--azulejo-blue);
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* Firefox scrollbar - MS2 Style */
+    scrollbar-width: thin;
+    scrollbar-color: var(--olive-green) var(--linen-cream);
+  }
+
+  /* Webkit Scrollbar Styling - MS2 Style (Chrome, Edge, Safari) */
+  .about-content::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .about-content::-webkit-scrollbar-track {
+    background: var(--linen-cream);
+    border-radius: 10px;
+  }
+
+  .about-content::-webkit-scrollbar-thumb {
+    background-color: var(--olive-green);
+    border-radius: 10px;
+    border: 2px solid var(--linen-cream);
+  }
+
+  .about-content::-webkit-scrollbar-thumb:hover {
+    background-color: var(--azulejo-blue);
+  }
+
+  /* Typography Inside About Content - MS2 Style */
+  .about-content h2 {
+    color: var(--azulejo-blue);
+    font-family: var(--font-heading);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+  }
+
+  .about-content h5 {
+    color: var(--azulejo-blue);
+    font-family: var(--font-heading);
+    font-weight: 600;
+  }
+
+  .about-content p {
+    line-height: 1.8;
+    color: var(--espresso-brown);
+  }
+
+  /* Feature List Styling - MS2 Style */
+  .list-features ul li {
+    font-size: 1rem;
+    color: var(--espresso-brown);
+  }
+
+  .list-features .bi-check-circle-fill {
+    color: var(--terracotta-red) !important;
+  }
+
+  /* ============================================================
+     CAROUSEL STYLING - MS2 BORDER EFFECT
+     ============================================================ */
+  
+  /* Carousel with Blue Border - Exact MS2 Style */
+  .carousel {
+    border: 3px solid var(--azulejo-blue);
+    border-radius: 15px;
+    overflow: hidden !important;
+    background-color: var(--azulejo-blue);
+  }
+
+  .carousel-inner {
+    height: 600px;
+    border-radius: 0;
+  }
+
+  .carousel-item {
+    height: 600px;
+    background-color: var(--azulejo-blue);
+  }
+
+  .carousel-item img {
+    height: 600px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0 !important;
+    display: block;
+  }
+
+  /* Carousel Caption with Backdrop Blur - MS2 Style */
+  .carousel-caption {
+    background: rgba(47, 62, 70, 0.8);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+
+  .carousel-caption h5 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--porcelain-white);
+    margin-bottom: 0.5rem;
+  }
+
+  .carousel-caption p {
+    font-size: 1rem;
+    color: var(--porcelain-white);
+    margin-bottom: 0;
+  }
+
+  /* Carousel Control Icons - MS2 Style */
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: var(--azulejo-blue);
+    border-radius: 50%;
+    padding: 1rem;
+  }
+
+  /* Carousel Indicators - MS2 Style */
+  .carousel-indicators button {
+    background-color: var(--azulejo-blue);
+  }
+
+  .carousel-indicators button.active {
+    background-color: var(--terracotta-red);
+  }
+
+  /* ============================================================
+     CONTACT/OPENING HOURS SECTION
+     ============================================================ */
+  .contact-section {
+    background-color: #f8f9fa !important;
+  }
+
+  .section-heading {
+    font-family: var(--font-heading);
+    color: var(--azulejo-blue);
+    font-weight: 700;
+  }
+
+  /* Info Cards with Hover Effect */
+  .info-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .info-card i {
+    color: var(--azulejo-blue);
+  }
+
+  .info-card h5 {
+    font-family: var(--font-heading);
+    color: var(--azulejo-blue);
+  }
+
+  /* ============================================================
+     RESPONSIVE DESIGN
+     ============================================================ */
+  
+  @media (max-width: 991px) {
+    /* Stack About and Slider on tablet/mobile */
+    .about-content {
+      max-height: 500px;
+      margin-bottom: 2rem;
+    }
+    
+    .carousel-inner,
+    .carousel-item,
+    .carousel-item img {
+      height: 450px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    /* Smaller carousel on mobile */
+    .carousel-inner,
+    .carousel-item,
+    .carousel-item img {
+      height: 350px;
+    }
+
+    .carousel-caption {
+      padding: 1rem 1.5rem;
+    }
+
+    .carousel-caption h5 {
+      font-size: 1.3rem;
+    }
+
+    .carousel-caption p {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    /* Even smaller on very small screens */
+    .about-content {
+      padding: 1.5rem;
+      max-height: 400px;
+    }
+    
+    .carousel-inner,
+    .carousel-item,
+    .carousel-item img {
+      height: 250px;
+    }
+
+    .carousel-caption h5 {
+      font-size: 1.1rem;
+    }
+
+    .carousel-caption p {
+      display: none;
+    }
+  }
+</style>
 {% endblock %}
