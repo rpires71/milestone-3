@@ -17,9 +17,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import JsonResponse
 from django.utils import timezone
+from django.db.models import Sum
 from datetime import datetime, date
 from .models import Booking, TimeSlot, Table
 from .forms import BookingForm
+
 
 
 def booking_page(request):
@@ -439,33 +441,18 @@ def cancel_booking(request, reference):
 
 def get_available_timeslots(request):
     """
-    Endpoint to fetch available time slots for a given date.
-    
-    Returns only time slots with remaining capacity.
-    Implements: US1-AC3, US1-AC4, US1-AC5
-    
-    Args:
-        request: HTTP request with GET parameters:
-            - date: Booking date in YYYY-MM-DD format
-            - guests: Number of guests (1-8)
-    
-    Returns:
-        JsonResponse with:
-            - timeslots: List of available time slots
-            - message: User feedback message
+    AJAX endpoint to fetch available time slots for a given date.
+    Implements: US1-AC3, AC4, AC5, AC8
     """
-    from django.db.models import Sum, Q
-    from datetime import datetime
-    
     if request.method != 'GET':
-        return JsonResponse({'error': 'Method not allowed'}, status=405)
+        return JsonResponse({'error': True, 'message': 'Method not allowed'}, status=405)
     
     try:
         # Get parameters
         date_str = request.GET.get('date')
         guests = int(request.GET.get('guests', 1))
         
-        # Validate parameters (AC8: Error handling)
+        # Validate parameters
         if not date_str:
             return JsonResponse({
                 'error': True,
@@ -474,7 +461,7 @@ def get_available_timeslots(request):
             })
         
         # Parse date
-        booking_date = datetime.strptime(date_str, '%Y-%m-d').date()
+        booking_date = datetime.strptime(date_str, '%Y-%m-%d').date()
         
         # Check if date is in the past
         if booking_date < date.today():
@@ -484,26 +471,23 @@ def get_available_timeslots(request):
                 'timeslots': []
             })
         
-        # Get day of week (0=Monday, 6=Sunday)
-        day_of_week = booking_date.weekday()
-        
-        # Get active time slots for this day of week
+        # Get active time slots ordered by time
         all_timeslots = TimeSlot.objects.filter(
             is_active=True
         ).order_by('time')
         
         available_timeslots = []
         
-        # Check capacity for each time slot (AC3: Fully booked handling)
+        # Check capacity for each time slot
         for timeslot in all_timeslots:
-            # Get total capacity for this time slot
+            # Get total capacity
             total_capacity = timeslot.max_capacity
             
-            # Get existing bookings for this date and time
+            # Get existing bookings
             existing_bookings = Booking.objects.filter(
                 booking_date=booking_date,
                 timeslot=timeslot,
-                status__in=['Pending', 'Confirmed', 'Seated']  # Exclude Cancelled/Completed
+                status__in=['Pending', 'Confirmed', 'Seated']
             ).aggregate(
                 total_guests=Sum('number_of_guests')
             )
@@ -511,7 +495,7 @@ def get_available_timeslots(request):
             booked_guests = existing_bookings['total_guests'] or 0
             available_capacity = total_capacity - booked_guests
             
-            # Only include if there's enough capacity (AC3)
+            # Only include if enough capacity
             if available_capacity >= guests:
                 available_timeslots.append({
                     'id': timeslot.id,
@@ -521,11 +505,14 @@ def get_available_timeslots(request):
                     'is_available': True
                 })
         
-        # User feedback (AC5: No slots available message)
+        # User feedback
         if not available_timeslots:
-            message = f'No time slots available for {guests} guest{"s" if guests > 1 else ""} on {booking_date.strftime("%B %d, %Y")}. Please try a different date or reduce party size.'
+            date_formatted = booking_date.strftime('%B %d, %Y')
+            guest_text = f'{guests} guest{"s" if guests > 1 else ""}'
+            message = f'No time slots available for {guest_text} on {date_formatted}. Please try a different date or reduce party size.'
         else:
-            message = f'{len(available_timeslots)} time slot{"s" if len(available_timeslots) > 1 else ""} available'
+            slot_count = len(available_timeslots)
+            message = f'{slot_count} time slot{"s" if slot_count > 1 else ""} available'
         
         return JsonResponse({
             'error': False,
@@ -535,7 +522,7 @@ def get_available_timeslots(request):
             'guests': guests
         })
         
-    except ValueError as e:
+    except ValueError:
         return JsonResponse({
             'error': True,
             'message': 'Invalid date format',
@@ -545,6 +532,6 @@ def get_available_timeslots(request):
     except Exception as e:
         return JsonResponse({
             'error': True,
-            'message': 'An error occurred. Please try again.',
+            'message': f'Error: {str(e)}',
             'timeslots': []
         }, status=500)

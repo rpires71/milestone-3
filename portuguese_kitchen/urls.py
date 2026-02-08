@@ -25,7 +25,7 @@ urlpatterns = [
     # Homepage
     path('', views.home, name='home'),
     path('menu/', views.menu, name='menu'),
-    path('booking/', include('bookings.urls')), 
+    path('bookings/', include('bookings.urls')), 
     path('accounts/', include('accounts.urls')),
 ]
 

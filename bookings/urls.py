@@ -33,7 +33,7 @@ urlpatterns = [
     # User booking cancellation (requires login)
     path('cancel/<str:reference>/', views.cancel_booking, name='cancel_booking'),
 
-    # AJAX endpoint for available time slots
+    # AJAX endpoint for available time slots - ADD THIS LINE
     path('api/available-timeslots/', views.get_available_timeslots, name='available_timeslots'),
 ]
 
