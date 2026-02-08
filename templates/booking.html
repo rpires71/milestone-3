@@ -351,3 +351,130 @@
   }
 </style>
 {% endblock %}
+
+{% block extra_js %}
+<script>
+// ================================================================
+// DYNAMIC TIME SLOT LOADING - US1 Implementation
+// ================================================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const dateInput = document.getElementById('id_booking_date');
+    const guestsInput = document.getElementById('id_number_of_guests');
+    const timeslotSelect = document.getElementById('id_timeslot');
+    const timeslotContainer = timeslotSelect.closest('.col-12');
+    
+    // Create feedback message element
+    const feedbackDiv = document.createElement('div');
+    feedbackDiv.className = 'alert mt-2';
+    feedbackDiv.style.display = 'none';
+    timeslotContainer.appendChild(feedbackDiv);
+    
+    // Create loading indicator
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'text-muted small mt-2';
+    loadingDiv.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Loading available time slots...';
+    loadingDiv.style.display = 'none';
+    timeslotContainer.appendChild(loadingDiv);
+    
+    /**
+     * Fetch available time slots from server
+     * Implements: US1-AC3, AC4, AC5, AC8
+     */
+    function loadAvailableTimeSlots() {
+        const selectedDate = dateInput.value;
+        const selectedGuests = guestsInput.value || 1;
+        
+        // AC8: Error handling - no date selected
+        if (!selectedDate) {
+            timeslotSelect.innerHTML = '<option value="">Please select a date first</option>';
+            timeslotSelect.disabled = true;
+            showFeedback('Please select a booking date to view available time slots', 'warning');
+            return;
+        }
+        
+        // Show loading indicator
+        loadingDiv.style.display = 'block';
+        feedbackDiv.style.display = 'none';
+        timeslotSelect.disabled = true;
+        
+        // Fetch available time slots via AJAX (AC4: Real-time data)
+        fetch(`/bookings/api/available-timeslots/?date=${selectedDate}&guests=${selectedGuests}`)
+            .then(response => response.json())
+            .then(data => {
+                loadingDiv.style.display = 'none';
+                
+                if (data.error) {
+                    // Handle errors
+                    timeslotSelect.innerHTML = '<option value="">No time slots available</option>';
+                    timeslotSelect.disabled = true;
+                    showFeedback(data.message, 'danger');
+                    return;
+                }
+                
+                // AC3: Fully booked time slots are not included in response
+                // AC5: User feedback for no slots
+                if (data.timeslots.length === 0) {
+                    timeslotSelect.innerHTML = '<option value="">No time slots available</option>';
+                    timeslotSelect.disabled = true;
+                    showFeedback(data.message, 'warning');
+                } else {
+                    // Populate time slots
+                    populateTimeSlots(data.timeslots);
+                    timeslotSelect.disabled = false;
+                    showFeedback(data.message, 'success');
+                }
+            })
+            .catch(error => {
+                console.error('Error loading time slots:', error);
+                loadingDiv.style.display = 'none';
+                timeslotSelect.innerHTML = '<option value="">Error loading time slots</option>';
+                timeslotSelect.disabled = true;
+                showFeedback('Unable to load time slots. Please refresh the page and try again.', 'danger');
+            });
+    }
+    
+    /**
+     * Populate time slot dropdown with available options
+     */
+    function populateTimeSlots(timeslots) {
+        timeslotSelect.innerHTML = '<option value="">Select a time slot</option>';
+        
+        timeslots.forEach(slot => {
+            const option = document.createElement('option');
+            option.value = slot.id;
+            option.textContent = `${slot.display_time} (${slot.available_capacity} spots available)`;
+            // AC7: Accessibility - meaningful option text
+            option.setAttribute('aria-label', `${slot.display_time}, ${slot.available_capacity} spots available`);
+            timeslotSelect.appendChild(option);
+        });
+    }
+    
+    /**
+     * Show feedback message to user
+     * AC5: User feedback, AC8: Error handling
+     */
+    function showFeedback(message, type) {
+        feedbackDiv.className = `alert alert-${type} mt-2`;
+        feedbackDiv.textContent = message;
+        feedbackDiv.style.display = 'block';
+        
+        // AC7: Accessibility - announce to screen readers
+        feedbackDiv.setAttribute('role', 'alert');
+        feedbackDiv.setAttribute('aria-live', 'polite');
+    }
+    
+    // Event listeners
+    dateInput.addEventListener('change', loadAvailableTimeSlots);
+    guestsInput.addEventListener('change', loadAvailableTimeSlots);
+    
+    // AC7: Accessibility - keyboard navigation
+    // Time slots are already keyboard accessible via native select element
+    
+    // Initial load if date is pre-filled
+    if (dateInput.value) {
+        loadAvailableTimeSlots();
+    }
+});
+</script>
+{% endblock %}

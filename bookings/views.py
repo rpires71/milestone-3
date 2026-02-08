@@ -436,3 +436,115 @@ def cancel_booking(request, reference):
     
     # Redirect to my bookings
     return redirect('bookings:my_bookings')
+
+def get_available_timeslots(request):
+    """
+    Endpoint to fetch available time slots for a given date.
+    
+    Returns only time slots with remaining capacity.
+    Implements: US1-AC3, US1-AC4, US1-AC5
+    
+    Args:
+        request: HTTP request with GET parameters:
+            - date: Booking date in YYYY-MM-DD format
+            - guests: Number of guests (1-8)
+    
+    Returns:
+        JsonResponse with:
+            - timeslots: List of available time slots
+            - message: User feedback message
+    """
+    from django.db.models import Sum, Q
+    from datetime import datetime
+    
+    if request.method != 'GET':
+        return JsonResponse({'error': 'Method not allowed'}, status=405)
+    
+    try:
+        # Get parameters
+        date_str = request.GET.get('date')
+        guests = int(request.GET.get('guests', 1))
+        
+        # Validate parameters (AC8: Error handling)
+        if not date_str:
+            return JsonResponse({
+                'error': True,
+                'message': 'Please select a date first',
+                'timeslots': []
+            })
+        
+        # Parse date
+        booking_date = datetime.strptime(date_str, '%Y-%m-d').date()
+        
+        # Check if date is in the past
+        if booking_date < date.today():
+            return JsonResponse({
+                'error': True,
+                'message': 'Cannot book for past dates',
+                'timeslots': []
+            })
+        
+        # Get day of week (0=Monday, 6=Sunday)
+        day_of_week = booking_date.weekday()
+        
+        # Get active time slots for this day of week
+        all_timeslots = TimeSlot.objects.filter(
+            is_active=True
+        ).order_by('time')
+        
+        available_timeslots = []
+        
+        # Check capacity for each time slot (AC3: Fully booked handling)
+        for timeslot in all_timeslots:
+            # Get total capacity for this time slot
+            total_capacity = timeslot.max_capacity
+            
+            # Get existing bookings for this date and time
+            existing_bookings = Booking.objects.filter(
+                booking_date=booking_date,
+                timeslot=timeslot,
+                status__in=['Pending', 'Confirmed', 'Seated']  # Exclude Cancelled/Completed
+            ).aggregate(
+                total_guests=Sum('number_of_guests')
+            )
+            
+            booked_guests = existing_bookings['total_guests'] or 0
+            available_capacity = total_capacity - booked_guests
+            
+            # Only include if there's enough capacity (AC3)
+            if available_capacity >= guests:
+                available_timeslots.append({
+                    'id': timeslot.id,
+                    'time': timeslot.time.strftime('%H:%M'),
+                    'display_time': timeslot.time.strftime('%I:%M %p'),
+                    'available_capacity': available_capacity,
+                    'is_available': True
+                })
+        
+        # User feedback (AC5: No slots available message)
+        if not available_timeslots:
+            message = f'No time slots available for {guests} guest{"s" if guests > 1 else ""} on {booking_date.strftime("%B %d, %Y")}. Please try a different date or reduce party size.'
+        else:
+            message = f'{len(available_timeslots)} time slot{"s" if len(available_timeslots) > 1 else ""} available'
+        
+        return JsonResponse({
+            'error': False,
+            'message': message,
+            'timeslots': available_timeslots,
+            'date': date_str,
+            'guests': guests
+        })
+        
+    except ValueError as e:
+        return JsonResponse({
+            'error': True,
+            'message': 'Invalid date format',
+            'timeslots': []
+        }, status=400)
+    
+    except Exception as e:
+        return JsonResponse({
+            'error': True,
+            'message': 'An error occurred. Please try again.',
+            'timeslots': []
+        }, status=500)
