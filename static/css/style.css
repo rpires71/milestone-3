@@ -577,6 +577,28 @@ html {
   pointer-events: none;
 }
 
+/* CSS for Dietary Key (add to {% block extra_css %}) */
+
+.dietary-key-item {
+  border: 1px solid #dee2e6;
+  transition: all 0.2s ease;
+}
+
+.dietary-key-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.alert-info {
+  background-color: rgba(31, 78, 121, 0.1);
+  border-color: var(--azulejo-blue);
+  color: var(--espresso-brown);
+}
+
+.alert-info h5 {
+  color: var(--azulejo-blue);
+  font-family: var(--font-heading);
+}
 /* =========================================================
    Responsive hero heights
    ========================================================= */
@@ -665,5 +687,20 @@ html {
   .auth-hero {
     background: white !important;
     color: black !important;
+  }
+}
+
+
+/* =========================================================
+   CSS for Dietary Key (add to {% block extra_css %})
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .dietary-key-item {
+    font-size: 0.85rem;
+  }
+  
+  .dietary-key-item .fs-4 {
+    font-size: 1.2rem !important;
   }
 }

@@ -46,6 +46,93 @@
       </div>
     </div>
 
+<!-- ==================================================================
+     DIETARY LEGEND/KEY - ADD TO menu.html
+     Implements: US7-AC2 (Dietary Key/Legend)
+     Location: Add after line 48 (after menu header image)
+     ================================================================== -->
+
+<!-- Dietary Information Key -->
+<div class="row mb-4">
+  <div class="col-12">
+    <div class="alert alert-info mx-auto" style="max-width: 900px;" role="region" aria-label="Dietary information guide">
+      <h5 class="text-center mb-3">
+        <i class="bi bi-info-circle-fill me-2"></i>
+        Dietary Information Guide
+      </h5>
+      
+      <!-- Dietary Symbols -->
+      <div class="row text-center g-2 mb-3">
+        <div class="col-6 col-md-3">
+          <div class="dietary-key-item p-2 bg-white rounded">
+            <span class="fs-4">🌱</span>
+            <br>
+            <strong>V</strong> - Vegetarian
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="dietary-key-item p-2 bg-white rounded">
+            <span class="fs-4">🐟</span>
+            <br>
+            <strong>P</strong> - Pescatarian
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="dietary-key-item p-2 bg-white rounded">
+            <span class="fs-4">🌾</span>
+            <br>
+            <strong>GF</strong> - Gluten-Free
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="dietary-key-item p-2 bg-white rounded">
+            <span class="fs-4">🥛</span>
+            <br>
+            <strong>DF</strong> - Dairy-Free
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="dietary-key-item p-2 bg-white rounded">
+            <span class="fs-4">🥜</span>
+            <br>
+            <strong>Nuts</strong> - Contains Nuts
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="dietary-key-item p-2 bg-white rounded">
+            <span class="fs-4">🌶️</span>
+            <br>
+            <strong>Spicy</strong> - Contains Spice
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="dietary-key-item p-2 bg-white rounded">
+            <span class="fs-4">🥚</span>
+            <br>
+            <strong>Eggs</strong> - Contains Eggs
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="dietary-key-item p-2 bg-white rounded">
+            <span class="fs-4">🍞</span>
+            <br>
+            <strong>Gluten</strong> - Contains Gluten
+          </div>
+        </div>
+      </div>
+      
+      <!-- Allergen Notice -->
+      <div class="text-center">
+        <p class="small mb-0">
+          <strong>⚠️ Allergen Information:</strong> Please inform our staff of any allergies or dietary requirements. 
+          Full allergen information is available on request. While we take precautions, we cannot guarantee that any 
+          dish is completely allergen-free due to cross-contamination in our kitchen.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
     <!-- Category Tabs -->
     <ul class="nav nav-tabs justify-content-center mb-4" id="menuTabs" role="tablist">
       <li class="nav-item" role="presentation">
@@ -107,11 +194,16 @@
 </div>
               <h4 class="text-center fw-bold mb-2">Caldo Verde £6.50</h4>
               <p class="text-center mb-3">Traditional kale soup with chorizo</p>
-              <div class="dietary-tags text-center">
-                <p class="small mb-0">
-                  <span class="badge bg-light text-dark border me-1">🌱 Vegetarian or Spicy Contains Meat</span>
-                </p>
-              </div>
+             <div class="dietary-tags text-center" role="region" aria-label="Dietary information for Caldo Verde">
+  <span class="badge bg-light text-dark border me-1" 
+        aria-label="Contains meat - chorizo sausage">
+    🥩 Contains Meat (Chorizo)
+  </span>
+  <span class="badge bg-light text-dark border me-1" 
+        aria-label="Spicy dish">
+    🌶️ Spicy
+  </span>
+</div>
             </div>
           </div>
 
@@ -125,11 +217,16 @@
 </div>
               <h4 class="text-center fw-bold mb-2">Pastéis de Bacalhau £8.50</h4>
               <p class="text-center mb-3">Crispy cod fishcakes with lemon aioli</p>
-              <div class="dietary-tags text-center">
-                <p class="small mb-0">
-                  <span class="badge bg-light text-dark border me-1">🐟 Pescatarian Gluten-Free</span>
-                </p>
-              </div>
+              <div class="dietary-tags text-center" role="region" aria-label="Dietary information for Pastéis de Bacalhau">
+  <span class="badge bg-light text-dark border me-1" 
+        aria-label="Pescatarian - contains fish">
+    🐟 P
+  </span>
+  <span class="badge bg-light text-dark border" 
+        aria-label="Gluten-free option">
+    🌾 GF
+  </span>
+</div>
             </div>
           </div>
         </div>
@@ -146,7 +243,21 @@
        class="img-fluid rounded-3">
 </div>
               <h4 class="text-center fw-bold mb-2">Bacalhau à Brás £17.50</h4>
-              <p class="text-center mb-3">Salt cod gently sautéed with onions, crispy shoestring potatoes, and free-range eggs, finished with black olives and fresh parsley.</p>
+              <p class="text-center mb-3">Salt cod gently sautéed with onions, crispy shoestring potatoes, and free-range eggs, finished with black olives and fresh parsley.
+                 <div class="dietary-tags text-center" role="region" aria-label="Dietary information unavailable">
+                <p class="small mb-0">
+                  <span class="badge bg-light text-dark border me-1" 
+        aria-label="Pescatarian - contains fish">
+    🐟 P
+  </span>
+  <span class="badge bg-light text-dark border" 
+        aria-label="Gluten-free option">
+    🌾 GF
+  </span>
+                </p>
+                
+              </div>
+              </p>
             </div>
           </div>
 
@@ -160,6 +271,12 @@
 </div>
               <h4 class="text-center fw-bold mb-2">Carne de Porco à Alentejana £18.95</h4>
               <p class="text-center mb-3">Tender marinated pork cooked with garlic, white wine, paprika, and coriander, combined with clams and served with golden potatoes.</p>
+              <div class="dietary-tags text-center">
+                <p class="small mb-0">
+                  <span class="badge bg-light text-dark border me-1">🍖 Meat</span>
+                  <span class="badge bg-light text-dark border me-1">🦞 Shellfish</span>
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -232,7 +349,10 @@
               <div class="dietary-tags text-center">
                 <p class="small mb-0">
                   <span class="badge bg-light text-dark border me-1">🦞 Shellfish</span>
-                  <span class="badge bg-light text-dark border me-1">✓ Gluten-Free</span>
+  <span class="badge bg-light text-dark border" 
+        aria-label="Gluten-free option">
+    🌾 GF
+  </span>
                 </p>
               </div>
             </div>
@@ -255,7 +375,11 @@
               <div class="dietary-tags text-center">
                 <p class="small mb-0">
                   <span class="badge bg-light text-dark border me-1">🌶️ Spicy</span>
-                  <span class="badge bg-light text-dark border me-1">✓ Gluten-Free</span>
+  </span>
+  <span class="badge bg-light text-dark border" 
+        aria-label="Gluten-free option">
+    🌾 GF
+  </span>
                 </p>
               </div>
             </div>
@@ -273,8 +397,14 @@
               <p class="text-center mb-3">Roasted octopus with smashed potatoes, olive oil, and garlic</p>
               <div class="dietary-tags text-center">
                 <p class="small mb-0">
-                  <span class="badge bg-light text-dark border me-1">🐟 Fish</span>
-                  <span class="badge bg-light text-dark border me-1">✓ Gluten-Free</span>
+                 <span class="badge bg-light text-dark border me-1" 
+        aria-label="Pescatarian - contains fish">
+    🐟 P
+  </span>
+  <span class="badge bg-light text-dark border" 
+        aria-label="Gluten-free option">
+    🌾 GF
+  </span>
                 </p>
               </div>
             </div>
@@ -293,7 +423,10 @@
               <div class="dietary-tags text-center">
                 <p class="small mb-0">
                   <span class="badge bg-light text-dark border me-1">🦞 Shellfish</span>
-                  <span class="badge bg-light text-dark border me-1">🐟 Fish</span>
+                  <span class="badge bg-light text-dark border me-1" 
+        aria-label="Pescatarian - contains fish">
+    🐟 P
+  </span>
                 </p>
               </div>
             </div>
@@ -311,7 +444,10 @@
               <p class="text-center mb-3">Grilled lamb chops with rosemary, garlic and roasted vegetables</p>
               <div class="dietary-tags text-center">
                 <p class="small mb-0">
-                  <span class="badge bg-light text-dark border me-1">✓ Gluten-Free</span>
+  <span class="badge bg-light text-dark border" 
+        aria-label="Gluten-free option">
+    🌾 GF
+  </span>
                 </p>
               </div>
             </div>
@@ -333,7 +469,7 @@
               <p class="text-center mb-3">Traditional Portuguese rice pudding with cinnamon and lemon zest</p>
               <div class="dietary-tags text-center">
                 <p class="small mb-0">
-                  <span class="badge bg-light text-dark border me-1">🌱 Vegetarian</span>
+                  <span class="badge bg-light text-dark border me-1">🌱 V</span>
                 </p>
               </div>
             </div>
@@ -351,8 +487,8 @@
               <p class="text-center mb-3">Rich Portuguese chocolate cake with almonds and orange</p>
               <div class="dietary-tags text-center">
                 <p class="small mb-0">
-                  <span class="badge bg-light text-dark border me-1">🌱 Vegetarian</span>
-                  <span class="badge bg-light text-dark border me-1">🥜 Contains Nuts</span>
+                  <span class="badge bg-light text-dark border me-1">🌱 V</span>
+                  <span class="badge bg-light text-dark border me-1">🥜 Nuts</span>
                 </p>
               </div>
             </div>
