@@ -13,6 +13,7 @@ Course: Code Institute - Milestone Project 3
 """
 
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import JsonResponse
@@ -252,7 +253,7 @@ def booking_confirmation(request, reference):
                 return redirect('bookings:my_bookings')
         
         # Guest bookings (no user) remain accessible via reference
-        
+
         context = {
             'booking': booking,
         }
@@ -580,3 +581,60 @@ def get_available_timeslots(request):
             'message': f'Error: {str(e)}',
             'timeslots': []
         }, status=500)
+    
+@staff_member_required
+def staff_dashboard(request):
+    """
+    Staff dashboard showing today's bookings.
+    
+    Implements US11: View all bookings for today to prepare tables.
+    
+    Access:
+        - Restricted to staff/admin users only (AC1)
+    
+    Args:
+        request: HTTP request object
+        
+    Returns:
+        Rendered staff dashboard template
+    """
+    # Get today's date (AC2, AC8)
+    today = date.today()
+    
+    # Get all bookings for today, ordered by time (AC2, AC4)
+    bookings = Booking.objects.filter(
+        booking_date=today
+    ).select_related(
+        'user', 'timeslot', 'table'
+    ).order_by(
+        'timeslot__time', 'created_at'
+    )
+    
+    # Calculate statistics
+    total_bookings = bookings.count()
+    
+    # Total expected guests (excluding cancelled)
+    total_guests = bookings.filter(
+        status__in=['Pending', 'Confirmed', 'Seated']
+    ).aggregate(
+        Sum('number_of_guests')
+    )['number_of_guests__sum'] or 0
+    
+    # Group bookings by status for quick overview
+    pending_count = bookings.filter(status='Pending').count()
+    confirmed_count = bookings.filter(status='Confirmed').count()
+    cancelled_count = bookings.filter(status='Cancelled').count()
+    completed_count = bookings.filter(status='Completed').count()
+    
+    context = {
+        'today': today,
+        'bookings': bookings,
+        'total_bookings': total_bookings,
+        'total_guests': total_guests,
+        'pending_count': pending_count,
+        'confirmed_count': confirmed_count,
+        'cancelled_count': cancelled_count,
+        'completed_count': completed_count,
+    }
+    
+    return render(request, 'staff_dashboard.html', context)

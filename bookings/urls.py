@@ -35,6 +35,10 @@ urlpatterns = [
 
     # AJAX endpoint for available time slots - ADD THIS LINE
     path('api/available-timeslots/', views.get_available_timeslots, name='available_timeslots'),
+    
+     # Staff Dashboard (US11)
+    path('staff/dashboard/', views.staff_dashboard, name='staff_dashboard'),
+
 ]
 
 
