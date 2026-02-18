@@ -302,6 +302,8 @@ def edit_booking(request, reference):
     """
     Edit an existing booking.
     
+    Implements US2-AC8: Re-validates capacity when guest count changes.
+    
     Only allows editing of:
     - Bookings owned by the current user
     - Future bookings (not past dates)
@@ -344,6 +346,41 @@ def edit_booking(request, reference):
         if form.is_valid():
             # Save updates
             updated_booking = form.save(commit=False)
+            
+            # ===== AC8: CAPACITY RE-VALIDATION =====
+            # Check if guest count changed
+            if updated_booking.number_of_guests != booking.number_of_guests:
+                # Calculate available capacity (excluding current booking)
+                other_guests = Booking.objects.filter(
+                    booking_date=updated_booking.booking_date,
+                    timeslot=updated_booking.timeslot,
+                    status__in=['Pending', 'Confirmed', 'Seated']
+                ).exclude(id=booking.id).aggregate(
+                    Sum('number_of_guests')
+                )['number_of_guests__sum'] or 0
+                
+                # Get total capacity from tables
+                total_capacity = Table.objects.filter(
+                    is_available=True
+                ).aggregate(Sum('capacity'))['capacity__sum'] or 40
+                
+                available_capacity = total_capacity - other_guests
+                
+                # Prevent overbooking
+                if available_capacity < updated_booking.number_of_guests:
+                    messages.error(
+                        request,
+                        f'Cannot update to {updated_booking.number_of_guests} guests. '
+                        f'Only {available_capacity} seats available for this time slot. '
+                        f'Please choose a different time or reduce party size.'
+                    )
+                    context = {
+                        'form': form,
+                        'booking': booking,
+                        'is_edit': True,
+                    }
+                    return render(request, 'edit_booking.html', context)
+            # ===== END CAPACITY RE-VALIDATION =====
             
             # Ensure user remains the same (security)
             updated_booking.user = request.user
