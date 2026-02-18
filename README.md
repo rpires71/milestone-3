@@ -1299,7 +1299,7 @@ This page supports efficient booking management by enabling administrators to ed
 
 - [ ] When the client is logged in and navigates to My Bookings or Booking History, they can view a list of their bookings.
 
-**AC2 – Booking History Shows Only the Customer’s Own Bookings**
+**AC2 – Booking History Shows Only the Customer's Own Bookings**
 
 - [ ] When the client is logged in and the booking history is displayed, it shows only bookings linked to that user account and not those of other users.
 
@@ -1321,11 +1321,11 @@ This page supports efficient booking management by enabling administrators to ed
 
 **AC6 – Empty State Messaging**
 
-- [ ] When the client has no bookings and opens the booking history page, a clear message is shown (e.g., “You have no bookings yet”), along with a link or button to make a new booking.
+- [ ] When the client has no bookings and opens the booking history page, a clear message is shown (e.g., "You have no bookings yet"), along with a link or button to make a new booking.
 
 **AC7 – Access to Booking Details from History**
 
-- [ ] When the client views their list of bookings and selects one (e.g., “View details”), they are taken to a booking‑detail view showing full information for that reservation.
+- [ ] When the client views their list of bookings and selects one (e.g., "View details"), they are taken to a booking‑detail view showing full information for that reservation.
 
 **AC8 – Responsive and Accessible Display**
 
