@@ -1224,21 +1224,13 @@ This page supports efficient booking management by enabling administrators to ed
 
 - [ ] When dietary information is displayed across the menu and the customer compares items, **labels are applied consistently** using the same rules (e.g., “GF” only used when the dish is genuinely gluten‑free, not “can be made GF” unless stated).
 
-**AC5 – Optional Filtering (If Implemented)**
-
-- [ ] When the menu includes dietary filters and the customer selects a filter (e.g., “Vegetarian” or “Gluten‑Free”), only **matching items** are shown (or clearly highlighted), and the filter can be removed to return to the full menu.
-
-**AC6 – Accessible Presentation**
+**AC5 – Accessible Presentation**
 
 - [ ] When a client uses assistive technology to navigate the menu, dietary labels or icons are **readable**, include accessible text (not colour‑only), and can be interpreted by **screen readers** (e.g., via aria‑labels or visible text).
 
-**AC7 – Mobile Responsiveness**
+**AC6 – Mobile Responsiveness**
 
 - [ ] When a customer views the menu on mobile or tablet and the layout adjusts, **dietary tags remain visible** and do not overlap prices, titles, or descriptions.
-
-**AC8 – Missing Data Handling**
-
-- [ ] When an item does not yet have dietary information recorded and the customer views that item, the system displays a **clear fallback message** such as “Dietary info not available” rather than showing incorrect or blank labels.
 
 ---
 
@@ -1307,7 +1299,7 @@ This page supports efficient booking management by enabling administrators to ed
 
 - [ ] When the client is logged in and navigates to My Bookings or Booking History, they can view a list of their bookings.
 
-**AC2 – Booking History Shows Only the Customer’s Own Bookings**
+**AC2 – Booking History Shows Only the Customer's Own Bookings**
 
 - [ ] When the client is logged in and the booking history is displayed, it shows only bookings linked to that user account and not those of other users.
 
@@ -1329,11 +1321,11 @@ This page supports efficient booking management by enabling administrators to ed
 
 **AC6 – Empty State Messaging**
 
-- [ ] When the client has no bookings and opens the booking history page, a clear message is shown (e.g., “You have no bookings yet”), along with a link or button to make a new booking.
+- [ ] When the client has no bookings and opens the booking history page, a clear message is shown (e.g., "You have no bookings yet"), along with a link or button to make a new booking.
 
 **AC7 – Access to Booking Details from History**
 
-- [ ] When the client views their list of bookings and selects one (e.g., “View details”), they are taken to a booking‑detail view showing full information for that reservation.
+- [ ] When the client views their list of bookings and selects one (e.g., "View details"), they are taken to a booking‑detail view showing full information for that reservation.
 
 **AC8 – Responsive and Accessible Display**
 
