@@ -122,6 +122,14 @@
                   {{ form.timeslot.label }} <span class="text-danger">*</span>
                 </label>
                 {{ form.timeslot }}
+                <div id="timeslot-loading" class="form-text text-muted" style="display: none;">
+                  <i class="bi bi-hourglass-split me-1"></i>
+                  Loading available times...
+                </div>
+                <div id="timeslot-loading" class="form-text text-muted" style="display: none;">
+                  <i class="bi bi-hourglass-split me-1"></i>
+                  Loading available times...
+                </div>
                 {% if form.timeslot.help_text %}
                   <div class="form-text">{{ form.timeslot.help_text }}</div>
                 {% endif %}
@@ -332,4 +340,207 @@
     }
   }
 </style>
+{% endblock %}
+
+<!-- Extra JavaScript -->
+{% block extra_js %}
+<script>
+// Dynamic Time Slot Loading (US4-AC4)
+// Updates available time slots when date or guest count changes
+
+document.addEventListener('DOMContentLoaded', function() {
+  const dateInput = document.getElementById('id_booking_date');
+  const guestsInput = document.getElementById('id_number_of_guests');
+  const timeslotSelect = document.getElementById('id_timeslot');
+  
+  // Store original selected timeslot
+  const originalTimeslot = timeslotSelect ? timeslotSelect.value : null;
+  
+  // Function to load available time slots
+  function loadAvailableTimeSlots() {
+    const date = dateInput.value;
+    const guests = guestsInput.value;
+    
+    // Only load if both date and guests are selected
+    if (!date || !guests || !timeslotSelect) {
+      return;
+    }
+    
+    // Show loading state
+    timeslotSelect.disabled = true;
+    timeslotSelect.innerHTML = '<option value="">Loading available times...</option>';
+    
+    // Fetch available time slots from API
+    fetch(`/booking/api/available-timeslots/?date=${date}&guests=${guests}`)
+      .then(response => response.json())
+      .then(data => {
+        // Clear existing options
+        timeslotSelect.innerHTML = '';
+        
+        if (data.error) {
+          // Show error message
+          timeslotSelect.innerHTML = '<option value="">No times available</option>';
+          timeslotSelect.disabled = true;
+          return;
+        }
+        
+        // Add default option
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = 'Please select a time';
+        timeslotSelect.appendChild(defaultOption);
+        
+        // Add available time slots
+        if (data.timeslots && data.timeslots.length > 0) {
+          data.timeslots.forEach(slot => {
+            const option = document.createElement('option');
+            option.value = slot.id;
+            option.textContent = `${slot.display_time} (${slot.available_capacity} seats available)`;
+            
+            // Pre-select original timeslot if it's still available
+            if (slot.id == originalTimeslot) {
+              option.selected = true;
+            }
+            
+            timeslotSelect.appendChild(option);
+          });
+          
+          timeslotSelect.disabled = false;
+        } else {
+          // No time slots available
+          const noSlotsOption = document.createElement('option');
+          noSlotsOption.value = '';
+          noSlotsOption.textContent = data.message || 'No time slots available for selected date';
+          timeslotSelect.appendChild(noSlotsOption);
+          timeslotSelect.disabled = true;
+        }
+      })
+      .catch(error => {
+        console.error('Error loading time slots:', error);
+        timeslotSelect.innerHTML = '<option value="">Error loading times - please try again</option>';
+        timeslotSelect.disabled = true;
+      });
+  }
+  
+  // Add event listeners
+  if (dateInput && guestsInput && timeslotSelect) {
+    dateInput.addEventListener('change', loadAvailableTimeSlots);
+    guestsInput.addEventListener('change', loadAvailableTimeSlots);
+    
+    // Load time slots on page load if date and guests are already selected
+    if (dateInput.value && guestsInput.value) {
+      loadAvailableTimeSlots();
+    }
+  }
+});
+</script>
+{% endblock %}
+
+<!-- Extra JavaScript -->
+{% block extra_js %}
+<script>
+// Dynamic Time Slot Loading (US4-AC4)
+// Updates available time slots when date or guest count changes
+
+document.addEventListener('DOMContentLoaded', function() {
+  const dateInput = document.getElementById('id_booking_date');
+  const guestsInput = document.getElementById('id_number_of_guests');
+  const timeslotSelect = document.getElementById('id_timeslot');
+  const loadingIndicator = document.getElementById('timeslot-loading');
+  
+  // Store original selected timeslot
+  const originalTimeslot = timeslotSelect.value;
+  
+  // Function to load available time slots
+  function loadAvailableTimeSlots() {
+    const date = dateInput.value;
+    const guests = guestsInput.value;
+    
+    // Only load if both date and guests are selected
+    if (!date || !guests) {
+      return;
+    }
+    
+    // Show loading state
+    if (loadingIndicator) {
+      loadingIndicator.style.display = 'block';
+    }
+    timeslotSelect.disabled = true;
+    timeslotSelect.innerHTML = '<option value="">Loading available times...</option>';
+    
+    // Fetch available time slots from API
+    fetch(`/booking/api/available-timeslots/?date=${date}&guests=${guests}`)
+      .then(response => response.json())
+      .then(data => {
+        // Hide loading indicator
+        if (loadingIndicator) {
+          loadingIndicator.style.display = 'none';
+        }
+        
+        // Clear existing options
+        timeslotSelect.innerHTML = '';
+        
+        if (data.error) {
+          // Show error message
+          timeslotSelect.innerHTML = '<option value="">No times available</option>';
+          timeslotSelect.disabled = true;
+          return;
+        }
+        
+        // Add default option
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = 'Please select a time';
+        timeslotSelect.appendChild(defaultOption);
+        
+        // Add available time slots
+        if (data.timeslots && data.timeslots.length > 0) {
+          data.timeslots.forEach(slot => {
+            const option = document.createElement('option');
+            option.value = slot.id;
+            option.textContent = `${slot.display_time} (${slot.available_capacity} seats available)`;
+            
+            // Pre-select original timeslot if it's still available
+            if (slot.id == originalTimeslot) {
+              option.selected = true;
+            }
+            
+            timeslotSelect.appendChild(option);
+          });
+          
+          timeslotSelect.disabled = false;
+        } else {
+          // No time slots available
+          const noSlotsOption = document.createElement('option');
+          noSlotsOption.value = '';
+          noSlotsOption.textContent = data.message || 'No time slots available for selected date';
+          timeslotSelect.appendChild(noSlotsOption);
+          timeslotSelect.disabled = true;
+        }
+      })
+      .catch(error => {
+        console.error('Error loading time slots:', error);
+        
+        // Hide loading indicator
+        if (loadingIndicator) {
+          loadingIndicator.style.display = 'none';
+        }
+        
+        timeslotSelect.innerHTML = '<option value="">Error loading times - please try again</option>';
+        timeslotSelect.disabled = true;
+      });
+  }
+  
+  // Add event listeners
+  if (dateInput && guestsInput && timeslotSelect) {
+    dateInput.addEventListener('change', loadAvailableTimeSlots);
+    guestsInput.addEventListener('change', loadAvailableTimeSlots);
+    
+    // Load time slots on page load if date and guests are already selected
+    if (dateInput.value && guestsInput.value) {
+      loadAvailableTimeSlots();
+    }
+  }
+});
+</script>
 {% endblock %}
