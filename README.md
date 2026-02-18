@@ -1224,15 +1224,11 @@ This page supports efficient booking management by enabling administrators to ed
 
 - [ ] When dietary information is displayed across the menu and the customer compares items, **labels are applied consistently** using the same rules (e.g., “GF” only used when the dish is genuinely gluten‑free, not “can be made GF” unless stated).
 
-**AC5 – Optional Filtering (If Implemented)**
-
-- [ ] When the menu includes dietary filters and the customer selects a filter (e.g., “Vegetarian” or “Gluten‑Free”), only **matching items** are shown (or clearly highlighted), and the filter can be removed to return to the full menu.
-
-**AC6 – Accessible Presentation**
+**AC5 – Accessible Presentation**
 
 - [ ] When a client uses assistive technology to navigate the menu, dietary labels or icons are **readable**, include accessible text (not colour‑only), and can be interpreted by **screen readers** (e.g., via aria‑labels or visible text).
 
-**AC7 – Mobile Responsiveness**
+**AC6 – Mobile Responsiveness**
 
 - [ ] When a customer views the menu on mobile or tablet and the layout adjusts, **dietary tags remain visible** and do not overlap prices, titles, or descriptions.
 
