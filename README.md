@@ -1236,10 +1236,6 @@ This page supports efficient booking management by enabling administrators to ed
 
 - [ ] When a customer views the menu on mobile or tablet and the layout adjusts, **dietary tags remain visible** and do not overlap prices, titles, or descriptions.
 
-**AC8 – Missing Data Handling**
-
-- [ ] When an item does not yet have dietary information recorded and the customer views that item, the system displays a **clear fallback message** such as “Dietary info not available” rather than showing incorrect or blank labels.
-
 ---
 
 ## User Story 8: Receive Email Confirmation (Customer)
