@@ -245,6 +245,14 @@ def booking_confirmation(request, reference):
     try:
         booking = Booking.objects.get(reference_number=reference)
         
+         # AC5: Verify user ownership for authenticated bookings
+        if booking.user and request.user.is_authenticated:
+            if booking.user != request.user:
+                messages.error(request, 'You can only view your own bookings.')
+                return redirect('bookings:my_bookings')
+        
+        # Guest bookings (no user) remain accessible via reference
+        
         context = {
             'booking': booking,
         }
