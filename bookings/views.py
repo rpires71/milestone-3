@@ -18,11 +18,15 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import JsonResponse
 from django.utils import timezone
-from django.db.models import Sum
-from datetime import datetime, date
 from .models import Booking, TimeSlot, Table
 from .forms import BookingForm
-from django.db.models import Q
+from django.http import HttpResponse
+from django.db.models import Count, Sum, Q
+from django.db.models.functions import TruncDate
+from datetime import datetime, timedelta, date
+from collections import Counter
+import csv
+import json
 
 
 def booking_page(request):
@@ -669,3 +673,267 @@ def staff_dashboard(request):
     }
     
     return render(request, 'staff_dashboard.html', context)
+
+@staff_member_required
+def booking_statistics(request):
+    """
+    Admin-only booking statistics dashboard with analytics and insights.
+    
+    Implements US17: View booking statistics to analyze restaurant usage patterns.
+    
+    Access:
+        - Restricted to staff/admin users only (AC1)
+    
+    Features:
+        - Date range filtering (AC3)
+        - Core metrics display (AC4)
+        - Usage pattern insights (AC5)
+        - Status breakdown (AC6)
+        - CSV export (AC12)
+    
+    Args:
+        request: HTTP request object
+        
+    Returns:
+        Rendered statistics template or CSV download
+    """
+    # Check if export requested (AC12)
+    export_format = request.GET.get('export')
+    
+    # Get date range parameters (AC3)
+    date_range = request.GET.get('range', '30')  # Default: last 30 days
+    
+    # Calculate date range
+    today = date.today()
+    
+    if date_range == '7':
+        start_date = today - timedelta(days=7)
+        range_label = 'Last 7 Days'
+    elif date_range == '30':
+        start_date = today - timedelta(days=30)
+        range_label = 'Last 30 Days'
+    elif date_range == '90':
+        start_date = today - timedelta(days=90)
+        range_label = 'Last 90 Days'
+    elif date_range == 'custom':
+        # Custom date range (AC3)
+        start_str = request.GET.get('start_date')
+        end_str = request.GET.get('end_date')
+        
+        if start_str and end_str:
+            start_date = datetime.strptime(start_str, '%Y-%m-%d').date()
+            end_date = datetime.strptime(end_str, '%Y-%m-%d').date()
+        else:
+            start_date = today - timedelta(days=30)
+            end_date = today
+        
+        range_label = f'{start_date.strftime("%b %d, %Y")} - {end_date.strftime("%b %d, %Y")}'
+    else:
+        start_date = today - timedelta(days=30)
+        end_date = today
+        range_label = 'Last 30 Days'
+    
+    # Set end_date if not custom
+    if date_range != 'custom':
+        end_date = today
+    
+    # Base queryset with date filtering (AC3, AC11 - optimized)
+    bookings = Booking.objects.filter(
+        booking_date__gte=start_date,
+        booking_date__lte=end_date
+    ).select_related('user', 'timeslot')
+    
+    # Handle no data scenario (AC8)
+    if not bookings.exists():
+        context = {
+            'has_data': False,
+            'range_label': range_label,
+            'date_range': date_range,
+            'start_date': start_date,
+            'end_date': end_date,
+        }
+        return render(request, 'booking_statistics.html', context)
+    
+    # AC4: Core Metrics
+    total_bookings = bookings.count()
+    
+    # Total guests (sum of party sizes)
+    total_guests = bookings.aggregate(
+        total=Sum('number_of_guests')
+    )['total'] or 0
+    
+    # Cancelled bookings
+    cancelled_count = bookings.filter(status='Cancelled').count()
+    
+    # Completed bookings
+    completed_count = bookings.filter(status='Completed').count()
+    
+    # Confirmed bookings
+    confirmed_count = bookings.filter(status='Confirmed').count()
+    
+    # Pending bookings
+    pending_count = bookings.filter(status='Pending').count()
+    
+    # Average party size
+    avg_party_size = round(total_guests / total_bookings, 1) if total_bookings > 0 else 0
+    
+    # AC6: Status Breakdown
+    status_breakdown = bookings.values('status').annotate(
+        count=Count('id')
+    ).order_by('-count')
+    
+    # Convert to dict for easier template access
+    status_dict = {item['status']: item['count'] for item in status_breakdown}
+    
+    # AC5: Usage Pattern Insights - Bookings by Day of Week
+    day_of_week_data = []
+    day_names = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    
+    for booking in bookings:
+        day_num = booking.booking_date.weekday()
+        day_of_week_data.append(day_names[day_num])
+    
+    day_counts = Counter(day_of_week_data)
+    day_of_week_chart = [
+        {'day': day, 'count': day_counts.get(day, 0)}
+        for day in day_names
+    ]
+    
+    # AC5: Usage Pattern Insights - Bookings by Time Slot
+    timeslot_data = bookings.values(
+        'timeslot__time'
+    ).annotate(
+        count=Count('id')
+    ).order_by('timeslot__time')
+    
+    timeslot_chart = [
+        {
+            'time': item['timeslot__time'].strftime('%I:%M %p') if item['timeslot__time'] else 'Unknown',
+            'count': item['count']
+        }
+        for item in timeslot_data
+    ]
+    
+    # Daily trend (for line chart)
+    daily_bookings = bookings.values('booking_date').annotate(
+        count=Count('id')
+    ).order_by('booking_date')
+    
+    daily_trend = [
+        {
+            'date': item['booking_date'].strftime('%Y-%m-%d'),
+            'date_display': item['booking_date'].strftime('%b %d'),
+            'count': item['count']
+        }
+        for item in daily_bookings
+    ]
+    
+    # Most popular booking times
+    top_timeslots = list(timeslot_data[:5])  # Top 5
+    
+    # Busiest day of week
+    busiest_day = max(day_of_week_chart, key=lambda x: x['count'])
+    
+    # AC12: CSV Export
+    if export_format == 'csv':
+        return export_statistics_csv(
+            bookings, 
+            start_date, 
+            end_date, 
+            range_label,
+            total_bookings,
+            total_guests,
+            status_dict
+        )
+    
+    # Prepare context (AC2, AC7, AC9)
+    context = {
+        'has_data': True,
+        'range_label': range_label,
+        'date_range': date_range,
+        'start_date': start_date,
+        'end_date': end_date,
+        
+        # AC4: Core Metrics
+        'total_bookings': total_bookings,
+        'total_guests': total_guests,
+        'cancelled_count': cancelled_count,
+        'completed_count': completed_count,
+        'confirmed_count': confirmed_count,
+        'pending_count': pending_count,
+        'avg_party_size': avg_party_size,
+        
+        # AC6: Status Breakdown
+        'status_breakdown': status_breakdown,
+        
+        # AC5: Usage Patterns
+        'day_of_week_chart': day_of_week_chart,
+        'timeslot_chart': timeslot_chart,
+        'daily_trend': daily_trend,
+        
+        # Additional insights
+        'busiest_day': busiest_day,
+        'top_timeslots': top_timeslots,
+        
+        # For charts (JSON)
+        'day_of_week_json': json.dumps(day_of_week_chart),
+        'timeslot_json': json.dumps(timeslot_chart),
+        'daily_trend_json': json.dumps(daily_trend),
+    }
+    
+    return render(request, 'booking_statistics.html', context)
+
+
+def export_statistics_csv(bookings, start_date, end_date, range_label, total_bookings, total_guests, status_dict):
+    """
+    Export booking statistics to CSV format.
+    
+    Implements US17-AC12: Export statistics in CSV format.
+    """
+    # Create HTTP response with CSV content type
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = f'attachment; filename="booking_statistics_{start_date}_to_{end_date}.csv"'
+    
+    writer = csv.writer(response)
+    
+    # Summary section
+    writer.writerow(['Booking Statistics Report'])
+    writer.writerow(['Date Range', range_label])
+    writer.writerow(['Generated', datetime.now().strftime('%Y-%m-%d %H:%M:%S')])
+    writer.writerow([])
+    
+    # Core metrics
+    writer.writerow(['SUMMARY METRICS'])
+    writer.writerow(['Metric', 'Value'])
+    writer.writerow(['Total Bookings', total_bookings])
+    writer.writerow(['Total Guests', total_guests])
+    writer.writerow(['Confirmed Bookings', status_dict.get('Confirmed', 0)])
+    writer.writerow(['Pending Bookings', status_dict.get('Pending', 0)])
+    writer.writerow(['Cancelled Bookings', status_dict.get('Cancelled', 0)])
+    writer.writerow(['Completed Bookings', status_dict.get('Completed', 0)])
+    writer.writerow([])
+    
+    # Detailed bookings
+    writer.writerow(['DETAILED BOOKINGS'])
+    writer.writerow(['Reference', 'Date', 'Time', 'Customer', 'Guests', 'Status', 'Special Requests'])
+    
+    for booking in bookings:
+        customer_name = ''
+        if booking.user:
+            customer_name = f"{booking.user.first_name} {booking.user.last_name}".strip()
+            if not customer_name:
+                customer_name = booking.user.username
+        else:
+            customer_name = booking.guest_name or 'Guest'
+        
+        writer.writerow([
+            booking.reference_number,
+            booking.booking_date.strftime('%Y-%m-%d'),
+            booking.timeslot.time.strftime('%I:%M %p') if booking.timeslot else 'N/A',
+            customer_name,
+            booking.number_of_guests,
+            booking.status,
+            booking.special_requests or ''
+        ])
+    
+    return response

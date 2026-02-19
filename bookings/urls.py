@@ -39,6 +39,9 @@ urlpatterns = [
      # Staff Dashboard (US11)
     path('staff/dashboard/', views.staff_dashboard, name='staff_dashboard'),
 
+    # Statistics Dashboard (US17)
+    path('statistics/', views.booking_statistics, name='booking_statistics'),
+
 ]
 
 

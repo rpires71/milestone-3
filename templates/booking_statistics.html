@@ -1,0 +1,814 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- Page title -->
+{% block title %}Booking Statistics - Portuguese Kitchen{% endblock %}
+
+<!-- Statistics Dashboard content -->
+{% block content %}
+
+<!-- Hero Section -->
+<section class="statistics-hero py-4">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold mb-2 text-white">
+          <i class="bi bi-graph-up me-2"></i>
+          Booking Statistics
+        </h1>
+        <p class="lead mb-0 text-white-50">
+          {{ range_label }}
+        </p>
+      </div>
+      <div class="col-lg-6 text-lg-end">
+        <div class="d-flex flex-wrap justify-content-lg-end gap-2 mt-3 mt-lg-0">
+          <button onclick="window.location.reload()" class="btn btn-outline-light btn-sm">
+            <i class="bi bi-arrow-clockwise me-1"></i>
+            Refresh
+          </button>
+          {% if has_data %}
+          <a href="?range={{ date_range }}&export=csv{% if date_range == 'custom' %}&start_date={{ start_date }}&end_date={{ end_date }}{% endif %}" 
+             class="btn btn-success btn-sm">
+            <i class="bi bi-download me-1"></i>
+            Export CSV
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Date Range Filter (AC3) -->
+<section class="filter-section py-3 bg-white border-bottom">
+  <div class="container">
+    <form method="GET" class="row g-3 align-items-end" id="dateRangeForm">
+      <div class="col-md-3">
+        <label for="range" class="form-label fw-semibold">Time Period</label>
+        <select name="range" id="range" class="form-select" onchange="toggleCustomDates()">
+          <option value="7" {% if date_range == '7' %}selected{% endif %}>Last 7 Days</option>
+          <option value="30" {% if date_range == '30' %}selected{% endif %}>Last 30 Days</option>
+          <option value="90" {% if date_range == '90' %}selected{% endif %}>Last 90 Days</option>
+          <option value="custom" {% if date_range == 'custom' %}selected{% endif %}>Custom Range</option>
+        </select>
+      </div>
+      
+      <div class="col-md-3" id="startDateGroup" style="display: {% if date_range == 'custom' %}block{% else %}none{% endif %};">
+        <label for="start_date" class="form-label fw-semibold">Start Date</label>
+        <input type="date" name="start_date" id="start_date" class="form-control" 
+               value="{{ start_date|date:'Y-m-d' }}" max="{{ end_date|date:'Y-m-d' }}">
+      </div>
+      
+      <div class="col-md-3" id="endDateGroup" style="display: {% if date_range == 'custom' %}block{% else %}none{% endif %};">
+        <label for="end_date" class="form-label fw-semibold">End Date</label>
+        <input type="date" name="end_date" id="end_date" class="form-control" 
+               value="{{ end_date|date:'Y-m-d' }}" max="{{ end_date|date:'Y-m-d' }}">
+      </div>
+      
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-primary w-100">
+          <i class="bi bi-funnel me-2"></i>
+          Apply Filter
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+{% if has_data %}
+
+<!-- Core Metrics (AC4) -->
+<section class="metrics-section py-4 bg-light">
+  <div class="container">
+    <div class="row g-3">
+      <!-- Total Bookings -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="metric-card">
+          <div class="metric-icon bg-primary">
+            <i class="bi bi-calendar-check"></i>
+          </div>
+          <div class="metric-content">
+            <div class="metric-value">{{ total_bookings }}</div>
+            <div class="metric-label">Total Bookings</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Total Guests -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="metric-card">
+          <div class="metric-icon bg-success">
+            <i class="bi bi-people-fill"></i>
+          </div>
+          <div class="metric-content">
+            <div class="metric-value">{{ total_guests }}</div>
+            <div class="metric-label">Total Guests</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Confirmed Bookings -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="metric-card">
+          <div class="metric-icon bg-info">
+            <i class="bi bi-check-circle-fill"></i>
+          </div>
+          <div class="metric-content">
+            <div class="metric-value">{{ confirmed_count }}</div>
+            <div class="metric-label">Confirmed</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Cancelled Bookings -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="metric-card">
+          <div class="metric-icon bg-danger">
+            <i class="bi bi-x-circle-fill"></i>
+          </div>
+          <div class="metric-content">
+            <div class="metric-value">{{ cancelled_count }}</div>
+            <div class="metric-label">Cancelled</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Additional Metrics Row -->
+    <div class="row g-3 mt-2">
+      <!-- Average Party Size -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="metric-card">
+          <div class="metric-icon bg-warning">
+            <i class="bi bi-person-fill"></i>
+          </div>
+          <div class="metric-content">
+            <div class="metric-value">{{ avg_party_size }}</div>
+            <div class="metric-label">Avg Party Size</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pending Bookings -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="metric-card">
+          <div class="metric-icon bg-secondary">
+            <i class="bi bi-clock-fill"></i>
+          </div>
+          <div class="metric-content">
+            <div class="metric-value">{{ pending_count }}</div>
+            <div class="metric-label">Pending</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Completed Bookings -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="metric-card">
+          <div class="metric-icon bg-dark">
+            <i class="bi bi-check-all"></i>
+          </div>
+          <div class="metric-content">
+            <div class="metric-value">{{ completed_count }}</div>
+            <div class="metric-label">Completed</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Busiest Day -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="metric-card">
+          <div class="metric-icon bg-purple">
+            <i class="bi bi-star-fill"></i>
+          </div>
+          <div class="metric-content">
+            <div class="metric-value-small">{{ busiest_day.day }}</div>
+            <div class="metric-label">Busiest Day</div>
+            <small class="text-muted">({{ busiest_day.count }} bookings)</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Charts and Analytics (AC5, AC6) -->
+<section class="charts-section py-4">
+  <div class="container">
+    
+    <!-- Daily Trend Chart -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="chart-card">
+          <div class="chart-header">
+            <h4 class="mb-0">
+              <i class="bi bi-graph-up me-2"></i>
+              Daily Booking Trend
+            </h4>
+            <p class="text-muted mb-0 small">Bookings per day over time</p>
+          </div>
+          <div class="chart-body">
+            <canvas id="dailyTrendChart" aria-label="Daily booking trend line chart" role="img"></canvas>
+            <!-- Accessible text alternative (AC10) -->
+            <div class="visually-hidden">
+              Daily trend: 
+              {% for day in daily_trend %}
+                {{ day.date_display }}: {{ day.count }} bookings. 
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <!-- Bookings by Day of Week (AC5) -->
+      <div class="col-lg-6 mb-4">
+        <div class="chart-card">
+          <div class="chart-header">
+            <h4 class="mb-0">
+              <i class="bi bi-calendar-week me-2"></i>
+              Bookings by Day of Week
+            </h4>
+            <p class="text-muted mb-0 small">Which days are busiest?</p>
+          </div>
+          <div class="chart-body">
+            <canvas id="dayOfWeekChart" aria-label="Bookings by day of week bar chart" role="img"></canvas>
+            <!-- Accessible text alternative (AC10) -->
+            <div class="visually-hidden">
+              Day of week breakdown:
+              {% for day in day_of_week_chart %}
+                {{ day.day }}: {{ day.count }} bookings. 
+              {% endfor %}
+            </div>
+          </div>
+          <!-- Text table for accessibility (AC10) -->
+          <div class="table-responsive mt-3">
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th>Day</th>
+                  <th class="text-end">Bookings</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for day in day_of_week_chart %}
+                <tr>
+                  <td>{{ day.day }}</td>
+                  <td class="text-end">{{ day.count }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Bookings by Time Slot (AC5) -->
+      <div class="col-lg-6 mb-4">
+        <div class="chart-card">
+          <div class="chart-header">
+            <h4 class="mb-0">
+              <i class="bi bi-clock me-2"></i>
+              Bookings by Time Slot
+            </h4>
+            <p class="text-muted mb-0 small">Most popular dining times</p>
+          </div>
+          <div class="chart-body">
+            <canvas id="timeslotChart" aria-label="Bookings by time slot bar chart" role="img"></canvas>
+            <!-- Accessible text alternative (AC10) -->
+            <div class="visually-hidden">
+              Time slot breakdown:
+              {% for slot in timeslot_chart %}
+                {{ slot.time }}: {{ slot.count }} bookings. 
+              {% endfor %}
+            </div>
+          </div>
+          <!-- Text table for accessibility (AC10) -->
+          <div class="table-responsive mt-3">
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th class="text-end">Bookings</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for slot in timeslot_chart %}
+                <tr>
+                  <td>{{ slot.time }}</td>
+                  <td class="text-end">{{ slot.count }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Status Breakdown (AC6) -->
+    <div class="row">
+      <div class="col-lg-6 mb-4">
+        <div class="chart-card">
+          <div class="chart-header">
+            <h4 class="mb-0">
+              <i class="bi bi-pie-chart me-2"></i>
+              Status Breakdown
+            </h4>
+            <p class="text-muted mb-0 small">Bookings by status</p>
+          </div>
+          <div class="chart-body">
+            <canvas id="statusChart" aria-label="Booking status pie chart" role="img"></canvas>
+            <!-- Accessible text alternative (AC10) -->
+            <div class="visually-hidden">
+              Status breakdown:
+              {% for status in status_breakdown %}
+                {{ status.status }}: {{ status.count }} bookings. 
+              {% endfor %}
+            </div>
+          </div>
+          <!-- Text table for accessibility (AC10) -->
+          <div class="table-responsive mt-3">
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th class="text-end">Count</th>
+                  <th class="text-end">Percentage</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for status in status_breakdown %}
+                <tr>
+                  <td>
+                    <span class="badge bg-status-{{ status.status|lower }}">
+                      {{ status.status }}
+                    </span>
+                  </td>
+                  <td class="text-end">{{ status.count }}</td>
+                  <td class="text-end">
+                    {% widthratio status.count total_bookings 100 %}%
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Top Time Slots -->
+      <div class="col-lg-6 mb-4">
+        <div class="chart-card">
+          <div class="chart-header">
+            <h4 class="mb-0">
+              <i class="bi bi-trophy me-2"></i>
+              Top 5 Time Slots
+            </h4>
+            <p class="text-muted mb-0 small">Most popular booking times</p>
+          </div>
+          <div class="chart-body">
+            <div class="list-group list-group-flush">
+              {% for slot in top_timeslots %}
+              <div class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                  <i class="bi bi-clock text-primary me-2"></i>
+                  <strong>{{ slot.timeslot__time|time:"g:i A" }}</strong>
+                </div>
+                <span class="badge bg-primary rounded-pill fs-6">
+                  {{ slot.count }} booking{{ slot.count|pluralize }}
+                </span>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+{% else %}
+
+<!-- No Data Message (AC8) -->
+<section class="no-data-section py-5">
+  <div class="container">
+    <div class="empty-state text-center">
+      <i class="bi bi-graph-up display-1 text-muted mb-4"></i>
+      <h3 class="mb-3">No Data Available</h3>
+      <p class="text-muted mb-4">
+        There are no bookings in the selected date range ({{ range_label }}).
+      </p>
+      <p class="text-muted mb-4">
+        Try selecting a different time period or check back later.
+      </p>
+      <div class="metrics-row">
+        <div class="metric-zero">
+          <div class="display-4">0</div>
+          <small class="text-muted">Total Bookings</small>
+        </div>
+        <div class="metric-zero">
+          <div class="display-4">0</div>
+          <small class="text-muted">Total Guests</small>
+        </div>
+        <div class="metric-zero">
+          <div class="display-4">0</div>
+          <small class="text-muted">Cancelled</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endif %}
+
+{% endblock %}
+
+<!-- Extra CSS -->
+{% block extra_css %}
+<style>
+  /* Hero Section */
+  .statistics-hero {
+    background: linear-gradient(135deg, var(--azulejo-blue) 0%, var(--olive-green) 100%);
+    border-bottom: 3px solid var(--terracotta-red);
+  }
+  
+  /* Filter Section */
+  .filter-section {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  /* Metric Cards */
+  .metric-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    height: 100%;
+  }
+  
+  .metric-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  
+  .metric-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    color: white;
+    flex-shrink: 0;
+  }
+  
+  .metric-content {
+    flex: 1;
+  }
+  
+  .metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    color: var(--espresso-brown);
+    line-height: 1;
+  }
+  
+  .metric-value-small {
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    color: var(--espresso-brown);
+  }
+  
+  .metric-label {
+    font-size: 0.875rem;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 0.25rem;
+  }
+  
+  .bg-purple {
+    background-color: #6f42c1;
+  }
+  
+  /* Chart Cards */
+  .chart-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    height: 100%;
+  }
+  
+  .chart-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e9ecef;
+  }
+  
+  .chart-header h4 {
+    color: var(--azulejo-blue);
+    font-family: var(--font-heading);
+  }
+  
+  .chart-body {
+    position: relative;
+    min-height: 300px;
+  }
+  
+  /* Status Badges */
+  .bg-status-pending {
+    background-color: var(--olive-green) !important;
+  }
+  
+  .bg-status-confirmed {
+    background-color: #28a745 !important;
+  }
+  
+  .bg-status-cancelled {
+    background-color: var(--terracotta-red) !important;
+  }
+  
+  .bg-status-completed {
+    background-color: #6c757d !important;
+  }
+  
+  .bg-status-seated {
+    background-color: #17a2b8 !important;
+  }
+  
+  /* Empty State */
+  .empty-state {
+    background: white;
+    border-radius: 12px;
+    padding: 4rem 2rem;
+  }
+  
+  .empty-state i {
+    opacity: 0.3;
+  }
+  
+  .metrics-row {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+  
+  .metric-zero {
+    text-align: center;
+  }
+  
+  .metric-zero .display-4 {
+    color: #6c757d;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .metric-card {
+      padding: 1rem;
+    }
+    
+    .metric-icon {
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+    }
+    
+    .metric-value {
+      font-size: 1.5rem;
+    }
+    
+    .chart-body {
+      min-height: 250px;
+    }
+    
+    .metrics-row {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  }
+  
+  /* Print Styles */
+  @media print {
+    .btn, nav, footer, .filter-section {
+      display: none !important;
+    }
+    
+    .statistics-hero {
+      background: white !important;
+      color: black !important;
+      border-bottom: 2px solid #000;
+    }
+    
+    .chart-card, .metric-card {
+      box-shadow: none;
+      border: 1px solid #dee2e6;
+      page-break-inside: avoid;
+    }
+  }
+</style>
+{% endblock %}
+
+<!-- Extra JavaScript for Charts -->
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+// Custom date range toggle
+function toggleCustomDates() {
+  const range = document.getElementById('range').value;
+  const startGroup = document.getElementById('startDateGroup');
+  const endGroup = document.getElementById('endDateGroup');
+  
+  if (range === 'custom') {
+    startGroup.style.display = 'block';
+    endGroup.style.display = 'block';
+  } else {
+    startGroup.style.display = 'none';
+    endGroup.style.display = 'none';
+    // Auto-submit for quick filters
+    document.getElementById('dateRangeForm').submit();
+  }
+}
+
+{% if has_data %}
+// Chart.js configuration
+Chart.defaults.font.family = "'Lato', sans-serif";
+
+// Daily Trend Line Chart
+const dailyTrendCtx = document.getElementById('dailyTrendChart').getContext('2d');
+const dailyTrendData = {{ daily_trend_json|safe }};
+
+new Chart(dailyTrendCtx, {
+  type: 'line',
+  data: {
+    labels: dailyTrendData.map(d => d.date_display),
+    datasets: [{
+      label: 'Bookings',
+      data: dailyTrendData.map(d => d.count),
+      borderColor: 'rgb(31, 78, 121)',
+      backgroundColor: 'rgba(31, 78, 121, 0.1)',
+      tension: 0.4,
+      fill: true
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: {
+        display: false
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        padding: 12,
+        titleFont: { size: 14 },
+        bodyFont: { size: 13 }
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          stepSize: 1
+        }
+      }
+    }
+  }
+});
+
+// Day of Week Bar Chart
+const dayOfWeekCtx = document.getElementById('dayOfWeekChart').getContext('2d');
+const dayOfWeekData = {{ day_of_week_json|safe }};
+
+new Chart(dayOfWeekCtx, {
+  type: 'bar',
+  data: {
+    labels: dayOfWeekData.map(d => d.day),
+    datasets: [{
+      label: 'Bookings',
+      data: dayOfWeekData.map(d => d.count),
+      backgroundColor: [
+        'rgba(31, 78, 121, 0.8)',
+        'rgba(107, 142, 35, 0.8)',
+        'rgba(196, 69, 54, 0.8)',
+        'rgba(23, 162, 184, 0.8)',
+        'rgba(255, 193, 7, 0.8)',
+        'rgba(111, 66, 193, 0.8)',
+        'rgba(108, 117, 125, 0.8)'
+      ],
+      borderWidth: 0
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: {
+        display: false
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          stepSize: 1
+        }
+      }
+    }
+  }
+});
+
+// Timeslot Bar Chart
+const timeslotCtx = document.getElementById('timeslotChart').getContext('2d');
+const timeslotData = {{ timeslot_json|safe }};
+
+new Chart(timeslotCtx, {
+  type: 'bar',
+  data: {
+    labels: timeslotData.map(d => d.time),
+    datasets: [{
+      label: 'Bookings',
+      data: timeslotData.map(d => d.count),
+      backgroundColor: 'rgba(107, 142, 35, 0.8)',
+      borderWidth: 0
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    indexAxis: 'y',
+    plugins: {
+      legend: {
+        display: false
+      }
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+        ticks: {
+          stepSize: 1
+        }
+      }
+    }
+  }
+});
+
+// Status Pie Chart
+const statusCtx = document.getElementById('statusChart').getContext('2d');
+const statusData = {{ status_breakdown|safe }};
+
+new Chart(statusCtx, {
+  type: 'doughnut',
+  data: {
+    labels: [
+      {% for status in status_breakdown %}
+        '{{ status.status }}'{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ],
+    datasets: [{
+      data: [
+        {% for status in status_breakdown %}
+          {{ status.count }}{% if not forloop.last %},{% endif %}
+        {% endfor %}
+      ],
+      backgroundColor: [
+        'rgba(40, 167, 69, 0.8)',   // Confirmed
+        'rgba(107, 142, 35, 0.8)',  // Pending
+        'rgba(196, 69, 54, 0.8)',   // Cancelled
+        'rgba(108, 117, 125, 0.8)', // Completed
+        'rgba(23, 162, 184, 0.8)'   // Seated
+      ],
+      borderWidth: 2,
+      borderColor: '#fff'
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          padding: 15,
+          font: {
+            size: 12
+          }
+        }
+      }
+    }
+  }
+});
+{% endif %}
+</script>
+{% endblock %}

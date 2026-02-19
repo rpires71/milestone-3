@@ -175,6 +175,16 @@ Date: January 2026
     Staff Dashboard
   </a>
 </li>
+
+<!-- Statistics (admin only) - NEW -->
+{% if user.is_superuser %}
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'bookings:booking_statistics' %}">
+    <i class="bi bi-graph-up me-1"></i>
+    Statistics
+  </a>
+</li>
+{% endif %}
 {% endif %}
 
             <!-- Profile (logged in only) -->
