@@ -13,11 +13,15 @@
     <div class="row align-items-center">
       <div class="col-lg-6">
         <h1 class="display-5 fw-bold mb-2">
-          <i class="bi bi-calendar-check me-2 text-primary"></i>
-          Today's Bookings
+          <i class="bi bi-calendar-check me-2 text-white"></i>
+          {% if is_search %}Search Results{% else %}Today's Bookings{% endif %}
         </h1>
-        <p class="lead mb-0 text-muted">
-          {{ today|date:"l, F j, Y" }}
+        <p class="lead mb-0 text-white-50">
+          {% if is_search %}
+            {{ total_bookings }} booking{{ total_bookings|pluralize }} found
+          {% else %}
+            {{ today|date:"l, F j, Y" }}
+          {% endif %}
         </p>
       </div>
       <div class="col-lg-6 text-lg-end">
@@ -31,13 +35,50 @@
             <i class="bi bi-calendar-event me-1"></i>
             <strong>{{ total_bookings }}</strong> bookings
           </div>
-          <button onclick="window.location.reload()" class="btn btn-outline-primary btn-sm">
+          <button onclick="window.location.reload()" class="btn btn-outline-light btn-sm">
             <i class="bi bi-arrow-clockwise me-1"></i>
             Refresh
           </button>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- Search Bar (US12-AC2) -->
+<section class="search-section py-3 bg-white border-bottom">
+  <div class="container">
+    <form method="GET" action="{% url 'bookings:staff_dashboard' %}" class="row g-3 align-items-center">
+      <div class="col-md-8 col-lg-9">
+        <div class="input-group input-group-lg">
+          <span class="input-group-text bg-white">
+            <i class="bi bi-search text-primary"></i>
+          </span>
+          <input 
+            type="text" 
+            class="form-control form-control-lg" 
+            name="search"
+            value="{{ search_query }}"
+            placeholder="Search by first name, last name, username, or reference number..."
+            aria-label="Search bookings"
+            autofocus
+          >
+          {% if search_query %}
+          <!-- Clear Search Button (US12-AC8) -->
+          <a href="{% url 'bookings:staff_dashboard' %}" class="btn btn-outline-secondary">
+            <i class="bi bi-x-lg"></i>
+            Clear
+          </a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3">
+        <button type="submit" class="btn btn-primary btn-lg w-100">
+          <i class="bi bi-search me-2"></i>
+          Search Bookings
+        </button>
+      </div>
+    </form>
   </div>
 </section>
 
@@ -78,11 +119,23 @@
   <div class="container">
     
     {% if bookings %}
-      <!-- Bookings Table -->
+      <!-- Results Header -->
+      {% if is_search %}
+      <div class="alert alert-info mb-3">
+        <i class="bi bi-search me-2"></i>
+        Showing <strong>{{ total_bookings }}</strong> result{{ total_bookings|pluralize }} for "<strong>{{ search_query }}</strong>"
+      </div>
+      {% endif %}
+      
+      <!-- Bookings Table (US12-AC6) -->
       <div class="table-responsive">
         <table class="table table-hover booking-table">
           <thead>
             <tr>
+              <th scope="col">
+                <i class="bi bi-calendar3 me-1"></i>
+                Date
+              </th>
               <th scope="col">
                 <i class="bi bi-clock me-1"></i>
                 Time
@@ -113,27 +166,38 @@
           <tbody>
             {% for booking in bookings %}
             <tr class="booking-row status-{{ booking.status|lower }}">
+              <!-- Date -->
+              <td class="date-cell">
+                {{ booking.booking_date|date:"M j, Y" }}
+              </td>
+              
               <!-- Time -->
               <td class="time-cell">
                 <strong>{{ booking.timeslot.time|time:"g:i A" }}</strong>
               </td>
               
-              <!-- Guests -->
+              <!-- Guests (US12-AC6) -->
               <td class="guests-cell">
                 <span class="badge bg-primary rounded-pill">
                   {{ booking.number_of_guests }}
                 </span>
               </td>
               
-              <!-- Customer Name -->
+              <!-- Customer Name (US12-AC6) -->
               <td class="customer-cell">
                 {% if booking.user %}
-                  {{ booking.user.first_name }} {{ booking.user.last_name }}
+                  <strong>{{ booking.user.first_name }} {{ booking.user.last_name }}</strong>
                   {% if not booking.user.first_name %}
-                    {{ booking.user.username }}
+                    <strong>{{ booking.user.username }}</strong>
                   {% endif %}
+                  <br>
+                  <small class="text-muted">{{ booking.user.email }}</small>
                 {% else %}
-                  {{ booking.guest_name|default:"Guest" }}
+                  <strong>{{ booking.guest_name|default:"Guest" }}</strong>
+                  {% if booking.guest_email %}
+                    <br>
+                    <small class="text-muted">{{ booking.guest_email }}</small>
+                  {% endif %}
                 {% endif %}
               </td>
               
@@ -153,7 +217,7 @@
                 {% endif %}
               </td>
               
-              <!-- Status -->
+              <!-- Status (US12-AC6) -->
               <td class="status-cell">
                 <span class="badge bg-status-{{ booking.status|lower }}">
                   {{ booking.status }}
@@ -187,22 +251,36 @@
       <div class="text-center mt-4">
         <button onclick="window.print()" class="btn btn-secondary">
           <i class="bi bi-printer me-2"></i>
-          Print Today's Schedule
+          {% if is_search %}Print Search Results{% else %}Print Today's Schedule{% endif %}
         </button>
       </div>
       
     {% else %}
-      <!-- No Bookings Message (AC5) -->
+      <!-- No Results Message (US11-AC5, US12-AC7) -->
       <div class="empty-state text-center py-5">
-        <i class="bi bi-calendar-x display-1 text-muted mb-4"></i>
-        <h3 class="mb-3">No Bookings Today</h3>
-        <p class="text-muted mb-4">
-          There are no bookings scheduled for today. Enjoy the quiet day!
-        </p>
-        <a href="/admin/bookings/booking/add/" class="btn btn-primary">
-          <i class="bi bi-plus-circle me-2"></i>
-          Add Booking Manually
-        </a>
+        {% if is_search %}
+          <!-- No Search Results (US12-AC7) -->
+          <i class="bi bi-search display-1 text-muted mb-4"></i>
+          <h3 class="mb-3">No Bookings Found</h3>
+          <p class="text-muted mb-4">
+            No bookings match "<strong>{{ search_query }}</strong>"
+          </p>
+          <a href="{% url 'bookings:staff_dashboard' %}" class="btn btn-primary">
+            <i class="bi bi-arrow-left me-2"></i>
+            Back to Today's Bookings
+          </a>
+        {% else %}
+          <!-- No Bookings Today -->
+          <i class="bi bi-calendar-x display-1 text-muted mb-4"></i>
+          <h3 class="mb-3">No Bookings Today</h3>
+          <p class="text-muted mb-4">
+            There are no bookings scheduled for today. Enjoy the quiet day!
+          </p>
+          <a href="/admin/bookings/booking/add/" class="btn btn-primary">
+            <i class="bi bi-plus-circle me-2"></i>
+            Add Booking Manually
+          </a>
+        {% endif %}
       </div>
     {% endif %}
     
@@ -234,6 +312,20 @@
     color: white;
     font-size: 0.9rem;
     backdrop-filter: blur(10px);
+  }
+  
+  /* Search Section */
+  .search-section {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .input-group-lg .form-control {
+    border: 2px solid #dee2e6;
+  }
+  
+  .input-group-lg .form-control:focus {
+    border-color: var(--azulejo-blue);
+    box-shadow: 0 0 0 0.2rem rgba(31, 78, 121, 0.25);
   }
   
   /* Status Overview */
@@ -309,6 +401,12 @@
     vertical-align: middle;
   }
   
+  /* Date Cell */
+  .date-cell {
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  
   /* Time Cell - Most Important */
   .time-cell {
     font-size: 1.1rem;
@@ -324,7 +422,15 @@
   
   /* Customer Name */
   .customer-cell {
-    font-weight: 500;
+    min-width: 200px;
+  }
+  
+  .customer-cell strong {
+    display: block;
+  }
+  
+  .customer-cell small {
+    font-size: 0.8rem;
   }
   
   /* Reference Code */
@@ -366,7 +472,6 @@
   /* Row Highlighting by Status */
   .booking-row.status-cancelled {
     opacity: 0.6;
-    text-decoration: line-through;
   }
   
   .booking-row.status-confirmed {
@@ -386,7 +491,7 @@
   
   /* Print Styles */
   @media print {
-    .btn, nav, footer, .actions-cell, .status-overview {
+    .btn, nav, footer, .actions-cell, .status-overview, .search-section {
       display: none !important;
     }
     
@@ -420,6 +525,10 @@
       padding: 0.75rem 0.5rem;
     }
     
+    .customer-cell {
+      min-width: 150px;
+    }
+    
     .requests-cell {
       max-width: 150px;
     }
@@ -427,6 +536,10 @@
     .stat-badge {
       font-size: 0.8rem;
       padding: 0.4rem 0.8rem;
+    }
+    
+    .input-group-lg .form-control {
+      font-size: 1rem;
     }
   }
 </style>
@@ -442,7 +555,7 @@ document.addEventListener('DOMContentLoaded', function() {
     return new bootstrap.Tooltip(tooltipTriggerEl);
   });
   
-  // Auto-refresh every 5 minutes (optional - AC6)
+  // Auto-refresh every 5 minutes (optional - US11-AC6)
   // Uncomment if you want automatic refresh
   /*
   setInterval(function() {

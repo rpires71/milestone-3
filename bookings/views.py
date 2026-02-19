@@ -22,7 +22,7 @@ from django.db.models import Sum
 from datetime import datetime, date
 from .models import Booking, TimeSlot, Table
 from .forms import BookingForm
-
+from django.db.models import Q
 
 
 def booking_page(request):
@@ -585,30 +585,59 @@ def get_available_timeslots(request):
 @staff_member_required
 def staff_dashboard(request):
     """
-    Staff dashboard showing today's bookings.
+    Staff dashboard showing bookings with search functionality.
     
-    Implements US11: View all bookings for today to prepare tables.
+    Implements:
+    - US11: View all bookings for today
+    - US12: Search bookings by name
     
     Access:
-        - Restricted to staff/admin users only (AC1)
+        - Restricted to staff/admin users only (US11-AC1, US12-AC1)
     
     Args:
         request: HTTP request object
         
     Returns:
         Rendered staff dashboard template
+        
+    Template: staff_dashboard.html
+    Context:
+        - today: Current date
+        - bookings: Filtered bookings (today's or search results)
+        - search_query: Current search term
+        - is_search: Whether showing search results
+        - total_guests: Total number of guests
+        - total_bookings: Count of bookings
     """
-    # Get today's date (AC2, AC8)
+    # Get today's date (US11-AC2, US11-AC8)
     today = date.today()
     
-    # Get all bookings for today, ordered by time (AC2, AC4)
-    bookings = Booking.objects.filter(
-        booking_date=today
-    ).select_related(
+    # Get search query (US12-AC2)
+    search_query = request.GET.get('search', '').strip()
+    
+    # Base queryset with optimizations (US12-AC9)
+    base_queryset = Booking.objects.select_related(
         'user', 'timeslot', 'table'
-    ).order_by(
-        'timeslot__time', 'created_at'
     )
+    
+    # Determine if we're searching or showing today's bookings
+    is_search = bool(search_query)
+    
+    if is_search:
+        # Search functionality (US12-AC3, AC4, AC5)
+        bookings = base_queryset.filter(
+            Q(user__first_name__icontains=search_query) |  # Case-insensitive (AC3)
+            Q(user__last_name__icontains=search_query) |   # Partial match (AC4)
+            Q(user__username__icontains=search_query) |
+            Q(guest_name__icontains=search_query) |        # Guest bookings
+            Q(reference_number__icontains=search_query)    # Bonus: search by reference
+        ).order_by('-booking_date', 'timeslot__time')
+        
+    else:
+        # Default: Show today's bookings (US11-AC2)
+        bookings = base_queryset.filter(
+            booking_date=today
+        ).order_by('timeslot__time', 'created_at')
     
     # Calculate statistics
     total_bookings = bookings.count()
@@ -629,6 +658,8 @@ def staff_dashboard(request):
     context = {
         'today': today,
         'bookings': bookings,
+        'search_query': search_query,
+        'is_search': is_search,
         'total_bookings': total_bookings,
         'total_guests': total_guests,
         'pending_count': pending_count,
