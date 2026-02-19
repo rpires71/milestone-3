@@ -1,0 +1,42 @@
+Portuguese Kitchen - Booking Confirmation
+==========================================
+
+Dear {{ customer_name }},
+
+Thank you for choosing Portuguese Kitchen! We're delighted to confirm your reservation.
+
+✓ BOOKING CONFIRMED
+
+Your reservation has been successfully confirmed.
+
+RESERVATION DETAILS
+-------------------
+Reference Number: {{ booking.reference_number }}
+Date: {{ booking.booking_date|date:"l, F j, Y" }}
+Time: {{ booking.timeslot.time|time:"g:i A" }}
+Number of Guests: {{ booking.number_of_guests }}
+Customer Name: {{ customer_name }}
+{% if booking.special_requests %}Special Requests: {{ booking.special_requests }}{% endif %}
+Status: {{ booking.status }}
+
+RESTAURANT INFORMATION
+----------------------
+{{ restaurant_name }}
+Address: {{ restaurant_address }}
+Phone: {{ restaurant_phone }}
+Email: {{ restaurant_email }}
+
+IMPORTANT INFORMATION
+---------------------
+- Please arrive 10 minutes before your reservation time
+- If you need to modify or cancel your booking, please contact us at least 24 hours in advance
+- You can manage your booking online using your reference number
+
+We look forward to welcoming you!
+
+Best regards,
+The Portuguese Kitchen Team
+
+---
+© 2026 Portuguese Kitchen. All Rights Reserved.
+This is an automated confirmation email. Please do not reply to this message.

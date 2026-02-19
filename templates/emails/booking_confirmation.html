@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation - Portuguese Kitchen</title>
+    <style>
+        /* Inline styles for email compatibility */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            background-color: #f8f9fa;
+            color: #333333;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+        .header {
+            background: linear-gradient(135deg, #1F4E79 0%, #6B8E23 100%);
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            color: #ffffff;
+            margin: 0;
+            font-size: 28px;
+        }
+        .header p {
+            color: #ffffff;
+            margin: 10px 0 0 0;
+            font-size: 16px;
+        }
+        .content {
+            padding: 30px 20px;
+        }
+        .confirmation-box {
+            background-color: #28a745;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .confirmation-box h2 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+        }
+        .reference-number {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 10px 0;
+            letter-spacing: 2px;
+        }
+        .booking-details {
+            background-color: #f8f9fa;
+            border-left: 4px solid #1F4E79;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .detail-row {
+            display: table;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        .detail-label {
+            font-weight: bold;
+            color: #1F4E79;
+            display: table-cell;
+            width: 40%;
+        }
+        .detail-value {
+            display: table-cell;
+        }
+        .restaurant-info {
+            background-color: #ffffff;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .restaurant-info h3 {
+            margin-top: 0;
+            color: #1F4E79;
+        }
+        .info-item {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        .footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #C44536;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        /* Mobile responsive */
+        @media only screen and (max-width: 600px) {
+            .email-container {
+                width: 100% !important;
+            }
+            .content {
+                padding: 20px 15px;
+            }
+            .detail-row {
+                display: block;
+            }
+            .detail-label,
+            .detail-value {
+                display: block;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Portuguese Kitchen</h1>
+            <p>Authentic Portuguese Cuisine</p>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <!-- Confirmation Message -->
+            <div class="confirmation-box">
+                <h2>✓ Booking Confirmed!</h2>
+                <p>Your reservation has been successfully confirmed.</p>
+                <div class="reference-number">{{ booking.reference_number }}</div>
+                <p style="margin: 0; font-size: 14px;">Please save this reference number</p>
+            </div>
+            
+            <!-- Greeting -->
+            <p>Dear {{ customer_name }},</p>
+            
+            <p>Thank you for choosing Portuguese Kitchen! We're delighted to confirm your reservation.</p>
+            
+            <!-- Booking Details -->
+            <div class="booking-details">
+                <h3 style="margin-top: 0; color: #1F4E79;">Reservation Details</h3>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Reference Number:</div>
+                    <div class="detail-value">{{ booking.reference_number }}</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Date:</div>
+                    <div class="detail-value">{{ booking.booking_date|date:"l, F j, Y" }}</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Time:</div>
+                    <div class="detail-value">{{ booking.timeslot.time|time:"g:i A" }}</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Number of Guests:</div>
+                    <div class="detail-value">{{ booking.number_of_guests }}</div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-label">Customer Name:</div>
+                    <div class="detail-value">{{ customer_name }}</div>
+                </div>
+                
+                {% if booking.special_requests %}
+                <div class="detail-row">
+                    <div class="detail-label">Special Requests:</div>
+                    <div class="detail-value">{{ booking.special_requests }}</div>
+                </div>
+                {% endif %}
+                
+                <div class="detail-row">
+                    <div class="detail-label">Status:</div>
+                    <div class="detail-value" style="color: #28a745; font-weight: bold;">{{ booking.status }}</div>
+                </div>
+            </div>
+            
+            <!-- Restaurant Information -->
+            <div class="restaurant-info">
+                <h3>{{ restaurant_name }}</h3>
+                
+                <div class="info-item">
+                    <strong>📍 Address:</strong><br>
+                    {{ restaurant_address }}
+                </div>
+                
+                <div class="info-item">
+                    <strong>📞 Phone:</strong><br>
+                    {{ restaurant_phone }}
+                </div>
+                
+                <div class="info-item">
+                    <strong>📧 Email:</strong><br>
+                    {{ restaurant_email }}
+                </div>
+            </div>
+            
+            <!-- Important Information -->
+            <div style="background-color: #fff3cd; border-left: 4px solid: #ffc107; padding: 15px; margin: 20px 0;">
+                <h4 style="margin-top: 0; color: #856404;">Important Information</h4>
+                <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li>Please arrive 10 minutes before your reservation time</li>
+                    <li>If you need to modify or cancel your booking, please contact us at least 24 hours in advance</li>
+                    <li>You can manage your booking online using your reference number</li>
+                </ul>
+            </div>
+            
+            <!-- Call to Action -->
+            <div style="text-align: center;">
+                <a href="http://127.0.0.1:8000/bookings/my-bookings/" class="button">View My Bookings</a>
+            </div>
+            
+            <p>We look forward to welcoming you!</p>
+            
+            <p>Best regards,<br>
+            <strong>The Portuguese Kitchen Team</strong></p>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2026 Portuguese Kitchen. All Rights Reserved.</p>
+            <p style="margin: 10px 0; font-size: 12px;">
+                This is an automated confirmation email. Please do not reply to this message.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

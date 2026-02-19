@@ -137,3 +137,25 @@ LOGOUT_REDIRECT_URL = 'home'
 SESSION_COOKIE_AGE = 1209600  # 2 weeks in seconds
 SESSION_SAVE_EVERY_REQUEST = False
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+
+# ============================================================================
+# EMAIL CONFIGURATION (US8)
+# ============================================================================
+
+# Email backend - Console for development, SMTP for production
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # Development
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Production
+
+# Email settings
+EMAIL_HOST = 'smtp.gmail.com'  # Change for your email provider
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your-email@gmail.com'  # Change this
+EMAIL_HOST_PASSWORD = 'your-app-password'  # Change this (use app password for Gmail)
+
+# Default from email
+DEFAULT_FROM_EMAIL = 'Portuguese Kitchen <noreply@portuguesekitchen.co.uk>'
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
+
+# For development, emails will print to console
+# For production, change EMAIL_BACKEND to smtp and configure credentials
