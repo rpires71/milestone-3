@@ -50,6 +50,16 @@
   - [Django Framework Setup and Configuration](#django-framework-setup-and-configuration)
   - [Database Models Implementation](#database-models-implementation)
   - [Django Admin Configuration and Sample Data](#django-admin-configuration-and-sample-data)
+  - [Testing Plan](#test-pan)
+    - [Testing Overview](#testing-overview)
+    - [Functionality and Content Accuracy Testing](#functionality-and-content-accuracy-testing)
+    - [Usability and Typography Testing](#usability-and-typography-testing)
+    - [Responsiveness Testing](#responsiveness-testing)
+    - [Accessibility Testing](#accessibility-testing)
+    - [Performance Testing](#performance-testing)
+    - [Regression Testing](#regression-testing)
+    - [Python/Django Testing](#python-django-testing)
+    - [Code Validation](#code-validation)
 - [References](README.md#references)
 
 # Milestone Project 3
@@ -3851,6 +3861,404 @@ Several test bookings were created to verify booking system functionality:
 - Special requests stored properly
 
 **Rationale:** Test bookings verified that the booking model's auto-generation features, timestamps, and relationships function correctly (Vincent, 2020, Chapter 4).
+
+---
+
+## Test Plan
+
+[⬆ Back to Table of Contents](#table-of-contents)
+
+### Testing Overview
+
+### Testing Strategy
+
+A **risk‑based approach** is applied in the following test plan, which prioritises the items below.
+
+1. **Critical functionality** (booking system, user authentication)
+2. **User experience** (navigation, forms, responsiveness)
+3. **Code quality** (validation, Django best practices)
+4. **Accessibility** (WCAG 2.1 compliance)
+5. **Performance** (page load times, database queries)
+
+### Testing Environment
+
+- **Development:** Windows 10, Python 3.12, Django 4.2.7
+- **Database:** SQLite (development), PostgreSQL (production consideration)
+- **Browsers:** Chrome 144, Edge 144, Firefox 133
+- **Devices:** Desktop (1920x1080), Tablet (768x1024), Mobile (375x667)
+
+#### 1. FUNCTIONALITY AND CONTENT ACCURACY TESTING
+[⬆ Back to Table of Contents](#table-of-contents)
+
+#### 1.1 User Authentication
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 001 | User can register with valid details | Account created, redirected to login | ☐ | |
+| 002 | User cannot register with existing email | Error message displayed | ☐ | |
+| 003 | User can login with correct credentials | Logged in, redirected to home | ☐ | |
+| 004 | User cannot login with wrong password | Error message displayed | ☐ | |
+| 005 | User can logout successfully | Logged out, session cleared | ☐ | |
+| 006 | Password reset link works | Email sent, password can be reset | ☐ | Optional feature |
+| 007 | User profile displays correct information | All fields show accurate data | ☐ | |
+| 008 | User can update profile details | Changes saved to database | ☐ | |
+
+#### 1.2 Booking System
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 009 | User can view booking form | Form displays all required fields | ☐ | US1 |
+| 010 | User can select future date | Date picker only allows future dates | ☐ | US1 |
+| 011 | User cannot select past date | Date picker blocks past dates | ☐ | US1 |
+| 012 | Available time slots display correctly | Only available times shown | ☐ | US1 |
+| 013 | User can select number of guests (1-8) | Dropdown shows 1-8 options | ☐ | US2 |
+| 014 | System checks table availability | Booking only succeeds if capacity available | ☐ | US2 |
+| 015 | User receives confirmation page | Confirmation shows with reference number | ☐ | US3 |
+| 016 | Booking details are accurate | All details match user input | ☐ | US3 |
+| 017 | Reference number is unique | Each booking has unique reference | ☐ | US3 |
+| 018 | User can add special requests | Text saved to database | ☐ | US10 |
+| 019 | Special requests are optional | Booking succeeds without special requests | ☐ | US10 |
+| 020 | Email confirmation is sent | Email appears in console/inbox | ☐ | US8 |
+| 021 | Email contains all booking details | Email matches booking record | ☐ | US8 |
+
+#### 1.3 My Bookings (User Dashboard)
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 022 | User can view their bookings | All user's bookings displayed | ☐ | US9 |
+| 023 | Upcoming bookings shown separately | Future bookings in "Upcoming" section | ☐ | US9 |
+| 024 | Past bookings shown separately | Past bookings in "Past" section | ☐ | US9 |
+| 025 | Cancelled bookings marked clearly | Cancelled status visible | ☐ | US9 |
+| 026 | User can edit future bookings | Edit form pre-filled with booking data | ☐ | US4 |
+| 027 | User can change date/time | New date/time saved successfully | ☐ | US4 |
+| 028 | User can change number of guests | New guest count saved | ☐ | US4 |
+| 029 | Capacity re-checked on edit | Edit blocked if no capacity | ☐ | US4 |
+| 030 | User can cancel booking | Status changed to "Cancelled" | ☐ | US5 |
+| 031 | Cancellation requires confirmation | Modal asks for confirmation | ☐ | US5 |
+| 032 | Cannot edit past bookings | Edit button hidden/disabled | ☐ | US4 |
+| 033 | Cannot cancel past bookings | Cancel button hidden/disabled | ☐ | US5 |
+
+#### 1.4 Staff Dashboard
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 034 | Only staff can access dashboard | Non-staff redirected to login | ☐ | US11 |
+| 035 | Today's bookings displayed by default | Current date bookings shown | ☐ | US11 |
+| 036 | Bookings ordered by time | Chronological order (earliest first) | ☐ | US11 |
+| 037 | All booking details visible | Time, guests, customer, requests shown | ☐ | US11 |
+| 038 | Staff can search by customer name | Search returns matching bookings | ☐ | US12 |
+| 039 | Search is case-insensitive | "john" finds "John", "JOHN" | ☐ | US12 |
+| 040 | Partial name search works | "joh" finds "John", "Johnny" | ☐ | US12 |
+| 041 | Search by reference number works | Finds booking by reference | ☐ | US12 |
+| 042 | Clear search button works | Returns to today's bookings | ☐ | US12 |
+| 043 | No bookings message displays | "No bookings" shown when empty | ☐ | US11 |
+
+#### 1.5 Statistics Dashboard
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 044 | Only admin can access statistics | Non-admin redirected | ☐ | US17 |
+| 045 | Default shows last 30 days | 30-day data displayed | ☐ | US17 |
+| 046 | Can filter to last 7 days | Data updates to 7 days | ☐ | US17 |
+| 047 | Can filter to last 90 days | Data updates to 90 days | ☐ | US17 |
+| 048 | Custom date range works | Data shows for selected dates | ☐ | US17 |
+| 049 | Core metrics display correctly | Total bookings, guests, cancelled shown | ☐ | US17 |
+| 050 | Charts render without errors | All 4 charts display | ☐ | US17 |
+| 051 | Day of week chart accurate | Data matches database | ☐ | US17 |
+| 052 | Time slot chart accurate | Data matches database | ☐ | US17 |
+| 053 | Status breakdown accurate | Percentages sum to 100% | ☐ | US17 |
+| 054 | CSV export works | File downloads with correct data | ☐ | US17 |
+| 055 | No data scenario handled | "No data" message shown | ☐ | US17 |
+
+#### 1.6 Menu Page
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 056 | Menu page loads successfully | All menu items displayed | ☐ | |
+| 057 | Menu items have images | All images load correctly | ☐ | |
+| 058 | Menu items have descriptions | Text is clear and readable | ☐ | |
+| 059 | Prices displayed correctly | All prices shown in GBP | ☐ | |
+| 060 | Dietary information visible | Icons/labels for vegetarian, etc. | ☐ | US7 |
+
+#### 1.7 Navigation and General
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 061 | All navigation links work | No broken links | ☐ | |
+| 062 | Logo links to homepage | Click logo -> home page | ☐ | |
+| 063 | Active page highlighted in nav | Current page has active class | ☐ | |
+| 064 | Authenticated user sees correct links | Profile, My Bookings, Logout visible | ☐ | |
+| 065 | Non-authenticated user sees correct links | Login, Register visible | ☐ | |
+| 066 | Staff user sees staff dashboard link | Only visible to staff | ☐ | |
+| 067 | Admin user sees statistics link | Only visible to admin | ☐ | |
+| 068 | Mobile menu (hamburger) works | Menu expands on mobile | ☐ | |
+| 069 | Footer contact info is accurate | All details correct | ☐ | |
+| 070 | Footer links work | All footer links functional | ☐ | |
+
+#### 2. USABILITY AND TYPOGRAPHY TESTING
+[⬆ Back to Table of Contents](#table-of-contents)
+
+#### 2.1 Typography
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 071 | Headings use Montserrat font | Google Fonts loaded correctly | ☐ | |
+| 072 | Body text uses Lato font | Google Fonts loaded correctly | ☐ | |
+| 073 | Font sizes are consistent | Heading hierarchy maintained | ☐ | h1 > h2 > h3 |
+| 074 | Text is readable (minimum 16px body) | Body text ≥ 16px | ☐ | |
+| 075 | Line height is comfortable | Line-height 1.5-1.8 for body text | ☐ | |
+| 076 | Text contrast meets WCAG AA | Contrast ratio ≥ 4.5:1 | ☐ | |
+
+#### 2.2 Forms Usability
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 077 | All form fields have labels | Labels visible and descriptive | ☐ | |
+| 078 | Required fields marked clearly | Asterisk or "required" label | ☐ | |
+| 079 | Validation errors are clear | Error messages specific and helpful | ☐ | |
+| 080 | Error messages are positioned well | Near the relevant field | ☐ | |
+| 081 | Success messages are visible | Green/positive feedback shown | ☐ | |
+| 082 | Form inputs have adequate size | Touch-friendly (min 44x44px) | ☐ | |
+| 083 | Placeholders provide helpful hints | Examples given where appropriate | ☐ | |
+| 084 | Date picker is intuitive | Easy to select dates | ☐ | |
+
+#### 2.3 User Experience
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 085 | Pages load in < 3 seconds | Fast initial load | ☐ | |
+| 086 | No horizontal scrolling on mobile | Content fits viewport | ☐ | |
+| 087 | Buttons are clearly clickable | Hover states visible | ☐ | |
+| 088 | Links are distinguishable | Colour/underline differentiates | ☐ | |
+| 089 | Loading indicators where needed | Spinners for AJAX requests | ☐ | |
+| 090 | Confirmation dialogs for destructive actions | Cancel booking asks confirmation | ☐ | |
+| 091 | Breadcrumbs/back navigation clear | User knows their location | ☐ | |
+
+#### 3. RESPONSIVENESS TESTING
+[⬆ Back to Table of contents](#table-of-contents)
+
+#### 3.1 Breakpoints Testing
+
+Test on following viewport sizes:
+- **Mobile:** 375x667 (iPhone SE)
+- **Mobile Large:** 414x896 (iPhone 11 Pro Max)
+- **Tablet:** 768x1024 (iPad)
+- **Desktop Small:** 1024x768
+- **Desktop:** 1920x1080
+- **Desktop Large:** 2560x1440
+
+| Test ID | Page | Mobile (375px) | Tablet (768px) | Desktop (1920px) | Notes |
+|---------|------|----------------|----------------|------------------|-------|
+| 092 | Homepage | ☐ | ☐ | ☐ | Layout adapts |
+| 093 | Menu | ☐ | ☐ | ☐ | Images responsive |
+| 094 | Booking Form | ☐ | ☐ | ☐ | Form usable |
+| 095 | My Bookings | ☐ | ☐ | ☐ | Tables scroll/stack |
+| 096 | Booking Confirmation | ☐ | ☐ | ☐ | Details readable |
+| 097 | Staff Dashboard | ☐ | ☐ | ☐ | Table scrolls |
+| 098 | Statistics | ☐ | ☐ | ☐ | Charts responsive |
+| 099 | Login/Register | ☐ | ☐ | ☐ | Forms centered |
+| 100 | Profile | ☐ | ☐ | ☐ | Layout adapts |
+| 101 | Navigation | ☐ | ☐ | ☐ | Hamburger on mobile |
+
+#### 3.2 Responsive Images
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 102 | Images scale proportionally | No distortion | ☐ | |
+| 103 | Images don't exceed container | No overflow | ☐ | |
+| 104 | Alt text provided for all images | Accessibility | ☐ | |
+| 105 | WebP format with fallback | Performance | ☐ | |
+
+#### 4. ACCESSIBILITY TESTING
+[⬆ Back to Table of contents](#table-of-contents)
+
+#### 4.1 WCAG 2.1 Level AA Compliance
+
+| Test ID | Criterion | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------|-----------------|--------|-------|
+| 106 | 1.1.1 | All images have alt text | Screen reader announces image | ☐ | |
+| 107 | 1.3.1 | Semantic HTML used | Proper heading hierarchy | ☐ | |
+| 108 | 1.4.3 | Colour contrast ≥ 4.5:1 | Text readable | ☐ | |
+| 109 | 1.4.10 | No horizontal scroll | Content reflows | ☐ | |
+| 110 | 2.1.1 | Keyboard navigation works | Tab through all elements | ☐ | |
+| 111 | 2.1.2 | No keyboard trap | Can tab out of all elements | ☐ | |
+| 112 | 2.4.1 | Skip to main content link | Bypass navigation | ☐ | Optional |
+| 113 | 2.4.2 | Page titles are descriptive | Unique titles for each page | ☐ | |
+| 114 | 2.4.3 | Focus order is logical | Tab order makes sense | ☐ | |
+| 115 | 2.4.7 | Focus indicators visible | Outline on focused elements | ☐ | |
+| 116 | 3.1.1 | Language declared in HTML | lang="en" attribute | ☐ | |
+| 117 | 3.2.1 | Focus doesn't trigger change | No unexpected navigation | ☐ | |
+| 118 | 3.3.1 | Error messages clear | Specific error descriptions | ☐ | |
+| 119 | 3.3.2 | Form labels provided | All inputs have labels | ☐ | |
+| 120 | 4.1.2 | ARIA labels used correctly | Screen reader friendly | ☐ | |
+
+#### 4.2 Screen Reader Testing
+
+| Test ID | Tool | Page | Test Case | Status | Notes |
+|---------|------|------|-----------|--------|-------|
+| 121 | NVDA | Homepage | Navigation announced correctly | ☐ | |
+| 122 | NVDA | Booking Form | Form fields labeled | ☐ | |
+| 123 | NVDA | My Bookings | Tables navigable | ☐ | |
+| 124 | WAVE | All pages | No errors reported | ☐ | |
+| 125 | axe DevTools | All pages | No critical issues | ☐ | |
+
+#### 4.3 Keyboard Navigation
+
+| Test ID | Page | Test Case | Expected Result | Status |
+|---------|------|-----------|-----------------|--------|
+| 126 | All pages | Tab through all interactive elements | Focus visible, logical order | ☐ |
+| 127 | Booking form | Complete booking using keyboard only | Booking successful | ☐ |
+| 128 | My Bookings | Edit and cancel using keyboard | Actions successful | ☐ |
+| 129 | Navigation | Open/close mobile menu with keyboard | Menu toggles | ☐ |
+| 130 | Modals | Close modal with Escape key | Modal closes | ☐ |
+
+#### 5. PERFORMANCE TESTING
+[⬆ Back to Table of contents](#table-of-contents)
+
+#### 5.1 Page Load Performance
+
+Test with: Google PageSpeed Insights, GTmetrix
+
+| Page | Load Time | Score | LCP | FID | CLS | Status | Notes |
+|------|-----------|-------|-----|-----|-----|--------|-------|
+| Homepage | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | Target: < 3s |
+| Menu | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | Target: < 3s |
+| Booking | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | Target: < 3s |
+| My Bookings | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | Target: < 3s |
+| Staff Dashboard | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | Target: < 4s |
+| Statistics | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | Target: < 4s |
+
+#### 5.2 Database Performance
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 131 | Booking creation | < 500ms | ☐ | |
+| 132 | My Bookings page load | < 1s | ☐ | |
+| 133 | Staff dashboard with 100+ bookings | < 2s | ☐ | |
+| 134 | Statistics with 1000+ bookings | < 3s | ☐ | |
+| 135 | No N+1 queries | select_related used | ☐ | |
+
+#### 5.3 Asset Optimisation
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 136 | Images optimised | WebP format, < 200KB | ☐ | |
+| 137 | CSS minified in production | Single minified file | ☐ | |
+| 138 | JavaScript minified | Minified and compressed | ☐ | |
+| 139 | Fonts optimised | Subset, woff2 format | ☐ | |
+| 140 | Static files cached | Cache headers set | ☐ | |
+
+#### 6. REGRESSION TESTING
+[⬆ Back to Table of contents](#table-of-contents)
+
+Re-test after bug fixes or new features:
+
+| Feature Area | Regression Tests | Frequency | Status |
+|--------------|------------------|-----------|--------|
+| User Authentication | 001 to 008 | After any auth changes | ☐ |
+| Booking System | 009 to 021 | After booking changes | ☐ |
+| My Bookings | 022 to 033 | After dashboard changes | ☐ |
+| Staff Features | 034 to 043 | After staff changes | ☐ |
+| Navigation | 061 to 070 | After layout changes | ☐ |
+
+#### Critical User Journeys (Smoke Tests)
+
+Run before each deployment:
+
+| Journey | Steps | Expected Result | Status |
+|---------|-------|-----------------|--------|
+| Guest Booking | 1. Visit homepage<br>2. Click "Book a Table"<br>3. Fill form<br>4. Submit<br>5. View confirmation | Booking created successfully | ☐ |
+| User Registration & Booking | 1. Register account<br>2. Login<br>3. Make booking<br>4. View My Bookings | Account created, booking visible | ☐ |
+| Edit Booking | 1. Login<br>2. Go to My Bookings<br>3. Click Edit<br>4. Change date<br>5. Save | Booking updated | ☐ |
+| Cancel Booking | 1. Login<br>2. Go to My Bookings<br>3. Click Cancel<br>4. Confirm | Booking cancelled | ☐ |
+| Staff Dashboard | 1. Login as staff<br>2. View today's bookings<br>3. Search by name | Results display correctly | ☐ |
+
+#### 7. PYTHON/DJANGO TESTING
+[⬆ Back to Table of contents](#table-of-contents)
+
+#### 7.1 Code Quality
+
+| Test ID | Tool | Test Case | Expected Result | Status | Notes |
+|---------|------|-----------|-----------------|--------|-------|
+| 141 | Flake8 | Run linter on all Python files | No errors | ☐ | Allow line length 88 |
+| 142 | Black | Check code formatting | All files formatted | ☐ | |
+| 143 | Pylint | Check code quality | Score > 8.0/10 | ☐ | |
+| 144 | isort | Import statements ordered | Organized imports | ☐ | |
+
+#### 7.2 Django Unit Tests (Optional but Recommended)
+
+```python
+# Example test structure
+from django.test import TestCase
+from bookings.models import Booking, Table, TimeSlot
+
+class BookingModelTest(TestCase):
+    def test_booking_creation(self):
+        # Test booking can be created
+        pass
+    
+    def test_reference_number_unique(self):
+        # Test reference numbers are unique
+        pass
+```
+
+| Test Area | Tests Written | Tests Passing | Coverage | Status |
+|-----------|---------------|---------------|----------|--------|
+| Models | ☐ | ☐ | ☐ % | ☐ |
+| Views | ☐ | ☐ | ☐ % | ☐ |
+| Forms | ☐ | ☐ | ☐ % | ☐ |
+| Utils | ☐ | ☐ | ☐ % | ☐ |
+
+#### 8. CODE VALIDATION
+[⬆ Back to Table of contents](#table-of-contents)
+
+#### 8.1 HTML Validation
+
+Tool: W3C Markup Validation Service
+
+| Page | Errors | Warnings | Status | Notes |
+|------|--------|----------|--------|-------|
+| Homepage | ☐ | ☐ | ☐ | |
+| Menu | ☐ | ☐ | ☐ | |
+| Booking | ☐ | ☐ | ☐ | |
+| Booking Confirmation | ☐ | ☐ | ☐ | |
+| My Bookings | ☐ | ☐ | ☐ | |
+| Edit Booking | ☐ | ☐ | ☐ | |
+| Staff Dashboard | ☐ | ☐ | ☐ | |
+| Statistics | ☐ | ☐ | ☐ | |
+| Login | ☐ | ☐ | ☐ | |
+| Register | ☐ | ☐ | ☐ | |
+| Profile | ☐ | ☐ | ☐ | |
+
+#### 8.2 CSS Validation
+
+Tool: W3C CSS Validation Service
+
+| File | Errors | Warnings | Status | Notes |
+|------|--------|----------|--------|-------|
+| style.css | ☐ | ☐ | ☐ | Vendor prefixes may warn |
+
+#### 8.3 JavaScript Validation
+
+Tool: JSHint
+
+| File | Errors | Warnings | Status | Notes |
+|------|--------|----------|--------|-------|
+| script.js | ☐ | ☐ | ☐ | |
+| booking.js | ☐ | ☐ | ☐ | |
+
+#### 8.4 Python Validation
+
+Tool: PEP 8 Checker
+
+| File | Errors | Status | Notes |
+|------|--------|--------|-------|
+| models.py | ☐ | ☐ | |
+| views.py | ☐ | ☐ | |
+| forms.py | ☐ | ☐ | |
+| urls.py | ☐ | ☐ | |
+| admin.py | ☐ | ☐ | |
+| emails.py | ☐ | ☐ | |
 
 ---
 
