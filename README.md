@@ -3896,30 +3896,37 @@ A **risk‑based approach** is applied in the following test plan, which priorit
 |---------|-----------|-----------------|--------|-------|
 | 001 | User can register with valid details | Account created, redirected to login | PASS | |
 <img width="1135" height="693" alt="image" src="https://github.com/user-attachments/assets/349c15d0-0393-4e1f-a557-20207a73405c" />
+
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 002 | User cannot register with existing email | Error message displayed | PASS | |
 <img width="516" height="787" alt="image" src="https://github.com/user-attachments/assets/a5fc8e00-5a62-4b2b-8da3-1410ddc0b9de" />
+
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 003 | User can login with correct credentials | Logged in, redirected to home | PASS | |
 <img width="1679" height="854" alt="image" src="https://github.com/user-attachments/assets/57432c49-c84e-4820-9a27-4f1ba52cdc7e" />
+
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 004 | User cannot login with wrong password | Error message displayed | PASS | |
 <img width="1074" height="744" alt="image" src="https://github.com/user-attachments/assets/e442d150-4f70-4893-91c0-c0ca1a26ce34" />
+
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 005 | User can logout successfully | Logged out, session cleared | PASS | |
 <img width="1850" height="897" alt="image" src="https://github.com/user-attachments/assets/fbf5f015-5d2f-4506-ad2b-cafcfdaffe7b" />
+
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 006 | Password reset link works | Email sent, password can be reset | FAIL | Optional feature |
 <img width="1063" height="1004" alt="image" src="https://github.com/user-attachments/assets/03b6fc86-9f19-4365-b28f-20f344cb6893" />
+
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 007 | User profile displays correct information | All fields show accurate data | PASS | |
 <img width="1239" height="744" alt="image" src="https://github.com/user-attachments/assets/8b58ce5e-31f4-4f0a-976d-7865009be65c" />
+
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 008 | User can update profile details | Changes saved to database | FAIL | |
@@ -3931,56 +3938,66 @@ A **risk‑based approach** is applied in the following test plan, which priorit
 |---------|-----------|-----------------|--------|-------|
 | 009 | User can view booking form | Form displays all required fields | PASS | US1 |
 <img width="761" height="669" alt="image" src="https://github.com/user-attachments/assets/0faaf2eb-e557-4144-a186-e0dd9e856695" />
+
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 010 | User can select future date | Date picker only allows future dates | PASS | US1 |
 <img width="712" height="588" alt="image" src="https://github.com/user-attachments/assets/f30a542d-8b44-4333-af7c-8ac1ce533918" />
+
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 011 | User cannot select past date | Date picker blocks past dates | PASS | US1 |
 <img width="689" height="631" alt="image" src="https://github.com/user-attachments/assets/13550fa3-5e10-47fa-9242-3aeb39218163" />
+
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 012 | Available time slots display correctly | Only available times shown | PASS | US1 |
 <img width="636" height="566" alt="image" src="https://github.com/user-attachments/assets/07ffa602-bbd0-4239-be8b-b624536aecd4" />
+
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 013 | User can select number of guests (1-8) | Dropdown shows 1-8 options | PASS | US2 |
 <img width="673" height="578" alt="image" src="https://github.com/user-attachments/assets/aec26bb7-7964-475d-aa5e-a7a736a748c5" />
+
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 014 | System checks table availability | Booking only succeeds if capacity available | PASS | Bookings will not exceed availability. 12:30 Booking slot fully booked and will not appear in booking form. Second image shows evidence this. |
 <img width="689" height="622" alt="image" src="https://github.com/user-attachments/assets/e7e9f00b-c7a4-4fb2-a587-b7b31135ffb8" />
 <img width="1000" height="933" alt="image" src="https://github.com/user-attachments/assets/5231bde6-3db2-4cf0-ad5b-28d779752d14" />
+
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 015 | User receives confirmation page | Confirmation shows with reference number | PASS | US3 |
 <img width="1865" height="885" alt="image" src="https://github.com/user-attachments/assets/14e83085-efc5-4880-8373-25277252a270" />
+
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 016 | Booking details are accurate | All details match user input | PASS | US3 |
 <img width="776" height="870" alt="image" src="https://github.com/user-attachments/assets/aeff2ac1-0bd8-48ed-a739-77ce99343411" />
+
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 017 | Reference number is unique | Each booking has unique reference | PASS | US3 |
 <img width="776" height="870" alt="image" src="https://github.com/user-attachments/assets/83b35042-075a-4012-a2cc-7cea185764bc" />
 <img width="496" height="195" alt="image" src="https://github.com/user-attachments/assets/6ac65867-976f-4cc4-99e9-0c59080657d7" />
+
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 018 | User can add special requests | Text saved to database | PASS | US10 |
 <img width="992" height="933" alt="image" src="https://github.com/user-attachments/assets/71ca9975-81f4-4543-b9c8-5fb27c679d8a" />
+
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 019 | Special requests are optional | Booking succeeds without special requests | PASS | US10 |
 <img width="869" height="895" alt="image" src="https://github.com/user-attachments/assets/0cce51e0-71d4-424f-b539-ed4847897fe6" />
+
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 020 | Email confirmation is sent | Email appears in console/inbox | FAIL | US8 - Code has been implemented but email confirmation hasn't been confirmed. |
+
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 021 | Email contains all booking details | Email matches booking record | FAIL | US8 - Code has been implemented but email confirmation hasn't been confirmed. |
-| Test ID | Test Case | Expected Result | Status | Notes |
-|---------|-----------|-----------------|--------|-------|
 
 #### 1.3 My Bookings (User Dashboard)
 
