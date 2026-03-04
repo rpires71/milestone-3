@@ -3894,14 +3894,22 @@ A **risk‑based approach** is applied in the following test plan, which priorit
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
-| 001 | User can register with valid details | Account created, redirected to login | ☐ | |
-| 002 | User cannot register with existing email | Error message displayed | ☐ | |
-| 003 | User can login with correct credentials | Logged in, redirected to home | ☐ | |
-| 004 | User cannot login with wrong password | Error message displayed | ☐ | |
-| 005 | User can logout successfully | Logged out, session cleared | ☐ | |
-| 006 | Password reset link works | Email sent, password can be reset | ☐ | Optional feature |
-| 007 | User profile displays correct information | All fields show accurate data | ☐ | |
-| 008 | User can update profile details | Changes saved to database | ☐ | |
+| 001 | User can register with valid details | Account created, redirected to login | PASS | |
+<img width="1135" height="693" alt="image" src="https://github.com/user-attachments/assets/349c15d0-0393-4e1f-a557-20207a73405c" />
+| 002 | User cannot register with existing email | Error message displayed | PASS | |
+<img width="516" height="787" alt="image" src="https://github.com/user-attachments/assets/a5fc8e00-5a62-4b2b-8da3-1410ddc0b9de" />
+| 003 | User can login with correct credentials | Logged in, redirected to home | PASS | |
+<img width="1679" height="854" alt="image" src="https://github.com/user-attachments/assets/57432c49-c84e-4820-9a27-4f1ba52cdc7e" />
+| 004 | User cannot login with wrong password | Error message displayed | PASS | |
+<img width="1074" height="744" alt="image" src="https://github.com/user-attachments/assets/e442d150-4f70-4893-91c0-c0ca1a26ce34" />
+| 005 | User can logout successfully | Logged out, session cleared | PASS | |
+<img width="1850" height="897" alt="image" src="https://github.com/user-attachments/assets/fbf5f015-5d2f-4506-ad2b-cafcfdaffe7b" />
+| 006 | Password reset link works | Email sent, password can be reset | FAIL | Optional feature |
+<img width="1063" height="1004" alt="image" src="https://github.com/user-attachments/assets/03b6fc86-9f19-4365-b28f-20f344cb6893" />
+| 007 | User profile displays correct information | All fields show accurate data | PASS | |
+<img width="1239" height="744" alt="image" src="https://github.com/user-attachments/assets/8b58ce5e-31f4-4f0a-976d-7865009be65c" />
+| 008 | User can update profile details | Changes saved to database | FAIL | |
+<img width="1205" height="686" alt="image" src="https://github.com/user-attachments/assets/5f631ddd-9363-44a3-9144-07515be6eda3" />
 
 #### 1.2 Booking System
 
