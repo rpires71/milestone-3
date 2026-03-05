@@ -4286,11 +4286,35 @@ A **risk‑based approach** is applied in the following test plan, which priorit
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 071 | Headings use Montserrat font | Google Fonts loaded correctly | ☐ | |
-| 072 | Body text uses Lato font | Google Fonts loaded correctly | ☐ | |
-| 073 | Font sizes are consistent | Heading hierarchy maintained | ☐ | h1 > h2 > h3 |
-| 074 | Text is readable (minimum 16px body) | Body text ≥ 16px | ☐ | |
-| 075 | Line height is comfortable | Line-height 1.5-1.8 for body text | ☐ | |
-| 076 | Text contrast meets WCAG AA | Contrast ratio ≥ 4.5:1 | ☐ | |
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 072 | Body text uses Lato font | Google Fonts loaded correctly | PASS | |
+<img width="656" height="552" alt="image" src="https://github.com/user-attachments/assets/2e5e744e-b408-459b-aa74-d9c3a0e32925" />
+
+| 073 | Font sizes are consistent | Heading hierarchy maintained | PASS | h1 > h2 > h3 Font sizes are consistent and heading hierarchy is correctly maintained across all pages.|
+<img width="347" height="310" alt="image" src="https://github.com/user-attachments/assets/5138b7f3-5858-40e2-8c7d-c4903407df69" />
+<img width="366" height="121" alt="image" src="https://github.com/user-attachments/assets/53bb492d-da51-4f0b-89e0-2c25eaaf8197" />
+<img width="805" height="418" alt="image" src="https://github.com/user-attachments/assets/93f84d80-f1dc-4938-ac4b-895e3daf7341" />
+
+| 074 | Text is readable (minimum 16px body) | Body text ≥ 16px | PASS | |
+<img width="946" height="370" alt="image" src="https://github.com/user-attachments/assets/0799d6d5-ee58-4631-a8d7-c9118c29ecf8" />
+<img width="854" height="498" alt="image" src="https://github.com/user-attachments/assets/ae93e345-1bc4-4fe4-a708-0fc0be0fab3c" />
+<img width="975" height="465" alt="image" src="https://github.com/user-attachments/assets/a8dbb2fc-520d-4461-a1f0-3f3ec774d1ea" />
+<img width="575" height="470" alt="image" src="https://github.com/user-attachments/assets/cb471670-d1b3-4aa2-be4f-1f085826001e" />
+<img width="350" height="517" alt="image" src="https://github.com/user-attachments/assets/786b32e9-6f89-4cf8-8e61-0c089b618af7" />
+<img width="1125" height="368" alt="image" src="https://github.com/user-attachments/assets/d5d74aaf-6888-4112-9e7b-661596ce3b8b" />
+<img width="461" height="549" alt="image" src="https://github.com/user-attachments/assets/096f2e7a-00d8-412a-8e83-2ea0528e96eb" />
+<img width="575" height="405" alt="image" src="https://github.com/user-attachments/assets/3b749544-6cf8-4eee-996d-c150282584bd" />
+<img width="361" height="287" alt="image" src="https://github.com/user-attachments/assets/2973db25-a1ec-4b24-97a8-eb0139ee7152" />
+<img width="574" height="708" alt="image" src="https://github.com/user-attachments/assets/7998ff67-ed30-4ca5-8083-29374df64e53" />
+<img width="676" height="574" alt="image" src="https://github.com/user-attachments/assets/d9cf3f32-51de-474e-8816-6e37afb0f796" />
+
+| 075 | Line height is comfortable | Line-height 1.5-1.8 for body text | PASS | |
+<img width="372" height="183" alt="image" src="https://github.com/user-attachments/assets/9fb0d6fc-78b1-4c58-9fcd-939a09537a10" />
+
+| 076 | Text contrast meets WCAG AA | Contrast ratio ≥ 4.5:1 | PASS | |
+<img width="344" height="716" alt="image" src="https://github.com/user-attachments/assets/cc1f494e-8160-4b2d-80a1-2eb0254a1854" />
 
 #### 2.2 Forms Usability
 
