@@ -4294,6 +4294,8 @@ A **risk‑based approach** is applied in the following test plan, which priorit
 | 072 | Body text uses Lato font | Google Fonts loaded correctly | PASS | |
 <img width="656" height="552" alt="image" src="https://github.com/user-attachments/assets/2e5e744e-b408-459b-aa74-d9c3a0e32925" />
 
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
 | 073 | Font sizes are consistent | Heading hierarchy maintained | PASS | h1 > h2 > h3 Font sizes are consistent and heading hierarchy is correctly maintained across all pages.|
 <img width="347" height="310" alt="image" src="https://github.com/user-attachments/assets/5138b7f3-5858-40e2-8c7d-c4903407df69" />
 <img width="366" height="121" alt="image" src="https://github.com/user-attachments/assets/53bb492d-da51-4f0b-89e0-2c25eaaf8197" />
@@ -4329,12 +4331,33 @@ A **risk‑based approach** is applied in the following test plan, which priorit
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 077 | All form fields have labels | Labels visible and descriptive | ☐ | |
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
 | 078 | Required fields marked clearly | Asterisk or "required" label | ☐ | |
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
 | 079 | Validation errors are clear | Error messages specific and helpful | ☐ | |
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
 | 080 | Error messages are positioned well | Near the relevant field | ☐ | |
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
 | 081 | Success messages are visible | Green/positive feedback shown | ☐ | |
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
 | 082 | Form inputs have adequate size | Touch-friendly (min 44x44px) | ☐ | |
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
 | 083 | Placeholders provide helpful hints | Examples given where appropriate | ☐ | |
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
 | 084 | Date picker is intuitive | Easy to select dates | ☐ | |
 
 #### 2.3 User Experience
