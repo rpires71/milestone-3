@@ -4117,23 +4117,72 @@ A **risk‑based approach** is applied in the following test plan, which priorit
 | 043 | No bookings message displays | "No bookings" shown when empty | PASS | US11 |
 <img width="1054" height="606" alt="image" src="https://github.com/user-attachments/assets/09a45d57-b71d-45b1-972b-e52ab1ff8e35" />
 
-
 #### 1.5 Statistics Dashboard
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
-| 044 | Only admin can access statistics | Non-admin redirected | ☐ | US17 |
-| 045 | Default shows last 30 days | 30-day data displayed | ☐ | US17 |
-| 046 | Can filter to last 7 days | Data updates to 7 days | ☐ | US17 |
-| 047 | Can filter to last 90 days | Data updates to 90 days | ☐ | US17 |
-| 048 | Custom date range works | Data shows for selected dates | ☐ | US17 |
-| 049 | Core metrics display correctly | Total bookings, guests, cancelled shown | ☐ | US17 |
-| 050 | Charts render without errors | All 4 charts display | ☐ | US17 |
-| 051 | Day of week chart accurate | Data matches database | ☐ | US17 |
-| 052 | Time slot chart accurate | Data matches database | ☐ | US17 |
-| 053 | Status breakdown accurate | Percentages sum to 100% | ☐ | US17 |
-| 054 | CSV export works | File downloads with correct data | ☐ | US17 |
-| 055 | No data scenario handled | "No data" message shown | ☐ | US17 |
+| 044 | Only admin can access statistics | Non-admin redirected | PASS | US17 |
+<img width="749" height="746" alt="image" src="https://github.com/user-attachments/assets/0e54cc07-470e-4e9e-9913-e2d4ea278f7b" />
+<img width="1512" height="419" alt="image" src="https://github.com/user-attachments/assets/da11c4fc-991a-47c2-a99e-582cf31c7a37" />
+<img width="743" height="719" alt="image" src="https://github.com/user-attachments/assets/70b7a4d6-51d8-429c-932f-6075fe0246cc" />
+<img width="1458" height="523" alt="image" src="https://github.com/user-attachments/assets/6f2079e5-4c3f-4643-923d-9e2df940ff5f" />
+<img width="1666" height="413" alt="image" src="https://github.com/user-attachments/assets/3f3264aa-21c5-4e43-907f-9ac956e1eb8b" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 045 | Default shows last 30 days | 30-day data displayed | PASS | US17 |
+<img width="1022" height="416" alt="image" src="https://github.com/user-attachments/assets/0c57ebd2-d868-4ce7-8cac-7e489d7c3375" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 046 | Can filter to last 7 days | Data updates to 7 days | PASS | US17 |
+<img width="1002" height="412" alt="image" src="https://github.com/user-attachments/assets/2c459967-e322-4b61-984b-6a5fdaf8fe1a" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 047 | Can filter to last 90 days | Data updates to 90 days | PASS | US17 |
+<img width="1026" height="430" alt="image" src="https://github.com/user-attachments/assets/b402f970-f8ba-45fd-8c28-3c4687e6c21b" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 048 | Custom date range works | Data shows for selected dates | PASS | US17 |
+<img width="1022" height="444" alt="image" src="https://github.com/user-attachments/assets/e9a484dc-9e44-4457-8596-d5e636c6a2ab" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 049 | Core metrics display correctly | Total bookings, guests, cancelled shown | PASS | US17 |
+<img width="1028" height="436" alt="image" src="https://github.com/user-attachments/assets/6db4b946-66b1-48f0-a562-325beca3f8f4" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 050 | Charts render without errors | All 4 charts display | PASS | US17 |
+<img width="671" height="703" alt="image" src="https://github.com/user-attachments/assets/bf60cdd8-1899-4535-8a5d-83227fb13c88" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 051 | Day of week chart accurate | Data matches database | PASS | US17 |
+<img width="328" height="376" alt="image" src="https://github.com/user-attachments/assets/c8bb6774-370f-41db-a872-438309546d21" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 052 | Time slot chart accurate | Data matches database | PASS | US17 |
+<img width="305" height="145" alt="image" src="https://github.com/user-attachments/assets/8a6b1c3a-7f19-4624-a3d5-fce493b61efc" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 053 | Status breakdown accurate | Percentages sum to 100% | PASS | US17 |
+<img width="306" height="273" alt="image" src="https://github.com/user-attachments/assets/fc4e498e-9ffb-4e93-81ac-08685e544b3b" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 054 | CSV export works | File downloads with correct data | PASS | US17 |
+<img width="1271" height="353" alt="image" src="https://github.com/user-attachments/assets/69778998-3b0a-4520-9f21-14ae0f4c55eb" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 055 | No data scenario handled | "No data" message shown | PASS | US17 |
+<img width="703" height="429" alt="image" src="https://github.com/user-attachments/assets/88481bc7-c40a-421d-a742-7e32517890b9" />
+
 
 #### 1.6 Menu Page
 
