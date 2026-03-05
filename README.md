@@ -4285,7 +4285,9 @@ A **risk‑based approach** is applied in the following test plan, which priorit
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
-| 071 | Headings use Montserrat font | Google Fonts loaded correctly | ☐ | |
+| 071 | Headings use Montserrat font | Google Fonts loaded correctly | PASS | |
+<img width="1226" height="400" alt="image" src="https://github.com/user-attachments/assets/53d49464-70f4-455e-854b-e86e7c5f53f1" />
+
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
@@ -4297,6 +4299,8 @@ A **risk‑based approach** is applied in the following test plan, which priorit
 <img width="366" height="121" alt="image" src="https://github.com/user-attachments/assets/53bb492d-da51-4f0b-89e0-2c25eaaf8197" />
 <img width="805" height="418" alt="image" src="https://github.com/user-attachments/assets/93f84d80-f1dc-4938-ac4b-895e3daf7341" />
 
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
 | 074 | Text is readable (minimum 16px body) | Body text ≥ 16px | PASS | |
 <img width="946" height="370" alt="image" src="https://github.com/user-attachments/assets/0799d6d5-ee58-4631-a8d7-c9118c29ecf8" />
 <img width="854" height="498" alt="image" src="https://github.com/user-attachments/assets/ae93e345-1bc4-4fe4-a708-0fc0be0fab3c" />
@@ -4310,9 +4314,13 @@ A **risk‑based approach** is applied in the following test plan, which priorit
 <img width="574" height="708" alt="image" src="https://github.com/user-attachments/assets/7998ff67-ed30-4ca5-8083-29374df64e53" />
 <img width="676" height="574" alt="image" src="https://github.com/user-attachments/assets/d9cf3f32-51de-474e-8816-6e37afb0f796" />
 
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
 | 075 | Line height is comfortable | Line-height 1.5-1.8 for body text | PASS | |
 <img width="372" height="183" alt="image" src="https://github.com/user-attachments/assets/9fb0d6fc-78b1-4c58-9fcd-939a09537a10" />
 
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
 | 076 | Text contrast meets WCAG AA | Contrast ratio ≥ 4.5:1 | PASS | |
 <img width="344" height="716" alt="image" src="https://github.com/user-attachments/assets/cc1f494e-8160-4b2d-80a1-2eb0254a1854" />
 
