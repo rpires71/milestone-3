@@ -4006,24 +4006,20 @@ A **risk‑based approach** is applied in the following test plan, which priorit
 | 022 | User can view their bookings | All user's bookings displayed | PASS | US9 |
 <img width="1115" height="915" alt="image" src="https://github.com/user-attachments/assets/c6e979ea-98c1-401c-9e46-c54fce6d4af7" />
 
-
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 023 | Upcoming bookings shown separately | Future bookings in "Upcoming" section | PASS | US9 |
 <img width="1110" height="927" alt="image" src="https://github.com/user-attachments/assets/48d77943-8099-4bb1-b7b2-9cfaf18e896b" />
-
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 024 | Past bookings shown separately | Past bookings in "Past" section | PASS | US9 |
 <img width="1043" height="792" alt="image" src="https://github.com/user-attachments/assets/5f6213d1-cd9f-47fd-88f6-301872ce9a0b" />
 
-
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 025 | Cancelled bookings marked clearly | Cancelled status visible | PASS | US9 - Only visible with admin account.|
 <img width="1085" height="610" alt="image" src="https://github.com/user-attachments/assets/64c84631-db2b-463d-b9f0-5270601436d7" />
-
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
@@ -4035,18 +4031,15 @@ A **risk‑based approach** is applied in the following test plan, which priorit
 | 027 | User can change date/time | New date/time saved successfully | FAIL | US4 - Error Message. |
 <img width="1109" height="807" alt="image" src="https://github.com/user-attachments/assets/a3068791-87ca-401e-a13e-6dcaca505f61" />
 
-
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 028 | User can change number of guests | New guest count saved | FAIL | US4 - Error Message. |
 <img width="1069" height="770" alt="image" src="https://github.com/user-attachments/assets/de269deb-bb2a-4dc4-bcc1-b098853cce9f" />
 
-
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 029 | Capacity re-checked on edit | Edit blocked if no capacity | FAIL | US4 - Error Message. |
 <img width="1069" height="770" alt="image" src="https://github.com/user-attachments/assets/68e13207-c6ce-4fa5-98aa-3f9f76ca3333" />
-
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
@@ -4054,40 +4047,76 @@ A **risk‑based approach** is applied in the following test plan, which priorit
 <img width="456" height="323" alt="image" src="https://github.com/user-attachments/assets/e691bf4a-e149-4078-9436-15d1ed6775d4" />
 <img width="1083" height="610" alt="image" src="https://github.com/user-attachments/assets/2551227a-e025-4ccf-91ad-2f0ac428368a" />
 
-
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 031 | Cancellation requires confirmation | Modal asks for confirmation | PASS | US5 |
 <img width="445" height="342" alt="image" src="https://github.com/user-attachments/assets/f65a8d8e-d039-4ff6-bfdf-747975313dda" />
 <img width="1028" height="600" alt="image" src="https://github.com/user-attachments/assets/a2e16423-342a-488f-8d54-ca98aff670ce" />
 
-
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 032 | Cannot edit past bookings | Edit button hidden/disabled | PASS | US4 |
 <img width="1005" height="318" alt="image" src="https://github.com/user-attachments/assets/4e7ea28b-98da-46b5-b214-a246d67b3bef" />
-
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 033 | Cannot cancel past bookings | Cancel button hidden/disabled | PASS | US5 |
 <img width="1005" height="318" alt="image" src="https://github.com/user-attachments/assets/aa126aba-168e-41a3-b8c7-263d0c634b60" />
 
-
 #### 1.4 Staff Dashboard
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
-| 034 | Only staff can access dashboard | Non-staff redirected to login | ☐ | US11 |
-| 035 | Today's bookings displayed by default | Current date bookings shown | ☐ | US11 |
-| 036 | Bookings ordered by time | Chronological order (earliest first) | ☐ | US11 |
-| 037 | All booking details visible | Time, guests, customer, requests shown | ☐ | US11 |
-| 038 | Staff can search by customer name | Search returns matching bookings | ☐ | US12 |
-| 039 | Search is case-insensitive | "john" finds "John", "JOHN" | ☐ | US12 |
-| 040 | Partial name search works | "joh" finds "John", "Johnny" | ☐ | US12 |
-| 041 | Search by reference number works | Finds booking by reference | ☐ | US12 |
-| 042 | Clear search button works | Returns to today's bookings | ☐ | US12 |
-| 043 | No bookings message displays | "No bookings" shown when empty | ☐ | US11 |
+| 034 | Only staff can access dashboard | Non-staff redirected to login | PASS | US11 |
+<img width="1368" height="326" alt="image" src="https://github.com/user-attachments/assets/4ed8261c-559a-4691-93ba-21e917ee8dd7" />
+<img width="1849" height="488" alt="image" src="https://github.com/user-attachments/assets/041a09bf-1895-412f-b125-d8be80e334ff" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 035 | Today's bookings displayed by default | Current date bookings shown | PASS | US11 |
+<img width="1050" height="823" alt="image" src="https://github.com/user-attachments/assets/6dfad2ce-50af-4f03-a343-84f71f47c243" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 036 | Bookings ordered by time | Chronological order (earliest first) | PASS | US11 |
+<img width="992" height="878" alt="image" src="https://github.com/user-attachments/assets/176daafa-d246-4121-ac49-369fec999911" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 037 | All booking details visible | Time, guests, customer, requests shown | PASS | US11 |
+<img width="1063" height="843" alt="image" src="https://github.com/user-attachments/assets/b76bbfb2-ad21-4788-b1c3-82a8e1684914" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 038 | Staff can search by customer name | Search returns matching bookings | PASS | US12 |
+<img width="1029" height="825" alt="image" src="https://github.com/user-attachments/assets/88bb5340-85c0-428b-9c1d-28e07cca807c" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 039 | Search is case-insensitive | "john" finds "John", "JOHN" | PASS | US12 |
+<img width="1005" height="736" alt="image" src="https://github.com/user-attachments/assets/9e7cffc2-0d14-4c24-a293-e1416ed11b5c" />
+<img width="1062" height="748" alt="image" src="https://github.com/user-attachments/assets/06f2d5bf-7c1e-4a9c-b015-72bdce7fffc7" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 040 | Partial name search works | "joh" finds "John", "Johnny" | PASS | US12 |
+<img width="989" height="732" alt="image" src="https://github.com/user-attachments/assets/31614bfe-4dfc-4acf-9eb9-1270d8cf44cd" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 041 | Search by reference number works | Finds booking by reference | PASS | US12 |
+<img width="1001" height="572" alt="image" src="https://github.com/user-attachments/assets/bee43f91-579e-428f-80db-beaeec164f69" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 042 | Clear search button works | Returns to today's bookings | PASS | US12 |
+<img width="1005" height="746" alt="image" src="https://github.com/user-attachments/assets/59330cb3-e5da-4ac2-b207-d3fa563f5f28" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 043 | No bookings message displays | "No bookings" shown when empty | PASS | US11 |
+<img width="1054" height="606" alt="image" src="https://github.com/user-attachments/assets/09a45d57-b71d-45b1-972b-e52ab1ff8e35" />
+
 
 #### 1.5 Statistics Dashboard
 
