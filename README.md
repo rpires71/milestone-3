@@ -4188,11 +4188,35 @@ A **risk‑based approach** is applied in the following test plan, which priorit
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
-| 056 | Menu page loads successfully | All menu items displayed | ☐ | |
-| 057 | Menu items have images | All images load correctly | ☐ | |
-| 058 | Menu items have descriptions | Text is clear and readable | ☐ | |
-| 059 | Prices displayed correctly | All prices shown in GBP | ☐ | |
-| 060 | Dietary information visible | Icons/labels for vegetarian, etc. | ☐ | US7 |
+| 056 | Menu page loads successfully | All menu items displayed | PASS | |
+<img width="1893" height="908" alt="image" src="https://github.com/user-attachments/assets/b82050a7-e3e6-46ad-bf4b-5550d7b799c6" />
+<img width="1130" height="841" alt="image" src="https://github.com/user-attachments/assets/8b2061a6-ac21-4102-8904-d6e181d988d8" />
+<img width="714" height="754" alt="image" src="https://github.com/user-attachments/assets/90e96444-6967-43fe-a166-01f0f0692ffb" />
+<img width="461" height="915" alt="image" src="https://github.com/user-attachments/assets/1eb2250b-e6e5-4d2b-9229-db0d62b26dfc" />
+<img width="360" height="754" alt="image" src="https://github.com/user-attachments/assets/fd10e204-1242-4f34-87ba-d1c8db61f1fc" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 057 | Menu items have images | All images load correctly | PASS | |
+<img width="474" height="737" alt="image" src="https://github.com/user-attachments/assets/84199433-3fd5-4764-b69e-06bc67bb39e8" />
+<img width="472" height="919" alt="image" src="https://github.com/user-attachments/assets/37557e7f-434b-429d-b262-b93f8f9f2cf4" />
+<img width="470" height="945" alt="image" src="https://github.com/user-attachments/assets/5e9f852d-d00d-46c6-b210-324b014c5fd1" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 058 | Menu items have descriptions | Text is clear and readable | PASS | |
+<img width="1229" height="923" alt="image" src="https://github.com/user-attachments/assets/24bf4cef-b9eb-48da-b497-2e63f7b3f2ae" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 059 | Prices displayed correctly | All prices shown in GBP | PASS | |
+<img width="1244" height="875" alt="image" src="https://github.com/user-attachments/assets/44da2301-9d04-4cac-9b8f-d9e64fe9153f" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 060 | Dietary information visible | Icons/labels for vegetarian, etc. | PASS | US7 |
+<img width="1242" height="933" alt="image" src="https://github.com/user-attachments/assets/db8e155c-5279-4538-9b4a-91be8766cfb0" />
+
 
 #### 1.7 Navigation and General
 
