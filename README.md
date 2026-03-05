@@ -4003,18 +4003,76 @@ A **risk‑based approach** is applied in the following test plan, which priorit
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
-| 022 | User can view their bookings | All user's bookings displayed | ☐ | US9 |
-| 023 | Upcoming bookings shown separately | Future bookings in "Upcoming" section | ☐ | US9 |
-| 024 | Past bookings shown separately | Past bookings in "Past" section | ☐ | US9 |
-| 025 | Cancelled bookings marked clearly | Cancelled status visible | ☐ | US9 |
-| 026 | User can edit future bookings | Edit form pre-filled with booking data | ☐ | US4 |
-| 027 | User can change date/time | New date/time saved successfully | ☐ | US4 |
-| 028 | User can change number of guests | New guest count saved | ☐ | US4 |
-| 029 | Capacity re-checked on edit | Edit blocked if no capacity | ☐ | US4 |
-| 030 | User can cancel booking | Status changed to "Cancelled" | ☐ | US5 |
-| 031 | Cancellation requires confirmation | Modal asks for confirmation | ☐ | US5 |
-| 032 | Cannot edit past bookings | Edit button hidden/disabled | ☐ | US4 |
-| 033 | Cannot cancel past bookings | Cancel button hidden/disabled | ☐ | US5 |
+| 022 | User can view their bookings | All user's bookings displayed | PASS | US9 |
+<img width="1115" height="915" alt="image" src="https://github.com/user-attachments/assets/c6e979ea-98c1-401c-9e46-c54fce6d4af7" />
+
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 023 | Upcoming bookings shown separately | Future bookings in "Upcoming" section | PASS | US9 |
+<img width="1110" height="927" alt="image" src="https://github.com/user-attachments/assets/48d77943-8099-4bb1-b7b2-9cfaf18e896b" />
+
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 024 | Past bookings shown separately | Past bookings in "Past" section | PASS | US9 |
+<img width="1043" height="792" alt="image" src="https://github.com/user-attachments/assets/5f6213d1-cd9f-47fd-88f6-301872ce9a0b" />
+
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 025 | Cancelled bookings marked clearly | Cancelled status visible | PASS | US9 - Only visible with admin account.|
+<img width="1085" height="610" alt="image" src="https://github.com/user-attachments/assets/64c84631-db2b-463d-b9f0-5270601436d7" />
+
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 026 | User can edit future bookings | Edit form pre-filled with booking data | FAIL | US4 - Error Message. |
+<img width="973" height="716" alt="image" src="https://github.com/user-attachments/assets/df926476-d1d6-4cc0-a15d-1ef2e38ad17b" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 027 | User can change date/time | New date/time saved successfully | FAIL | US4 - Error Message. |
+<img width="1109" height="807" alt="image" src="https://github.com/user-attachments/assets/a3068791-87ca-401e-a13e-6dcaca505f61" />
+
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 028 | User can change number of guests | New guest count saved | FAIL | US4 - Error Message. |
+<img width="1069" height="770" alt="image" src="https://github.com/user-attachments/assets/de269deb-bb2a-4dc4-bcc1-b098853cce9f" />
+
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 029 | Capacity re-checked on edit | Edit blocked if no capacity | FAIL | US4 - Error Message. |
+<img width="1069" height="770" alt="image" src="https://github.com/user-attachments/assets/68e13207-c6ce-4fa5-98aa-3f9f76ca3333" />
+
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 030 | User can cancel booking | Status changed to "Cancelled" | PASS | US5 - Verification of cancelled booking only on admin account. Client account just has the booking removed from their list. |
+<img width="456" height="323" alt="image" src="https://github.com/user-attachments/assets/e691bf4a-e149-4078-9436-15d1ed6775d4" />
+<img width="1083" height="610" alt="image" src="https://github.com/user-attachments/assets/2551227a-e025-4ccf-91ad-2f0ac428368a" />
+
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 031 | Cancellation requires confirmation | Modal asks for confirmation | PASS | US5 |
+<img width="445" height="342" alt="image" src="https://github.com/user-attachments/assets/f65a8d8e-d039-4ff6-bfdf-747975313dda" />
+<img width="1028" height="600" alt="image" src="https://github.com/user-attachments/assets/a2e16423-342a-488f-8d54-ca98aff670ce" />
+
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 032 | Cannot edit past bookings | Edit button hidden/disabled | PASS | US4 |
+<img width="1005" height="318" alt="image" src="https://github.com/user-attachments/assets/4e7ea28b-98da-46b5-b214-a246d67b3bef" />
+
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 033 | Cannot cancel past bookings | Cancel button hidden/disabled | PASS | US5 |
+<img width="1005" height="318" alt="image" src="https://github.com/user-attachments/assets/aa126aba-168e-41a3-b8c7-263d0c634b60" />
+
 
 #### 1.4 Staff Dashboard
 
