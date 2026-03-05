@@ -4222,16 +4222,61 @@ A **risk‑based approach** is applied in the following test plan, which priorit
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
-| 061 | All navigation links work | No broken links | ☐ | |
-| 062 | Logo links to homepage | Click logo -> home page | ☐ | |
-| 063 | Active page highlighted in nav | Current page has active class | ☐ | |
-| 064 | Authenticated user sees correct links | Profile, My Bookings, Logout visible | ☐ | |
-| 065 | Non-authenticated user sees correct links | Login, Register visible | ☐ | |
-| 066 | Staff user sees staff dashboard link | Only visible to staff | ☐ | |
-| 067 | Admin user sees statistics link | Only visible to admin | ☐ | |
-| 068 | Mobile menu (hamburger) works | Menu expands on mobile | ☐ | |
-| 069 | Footer contact info is accurate | All details correct | ☐ | |
-| 070 | Footer links work | All footer links functional | ☐ | |
+| 061 | All navigation links work | No broken links | PASS | For all types of accounts. |
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 062 | Logo links to homepage | Click logo -> home page | PASS | |
+<img width="1654" height="949" alt="image" src="https://github.com/user-attachments/assets/fa52ea85-e061-4244-834d-04c4a4e13ffa" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 063 | Active page highlighted in nav | Current page has active class | FAIL | |
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 064 | Authenticated user sees correct links | Profile, My Bookings, Logout visible | PASS | |
+<img width="1894" height="337" alt="image" src="https://github.com/user-attachments/assets/65daf7ef-c2fe-47ac-bc49-e6ff41ea5709" />
+<img width="1883" height="319" alt="image" src="https://github.com/user-attachments/assets/ca8cb6f9-84c7-4996-a970-c395e22c715a" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 065 | Non-authenticated user sees correct links | Login, Register visible | PASS | |
+<img width="1903" height="485" alt="image" src="https://github.com/user-attachments/assets/b402da0d-b732-4ec4-88b8-7153e7d72a9d" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 066 | Staff user sees staff dashboard link | Only visible to staff | PASS | |
+<img width="1901" height="883" alt="image" src="https://github.com/user-attachments/assets/d6830fcc-6438-488a-abe1-dfcd677c7023" />
+<img width="1879" height="577" alt="image" src="https://github.com/user-attachments/assets/dd0e4950-2634-4f1e-bc83-cbaa6cfe32d8" />
+<img width="1237" height="789" alt="image" src="https://github.com/user-attachments/assets/c1ee7822-741e-4eae-ab31-6ab2d1c56ce5" />
+<img width="1882" height="882" alt="image" src="https://github.com/user-attachments/assets/b7d3e507-103f-4d51-9fc9-5ee920bfadf7" />
+<img width="1862" height="595" alt="image" src="https://github.com/user-attachments/assets/8dab961e-3936-4760-95e2-e98ebaacf7a7" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 067 | Admin user sees statistics link | Only visible to admin | PASS | |
+<img width="1908" height="878" alt="image" src="https://github.com/user-attachments/assets/1ca1e54b-1767-4bcb-8e78-c772190cbf40" />
+<img width="1723" height="913" alt="image" src="https://github.com/user-attachments/assets/720ae759-ce9a-47af-a2a2-f417ee8830b7" />
+<img width="1891" height="594" alt="image" src="https://github.com/user-attachments/assets/03bc90e1-74af-499f-bc5e-deb40c8d9dc3" />
+<img width="1616" height="888" alt="image" src="https://github.com/user-attachments/assets/1d361acb-ab42-4c95-8500-65c3017fb762" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 068 | Mobile menu (hamburger) works | Menu expands on mobile | PASS | |
+<img width="603" height="831" alt="image" src="https://github.com/user-attachments/assets/201a26b6-2e37-477d-b1ce-7de3a9963e51" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 069 | Footer contact info is accurate | All details correct | PASS | |
+<img width="1320" height="453" alt="image" src="https://github.com/user-attachments/assets/7844ba14-899d-4eaa-bcff-8772c9e7a122" />
+
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 070 | Footer links work | All footer links functional | PASS | |
+<img width="1320" height="453" alt="image" src="https://github.com/user-attachments/assets/b121b83e-f3c2-4853-8ecb-c4a9396a3bfc" />
+
 
 #### 2. USABILITY AND TYPOGRAPHY TESTING
 [⬆ Back to Table of Contents](#table-of-contents)
