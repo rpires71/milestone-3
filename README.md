@@ -4330,35 +4330,68 @@ A **risk‑based approach** is applied in the following test plan, which priorit
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
-| 077 | All form fields have labels | Labels visible and descriptive | ☐ | |
+| 077 | All form fields have labels | Labels visible and descriptive | PASS | |
+<img width="746" height="858" alt="image" src="https://github.com/user-attachments/assets/b4362d4d-54da-4a07-b18d-591a00970f6f" />
+<img width="876" height="905" alt="image" src="https://github.com/user-attachments/assets/9a3482d9-a0db-4d51-9983-a9dabb943741" />
+<img width="585" height="842" alt="image" src="https://github.com/user-attachments/assets/0360c34c-14be-4e34-87fe-9c30930e6e75" />
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
-| 078 | Required fields marked clearly | Asterisk or "required" label | ☐ | |
+| 078 | Required fields marked clearly | Asterisk or "required" label | PASS | |
+<img width="746" height="858" alt="image" src="https://github.com/user-attachments/assets/b4362d4d-54da-4a07-b18d-591a00970f6f" />
+<img width="876" height="905" alt="image" src="https://github.com/user-attachments/assets/9a3482d9-a0db-4d51-9983-a9dabb943741" />
+<img width="585" height="842" alt="image" src="https://github.com/user-attachments/assets/0360c34c-14be-4e34-87fe-9c30930e6e75" />
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
-| 079 | Validation errors are clear | Error messages specific and helpful | ☐ | |
+| 079 | Validation errors are clear | Error messages specific and helpful | PASS | |
+<img width="552" height="866" alt="image" src="https://github.com/user-attachments/assets/b6f01f40-d136-44af-9294-e26c4a4594a1" />
+<img width="503" height="577" alt="image" src="https://github.com/user-attachments/assets/03ec2468-251a-45f0-b54d-3b7c197102af" />
+<img width="424" height="792" alt="image" src="https://github.com/user-attachments/assets/4994b3ce-4b29-4d53-9046-ca4407499ce8" />
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
-| 080 | Error messages are positioned well | Near the relevant field | ☐ | |
+| 080 | Error messages are positioned well | Near the relevant field | PASS | |
+<img width="552" height="866" alt="image" src="https://github.com/user-attachments/assets/b6f01f40-d136-44af-9294-e26c4a4594a1" />
+<img width="503" height="577" alt="image" src="https://github.com/user-attachments/assets/03ec2468-251a-45f0-b54d-3b7c197102af" />
+<img width="424" height="792" alt="image" src="https://github.com/user-attachments/assets/4994b3ce-4b29-4d53-9046-ca4407499ce8" />
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
-| 081 | Success messages are visible | Green/positive feedback shown | ☐ | |
+| 081 | Success messages are visible | Green/positive feedback shown | PASS | |
+<img width="982" height="290" alt="image" src="https://github.com/user-attachments/assets/6c3f506b-1b07-41b5-a529-6b238f2ccc83" />
+<img width="421" height="841" alt="image" src="https://github.com/user-attachments/assets/abc05353-b53d-4b91-9de6-260bfa38d1b6" />
+<img width="880" height="250" alt="image" src="https://github.com/user-attachments/assets/b5a31e28-3b25-4ce2-bea4-ea21445034e5" />
+<img width="699" height="728" alt="image" src="https://github.com/user-attachments/assets/9f92c5d5-dc24-41df-9474-3135e3415b14" />
+<img width="909" height="892" alt="image" src="https://github.com/user-attachments/assets/9a617d6e-a37f-496e-b99e-d0e4c31e556d" />
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
-| 082 | Form inputs have adequate size | Touch-friendly (min 44x44px) | ☐ | |
+| 082 | Form inputs have adequate size | Touch-friendly (min 44x44px) | PASS | |
+<img width="707" height="898" alt="image" src="https://github.com/user-attachments/assets/4c335522-878f-4fe7-a3b0-2ad8957eacb9" />
+<img width="699" height="657" alt="image" src="https://github.com/user-attachments/assets/f3d83057-50a1-4d0f-8cbb-0636732f51d4" />
+<img width="628" height="866" alt="image" src="https://github.com/user-attachments/assets/d7cf5c11-c01b-4d01-83a1-81b17c9700d7" />
+<img width="815" height="617" alt="image" src="https://github.com/user-attachments/assets/4ef058be-7bd6-40ae-a8d0-5d5f58cf1cf7" />
+<img width="771" height="885" alt="image" src="https://github.com/user-attachments/assets/900d05b3-a496-4dd2-9ba5-1d1b98a15cbe" />
+<img width="762" height="857" alt="image" src="https://github.com/user-attachments/assets/0e0571ea-41c7-4d3c-a67c-bf63e2b823f4" />
+<img width="813" height="591" alt="image" src="https://github.com/user-attachments/assets/a90b3df4-5df1-4542-8876-8cfac7ecdd00" />
+<img width="858" height="738" alt="image" src="https://github.com/user-attachments/assets/be004527-eadb-4b4d-ba34-950913a24b2a" />
+<img width="753" height="907" alt="image" src="https://github.com/user-attachments/assets/2e5af6c7-f928-4a07-979d-f1765cb2f8ae" />
+<img width="922" height="653" alt="image" src="https://github.com/user-attachments/assets/e1e2d663-a800-47ae-a95a-d6410aec5ab1" />
+<img width="799" height="943" alt="image" src="https://github.com/user-attachments/assets/42fefc60-a186-4dc2-84fa-95b58c999d0f" />
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
-| 083 | Placeholders provide helpful hints | Examples given where appropriate | ☐ | |
+| 083 | Placeholders provide helpful hints | Examples given where appropriate | PASS | |
+<img width="748" height="863" alt="image" src="https://github.com/user-attachments/assets/85601b6e-5608-47f6-b99a-3121bedc4575" />
+<img width="669" height="665" alt="image" src="https://github.com/user-attachments/assets/280b129e-20bf-48c8-a40b-7ceff28ac7dc" />
+<img width="454" height="662" alt="image" src="https://github.com/user-attachments/assets/94a10958-4bf4-460e-b913-c808c41b8dff" />
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
-| 084 | Date picker is intuitive | Easy to select dates | ☐ | |
+| 084 | Date picker is intuitive | Easy to select dates | PASS | |
+<img width="792" height="612" alt="image" src="https://github.com/user-attachments/assets/d0bc3df4-a5db-4536-9bb4-959802bf1209" />
+
 
 #### 2.3 User Experience
 
