@@ -59,7 +59,7 @@
     - [4. Accessibility Testing](#4-accessibility-testing)
     - [5. Performance Testing](#5-performance-testing)
     - [6. Regression Testing](#6-regression-testing)
-    - [7. Python/Django Testing](#7-python-django-testing)
+    - [7. Python/Django Testing](#7-pythondjango-testing)
     - [8. Code Validation](#8-code-validation)
 - [References](README.md#references)
 
@@ -4394,7 +4394,6 @@ A **risk‑based approach** is applied in the following test plan, which priorit
 | 084 | Date picker is intuitive | Easy to select dates | PASS | |
 <img width="792" height="612" alt="image" src="https://github.com/user-attachments/assets/d0bc3df4-a5db-4536-9bb4-959802bf1209" />
 
-
 #### 2.3 User Experience
 
 | Test ID | Test Case | Expected Result | Status | Notes |
@@ -4556,10 +4555,40 @@ Test on following viewport sizes:
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
-| 102 | Images scale proportionally | No distortion | ☐ | |
-| 103 | Images don't exceed container | No overflow | ☐ | |
-| 104 | Alt text provided for all images | Accessibility | ☐ | |
-| 105 | WebP format with fallback | Performance | ☐ | |
+| 102 | Images scale proportionally | No distortion | PASS | |
+<img width="1516" height="933" alt="image" src="https://github.com/user-attachments/assets/dc2088ab-416b-4987-a590-8b08dd7e89b5" />
+<img width="729" height="940" alt="image" src="https://github.com/user-attachments/assets/9eaba2c3-eff7-424d-a4a1-30927f7f6130" />
+<img width="636" height="950" alt="image" src="https://github.com/user-attachments/assets/cf1083f7-c993-40ae-a952-37b3063c7b35" />
+<img width="1498" height="937" alt="image" src="https://github.com/user-attachments/assets/65e6824b-45a8-4d26-bcf2-da843959bd1e" />
+<img width="741" height="918" alt="image" src="https://github.com/user-attachments/assets/a5950e70-6192-45ef-ae2b-59dcea9421a2" />
+<img width="713" height="917" alt="image" src="https://github.com/user-attachments/assets/59bfdc05-2772-479e-a040-24b15953e363" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 103 | Images don't exceed container | No overflow | PASS | |
+<img width="1516" height="933" alt="image" src="https://github.com/user-attachments/assets/dc2088ab-416b-4987-a590-8b08dd7e89b5" />
+<img width="729" height="940" alt="image" src="https://github.com/user-attachments/assets/9eaba2c3-eff7-424d-a4a1-30927f7f6130" />
+<img width="636" height="950" alt="image" src="https://github.com/user-attachments/assets/cf1083f7-c993-40ae-a952-37b3063c7b35" />
+<img width="1498" height="937" alt="image" src="https://github.com/user-attachments/assets/65e6824b-45a8-4d26-bcf2-da843959bd1e" />
+<img width="741" height="918" alt="image" src="https://github.com/user-attachments/assets/a5950e70-6192-45ef-ae2b-59dcea9421a2" />
+<img width="713" height="917" alt="image" src="https://github.com/user-attachments/assets/59bfdc05-2772-479e-a040-24b15953e363" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 104 | Alt text provided for all images | Accessibility | PASS | All images on this site has provided Alt text. |
+<img width="527" height="94" alt="image" src="https://github.com/user-attachments/assets/cc9f9ef1-c1f2-4b52-9dc0-d0610d2080b5" />
+<img width="518" height="66" alt="image" src="https://github.com/user-attachments/assets/d3b1b733-adee-41b5-8854-82f930a4c41e" />
+<img width="509" height="68" alt="image" src="https://github.com/user-attachments/assets/87045ebd-f54f-46a6-b2af-3b5832ac7cc5" />
+<img width="541" height="61" alt="image" src="https://github.com/user-attachments/assets/4eed5d0c-e0bc-46d2-a249-7eac3f4ddb1e" />
+<img width="502" height="70" alt="image" src="https://github.com/user-attachments/assets/6b88045e-2c78-4357-aff2-f44211f4cba7" />
+<img width="489" height="66" alt="image" src="https://github.com/user-attachments/assets/4586f656-e3f3-4f7f-9890-5d83aa5e46ae" />
+<img width="500" height="68" alt="image" src="https://github.com/user-attachments/assets/2c2b0f3c-4089-4b6a-b1fe-e27035ccea89" />
+
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 105 | WebP format with fallback | Performance | PASS | Only in base.html file. |
+<img width="465" height="226" alt="image" src="https://github.com/user-attachments/assets/bd5879c7-c304-4676-a5f6-72d53de37f2e" />
 
 #### 4. ACCESSIBILITY TESTING
 [⬆ Back to Table of contents](#table-of-contents)
