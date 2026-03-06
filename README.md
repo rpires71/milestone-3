@@ -4757,11 +4757,23 @@ Test on following viewport sizes:
 
 | Test ID | Page | Test Case | Expected Result | Status |
 |---------|------|-----------|-----------------|--------|
-| 126 | All pages | Tab through all interactive elements | Focus visible, logical order | ☐ |
-| 127 | Booking form | Complete booking using keyboard only | Booking successful | ☐ |
-| 128 | My Bookings | Edit and cancel using keyboard | Actions successful | ☐ |
-| 129 | Navigation | Open/close mobile menu with keyboard | Menu toggles | ☐ |
-| 130 | Modals | Close modal with Escape key | Modal closes | ☐ |
+| 126 | All pages | Tab through all interactive elements | Focus visible, logical order | PASS - Verified Test ID 110 |
+
+| Test ID | Page | Test Case | Expected Result | Status |
+|---------|------|-----------|-----------------|--------|
+| 127 | Booking form | Complete booking using keyboard only | Booking successful | PASS - Verified manually |
+
+| Test ID | Page | Test Case | Expected Result | Status |
+|---------|------|-----------|-----------------|--------|
+| 128 | My Bookings | Edit and cancel using keyboard | Actions successful | PASS - Verified manually |
+
+| Test ID | Page | Test Case | Expected Result | Status |
+|---------|------|-----------|-----------------|--------|
+| 129 | Navigation | Open/close mobile menu with keyboard | Menu toggles | PASS - Verified manually |
+
+| Test ID | Page | Test Case | Expected Result | Status |
+|---------|------|-----------|-----------------|--------|
+| 130 | Modals | Close modal with Escape key | Modal closes | PASS - Verified manually |
 
 #### 5. PERFORMANCE TESTING
 [⬆ Back to Table of contents](#table-of-contents)
