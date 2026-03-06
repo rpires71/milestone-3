@@ -4447,16 +4447,108 @@ Test on following viewport sizes:
 
 | Test ID | Page | Mobile (375px) | Tablet (768px) | Desktop (1920px) | Notes |
 |---------|------|----------------|----------------|------------------|-------|
-| 092 | Homepage | ☐ | ☐ | ☐ | Layout adapts |
-| 093 | Menu | ☐ | ☐ | ☐ | Images responsive |
-| 094 | Booking Form | ☐ | ☐ | ☐ | Form usable |
-| 095 | My Bookings | ☐ | ☐ | ☐ | Tables scroll/stack |
-| 096 | Booking Confirmation | ☐ | ☐ | ☐ | Details readable |
-| 097 | Staff Dashboard | ☐ | ☐ | ☐ | Table scrolls |
-| 098 | Statistics | ☐ | ☐ | ☐ | Charts responsive |
-| 099 | Login/Register | ☐ | ☐ | ☐ | Forms centered |
-| 100 | Profile | ☐ | ☐ | ☐ | Layout adapts |
-| 101 | Navigation | ☐ | ☐ | ☐ | Hamburger on mobile |
+| 092 | Homepage | PARTIAL PASS | PARTIAL PASS | PASS | Mobile/Tablet: Missing logo/images and text exceeding tiles. |
+<img width="718" height="600" alt="image" src="https://github.com/user-attachments/assets/c0e2b121-a128-4e33-9f6d-9c1c6e7959a1" />
+<img width="692" height="790" alt="image" src="https://github.com/user-attachments/assets/fb778f56-31ce-4ab7-9788-6e9bc51ec048" />
+<img width="749" height="882" alt="image" src="https://github.com/user-attachments/assets/00bbd890-8f2a-496f-bbb8-ddcf1b90df89" />
+<img width="879" height="705" alt="image" src="https://github.com/user-attachments/assets/a6af41ca-9548-4492-9743-dac8922e6dea" />
+<img width="755" height="629" alt="image" src="https://github.com/user-attachments/assets/9f184b1e-c284-4e6e-9fd6-7652bcd41c98" />
+<img width="1080" height="809" alt="image" src="https://github.com/user-attachments/assets/8de14a56-d092-4da5-9e62-5ad7ec9a2538" />
+
+| Test ID | Page | Mobile (375px) | Tablet (768px) | Desktop (1920px) | Notes |
+|---------|------|----------------|----------------|------------------|-------|
+| 093 | Menu | PARTIAL PASS | PARTIAL PASS | PASS | Images responsive |
+<img width="733" height="475" alt="image" src="https://github.com/user-attachments/assets/bb40cd35-8419-4960-96ce-63ceaaeac974" />
+<img width="210" height="362" alt="image" src="https://github.com/user-attachments/assets/665b5dd5-7cff-49ca-a98c-ed63eeab5490" />
+<img width="238" height="482" alt="image" src="https://github.com/user-attachments/assets/fdcbb2a7-55f0-4492-8b72-6518b1f4c549" />
+<img width="723" height="715" alt="image" src="https://github.com/user-attachments/assets/f1e92d0f-511b-44f3-8c75-64e2695e548f" />
+<img width="741" height="486" alt="image" src="https://github.com/user-attachments/assets/20ae3b01-a8fe-4d2c-ac0b-e02ca0b1c733" />
+<img width="980" height="548" alt="image" src="https://github.com/user-attachments/assets/7144fa48-75d3-40d2-bff8-1cf4bda98c3d" />
+<img width="1060" height="813" alt="image" src="https://github.com/user-attachments/assets/80efc3c5-af87-4122-8606-53e81ab158cc" />
+
+| Test ID | Page | Mobile (375px) | Tablet (768px) | Desktop (1920px) | Notes |
+|---------|------|----------------|----------------|------------------|-------|
+| 094 | Booking Form | PASS | PASS | PASS | Form usable |
+<img width="203" height="339" alt="image" src="https://github.com/user-attachments/assets/3e06f353-e54f-4e11-ba68-8f3a05015271" />
+<img width="248" height="485" alt="image" src="https://github.com/user-attachments/assets/f974c717-49e4-4a72-a186-e843fa9741a2" />
+<img width="428" height="556" alt="image" src="https://github.com/user-attachments/assets/32f99e7c-2cfd-4526-81a8-ee1f63bbe138" />
+<img width="708" height="492" alt="image" src="https://github.com/user-attachments/assets/7ee78571-35ad-4693-b49f-37ae3fc8ad00" />
+<img width="1030" height="682" alt="image" src="https://github.com/user-attachments/assets/280c1be2-793a-459e-bdd8-d6c52129fec0" />
+<img width="932" height="771" alt="image" src="https://github.com/user-attachments/assets/d1da757d-70be-44b3-acbc-32373517c219" />
+
+| Test ID | Page | Mobile (375px) | Tablet (768px) | Desktop (1920px) | Notes |
+|---------|------|----------------|----------------|------------------|-------|
+| 095 | My Bookings | PARTIAL PASS | PARTIAL PASS | PARTIAL PASS | Tiles desaligned when special requests has info. |
+<img width="747" height="460" alt="image" src="https://github.com/user-attachments/assets/2d0593a3-738a-4bd8-b6e9-5148eba68c09" />
+<img width="834" height="600" alt="image" src="https://github.com/user-attachments/assets/a876edb1-0fb5-49bd-8843-ba60a37b0de2" />
+<img width="768" height="618" alt="image" src="https://github.com/user-attachments/assets/da81f7db-e1ff-4588-9c28-bb333fbb48df" />
+<img width="748" height="509" alt="image" src="https://github.com/user-attachments/assets/14f6a1a0-e481-4aa5-bc71-0f1987f7a5cb" />
+<img width="968" height="632" alt="image" src="https://github.com/user-attachments/assets/1e08e3c6-d09d-4720-b909-ed6bb64c24ee" />
+<img width="812" height="813" alt="image" src="https://github.com/user-attachments/assets/642ccbe3-1b30-41d0-b24b-a78c78b1d27b" />
+
+| Test ID | Page | Mobile (375px) | Tablet (768px) | Desktop (1920px) | Notes |
+|---------|------|----------------|----------------|------------------|-------|
+| 096 | Booking Confirmation | PARTIAL PASS | PARTIAL PASS | PARTIAL PASS | Header section clipping of content and image |
+<img width="709" height="428" alt="image" src="https://github.com/user-attachments/assets/04586507-6bdf-4ffa-bb17-04d35a155ff2" />
+<img width="738" height="555" alt="image" src="https://github.com/user-attachments/assets/8da7ad82-117b-429f-90a6-ce805da97215" />
+<img width="710" height="618" alt="image" src="https://github.com/user-attachments/assets/295f8a12-b9eb-4a9c-8ada-35368ff978b8" />
+<img width="771" height="507" alt="image" src="https://github.com/user-attachments/assets/272f359f-4669-4c81-b7a6-b72526bbfe25" />
+<img width="998" height="644" alt="image" src="https://github.com/user-attachments/assets/e5ad4daa-9ee1-4dec-900f-41c483ffd4a9" />
+<img width="1080" height="765" alt="image" src="https://github.com/user-attachments/assets/76f221a9-bb49-4f6b-b5d2-026c094b9fc5" />
+
+| Test ID | Page | Mobile (375px) | Tablet (768px) | Desktop (1920px) | Notes |
+|---------|------|----------------|----------------|------------------|-------|
+| 097 | Staff Dashboard | PASS | PASS | PASS | Table scrolls |
+<img width="701" height="440" alt="image" src="https://github.com/user-attachments/assets/440bc42a-93cf-471f-81ef-3412d36730ab" />
+<img width="703" height="544" alt="image" src="https://github.com/user-attachments/assets/6df65c29-dc48-414f-bc28-dadf6bcff83c" />
+<img width="638" height="602" alt="image" src="https://github.com/user-attachments/assets/589c916f-bbee-4f21-b486-aed1b93ffc1f" />
+<img width="732" height="498" alt="image" src="https://github.com/user-attachments/assets/0eed0e1c-a54d-47fc-9305-6578e57abc1f" />
+<img width="1000" height="641" alt="image" src="https://github.com/user-attachments/assets/7b375c44-c119-4b1b-b61e-9cfd52e071cc" />
+<img width="1070" height="804" alt="image" src="https://github.com/user-attachments/assets/e230e84a-b8da-4561-8a8d-12c0995553de" />
+
+| Test ID | Page | Mobile (375px) | Tablet (768px) | Desktop (1920px) | Notes |
+|---------|------|----------------|----------------|------------------|-------|
+| 098 | Statistics | PARTIAL PASS | PARTIAL PASS | PARTIAL PASS | Charts responsive - Some whitespace |
+<img width="744" height="436" alt="image" src="https://github.com/user-attachments/assets/babcf845-f0b5-4d4e-9e53-7e7dc4767b07" />
+<img width="783" height="544" alt="image" src="https://github.com/user-attachments/assets/219897b4-59e3-44bc-bede-950a6123342d" />
+<img width="723" height="633" alt="image" src="https://github.com/user-attachments/assets/f9a8b7cb-63fa-40a6-83bc-1b6990161519" />
+<img width="729" height="500" alt="image" src="https://github.com/user-attachments/assets/5a6786e8-3bb9-4cc2-9f12-418a479f8360" />
+<img width="1013" height="645" alt="image" src="https://github.com/user-attachments/assets/36bbad2e-63c4-4e0e-840a-5e48c8c3b275" />
+<img width="1027" height="806" alt="image" src="https://github.com/user-attachments/assets/81b811c3-2db3-4db7-b252-5410164c577f" />
+
+| Test ID | Page | Mobile (375px) | Tablet (768px) | Desktop (1920px) | Notes |
+|---------|------|----------------|----------------|------------------|-------|
+| 099 | Login/Register | PASS | PASS | PASS | Forms centered |
+<img width="760" height="426" alt="image" src="https://github.com/user-attachments/assets/d5a6af65-9136-4e70-9439-80d5d86c822b" />
+<img width="731" height="437" alt="image" src="https://github.com/user-attachments/assets/bb9f8fd4-ae13-4f16-b38a-7a35710ffe5e" />
+<img width="798" height="547" alt="image" src="https://github.com/user-attachments/assets/dada7c8c-91f7-41d1-bf49-0e07ac03afdb" />
+<img width="731" height="545" alt="image" src="https://github.com/user-attachments/assets/1264bb96-e926-45ab-9dd2-a6165d1b2d02" />
+<img width="718" height="634" alt="image" src="https://github.com/user-attachments/assets/844f66a9-468e-44cc-a83c-c934e3345d3d" />
+<img width="726" height="611" alt="image" src="https://github.com/user-attachments/assets/8646b099-3539-4c71-b39a-faaa3a6491e0" />
+<img width="754" height="483" alt="image" src="https://github.com/user-attachments/assets/eda41c79-fc18-48b4-b40e-10bdc60559d6" />
+<img width="681" height="483" alt="image" src="https://github.com/user-attachments/assets/1dab5523-bf6a-453b-8022-357a1adf75cf" />
+<img width="995" height="635" alt="image" src="https://github.com/user-attachments/assets/2565646c-949f-43ec-bccb-f3788431bc55" />
+<img width="1003" height="628" alt="image" src="https://github.com/user-attachments/assets/5dd93b30-400f-4383-9b59-ac8fe928c02a" />
+<img width="1071" height="808" alt="image" src="https://github.com/user-attachments/assets/a55dd4b1-7598-4f61-aa49-0b6e9eb49a2c" />
+<img width="1082" height="804" alt="image" src="https://github.com/user-attachments/assets/740bed1c-6c7b-4d3a-9a7a-a216d20fc1b6" />
+
+| Test ID | Page | Mobile (375px) | Tablet (768px) | Desktop (1920px) | Notes |
+|---------|------|----------------|----------------|------------------|-------|
+| 100 | Profile | PASS | PASS | PASS | Layout adapts |
+<img width="713" height="422" alt="image" src="https://github.com/user-attachments/assets/20182549-a6af-478e-ae78-33b242f4a6a5" />
+<img width="727" height="541" alt="image" src="https://github.com/user-attachments/assets/4b811fad-fef6-4059-9cc1-ae243df63526" />
+<img width="730" height="636" alt="image" src="https://github.com/user-attachments/assets/f7f08be5-762c-4405-98ea-45a7c2baa485" />
+<img width="760" height="486" alt="image" src="https://github.com/user-attachments/assets/c0143ef4-6f1e-40d1-bc8a-e14de3ddc79c" />
+<img width="1009" height="636" alt="image" src="https://github.com/user-attachments/assets/3d5b1984-270e-4a88-a289-28c1082db09a" />
+<img width="1079" height="807" alt="image" src="https://github.com/user-attachments/assets/89de5234-b5eb-4631-a95d-79aef545598d" />
+
+
+| Test ID | Page | Mobile (375px) | Tablet (768px) | Desktop (1920px) | Notes |
+|---------|------|----------------|----------------|------------------|-------|
+| 101 | Navigation | PASS | PASS | N/A | Hamburger on mobile |
+<img width="531" height="432" alt="image" src="https://github.com/user-attachments/assets/e3464188-6a7c-4fec-bdc1-5af3218cef76" />
+<img width="715" height="557" alt="image" src="https://github.com/user-attachments/assets/ee78bbb4-1fb2-4e79-a586-8c1b4424d07f" />
+<img width="710" height="643" alt="image" src="https://github.com/user-attachments/assets/47d1e7c9-def7-48ef-94ce-678c684d3b7f" />
 
 #### 3.2 Responsive Images
 
