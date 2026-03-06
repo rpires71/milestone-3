@@ -51,15 +51,16 @@
   - [Database Models Implementation](#database-models-implementation)
   - [Django Admin Configuration and Sample Data](#django-admin-configuration-and-sample-data)
   - [Testing Plan](#test-pan)
+    - [Testing Plan](#test-plan)
     - [Testing Overview](#testing-overview)
-    - [Functionality and Content Accuracy Testing](#functionality-and-content-accuracy-testing)
-    - [Usability and Typography Testing](#usability-and-typography-testing)
-    - [Responsiveness Testing](#responsiveness-testing)
-    - [Accessibility Testing](#accessibility-testing)
-    - [Performance Testing](#performance-testing)
-    - [Regression Testing](#regression-testing)
-    - [Python/Django Testing](#python-django-testing)
-    - [Code Validation](#code-validation)
+    - [1. Functionality and Content Accuracy Testing](#1-functionality-and-content-accuracy-testing)
+    - [2. Usability and Typography Testing](#2-usability-and-typography-testing)
+    - [3. Responsiveness Testing](#3-responsiveness-testing)
+    - [4. Accessibility Testing](#4-accessibility-testing)
+    - [5. Performance Testing](#5-performance-testing)
+    - [6. Regression Testing](#6-regression-testing)
+    - [7. Python/Django Testing](#7-python-django-testing)
+    - [8. Code Validation](#8-code-validation)
 - [References](README.md#references)
 
 # Milestone Project 3
@@ -3869,6 +3870,7 @@ Several test bookings were created to verify booking system functionality:
 [⬆ Back to Table of Contents](#table-of-contents)
 
 ### Testing Overview
+[⬆ Back to Table of Contents](#table-of-contents)
 
 ### Testing Strategy
 
