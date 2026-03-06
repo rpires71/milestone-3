@@ -4717,16 +4717,41 @@ Test on following viewport sizes:
 <img width="314" height="150" alt="image" src="https://github.com/user-attachments/assets/57048635-1a2e-4814-b6f5-c49eb6282892" />
 <img width="298" height="164" alt="image" src="https://github.com/user-attachments/assets/acc9ea05-4c57-479f-b227-2cb5f0fef305" />
 
-
 #### 4.2 Screen Reader Testing
 
 | Test ID | Tool | Page | Test Case | Status | Notes |
 |---------|------|------|-----------|--------|-------|
-| 121 | NVDA | Homepage | Navigation announced correctly | ☐ | |
-| 122 | NVDA | Booking Form | Form fields labeled | ☐ | |
-| 123 | NVDA | My Bookings | Tables navigable | ☐ | |
-| 124 | WAVE | All pages | No errors reported | ☐ | |
-| 125 | axe DevTools | All pages | No critical issues | ☐ | |
+| 121 | NVDA | Homepage | Navigation announced correctly | PASS | |
+<img width="1428" height="381" alt="image" src="https://github.com/user-attachments/assets/4334a366-aa8d-46fb-8846-94786966d6ef" />
+
+| Test ID | Tool | Page | Test Case | Status | Notes |
+|---------|------|------|-----------|--------|-------|
+| 122 | NVDA | Booking Form | Form fields labeled | PASS | |
+<img width="1390" height="605" alt="image" src="https://github.com/user-attachments/assets/609ae3ee-833a-49d3-972e-5116a35a26ea" />
+
+| Test ID | Tool | Page | Test Case | Status | Notes |
+|---------|------|------|-----------|--------|-------|
+| 123 | NVDA | My Bookings | Tables navigable | PASS | |
+<img width="1460" height="610" alt="image" src="https://github.com/user-attachments/assets/af6d524d-bfab-43a5-a069-9ac9c69f4b00" />
+
+| Test ID | Tool | Page | Test Case | Status | Notes |
+|---------|------|------|-----------|--------|-------|
+| 124 | WAVE | All pages | No errors reported | PARTIAL PASS | |
+<img width="877" height="551" alt="image" src="https://github.com/user-attachments/assets/72743594-9908-4c23-aabb-6a0d4a6eb582" />
+<img width="896" height="486" alt="image" src="https://github.com/user-attachments/assets/0302f6a7-3bd2-4a6d-9461-6a70d8d4a3c7" />
+<img width="418" height="495" alt="image" src="https://github.com/user-attachments/assets/13ce7e71-1abc-4218-b269-af84947dd8cc" />
+<img width="347" height="458" alt="image" src="https://github.com/user-attachments/assets/05969f01-1224-4b31-9474-0a66fa2e8893" />
+<img width="890" height="597" alt="image" src="https://github.com/user-attachments/assets/d25cc9b5-2130-411a-9792-60256aeb627e" />
+
+| Test ID | Tool | Page | Test Case | Status | Notes |
+|---------|------|------|-----------|--------|-------|
+| 125 | Lighthouse | All pages | No critical issues | PASS | |
+<img width="638" height="190" alt="image" src="https://github.com/user-attachments/assets/342baf2e-b8db-447b-9543-ac41e384b407" />
+<img width="741" height="199" alt="image" src="https://github.com/user-attachments/assets/3d426104-efde-406a-9f37-97aa0d40d8f4" />
+<img width="669" height="211" alt="image" src="https://github.com/user-attachments/assets/bb5d4d8c-de92-4202-b6af-94ee988b427c" />
+<img width="712" height="212" alt="image" src="https://github.com/user-attachments/assets/4c7cafb0-531e-4fc2-acd0-1eaeb03e9955" />
+<img width="641" height="203" alt="image" src="https://github.com/user-attachments/assets/c7440522-b7ad-4fcd-8903-821446baa873" />
+
 
 #### 4.3 Keyboard Navigation
 
