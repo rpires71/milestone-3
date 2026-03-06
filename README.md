@@ -4397,13 +4397,40 @@ A **risk‑based approach** is applied in the following test plan, which priorit
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
-| 085 | Pages load in < 3 seconds | Fast initial load | ☐ | |
-| 086 | No horizontal scrolling on mobile | Content fits viewport | ☐ | |
-| 087 | Buttons are clearly clickable | Hover states visible | ☐ | |
-| 088 | Links are distinguishable | Colour/underline differentiates | ☐ | |
-| 089 | Loading indicators where needed | Spinners for AJAX requests | ☐ | |
-| 090 | Confirmation dialogs for destructive actions | Cancel booking asks confirmation | ☐ | |
-| 091 | Breadcrumbs/back navigation clear | User knows their location | ☐ | |
+| 085 | Pages load in < 3 seconds | Fast initial load | PASS | |
+<img width="1754" height="993" alt="image" src="https://github.com/user-attachments/assets/946a6a06-9c0d-4bd2-a0ba-7a81820727fb" />
+<img width="1770" height="977" alt="image" src="https://github.com/user-attachments/assets/19c86370-607b-4be5-aeba-9598e2439f13" />
+<img width="1803" height="992" alt="image" src="https://github.com/user-attachments/assets/ec0b9166-8482-4a27-b2bc-78cbb18147f1" />
+<img width="1814" height="1023" alt="image" src="https://github.com/user-attachments/assets/489a69e0-9a72-409d-8be4-636a4144f68b" />
+<img width="1854" height="1023" alt="image" src="https://github.com/user-attachments/assets/1e6580dc-79f2-4d7e-a83f-afc192117d81" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 086 | No horizontal scrolling on mobile | Content fits viewport | PASS | |
+<img width="766" height="642" alt="image" src="https://github.com/user-attachments/assets/5d9452d3-791d-42be-bd51-2ba40a511ee3" />
+<img width="806" height="896" alt="image" src="https://github.com/user-attachments/assets/8a6f7580-6b7a-4ad6-b38b-a555a33e2806" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 087 | Buttons are clearly clickable | Hover states visible | PASS | |
+https://github.com/user-attachments/assets/2b7baf5f-811c-4d5b-a791-cdba2ba28d26
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 088 | Links are distinguishable | Colour/underline differentiates | PARTIAL PASS | With the exception of MAIN MENU links.|
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 089 | Loading indicators where needed | Spinners for AJAX requests | PASS | |
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 090 | Confirmation dialogs for destructive actions | Cancel booking asks confirmation | PASS | |
+<img width="374" height="296" alt="image" src="https://github.com/user-attachments/assets/4a0442d8-0d93-4f0e-9546-4f6a22c3f836" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 091 | Breadcrumbs/back navigation clear | User knows their location | PASS | |
 
 #### 3. RESPONSIVENESS TESTING
 [⬆ Back to Table of contents](#table-of-contents)
