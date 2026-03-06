@@ -4597,21 +4597,126 @@ Test on following viewport sizes:
 
 | Test ID | Criterion | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------|-----------------|--------|-------|
-| 106 | 1.1.1 | All images have alt text | Screen reader announces image | ☐ | |
-| 107 | 1.3.1 | Semantic HTML used | Proper heading hierarchy | ☐ | |
-| 108 | 1.4.3 | Colour contrast ≥ 4.5:1 | Text readable | ☐ | |
-| 109 | 1.4.10 | No horizontal scroll | Content reflows | ☐ | |
-| 110 | 2.1.1 | Keyboard navigation works | Tab through all elements | ☐ | |
-| 111 | 2.1.2 | No keyboard trap | Can tab out of all elements | ☐ | |
-| 112 | 2.4.1 | Skip to main content link | Bypass navigation | ☐ | Optional |
-| 113 | 2.4.2 | Page titles are descriptive | Unique titles for each page | ☐ | |
-| 114 | 2.4.3 | Focus order is logical | Tab order makes sense | ☐ | |
-| 115 | 2.4.7 | Focus indicators visible | Outline on focused elements | ☐ | |
-| 116 | 3.1.1 | Language declared in HTML | lang="en" attribute | ☐ | |
-| 117 | 3.2.1 | Focus doesn't trigger change | No unexpected navigation | ☐ | |
-| 118 | 3.3.1 | Error messages clear | Specific error descriptions | ☐ | |
-| 119 | 3.3.2 | Form labels provided | All inputs have labels | ☐ | |
+| 106 | 1.1.1 | All images have alt text | Screen reader announces image | PASS | |
+<img width="1538" height="696" alt="image" src="https://github.com/user-attachments/assets/cd9dacee-c8cb-49de-a796-219fc2146c3c" />
+<img width="409" height="280" alt="image" src="https://github.com/user-attachments/assets/bc21d3d5-57d8-4816-960d-fd30af30882a" />
+<img width="602" height="687" alt="image" src="https://github.com/user-attachments/assets/9bc052a1-f439-4e7c-b14e-97858fc61b99" />
+<img width="472" height="729" alt="image" src="https://github.com/user-attachments/assets/f7f0e198-adc6-4099-b184-c15bb4455cc7" />
+<img width="456" height="683" alt="image" src="https://github.com/user-attachments/assets/0aa77617-5058-482f-8b81-1a2cd3c677b5" />
+<img width="423" height="272" alt="image" src="https://github.com/user-attachments/assets/b36015ff-4d05-47a1-870b-db5ae6d10c9e" />
+<img width="489" height="624" alt="image" src="https://github.com/user-attachments/assets/b79fcae3-ed2b-4991-9072-bee68c2f4324" />
+<img width="421" height="203" alt="image" src="https://github.com/user-attachments/assets/306b7219-4378-4009-93cc-153002fd65d1" />
+<img width="452" height="610" alt="image" src="https://github.com/user-attachments/assets/5039f027-425a-477d-97dd-e60bb4cc86a9" />
+<img width="424" height="212" alt="image" src="https://github.com/user-attachments/assets/a0679aea-952a-42d2-9040-e09a48a9e6b2" />
+<img width="444" height="611" alt="image" src="https://github.com/user-attachments/assets/87303688-a7f6-43fb-84b6-3b592353a7c4" />
+<img width="411" height="272" alt="image" src="https://github.com/user-attachments/assets/4d4129bf-796e-443e-9f5e-03ccb318b3f5" />
+<img width="436" height="567" alt="image" src="https://github.com/user-attachments/assets/f85f9504-3130-44a9-bee9-1f202d27901e" />
+<img width="425" height="270" alt="image" src="https://github.com/user-attachments/assets/35eae2d1-8bce-488d-92c0-11120d8bae09" />
+
+| Test ID | Criterion | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------|-----------------|--------|-------|
+| 107 | 1.3.1 | Semantic HTML used | Proper heading hierarchy | PARTIAL PASS | |
+<img width="853" height="462" alt="image" src="https://github.com/user-attachments/assets/4e426a22-8241-4c90-b162-85caa24e757c" />
+<img width="1882" height="921" alt="image" src="https://github.com/user-attachments/assets/bd524a44-d7ff-46d0-a5f3-5edc4975fad2" />
+<img width="775" height="736" alt="image" src="https://github.com/user-attachments/assets/2307eeed-ff72-4073-b507-09bad8a4167a" />
+<img width="1880" height="978" alt="image" src="https://github.com/user-attachments/assets/fdfa2d7d-ed1f-4339-9d43-e76d3da28156" />
+<img width="765" height="737" alt="image" src="https://github.com/user-attachments/assets/0295910e-43ea-49c2-8c82-7ee6dc51eac0" />
+<img width="1889" height="1002" alt="image" src="https://github.com/user-attachments/assets/033574e2-6edc-4e41-aa93-1778abaf92da" />
+<img width="794" height="767" alt="image" src="https://github.com/user-attachments/assets/3bb00226-25b6-4aae-9d04-3455cd6db2d8" />
+<img width="1889" height="821" alt="image" src="https://github.com/user-attachments/assets/e5c5d506-25cf-44e0-9d5d-e618799e232b" />
+<img width="768" height="763" alt="image" src="https://github.com/user-attachments/assets/18ca14d9-0ead-45a6-9e14-9f76a4fe06e3" />
+<img width="1914" height="813" alt="image" src="https://github.com/user-attachments/assets/5233fd34-1bf0-4578-ae6e-09e824b560ee" />
+
+| Test ID | Criterion | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------|-----------------|--------|-------|
+| 108 | 1.4.3 | Colour contrast ≥ 4.5:1 | Text readable | PASS | |
+<img width="1244" height="822" alt="image" src="https://github.com/user-attachments/assets/8ed27d56-0132-4ec5-8f79-0a68189e7d0a" />
+<img width="1279" height="751" alt="image" src="https://github.com/user-attachments/assets/7cf5237a-b3d1-48d5-9cb9-8bf15c76fdad" />
+<img width="1144" height="770" alt="image" src="https://github.com/user-attachments/assets/a9ec4af1-330d-4e09-9874-af8c738f3cf5" />
+<img width="1315" height="786" alt="image" src="https://github.com/user-attachments/assets/4d4dc8e1-c5cc-4a41-abee-5b86ec0849ed" />
+<img width="1396" height="785" alt="image" src="https://github.com/user-attachments/assets/dcf336b0-72b6-4196-952f-d93c739eb5ec" />
+
+| Test ID | Criterion | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------|-----------------|--------|-------|
+| 109 | 1.4.10 | No horizontal scroll | Content reflows | PASS | |
+<img width="701" height="933" alt="image" src="https://github.com/user-attachments/assets/fc783202-c3de-448f-9792-102476b121d5" />
+<img width="705" height="922" alt="image" src="https://github.com/user-attachments/assets/22a90afd-0b92-486c-9b7f-6b4bd9284a81" />
+<img width="421" height="874" alt="image" src="https://github.com/user-attachments/assets/9c0bac74-54bc-4499-b469-74da6b840df2" />
+<img width="729" height="787" alt="image" src="https://github.com/user-attachments/assets/5a161b28-ea58-42a2-96cd-c74df7ec9c0d" />
+<img width="392" height="695" alt="image" src="https://github.com/user-attachments/assets/e936368e-9e62-4a1e-bd76-d6c0ad5279fd" />
+
+| Test ID | Criterion | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------|-----------------|--------|-------|
+| 110 | 2.1.1 | Keyboard navigation works | Tab through all elements | PASS | Checked manually. |
+<img width="1897" height="620" alt="image" src="https://github.com/user-attachments/assets/306696c2-cdef-424f-a92d-7b21d0463ef4" />
+<img width="1904" height="564" alt="image" src="https://github.com/user-attachments/assets/df704f86-6016-4358-876d-271cf35af754" />
+
+| Test ID | Criterion | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------|-----------------|--------|-------|
+| 111 | 2.1.2 | No keyboard trap | Can tab out of all elements | PASS | Checked manually. |
+<img width="1897" height="620" alt="image" src="https://github.com/user-attachments/assets/306696c2-cdef-424f-a92d-7b21d0463ef4" />
+<img width="1904" height="564" alt="image" src="https://github.com/user-attachments/assets/df704f86-6016-4358-876d-271cf35af754" />
+
+| Test ID | Criterion | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------|-----------------|--------|-------|
+| 112 | 2.4.1 | Skip to main content link | Bypass navigation | PASS | Skip link optional for Level AA. Site uses semantic HTML and proper landmark structure as alternative bypass method. |
+
+
+| Test ID | Criterion | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------|-----------------|--------|-------|
+| 113 | 2.4.2 | Page titles are descriptive | Unique titles for each page | PASS | |
+<img width="295" height="158" alt="image" src="https://github.com/user-attachments/assets/7e2d2749-a8b8-4636-8189-fd86ca7e3f8b" />
+<img width="491" height="100" alt="image" src="https://github.com/user-attachments/assets/12256fce-9650-4339-ace9-7ab26f60a095" />
+<img width="486" height="122" alt="image" src="https://github.com/user-attachments/assets/a900cdfd-9c07-40fe-8d2b-2fed9e34dab2" />
+<img width="482" height="111" alt="image" src="https://github.com/user-attachments/assets/40cb288c-a1d0-45f9-9b24-1e1be5e3544e" />
+<img width="487" height="109" alt="image" src="https://github.com/user-attachments/assets/29dd778c-aea6-4c2a-a4b2-2c7248f18204" />
+
+| Test ID | Criterion | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------|-----------------|--------|-------|
+| 114 | 2.4.3 | Focus order is logical | Tab order makes sense | PASS | Verified Test ID 110 |
+<img width="1897" height="620" alt="image" src="https://github.com/user-attachments/assets/306696c2-cdef-424f-a92d-7b21d0463ef4" />
+<img width="1904" height="564" alt="image" src="https://github.com/user-attachments/assets/df704f86-6016-4358-876d-271cf35af754" />
+
+| Test ID | Criterion | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------|-----------------|--------|-------|
+| 115 | 2.4.7 | Focus indicators visible | Outline on focused elements | PASS | Verified Test ID 110 |
+<img width="1897" height="620" alt="image" src="https://github.com/user-attachments/assets/306696c2-cdef-424f-a92d-7b21d0463ef4" />
+<img width="1904" height="564" alt="image" src="https://github.com/user-attachments/assets/df704f86-6016-4358-876d-271cf35af754" />
+
+| Test ID | Criterion | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------|-----------------|--------|-------|
+| 116 | 3.1.1 | Language declared in HTML | lang="en" attribute | PASS | base.html is verified, all other files extend base.html. |
+<img width="402" height="147" alt="image" src="https://github.com/user-attachments/assets/e1fdf9a2-8d7a-4016-8dff-8b1a66c3f3d7" />
+<img width="502" height="97" alt="image" src="https://github.com/user-attachments/assets/b977f719-1ce2-49b5-bca2-f8123efac1bf" />
+<img width="334" height="164" alt="image" src="https://github.com/user-attachments/assets/eb391400-282a-435b-ae11-b81ec7560f94" />
+
+| Test ID | Criterion | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------|-----------------|--------|-------|
+| 117 | 3.2.1 | Focus doesn't trigger change | No unexpected navigation | PASS | Verified Test ID 110 |
+<img width="1897" height="620" alt="image" src="https://github.com/user-attachments/assets/306696c2-cdef-424f-a92d-7b21d0463ef4" />
+<img width="1904" height="564" alt="image" src="https://github.com/user-attachments/assets/df704f86-6016-4358-876d-271cf35af754" />
+
+| Test ID | Criterion | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------|-----------------|--------|-------|
+| 118 | 3.3.1 | Error messages clear | Specific error descriptions | PASS | Django Form Validation |
+<img width="542" height="323" alt="image" src="https://github.com/user-attachments/assets/a085e90a-d46f-4d9e-9c0d-2efc830b153a" />
+<img width="711" height="374" alt="image" src="https://github.com/user-attachments/assets/38ac73bd-13cb-41fb-8aed-bfcc69e9806d" />
+<img width="764" height="427" alt="image" src="https://github.com/user-attachments/assets/a243e342-f21e-4654-a4e5-56d8dac7cee8" />
+
+| Test ID | Criterion | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------|-----------------|--------|-------|
+| 119 | 3.3.2 | Form labels provided | All inputs have labels | PASS | |
+<img width="774" height="886" alt="image" src="https://github.com/user-attachments/assets/74b3912e-6f86-4d1c-9713-5aaf1fea2701" />
+<img width="534" height="628" alt="image" src="https://github.com/user-attachments/assets/9c4d5d18-eab6-4bca-958b-4ac9dc34777d" />
+<img width="573" height="843" alt="image" src="https://github.com/user-attachments/assets/8d7082c6-83fb-438f-9452-69a312f1355e" />
+
+| Test ID | Criterion | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------|-----------------|--------|-------|
 | 120 | 4.1.2 | ARIA labels used correctly | Screen reader friendly | ☐ | |
+<img width="374" height="184" alt="image" src="https://github.com/user-attachments/assets/d63a7883-4893-4fa7-bfb6-2fea40fe12d3" />
+<img width="314" height="150" alt="image" src="https://github.com/user-attachments/assets/57048635-1a2e-4814-b6f5-c49eb6282892" />
+<img width="298" height="164" alt="image" src="https://github.com/user-attachments/assets/acc9ea05-4c57-479f-b227-2cb5f0fef305" />
+
 
 #### 4.2 Screen Reader Testing
 
