@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'accounts',
     'bookings',
     'menu',
+    'compressor',
 ]
 
 MIDDLEWARE = [
@@ -167,3 +168,8 @@ SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
 # For development, emails will print to console
 # For production, change EMAIL_BACKEND to smtp and configure credentials
+
+# Django Compressor settings
+COMPRESS_ENABLED = not DEBUG  # Only compress in production
+COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter']
+COMPRESS_OFFLINE = True

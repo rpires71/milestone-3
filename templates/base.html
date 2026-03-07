@@ -79,7 +79,10 @@ Date: January 2026
     <!-- 
     Custom CSS - Portuguese Kitchen colour palette and typography
   -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% load compress %}
+{% compress css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% endcompress %}
 
     <!-- 
     Extra CSS block - allows child templates to add page-specific styles
