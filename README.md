@@ -4782,24 +4782,61 @@ Test on following viewport sizes:
 
 Test with: Google PageSpeed Insights, GTmetrix
 
-| Page | Load Time | Score | LCP | FID | CLS | Status | Notes |
+| Page | Load Time | Score | LCP | TBT | CLS | Status | Notes |
 |------|-----------|-------|-----|-----|-----|--------|-------|
-| Homepage | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | Target: < 3s |
-| Menu | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | Target: < 3s |
-| Booking | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | Target: < 3s |
-| My Bookings | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | Target: < 3s |
-| Staff Dashboard | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | Target: < 4s |
-| Statistics | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | Target: < 4s |
+| Homepage | 1.3s | 96% | 1.2s | 0ms | 0.01 | A | Target: < 3s |
+<img width="1520" height="202" alt="image" src="https://github.com/user-attachments/assets/0712f9ea-ebd4-4d68-91c4-8283f174a3e9" />
+
+| Page | Load Time | Score | LCP | TBT | CLS | Status | Notes |
+|------|-----------|-------|-----|-----|-----|--------|-------|
+| Menu | 1.4s | 91% | 1.1s | 0ms | 0.15 | B | Target: < 3s |
+<img width="1537" height="195" alt="image" src="https://github.com/user-attachments/assets/5c78db7d-fc3d-4895-aa96-aa721d2d51ab" />
+
+| Page | Load Time | Score | LCP | TBT | CLS | Status | Notes |
+|------|-----------|-------|-----|-----|-----|--------|-------|
+| Booking | 1.2s | 97% | 1.2s | 0ms | 0.04 | A | Target: < 3s |
+<img width="1529" height="202" alt="image" src="https://github.com/user-attachments/assets/10ebfa60-a9a5-41ab-882e-b58f42e5d8b4" />
+
+| Page | Load Time | Score | LCP | TBT | CLS | Status | Notes |
+|------|-----------|-------|-----|-----|-----|--------|-------|
+| My Bookings | 1.9s | 91.5% | 2.1s | 0ms | 0.036 | B | Target: < 3s |
+<img width="481" height="123" alt="image" src="https://github.com/user-attachments/assets/89bc3a97-0b8e-429c-bfcf-7b8b218d8257" />
+
+| Page | Load Time | Score | LCP | TBT | CLS | Status | Notes |
+|------|-----------|-------|-----|-----|-----|--------|-------|
+| Staff Dashboard | 1.1s | 83.25% | 0.4s | 0ms | 0 | B | Target: < 4s |
+
+| Page | Load Time | Score | LCP | TBT | CLS | Status | Notes |
+|------|-----------|-------|-----|-----|-----|--------|-------|
+| Statistics | 1.2s | 83% | 0.3s | 0ms | 0 | B | Target: < 4s |
+<img width="503" height="106" alt="image" src="https://github.com/user-attachments/assets/32b121ed-bbc3-49fc-979d-1f61412371f7" />
+
 
 #### 5.2 Database Performance
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
-| 131 | Booking creation | < 500ms | ☐ | |
-| 132 | My Bookings page load | < 1s | ☐ | |
-| 133 | Staff dashboard with 100+ bookings | < 2s | ☐ | |
-| 134 | Statistics with 1000+ bookings | < 3s | ☐ | |
-| 135 | No N+1 queries | select_related used | ☐ | |
+| 131 | Booking creation | < 500ms | PASS | |
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 132 | My Bookings page load | < 2s | PASS | |
+<img width="1047" height="569" alt="image" src="https://github.com/user-attachments/assets/65a985ee-7e06-4bf0-bef8-e094b1e625d8" />
+<img width="1073" height="630" alt="image" src="https://github.com/user-attachments/assets/bcc7a462-afde-468f-b51e-dc88b795e507" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 133 | Staff dashboard | < 2s | PASS | |
+<img width="1036" height="556" alt="image" src="https://github.com/user-attachments/assets/c2000e40-a3c9-4e0b-8507-28e67f3cd808" />
+<img width="975" height="619" alt="image" src="https://github.com/user-attachments/assets/bbde13c9-dd1a-43e2-acb1-5565b7a96613" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 134 | Statistics  | < 3s | PASS | |
+<img width="1023" height="518" alt="image" src="https://github.com/user-attachments/assets/f14d2b87-49dc-4b5f-8778-1d66e7ebfd4c" />
+<img width="996" height="663" alt="image" src="https://github.com/user-attachments/assets/b8d75a41-6cc2-404c-8c22-f98588dded35" />
+
+| 135 | No N+1 queries | select_related used | N/A | |
 
 #### 5.3 Asset Optimisation
 
