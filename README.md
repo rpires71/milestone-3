@@ -4981,6 +4981,22 @@ Test with: Google PageSpeed Insights, GTmetrix
 <img width="783" height="376" alt="image" src="https://github.com/user-attachments/assets/d7319500-a541-431c-8c63-22c7efdadc91" />
 <img width="923" height="231" alt="image" src="https://github.com/user-attachments/assets/1570315d-3b21-4fd6-b0af-d5eca28b0818" 
 
+| Feature Area | Regression Tests | Frequency | Status |
+|--------------|------------------|-----------|--------|
+| Responsiven Testing | 095 | Tiles desaligned | ☐ |
+
+| Test ID | Page | Mobile (375px) | Tablet (768px) | Desktop (1920px) | Notes |
+|---------|------|----------------|----------------|------------------|-------|
+| 095 | My Bookings | PASS | PASS | PASS | Fixed with CSS code. |
+<img width="759" height="593" alt="image" src="https://github.com/user-attachments/assets/8b2714d0-182c-45e7-9dcc-8fe810865db8" />
+<img width="895" height="385" alt="image" src="https://github.com/user-attachments/assets/a4262a42-114d-41d0-9678-19e9e62938b9" />
+<img width="798" height="414" alt="image" src="https://github.com/user-attachments/assets/01566400-abb6-423d-8b11-6c15b05b0fbb" />
+<img width="865" height="351" alt="image" src="https://github.com/user-attachments/assets/d70ba319-adb0-4dbd-8eb8-bb44e90fc55d" />
+<img width="1329" height="929" alt="image" src="https://github.com/user-attachments/assets/0251e885-e21b-4c5e-8cb1-1f46cb727f0d" />
+<img width="702" height="897" alt="image" src="https://github.com/user-attachments/assets/04377077-b46d-4e5b-b626-5cf5958a3858" />
+<img width="709" height="951" alt="image" src="https://github.com/user-attachments/assets/f96b1447-e242-485f-8ec9-0e9b2e25d50e" />
+<img width="979" height="926" alt="image" src="https://github.com/user-attachments/assets/1335fa8d-32aa-4ce9-9584-51d99582c7d5" />
+
 #### Critical User Journeys (Smoke Tests)
 
 Run before each deployment:
