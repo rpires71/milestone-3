@@ -4874,6 +4874,19 @@ Test with: Google PageSpeed Insights, GTmetrix
 #### 6. REGRESSION TESTING
 [⬆ Back to Table of contents](#table-of-contents)
 
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 006 | Password reset link works | Email sent, password can be reset | PASS | Below |
+<img width="1418" height="782" alt="image" src="https://github.com/user-attachments/assets/8d9b53c7-f510-4653-81bc-6a3573a9cfa8" />
+<img width="1235" height="377" alt="image" src="https://github.com/user-attachments/assets/44654046-b13e-4a01-ad4e-73d77496187b" />
+
+**Note:**
+- Password reset form created (`templates/password_reset.html`)
+- Password reset view configured in `accounts/views.py`
+- URL route added: `/accounts/password-reset/`
+- Form includes email input with validation
+- UI matches overall design system (Portuguese Kitchen branding)
+
 Re-test after bug fixes or new features:
 
 | Feature Area | Regression Tests | Frequency | Status |
