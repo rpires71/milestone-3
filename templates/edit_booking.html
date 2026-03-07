@@ -371,7 +371,7 @@ document.addEventListener('DOMContentLoaded', function() {
     timeslotSelect.innerHTML = '<option value="">Loading available times...</option>';
     
     // Fetch available time slots from API
-    fetch(`/booking/api/available-timeslots/?date=${date}&guests=${guests}`)
+    fetch(`/bookings/api/available-timeslots/?date=${date}&guests=${guests}`)
       .then(response => response.json())
       .then(data => {
         // Clear existing options
