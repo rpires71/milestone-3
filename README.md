@@ -4782,34 +4782,94 @@ Test on following viewport sizes:
 
 Test with: Google PageSpeed Insights, GTmetrix
 
-| Page | Load Time | Score | LCP | FID | CLS | Status | Notes |
+| Page | Load Time | Score | LCP | TBT | CLS | Status | Notes |
 |------|-----------|-------|-----|-----|-----|--------|-------|
-| Homepage | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | Target: < 3s |
-| Menu | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | Target: < 3s |
-| Booking | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | Target: < 3s |
-| My Bookings | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | Target: < 3s |
-| Staff Dashboard | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | Target: < 4s |
-| Statistics | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ | Target: < 4s |
+| Homepage | 1.3s | 96% | 1.2s | 0ms | 0.01 | A | Target: < 3s |
+<img width="1520" height="202" alt="image" src="https://github.com/user-attachments/assets/0712f9ea-ebd4-4d68-91c4-8283f174a3e9" />
+
+| Page | Load Time | Score | LCP | TBT | CLS | Status | Notes |
+|------|-----------|-------|-----|-----|-----|--------|-------|
+| Menu | 1.4s | 91% | 1.1s | 0ms | 0.15 | B | Target: < 3s |
+<img width="1537" height="195" alt="image" src="https://github.com/user-attachments/assets/5c78db7d-fc3d-4895-aa96-aa721d2d51ab" />
+
+| Page | Load Time | Score | LCP | TBT | CLS | Status | Notes |
+|------|-----------|-------|-----|-----|-----|--------|-------|
+| Booking | 1.2s | 97% | 1.2s | 0ms | 0.04 | A | Target: < 3s |
+<img width="1529" height="202" alt="image" src="https://github.com/user-attachments/assets/10ebfa60-a9a5-41ab-882e-b58f42e5d8b4" />
+
+| Page | Load Time | Score | LCP | TBT | CLS | Status | Notes |
+|------|-----------|-------|-----|-----|-----|--------|-------|
+| My Bookings | 1.9s | 91.5% | 2.1s | 0ms | 0.036 | B | Target: < 3s |
+<img width="481" height="123" alt="image" src="https://github.com/user-attachments/assets/89bc3a97-0b8e-429c-bfcf-7b8b218d8257" />
+
+| Page | Load Time | Score | LCP | TBT | CLS | Status | Notes |
+|------|-----------|-------|-----|-----|-----|--------|-------|
+| Staff Dashboard | 1.1s | 83.25% | 0.4s | 0ms | 0 | B | Target: < 4s |
+
+| Page | Load Time | Score | LCP | TBT | CLS | Status | Notes |
+|------|-----------|-------|-----|-----|-----|--------|-------|
+| Statistics | 1.2s | 83% | 0.3s | 0ms | 0 | B | Target: < 4s |
+<img width="503" height="106" alt="image" src="https://github.com/user-attachments/assets/32b121ed-bbc3-49fc-979d-1f61412371f7" />
+
 
 #### 5.2 Database Performance
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
-| 131 | Booking creation | < 500ms | ☐ | |
-| 132 | My Bookings page load | < 1s | ☐ | |
-| 133 | Staff dashboard with 100+ bookings | < 2s | ☐ | |
-| 134 | Statistics with 1000+ bookings | < 3s | ☐ | |
-| 135 | No N+1 queries | select_related used | ☐ | |
+| 131 | Booking creation | < 500ms | PASS | |
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 132 | My Bookings page load | < 2s | PASS | |
+<img width="1047" height="569" alt="image" src="https://github.com/user-attachments/assets/65a985ee-7e06-4bf0-bef8-e094b1e625d8" />
+<img width="1073" height="630" alt="image" src="https://github.com/user-attachments/assets/bcc7a462-afde-468f-b51e-dc88b795e507" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 133 | Staff dashboard | < 2s | PASS | |
+<img width="1036" height="556" alt="image" src="https://github.com/user-attachments/assets/c2000e40-a3c9-4e0b-8507-28e67f3cd808" />
+<img width="975" height="619" alt="image" src="https://github.com/user-attachments/assets/bbde13c9-dd1a-43e2-acb1-5565b7a96613" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 134 | Statistics  | < 3s | PASS | |
+<img width="1023" height="518" alt="image" src="https://github.com/user-attachments/assets/f14d2b87-49dc-4b5f-8778-1d66e7ebfd4c" />
+<img width="996" height="663" alt="image" src="https://github.com/user-attachments/assets/b8d75a41-6cc2-404c-8c22-f98588dded35" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 135 | No N+1 queries | select_related used | N/A | |
 
 #### 5.3 Asset Optimisation
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
-| 136 | Images optimised | WebP format, < 200KB | ☐ | |
-| 137 | CSS minified in production | Single minified file | ☐ | |
-| 138 | JavaScript minified | Minified and compressed | ☐ | |
-| 139 | Fonts optimised | Subset, woff2 format | ☐ | |
-| 140 | Static files cached | Cache headers set | ☐ | |
+| 136 | Images optimised | WebP format, < 200KB | FAIL | |
+<img width="731" height="396" alt="image" src="https://github.com/user-attachments/assets/b2569b99-a759-49c4-bef5-70e49b47bcac" />
+<img width="843" height="408" alt="image" src="https://github.com/user-attachments/assets/45c085dd-2264-4807-8b97-ea8981f2a9b7" />
+<img width="810" height="348" alt="image" src="https://github.com/user-attachments/assets/c4a82583-38e8-45c7-9ab5-9b60df24e45a" />
+<img width="717" height="559" alt="image" src="https://github.com/user-attachments/assets/631fe95b-4bd9-4b3b-a0e1-e59342a7cd67" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 137 | CSS minified in production | Single minified file | PASS | Method: WhiteNoise CompressedStaticFilesStorage |
+<img width="787" height="329" alt="image" src="https://github.com/user-attachments/assets/6cc0af14-d165-478c-8cb3-62f0e56094dc" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 138 | JavaScript minified | Minified and compressed | N/A | |
+<img width="809" height="253" alt="image" src="https://github.com/user-attachments/assets/25741a25-e03c-4d5f-991e-1729e775d4b3" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 139 | Fonts optimised | Subset, woff2 format | PASS | Method: Google Fonts CDN (Automatic Optimisation) |
+<img width="749" height="316" alt="image" src="https://github.com/user-attachments/assets/fbf33ae4-ce8b-496a-b956-aef32885e0a0" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 140 | Static files cached | Cache headers set | PASS | Method: WhiteNoise Automatic Caching |
+<img width="857" height="647" alt="image" src="https://github.com/user-attachments/assets/2fd6dd91-5058-46d3-a808-c3c2aef52c64" />
+<img width="638" height="261" alt="image" src="https://github.com/user-attachments/assets/939f46b3-cbf8-4f47-bd6c-a7c00a9d9685" />
 
 #### 6. REGRESSION TESTING
 [⬆ Back to Table of contents](#table-of-contents)
