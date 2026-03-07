@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'accounts',
     'bookings',
     'menu',
-    'compressor',
 ]
 
 MIDDLEWARE = [
@@ -128,6 +127,13 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # WhiteNoise configuration for static files
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
+# Django Compressor finders
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+]
+
 # Media files (User uploads)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -168,8 +174,3 @@ SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
 # For development, emails will print to console
 # For production, change EMAIL_BACKEND to smtp and configure credentials
-
-# Django Compressor settings
-COMPRESS_ENABLED = not DEBUG  # Only compress in production
-COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter']
-COMPRESS_OFFLINE = True
