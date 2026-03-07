@@ -165,19 +165,19 @@ Date: January 2026
   <a class="nav-link {% block nav_my_bookings %}{% endblock %}" href="{% url 'bookings:my_bookings' %}">My Bookings</a>
 </li>
 
-            <!-- Staff Dashboard (staff only) -->
-{% if user.is_staff %}
-<li class="nav-item">
-  <a class="nav-link {% block nav_staff_dashboard %}{% endblock %}" href="{% url 'bookings:staff_dashboard' %}">
-    <i class="bi bi-speedometer2 me-1"></i>
-    Staff Dashboard
-  </a>
-</li>
+ <!-- Staff Dashboard (staff only) -->
+  {% if user.is_staff %}
+  <li class="nav-item">
+    <a class="nav-link {% block nav_staff_dashboard %}{% endblock %}" href="{% url 'bookings:staff_dashboard' %}">
+      <i class="bi bi-speedometer2 me-1"></i>
+      Staff Dashboard
+    </a>
+  </li>
 
-<!-- Statistics (admin only) - NEW -->
+<!-- Statistics (admin only) -->
 {% if user.is_superuser %}
 <li class="nav-item">
-  <a class="nav-link" href="{% url 'bookings:booking_statistics' %}">
+  <a class="nav-link {% block nav_statistics %}{% endblock %}" href="{% url 'bookings:booking_statistics' %}">
     <i class="bi bi-graph-up me-1"></i>
     Statistics
   </a>
