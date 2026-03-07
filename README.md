@@ -4887,6 +4887,11 @@ Test with: Google PageSpeed Insights, GTmetrix
 - Form includes email input with validation
 - UI matches overall design system (Portuguese Kitchen branding)
 
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 008 | User can update profile details | Changes saved to database | PASS | At the moment changes can ony be reset by admin staff. |
+<img width="918" height="618" alt="image" src="https://github.com/user-attachments/assets/f2052e10-0cda-400a-888a-f0397ec5707a" />
+
 Re-test after bug fixes or new features:
 
 | Feature Area | Regression Tests | Frequency | Status |
