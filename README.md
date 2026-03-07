@@ -4836,17 +4836,40 @@ Test with: Google PageSpeed Insights, GTmetrix
 <img width="1023" height="518" alt="image" src="https://github.com/user-attachments/assets/f14d2b87-49dc-4b5f-8778-1d66e7ebfd4c" />
 <img width="996" height="663" alt="image" src="https://github.com/user-attachments/assets/b8d75a41-6cc2-404c-8c22-f98588dded35" />
 
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
 | 135 | No N+1 queries | select_related used | N/A | |
 
 #### 5.3 Asset Optimisation
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
-| 136 | Images optimised | WebP format, < 200KB | ☐ | |
-| 137 | CSS minified in production | Single minified file | ☐ | |
-| 138 | JavaScript minified | Minified and compressed | ☐ | |
-| 139 | Fonts optimised | Subset, woff2 format | ☐ | |
-| 140 | Static files cached | Cache headers set | ☐ | |
+| 136 | Images optimised | WebP format, < 200KB | FAIL | |
+<img width="731" height="396" alt="image" src="https://github.com/user-attachments/assets/b2569b99-a759-49c4-bef5-70e49b47bcac" />
+<img width="843" height="408" alt="image" src="https://github.com/user-attachments/assets/45c085dd-2264-4807-8b97-ea8981f2a9b7" />
+<img width="810" height="348" alt="image" src="https://github.com/user-attachments/assets/c4a82583-38e8-45c7-9ab5-9b60df24e45a" />
+<img width="717" height="559" alt="image" src="https://github.com/user-attachments/assets/631fe95b-4bd9-4b3b-a0e1-e59342a7cd67" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 137 | CSS minified in production | Single minified file | PASS | Method: WhiteNoise CompressedStaticFilesStorage |
+<img width="787" height="329" alt="image" src="https://github.com/user-attachments/assets/6cc0af14-d165-478c-8cb3-62f0e56094dc" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 138 | JavaScript minified | Minified and compressed | N/A | |
+<img width="809" height="253" alt="image" src="https://github.com/user-attachments/assets/25741a25-e03c-4d5f-991e-1729e775d4b3" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 139 | Fonts optimised | Subset, woff2 format | PASS | Method: Google Fonts CDN (Automatic Optimisation) |
+<img width="749" height="316" alt="image" src="https://github.com/user-attachments/assets/fbf33ae4-ce8b-496a-b956-aef32885e0a0" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 140 | Static files cached | Cache headers set | PASS | Method: WhiteNoise Automatic Caching |
+<img width="857" height="647" alt="image" src="https://github.com/user-attachments/assets/2fd6dd91-5058-46d3-a808-c3c2aef52c64" />
+<img width="638" height="261" alt="image" src="https://github.com/user-attachments/assets/939f46b3-cbf8-4f47-bd6c-a7c00a9d9685" />
 
 #### 6. REGRESSION TESTING
 [⬆ Back to Table of contents](#table-of-contents)
