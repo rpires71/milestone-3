@@ -346,14 +346,48 @@ a:hover {
   background-color: var(--porcelain-white) !important;
   border: 1px solid #dee2e6;
   border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: var(--shadow-sm);
   transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .card:hover,
 .profile-card:hover,
 .booking-card:hover {
   box-shadow: var(--shadow-md);
+}
+
+.booking-card .card-header {
+  background: linear-gradient(135deg, var(--azulejo-blue) 0%, var(--olive-green) 100%);
+  color: white;
+  padding: 1.25rem;
+  border-bottom: none;
+  flex-shrink: 0;
+}
+
+.booking-card .card-body {
+  padding: 1.5rem;
+  flex-grow: 1;  /* THIS IS KEY - makes body fill available space */
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-card .card-footer {
+  background-color: #f8f9fa;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #dee2e6;
+  flex-shrink: 0;
+  margin-top: auto;  /* THIS IS KEY - pushes footer to bottom */
+}
+
+/* Special Requests Section - Add spacing */
+.booking-detail.special-requests {
+  margin-top: auto;  /* Pushes special requests to bottom of card body */
+  padding-top: 1rem;
 }
 
 .card-header {
