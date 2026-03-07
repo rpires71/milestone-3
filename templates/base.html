@@ -162,15 +162,13 @@ Date: January 2026
 
             <!-- My Bookings (logged in only) -->
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'bookings:my_bookings' %}"
-                >My Bookings</a
-              >
-            </li>
+  <a class="nav-link {% block nav_my_bookings %}{% endblock %}" href="{% url 'bookings:my_bookings' %}">My Bookings</a>
+</li>
 
             <!-- Staff Dashboard (staff only) -->
 {% if user.is_staff %}
 <li class="nav-item">
-  <a class="nav-link" href="{% url 'bookings:staff_dashboard' %}">
+  <a class="nav-link {% block nav_staff_dashboard %}{% endblock %}" href="{% url 'bookings:staff_dashboard' %}">
     <i class="bi bi-speedometer2 me-1"></i>
     Staff Dashboard
   </a>
@@ -189,10 +187,8 @@ Date: January 2026
 
             <!-- Profile (logged in only) -->
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'accounts:profile' %}"
-                >Profile</a
-              >
-            </li>
+  <a class="nav-link {% block nav_profile %}{% endblock %}" href="{% url 'accounts:profile' %}">Profile</a>
+</li>
 
             <!-- Logout (logged in only) -->
             <li class="nav-item">
@@ -202,16 +198,14 @@ Date: January 2026
             {% else %}
 
             <!-- Login (logged out only) -->
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
-            </li>
+<li class="nav-item">
+  <a class="nav-link {% block nav_login %}{% endblock %}" href="{% url 'accounts:login' %}">Login</a>
+</li>
 
             <!-- Register (logged out only) -->
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'accounts:register' %}"
-                >Register</a
-              >
-            </li>
+<li class="nav-item">
+  <a class="nav-link {% block nav_register %}{% endblock %}" href="{% url 'accounts:register' %}">Register</a>
+</li>
 
             {% endif %}
             
