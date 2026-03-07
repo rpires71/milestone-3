@@ -89,7 +89,7 @@ a:hover {
 }
 
 /* =========================================================
-   NAVIGATION BAR
+   NAVIGATION - ACTIVE & HOVER STATES
    ========================================================= */
 .navbar {
   background-color: var(--porcelain-white);
@@ -105,6 +105,12 @@ a:hover {
 
 .navbar-brand:hover {
   color: var(--olive-green);
+}
+
+/* Logo hover effect */
+.navbar-brand:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
 }
 
 .logo-image {
@@ -142,6 +148,40 @@ a:hover {
 
 .navbar .bi {
   color: var(--azulejo-blue);
+}
+
+/* Navigation Link Hover Effect */
+.navbar-light .navbar-nav .nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+  color: var(--espresso-brown);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: var(--azulejo-blue);
+  background-color: var(--linen-cream);
+  border-radius: 5px;
+}
+
+/* Active Navigation Link */
+.navbar-light .navbar-nav .nav-link.active {
+  color: var(--terracotta-red);
+  background-color: rgba(196, 69, 54, 0.1);
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+/* Underline effect for active link */
+.navbar-light .navbar-nav .nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  right: 1rem;
+  height: 2px;
+  background-color: var(--terracotta-red);
 }
 
 /* =========================================================
@@ -702,5 +742,22 @@ html {
   
   .dietary-key-item .fs-4 {
     font-size: 1.2rem !important;
+  }
+}
+
+/* Mobile menu improvements */
+@media (max-width: 991px) {
+  .navbar-light .navbar-nav .nav-link {
+    padding: 0.75rem 1rem;
+    margin: 0.25rem 0;
+  }
+  
+  .navbar-light .navbar-nav .nav-link.active {
+    border-left: 3px solid var(--terracotta-red);
+    border-radius: 0;
+  }
+  
+  .navbar-light .navbar-nav .nav-link.active::after {
+    display: none;
   }
 }
