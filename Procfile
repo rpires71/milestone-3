@@ -1,0 +1,1 @@
+web: gunicorn portuguese_kitchen.wsgi --log-file -

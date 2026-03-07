@@ -25,6 +25,7 @@ from django.db.models import Count, Sum, Q
 from django.db.models.functions import TruncDate
 from datetime import datetime, timedelta, date
 from collections import Counter
+from .emails import send_booking_confirmation_email
 import csv
 import json
 
@@ -63,6 +64,8 @@ def booking_page(request):
             
             # Save booking
             booking.save()
+
+            email_sent = send_booking_confirmation_email(booking)
             
             # Success message
             messages.success(
