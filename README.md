@@ -4234,6 +4234,8 @@ A **risk‑based approach** is applied in the following test plan, which priorit
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 063 | Active page highlighted in nav | Current page has active class | FAIL | |
+<img width="1896" height="386" alt="image" src="https://github.com/user-attachments/assets/23df4ebd-02f9-41f6-8b64-4812363b7bbe" />
+
 
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
@@ -4942,8 +4944,23 @@ Test with: Google PageSpeed Insights, GTmetrix
 
 | Feature Area | Regression Tests | Frequency | Status |
 |--------------|------------------|-----------|--------|
-| Staff Features | 034 to 043 | After staff changes | ☐ |
-| Navigation | 061 to 070 | After layout changes | ☐ |
+| Navigation | 063 | After layout changes | ☐ |
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 063 | Active page highlighted in nav | Current page has active class | PASS | |
+<img width="1853" height="350" alt="image" src="https://github.com/user-attachments/assets/8b82cad9-debf-4ac3-a20f-6dec310b8e25" />
+<img width="1888" height="369" alt="image" src="https://github.com/user-attachments/assets/f5f5c7e4-ca93-4a70-8f13-025f01766006" />
+<img width="1891" height="378" alt="image" src="https://github.com/user-attachments/assets/ce8390e6-d369-4ce2-9948-1b828e22f522" />
+<img width="1871" height="352" alt="image" src="https://github.com/user-attachments/assets/483e0c25-e30b-41ca-aee0-6edec90a2c9a" />
+<img width="1886" height="283" alt="image" src="https://github.com/user-attachments/assets/ae1b0d5c-0ca1-4cf6-b76d-b0d80acd7e52" />
+<img width="1867" height="304" alt="image" src="https://github.com/user-attachments/assets/c86ecdab-bbae-4a95-9ea2-5eafb760b907" />
+<img width="1885" height="410" alt="image" src="https://github.com/user-attachments/assets/698f6f1a-c220-4226-861c-e4a880673d2e" />
+<img width="1878" height="401" alt="image" src="https://github.com/user-attachments/assets/0312fe52-ec47-4e36-98fc-333c26f1f05e" />
+<img width="1885" height="397" alt="image" src="https://github.com/user-attachments/assets/67c22ac1-8fed-46ee-8c81-d2c28ed819f6" />
+<img width="783" height="376" alt="image" src="https://github.com/user-attachments/assets/d7319500-a541-431c-8c63-22c7efdadc91" />
+<img width="923" height="231" alt="image" src="https://github.com/user-attachments/assets/1570315d-3b21-4fd6-b0af-d5eca28b0818" />
+
 
 #### Critical User Journeys (Smoke Tests)
 
