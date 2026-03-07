@@ -4915,8 +4915,33 @@ Test with: Google PageSpeed Insights, GTmetrix
 
 | Feature Area | Regression Tests | Frequency | Status |
 |--------------|------------------|-----------|--------|
-| Booking System | 009 to 021 | After booking changes | ☐ |
-| My Bookings | 022 to 033 | After dashboard changes | ☐ |
+| My Bookings | 026 to 029 | After dashboard changes | ☐ |
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 026 | User can edit future bookings | Edit form pre-filled with booking data | PASS | File: edit_booking.html. Wrong URL - fetch(`/booking/api/available-timeslots/?date=${date}&guests=${guests}`) Correct URL - fetch(`/bookings/api/available-timeslots/?date=${date}&guests=${guests}`) |
+<img width="1662" height="895" alt="image" src="https://github.com/user-attachments/assets/49feee59-611f-465d-a4c8-c02a31c0726f" />
+
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 027 | User can change date/time | New date/time saved successfully | PASS | File: edit_booking.html. Wrong URL - fetch(`/booking/api/available-timeslots/?date=${date}&guests=${guests}`) Correct URL - fetch(`/bookings/api/available-timeslots/?date=${date}&guests=${guests}`) |
+<img width="904" height="734" alt="image" src="https://github.com/user-attachments/assets/16af12b6-767d-483b-b32c-ad6370da326c" />
+
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 028 | User can change number of guests | New guest count saved | PASS | File: edit_booking.html. Wrong URL - fetch(`/booking/api/available-timeslots/?date=${date}&guests=${guests}`) Correct URL - fetch(`/bookings/api/available-timeslots/?date=${date}&guests=${guests}`) |
+<img width="891" height="785" alt="image" src="https://github.com/user-attachments/assets/ebe3230a-38ed-4b48-a1ff-f9e8bfe5e85f" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 029 | Capacity re-checked on edit | Edit blocked if no capacity | PASS | File: edit_booking.html. Wrong URL - fetch(`/booking/api/available-timeslots/?date=${date}&guests=${guests}`) Correct URL - fetch(`/bookings/api/available-timeslots/?date=${date}&guests=${guests}`) |
+<img width="840" height="883" alt="image" src="https://github.com/user-attachments/assets/a093ee2f-0717-4320-93a2-fc8c9b0557b0" />
+<img width="878" height="815" alt="image" src="https://github.com/user-attachments/assets/93df1c63-c125-4a71-92b0-0233ebef9d0b" />
+
+| Feature Area | Regression Tests | Frequency | Status |
+|--------------|------------------|-----------|--------|
 | Staff Features | 034 to 043 | After staff changes | ☐ |
 | Navigation | 061 to 070 | After layout changes | ☐ |
 
