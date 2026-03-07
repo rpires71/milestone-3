@@ -4874,6 +4874,10 @@ Test with: Google PageSpeed Insights, GTmetrix
 #### 6. REGRESSION TESTING
 [⬆ Back to Table of contents](#table-of-contents)
 
+| Feature Area | Regression Tests | Frequency | Status |
+|--------------|------------------|-----------|--------|
+| User Authentication | 006 & 008 | After any auth changes | PASS |
+
 | Test ID | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------------|--------|-------|
 | 006 | Password reset link works | Email sent, password can be reset | PASS | Below |
@@ -4892,11 +4896,25 @@ Test with: Google PageSpeed Insights, GTmetrix
 | 008 | User can update profile details | Changes saved to database | PASS | At the moment changes can ony be reset by admin staff. |
 <img width="918" height="618" alt="image" src="https://github.com/user-attachments/assets/f2052e10-0cda-400a-888a-f0397ec5707a" />
 
-Re-test after bug fixes or new features:
 
 | Feature Area | Regression Tests | Frequency | Status |
 |--------------|------------------|-----------|--------|
-| User Authentication | 001 to 008 | After any auth changes | ☐ |
+| Booking System | 020 & 021 | After booking changes | ☐ |
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 020 | Email confirmation is sent | Email appears in console/inbox | PASS | Email sent successfully. Console backend used (development). Email contains reference number, booking details, restaurant info. |
+<img width="760" height="638" alt="image" src="https://github.com/user-attachments/assets/4013930c-5b13-40d7-8bd6-d8d0d1b85575" />
+<img width="770" height="680" alt="image" src="https://github.com/user-attachments/assets/dcf8ccca-aab7-4cc5-b681-879f0afbdbb9" />
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 021 | Email contains all booking details | Email matches booking record | PASS | Email includes: reference number, date, time, guests, customer name, status, restaurant address, phone, email. Both HTML and plain text versions sent. |
+<img width="760" height="638" alt="image" src="https://github.com/user-attachments/assets/37e6d1a1-c8aa-4d05-a5f4-e9748ddf0665" />
+<img width="770" height="680" alt="image" src="https://github.com/user-attachments/assets/97459aa6-a387-4399-9d46-833009817831" />
+
+| Feature Area | Regression Tests | Frequency | Status |
+|--------------|------------------|-----------|--------|
 | Booking System | 009 to 021 | After booking changes | ☐ |
 | My Bookings | 022 to 033 | After dashboard changes | ☐ |
 | Staff Features | 034 to 043 | After staff changes | ☐ |
@@ -4905,6 +4923,7 @@ Re-test after bug fixes or new features:
 #### Critical User Journeys (Smoke Tests)
 
 Run before each deployment:
+
 
 | Journey | Steps | Expected Result | Status |
 |---------|-------|-----------------|--------|
