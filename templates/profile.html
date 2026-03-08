@@ -10,19 +10,19 @@
 {% block content %}
 
 <!-- Hero Section -->
-<section class="profile-hero py-5">
+<section class="profile-hero">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-lg-4 text-center mb-4 mb-lg-0">
+      <div class="col-lg-3 text-center mb-3 mb-lg-0">
         <div class="portuguese-kitchen-logo">
           <img src="{% static 'images/logo-v-3.png' %}" 
      alt="Portuguese Kitchen logo"
      class="hero-logo">
         </div>
       </div>
-      <div class="col-lg-8">
-        <h1 class="display-5 fw-bold mb-3">My Profile</h1>
-        <p class="lead mb-0">
+      <div class="col-lg-9">
+        <h1 class="h3 fw-bold mb-2">My Profile</h1>
+        <p class="mb-0">
           Welcome back, {{ user.first_name|default:user.username }}!
         </p>
       </div>
@@ -31,138 +31,132 @@
 </section>
 
 <!-- Profile Content Section -->
-<section class="profile-content py-5">
+<section class="profile-content">
   <div class="container">
-    <div class="row g-4">
+    <div class="row g-3">
       
       <!-- Left Column -->
       <div class="col-lg-8">
-        
-        <!-- Account Information Card -->
-        <div class="card mb-4">
-          <div class="card-header d-flex justify-content-between align-items-center">
-            <h3 class="mb-0">
+        <div class="profile-grid-left">
+          
+          <!-- Account Information Card (Alert Style) -->
+          <div class="alert alert-primary mb-3" role="alert">
+            <h5 class="alert-heading mb-2">
               <i class="bi bi-person-badge me-2"></i>
               Account Information
-            </h3>
-          </div>
-          <div class="card-body">
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label class="text-muted small">Username</label>
-                <p class="fw-bold mb-0">{{ user.username }}</p>
+            </h5>
+            
+            <div class="row g-2">
+              <div class="col-md-6 mb-1">
+                <strong class="small">Username:</strong>
+                <span class="d-block ms-3 text-muted small">{{ user.username }}</span>
               </div>
-              <div class="col-md-6">
-                <label class="text-muted small">Email</label>
-                <p class="fw-bold mb-0">{{ user.email }}</p>
+              <div class="col-md-6 mb-1">
+                <strong class="small">Email:</strong>
+                <span class="d-block ms-3 text-muted small">{{ user.email }}</span>
               </div>
-              <div class="col-md-6">
-                <label class="text-muted small">First Name</label>
-                <p class="fw-bold mb-0">{{ user.first_name|default:"Not set" }}</p>
+              <div class="col-md-6 mb-1">
+                <strong class="small">First Name:</strong>
+                <span class="d-block ms-3 text-muted small">{{ user.first_name|default:"Not set" }}</span>
               </div>
-              <div class="col-md-6">
-                <label class="text-muted small">Last Name</label>
-                <p class="fw-bold mb-0">{{ user.last_name|default:"Not set" }}</p>
+              <div class="col-md-6 mb-1">
+                <strong class="small">Last Name:</strong>
+                <span class="d-block ms-3 text-muted small">{{ user.last_name|default:"Not set" }}</span>
               </div>
-              <div class="col-md-6">
-                <label class="text-muted small">Member Since</label>
-                <p class="fw-bold mb-0">{{ user.date_joined|date:"F j, Y" }}</p>
+              <div class="col-md-6 mb-1">
+                <strong class="small">Member Since:</strong>
+                <span class="d-block ms-3 text-muted small">{{ user.date_joined|date:"F j, Y" }}</span>
               </div>
-              <div class="col-md-6">
-                <label class="text-muted small">Last Login</label>
-                <p class="fw-bold mb-0">{{ user.last_login|date:"M j, Y g:i A"|default:"Never" }}</p>
+              <div class="col-md-6 mb-1">
+                <strong class="small">Last Login:</strong>
+                <span class="d-block ms-3 text-muted small">{{ user.last_login|date:"M j, Y g:i A"|default:"Never" }}</span>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Preferences Card -->
-        <div class="card">
-          <div class="card-header">
-            <h3 class="mb-0">
+          <!-- Preferences Card (Alert Style) -->
+          <div class="alert alert-secondary mb-3" role="alert">
+            <h5 class="alert-heading mb-2">
               <i class="bi bi-sliders me-2"></i>
               Dining Preferences
-            </h3>
-          </div>
-          <div class="card-body">
+            </h5>
+            
             {% if user.customer_profile %}
-              <div class="row g-3">
-                <div class="col-12">
-                  <label class="text-muted small">Dietary Requirements</label>
-                  <p class="mb-0">{{ user.customer_profile.dietary_requirements|default:"No dietary requirements specified" }}</p>
+              <div class="row g-2">
+                <div class="col-12 mb-1">
+                  <strong class="small">Dietary Requirements:</strong>
+                  <span class="d-block ms-3 text-muted small">{{ user.customer_profile.dietary_requirements|default:"No dietary requirements specified" }}</span>
                 </div>
-                <div class="col-12">
-                  <label class="text-muted small">Special Requests</label>
-                  <p class="mb-0">{{ user.customer_profile.special_requests|default:"No special requests" }}</p>
+                <div class="col-12 mb-1">
+                  <strong class="small">Special Requests:</strong>
+                  <span class="d-block ms-3 text-muted small">{{ user.customer_profile.special_requests|default:"No special requests" }}</span>
                 </div>
               </div>
             {% else %}
-              <p class="text-muted mb-0">No preferences set</p>
+              <p class="text-muted mb-0 small">No preferences set</p>
             {% endif %}
           </div>
+          
         </div>
-
       </div>
 
       <!-- Right Column -->
       <div class="col-lg-4">
-        
-        <!-- Stats Card -->
-        <div class="card mb-4">
-          <div class="card-header">
-            <h4 class="mb-0">
+        <div class="profile-grid-right">
+          
+          <!-- Stats Card (Alert Style) -->
+          <div class="alert alert-success mb-3" role="alert">
+            <h5 class="alert-heading mb-2">
               <i class="bi bi-graph-up me-2"></i>
               Statistics
-            </h4>
+            </h5>
+            
+            <div class="row g-1">
+              <div class="col-12 mb-1">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="small">Total Bookings</span>
+                  <span class="badge bg-primary">{{ total_bookings|default:0 }}</span>
+                </div>
+              </div>
+              <div class="col-12 mb-1">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="small">Upcoming</span>
+                  <span class="badge bg-success">{{ upcoming_count|default:0 }}</span>
+                </div>
+              </div>
+              <div class="col-12 mb-1">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="small">Completed</span>
+                  <span class="badge bg-secondary">{{ completed_count|default:0 }}</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="card-body">
-            <div class="stat-item mb-3">
-              <div class="d-flex justify-content-between">
-                <span>Total Bookings</span>
-                <span class="badge bg-primary">{{ total_bookings|default:0 }}</span>
-              </div>
-            </div>
-            <div class="stat-item mb-3">
-              <div class="d-flex justify-content-between">
-                <span>Upcoming</span>
-                <span class="badge bg-success">{{ upcoming_count|default:0 }}</span>
-              </div>
-            </div>
-            <div class="stat-item">
-              <div class="d-flex justify-content-between">
-                <span>Completed</span>
-                <span class="badge bg-secondary">{{ completed_count|default:0 }}</span>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- Quick Actions Card -->
-        <div class="card">
-          <div class="card-header">
-            <h4 class="mb-0">
+          <!-- Quick Actions Card (Alert Style) -->
+          <div class="alert alert-info mb-3" role="alert">
+            <h5 class="alert-heading mb-2">
               <i class="bi bi-lightning me-2"></i>
               Quick Actions
-            </h4>
-          </div>
-          <div class="card-body">
+            </h5>
+            
             <div class="d-grid gap-2">
-              <a href="{% url 'bookings:booking' %}" class="btn btn-primary">
+              <a href="{% url 'bookings:booking' %}" class="btn btn-primary btn-sm">
                 <i class="bi bi-calendar-plus me-2"></i>
                 New Booking
               </a>
-              <a href="{% url 'bookings:my_bookings' %}" class="btn btn-outline-primary">
+              <a href="{% url 'bookings:my_bookings' %}" class="btn btn-outline-primary btn-sm">
                 <i class="bi bi-calendar-range me-2"></i>
                 My Bookings
               </a>
-              <a href="{% url 'menu' %}" class="btn btn-outline-secondary">
+              <a href="{% url 'menu' %}" class="btn btn-outline-secondary btn-sm">
                 <i class="bi bi-book me-2"></i>
                 View Menu
               </a>
             </div>
           </div>
+          
         </div>
-
       </div>
 
     </div>
@@ -174,43 +168,97 @@
 <!-- Extra CSS -->
 {% block extra_css %}
 <style>
+  /* Profile Hero - TIGHT VERSION */
   .profile-hero {
     background: linear-gradient(135deg, var(--azulejo-blue) 0%, var(--olive-green) 100%);
     color: white;
+    
+    /* Override any fixed heights from style.css */
+    min-height: auto !important;
+    max-height: none !important;
+    height: auto !important;
+    
+    /* REDUCED PADDING - Much tighter! */
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  .hero-logo {
+    width: 100%;
+    height: auto;
   }
 
   .profile-icon i {
     color: white;
   }
 
+  /* Profile Content */
   .profile-content {
     background-color: var(--linen-cream);
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
   }
 
-  .card {
-    border: none;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    margin-bottom: 1.5rem;
+  /* Grid Layout for Desktop - Makes bottom tiles align */
+  @media (min-width: 992px) {
+    .profile-grid-left,
+    .profile-grid-right {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      height: 100%;
+    }
   }
 
-  .card-header {
-    background-color: #f8f9fa;
-    border-bottom: 2px solid var(--azulejo-blue);
-    padding: 1.25rem;
+  /* Alert Customizations */
+  .alert-primary {
+    background-color: rgba(31, 78, 121, 0.1);
+    border-color: var(--azulejo-blue);
+    color: var(--espresso-brown);
   }
 
-  .card-header h3,
-  .card-header h4 {
+  .alert-primary .alert-heading {
     color: var(--azulejo-blue);
     font-family: var(--font-heading);
+    font-size: 1.25rem;
   }
 
-  .stat-item {
-    padding: 0.75rem;
-    background-color: #f8f9fa;
-    border-radius: 5px;
+  .alert-secondary {
+    background-color: rgba(107, 142, 35, 0.1);
+    border-color: var(--olive-green);
+    color: var(--espresso-brown);
   }
 
+  .alert-secondary .alert-heading {
+    color: var(--olive-green);
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+  }
+
+  .alert-success {
+    background-color: rgba(25, 135, 84, 0.1);
+    border-color: #198754;
+    color: var(--espresso-brown);
+  }
+
+  .alert-success .alert-heading {
+    color: #198754;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+  }
+
+  .alert-info {
+    background-color: rgba(31, 78, 121, 0.1);
+    border-color: var(--azulejo-blue);
+    color: var(--espresso-brown);
+  }
+
+  .alert-info .alert-heading {
+    color: var(--azulejo-blue);
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+  }
+
+  /* Buttons */
   .btn-primary {
     background-color: var(--terracotta-red);
     border-color: var(--terracotta-red);
@@ -228,6 +276,7 @@
 
   .btn-outline-primary:hover {
     background-color: var(--azulejo-blue);
+    border-color: var(--azulejo-blue);
     color: white;
   }
 
@@ -238,7 +287,25 @@
 
   .btn-outline-secondary:hover {
     background-color: var(--espresso-brown);
+    border-color: var(--espresso-brown);
     color: white;
+  }
+
+  /* Badge colors */
+  .badge.bg-primary {
+    background-color: var(--azulejo-blue) !important;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .profile-hero {
+      padding-top: 1.25rem !important;
+      padding-bottom: 1.25rem !important;
+    }
+    
+    .profile-hero h1 {
+      font-size: 1.5rem;
+    }
   }
 </style>
 {% endblock %}

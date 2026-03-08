@@ -10,7 +10,7 @@
 {% block content %}
 
 <!-- Hero Section -->
-<section class="bookings-hero py-5">
+<section class="bookings-hero">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-4 text-center mb-4 mb-lg-0">
@@ -31,7 +31,7 @@
 </section>
 
 <!-- Bookings Content Section -->
-<section class="bookings-content py-5">
+<section class="bookings-content">
   <div class="container">
     
     <!-- Upcoming Bookings -->
@@ -290,8 +290,9 @@
 
   /* Bookings Content Section */
   .bookings-content {
+    flex: 1 0 auto;
+    padding: 2rem 0 4rem !important;
     background-color: transparent;
-    min-height: 60vh;
   }
 
   /* Section Headers */
@@ -307,6 +308,10 @@
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: auto;
+    max-height: none;
+    display: flex;
+    flex-direction: column;
   }
 
   .booking-card:hover {
@@ -327,7 +332,8 @@
   }
 
   .booking-card .card-body {
-    padding: 1.5rem;
+    flex: 1 1 auto;
+    overflow-y: auto;
   }
 
   .booking-card .card-footer {
@@ -424,6 +430,7 @@
     background-color: var(--porcelain-white);
     border-radius: 10px;
     padding: 3rem 2rem;
+    margin-bottom: 2rem;
   }
 
   .empty-state i {
@@ -431,6 +438,11 @@
   }
 
   /* Accordion (Past Bookings) */
+ .accordion {
+    max-height: none;
+    overflow-y: visible;
+  }
+
   .accordion-item {
     border: 1px solid #dee2e6;
     margin-bottom: 0.5rem;

@@ -44,16 +44,21 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   font-family: var(--font-body);
   color: var(--espresso-brown);
   background-color: var(--linen-cream);
   line-height: 1.6;
   overflow-x: hidden;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 /* =========================================================
@@ -182,6 +187,1032 @@ a:hover {
   right: 1rem;
   height: 2px;
   background-color: var(--terracotta-red);
+}
+
+/* =========================================================
+   HERO SECTIONS - GRADIENT ON ALL PAGES
+   ========================================================= */
+.hero-section,
+.auth-hero,
+.menu-hero,
+.booking-hero,
+.bookings-hero,
+.profile-hero,
+.confirmation-hero {
+  background: linear-gradient(135deg, var(--azulejo-blue) 0%, var(--olive-green) 100%) !important;
+  color: var(--porcelain-white) !important;
+  border-bottom: 3px solid var(--olive-green);
+  
+  /* Heights and padding controlled by Nuclear Fix at end of file */
+  margin: 0;
+  
+  /* CENTER CONTENT VERTICALLY */
+  display: flex !important;
+  align-items: center !important;
+  
+  /* PREVENT OVERFLOW */
+  overflow: hidden !important;
+  
+  /* FLEX CONTAINER SETTINGS */
+  flex-shrink: 0;
+}
+
+.hero-section h1,
+.hero-section h2,
+.hero-section h3,
+.auth-hero h1,
+.auth-hero h2,
+.menu-hero h1,
+.menu-hero h2,
+.booking-hero h1,
+.booking-hero h2,
+.bookings-hero h1,
+.bookings-hero h2,
+.profile-hero h1,
+.profile-hero h2,
+.confirmation-hero h1,
+.confirmation-hero h2 {
+  color: var(--porcelain-white) !important;
+}
+
+.hero-section p,
+.hero-section .lead,
+.auth-hero p,
+.menu-hero p,
+.booking-hero p,
+.bookings-hero p,
+.profile-hero p,
+.confirmation-hero p {
+  color: var(--porcelain-white) !important;
+}
+
+.hero-section .bi,
+.auth-hero .bi,
+.menu-hero .bi,
+.booking-hero .bi,
+.bookings-hero .bi,
+.profile-hero .bi,
+.confirmation-hero .bi {
+  color: var(--porcelain-white) !important;
+}
+
+.hero-logo {
+  max-height: 300px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Main content area grows to fill space */
+main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background-color: var(--terracotta-red) !important;
+  border-color: var(--terracotta-red) !important;
+  color: var(--porcelain-white) !important;
+}
+
+.btn-primary:hover {
+  background-color: #a83829 !important;
+  border-color: #a83829 !important;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background-color: var(--azulejo-blue) !important;
+  border-color: var(--azulejo-blue) !important;
+  color: var(--porcelain-white) !important;
+}
+
+.btn-secondary:hover {
+  background-color: #163a5f !important;
+  border-color: #163a5f !important;
+}
+
+.btn-outline-primary {
+  color: var(--azulejo-blue) !important;
+  border-color: var(--azulejo-blue) !important;
+  background-color: transparent !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--azulejo-blue) !important;
+  border-color: var(--azulejo-blue) !important;
+  color: var(--porcelain-white) !important;
+}
+
+.btn-outline-secondary {
+  color: var(--espresso-brown) !important;
+  border-color: var(--espresso-brown) !important;
+  background-color: transparent !important;
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--espresso-brown) !important;
+  border-color: var(--espresso-brown) !important;
+  color: var(--porcelain-white) !important;
+}
+
+.btn-outline-danger {
+  color: var(--terracotta-red) !important;
+  border-color: var(--terracotta-red) !important;
+  background-color: transparent !important;
+}
+
+.btn-outline-danger:hover {
+  background-color: var(--terracotta-red) !important;
+  border-color: var(--terracotta-red) !important;
+  color: var(--porcelain-white) !important;
+}
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+.card,
+.profile-card,
+.booking-card,
+.stats-card,
+.actions-card,
+.details-card {
+  background-color: var(--porcelain-white) !important;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card:hover,
+.profile-card:hover,
+.booking-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.booking-card .card-header {
+  background: linear-gradient(135deg, var(--azulejo-blue) 0%, var(--olive-green) 100%);
+  color: white;
+  padding: 1.25rem;
+  border-bottom: none;
+  flex-shrink: 0;
+}
+
+.booking-card .card-body {
+  padding: 1.5rem;
+  flex-grow: 1;  /* THIS IS KEY - makes body fill available space */
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-card .card-footer {
+  background-color: #f8f9fa;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #dee2e6;
+  flex-shrink: 0;
+  margin-top: auto;  /* THIS IS KEY - pushes footer to bottom */
+}
+
+/* Special Requests Section - Add spacing */
+.booking-detail.special-requests {
+  margin-top: auto;  /* Pushes special requests to bottom of card body */
+  padding-top: 1rem;
+}
+
+.card-header {
+  background-color: #f8f9fa !important;
+  border-bottom: 2px solid var(--azulejo-blue);
+  font-family: var(--font-heading);
+  color: var(--azulejo-blue) !important;
+}
+
+/* =========================================================
+   FORMS
+   ========================================================= */
+.form-control,
+.form-select {
+  border: 2px solid #dee2e6;
+  border-radius: 5px;
+  padding: 0.75rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--azulejo-blue) !important;
+  box-shadow: 0 0 0 0.2rem rgba(31, 78, 121, 0.25) !important;
+  outline: none;
+}
+
+.form-label {
+  font-weight: 600;
+  color: var(--espresso-brown);
+}
+
+.invalid-feedback {
+  color: var(--terracotta-red);
+}
+
+.is-invalid {
+  border-color: var(--terracotta-red) !important;
+}
+
+/* =========================================================
+   ALERTS
+   ========================================================= */
+.alert-success {
+  background-color: #d4edda;
+  border-color: var(--olive-green);
+  color: #155724;
+}
+
+.alert-danger,
+.alert-error {
+  background-color: #f8d7da;
+  border-color: var(--terracotta-red);
+  color: #721c24;
+}
+
+.alert-warning {
+  background-color: #fff3cd;
+  border-color: #ffc107;
+  color: #856404;
+}
+
+.alert-info {
+  background-color: rgba(31, 78, 121, 0.1);
+  border-color: var(--azulejo-blue);
+  color: var(--espresso-brown);
+}
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+.badge.bg-primary {
+  background-color: var(--azulejo-blue) !important;
+}
+
+.badge.bg-success {
+  background-color: var(--olive-green) !important;
+}
+
+.badge.bg-danger {
+  background-color: var(--terracotta-red) !important;
+}
+
+.badge.bg-warning {
+  background-color: var(--olive-green) !important;
+}
+
+.bg-status-pending {
+  background-color: var(--olive-green) !important;
+}
+
+.bg-status-confirmed {
+  background-color: #28a745 !important;
+}
+
+.bg-status-cancelled {
+  background-color: var(--terracotta-red) !important;
+}
+
+.bg-status-completed {
+  background-color: #6c757d !important;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer-section {
+  flex-shrink: 0;
+  background-color: var(--espresso-brown) !important;
+  color: var(--porcelain-white);
+  padding: 3rem 0 1rem;
+  width: 100%;
+  margin-top: auto; /* This ensures footer stays at bottom */
+}
+
+.footer-section h5 {
+  color: var(--porcelain-white);
+}
+
+.footer-section a {
+  color: var(--porcelain-white);
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: var(--olive-green);
+}
+
+.footer-section .bi {
+  color: var(--azulejo-blue);
+}
+
+.contact-tile {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.contact-tile:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.copyright {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+  margin-top: 2rem;
+}
+
+/* =========================================================
+   MODALS
+   ========================================================= */
+.modal-header {
+  background: linear-gradient(135deg, var(--azulejo-blue) 0%, var(--olive-green) 100%) !important;
+  color: var(--porcelain-white) !important;
+}
+
+.modal-header .btn-close {
+  filter: invert(1);
+}
+
+.modal-header.bg-danger {
+  background-color: var(--terracotta-red) !important;
+  background: var(--terracotta-red) !important;
+}
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+.table thead {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(31, 78, 121, 0.05);
+}
+
+/* =========================================================
+   UTILITIES
+   ========================================================= */
+.text-primary {
+  color: var(--azulejo-blue) !important;
+}
+
+.bg-light {
+  background-color: var(--linen-cream) !important;
+}
+
+/* Prevent layout shift from scrollbar */
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
+/* Or force scrollbar always */
+html {
+  overflow-y: scroll;
+}
+
+/* =========================================================
+   MENU PAGE - IMAGE STYLING WITH RESPONSIVE DESIGN
+   ========================================================= */
+
+/* Menu Section Background */
+.menu-section {
+  background-color: var(--linen-cream);
+}
+
+/* Menu Header Banner Image - REDUCED SIZE */
+.menu-header-image {
+  max-height: 500px;  
+  width: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
+}
+
+/* Menu Item Cards */
+.menu-item-card {
+  background: var(--porcelain-white);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.menu-item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Menu Item Images */
+.menu-item-image {
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.menu-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.menu-item-card:hover .menu-item-image img {
+  transform: scale(1.1);
+}
+
+/* Optional Image Overlay for Better Text Contrast */
+.menu-item-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.1) 100%);
+  pointer-events: none;
+}
+
+/* CSS for Dietary Key (add to {% block extra_css %}) */
+
+.dietary-key-item {
+  border: 1px solid #dee2e6;
+  transition: all 0.2s ease;
+}
+
+.dietary-key-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.alert-info {
+  background-color: rgba(31, 78, 121, 0.1);
+  border-color: var(--azulejo-blue);
+  color: var(--espresso-brown);
+}
+
+.alert-info h5 {
+  color: var(--azulejo-blue);
+  font-family: var(--font-heading);
+}
+
+/* Content sections - Let them grow naturally */
+.booking-form-section,
+.bookings-content,
+.confirmation-section,
+.profile-content {
+  flex: 1 0 auto;
+  padding: 2rem 0 !important;
+  background-color: var(--linen-cream);
+  min-height: auto !important; /* Remove fixed min-height */
+}
+
+/* =========================================================
+   FINAL FIX - WHITESPACE AND FOOTER OVERLAP
+   ========================================================= */
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+main {
+  flex: 1 0 auto !important;
+}
+
+footer,
+.footer-section {
+  flex-shrink: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Override excessive padding */
+.py-5 {
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}
+
+.auth-hero,
+.booking-hero,
+.bookings-hero,
+.confirmation-hero,
+.profile-hero,
+.menu-hero {
+  padding-top: 2rem !important;
+  padding-bottom: 1.5rem !important;
+  min-height: auto !important;
+}
+
+.booking-form-section,
+.bookings-content,
+.booking-details,
+.profile-content,
+.auth-form-section,
+.main-section {
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+  min-height: auto !important;
+}
+
+section:last-of-type {
+  padding-bottom: 3rem !important;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .py-5,
+  .auth-hero,
+  .booking-hero,
+  .bookings-hero,
+  .confirmation-hero,
+  .profile-hero {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1rem !important;
+  }
+  
+  .booking-form-section,
+  .bookings-content,
+  .booking-details,
+  .profile-content,
+  .auth-form-section {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+}
+
+/* =========================================================
+   Responsive hero heights
+   ========================================================= */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+
+  /* Hero heights for tablet */
+  .hero-section,
+  .auth-hero,
+  .menu-hero,
+  .booking-hero,
+  .bookings-hero,
+  .profile-hero,
+  .confirmation-hero {
+    min-height: 220px !important;
+    max-height: 220px !important;
+    height: 220px !important;
+  }
+  
+  .hero-logo {
+    max-height: 150px !important;
+  }
+
+  /* Logo sizing for tablet */
+  .logo-image {
+    height: 40px !important;
+    max-height: 40px !important;
+  }
+
+}
+
+@media (max-width: 576px) {
+  .hero-section,
+  .auth-hero,
+  .menu-hero,
+  .booking-hero,
+  .bookings-hero,
+  .profile-hero,
+  .confirmation-hero {
+    min-height: 180px !important;
+    max-height: 180px !important;
+    height: 180px !important;
+  }
+  
+  .hero-logo {
+    max-height: 120px !important;
+  }
+
+  /* Logo sizing for mobile */
+  .logo-image {
+    height: 35px !important;
+    max-height: 35px !important;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .booking-form-section,
+  .bookings-content,
+  .confirmation-section,
+  .profile-content {
+    padding: 2rem 0;
+  }
+  
+  .footer-section {
+    padding: 2rem 0 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .booking-hero,
+  .auth-hero {
+    padding: 1.5rem 0 !important;
+  }
+  
+  .booking-form-section {
+    padding: 1.5rem 0 !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .booking-form-section,
+  .bookings-content,
+  .confirmation-section,
+  .profile-content {
+    min-height: calc(100vh - 350px);
+    padding: 1.5rem 0;
+  }
+}
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+@media print {
+  .navbar,
+  .footer-section,
+  .btn {
+    display: none !important;
+  }
+  
+  .hero-section,
+  .auth-hero {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+
+/* =========================================================
+   CSS for Dietary Key (add to {% block extra_css %})
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .dietary-key-item {
+    font-size: 0.85rem;
+  }
+  
+  .dietary-key-item .fs-4 {
+    font-size: 1.2rem !important;
+  }
+}
+
+/* Mobile menu improvements */
+@media (max-width: 991px) {
+  .navbar-light .navbar-nav .nav-link {
+    padding: 0.75rem 1rem;
+    margin: 0.25rem 0;
+  }
+  
+  .navbar-light .navbar-nav .nav-link.active {
+    border-left: 3px solid var(--terracotta-red);
+    border-radius: 0;
+  }
+  
+  .navbar-light .navbar-nav .nav-link.active::after {
+    display: none;
+  }
+}
+
+/* =========================================================
+   NUCLEAR FIX - WHITESPACE AND FOOTER OVERLAP
+   This section MUST be at the end to override all conflicts
+   ========================================================= */
+
+/* CRITICAL: Firefox/Edge Flexbox Fix */
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+main {
+  flex: 1 0 auto !important;
+  width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+footer,
+.footer-section {
+  flex-shrink: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Override ALL fixed heights on hero sections */
+.hero-section,
+.auth-hero,
+.menu-hero,
+.booking-hero,
+.bookings-hero,
+.profile-hero,
+.confirmation-hero {
+  min-height: auto !important;
+  height: auto !important;
+  max-height: none !important;
+  padding: 2rem 0 !important;
+  margin: 0 !important;
+}
+
+/* Override ALL fixed heights and excessive padding on content sections */
+.booking-form-section,
+.bookings-content,
+.confirmation-section,
+.booking-details,
+.profile-content,
+.auth-form-section,
+.main-section {
+  padding: 2rem 0 !important;
+  min-height: auto !important;
+  height: auto !important;
+  max-height: none !important;
+}
+
+/* Override Bootstrap .py-5 excessive padding (was 5rem = 80px) */
+.py-5 {
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}
+
+/* Ensure last sections have space before footer */
+section:last-of-type {
+  padding-bottom: 3rem !important;
+}
+
+/* Warning alerts at bottom of pages */
+.alert-warning:last-child,
+.alert:last-of-type {
+  margin-bottom: 2rem !important;
+}
+
+/* Mobile Responsive - Override ALL mobile fixed heights */
+@media (max-width: 768px) {
+  .py-5,
+  .hero-section,
+  .auth-hero,
+  .menu-hero,
+  .booking-hero,
+  .bookings-hero,
+  .confirmation-hero,
+  .profile-hero {
+    min-height: auto !important;
+    height: auto !important;
+    max-height: none !important;
+    padding: 1.5rem 0 !important;
+  }
+  
+  .booking-form-section,
+  .bookings-content,
+  .booking-details,
+  .profile-content,
+  .auth-form-section,
+  .main-section,
+  .confirmation-section {
+    padding: 1.5rem 0 !important;
+    min-height: auto !important;
+    height: auto !important;
+  }
+  
+  section:last-of-type {
+    padding-bottom: 2rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .py-5,
+  .hero-section,
+  .auth-hero,
+  .menu-hero,
+  .booking-hero,
+  .bookings-hero,
+  .confirmation-hero,
+  .profile-hero {
+    min-height: auto !important;
+    height: auto !important;
+    max-height: none !important;
+    padding: 1.25rem 0 !important;
+  }
+  
+  .booking-form-section,
+  .bookings-content,
+  .confirmation-section,
+  .booking-details,
+  .profile-content,
+  .auth-form-section {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 1.5rem 0 !important;
+  }
+}
+
+/* =========================================================
+   END NUCLEAR FIX
+   ========================================================= *//* =========================================================
+   PORTUGUESE KITCHEN - MAIN STYLESHEET
+   
+   This stylesheet implements the Portuguese Kitchen brand
+   colour palette and typography system consistently across
+   all pages.
+   
+   Author: Roberto Pires
+   Date: February 2026
+   ========================================================= */
+
+/* =========================================================
+   CSS CUSTOM PROPERTIES (VARIABLES)
+   Centralised colour palette for easy maintenance
+   ========================================================= */
+:root {
+  /* Brand Colours */
+  --azulejo-blue: #1F4E79;      /* Primary brand colour */
+  --olive-green: #6B8E23;        /* Secondary tone */
+  --terracotta-red: #C44536;     /* Call-to-action colour */
+  --linen-cream: #FAF7F2;        /* Main background */
+  --espresso-brown: #3A2F2A;     /* Text colour */
+  --porcelain-white: #FFFFFF;    /* Card backgrounds */
+  
+  /* Typography */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Lato', sans-serif;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+  --hero-height: 250px;          /* ONE height for all heroes */
+  --hero-logo-max: 300px;        /* ONE logo size for all heroes */
+}
+
+/* =========================================================
+   GLOBAL STYLES
+   ========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--espresso-brown);
+  background-color: var(--linen-cream);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--espresso-brown);
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+a {
+  color: var(--azulejo-blue);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--olive-green);
+}
+
+/* =========================================================
+   NAVIGATION BAR
+   ========================================================= */
+.navbar {
+  background-color: var(--porcelain-white);
+  box-shadow: var(--shadow-sm);
+}
+
+.navbar-brand {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--azulejo-blue);
+}
+
+.navbar-brand:hover {
+  color: var(--olive-green);
+}
+
+.logo-image {
+  height: 50px;
+  width: auto;
+  max-height: 50px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.logo-image:hover {
+  transform: scale(1.05);
+}
+
+.navbar-brand:hover .logo-image {
+  transform: rotate(-5deg) scale(1.05);
+}
+
+.logo-text {
+  color: var(--espresso-brown);
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--espresso-brown);
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--azulejo-blue);
+}
+
+.navbar .bi {
+  color: var(--azulejo-blue);
 }
 
 /* =========================================================
@@ -346,48 +1377,14 @@ a:hover {
   background-color: var(--porcelain-white) !important;
   border: 1px solid #dee2e6;
   border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: var(--shadow-sm);
   transition: box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
 }
 
 .card:hover,
 .profile-card:hover,
 .booking-card:hover {
   box-shadow: var(--shadow-md);
-}
-
-.booking-card .card-header {
-  background: linear-gradient(135deg, var(--azulejo-blue) 0%, var(--olive-green) 100%);
-  color: white;
-  padding: 1.25rem;
-  border-bottom: none;
-  flex-shrink: 0;
-}
-
-.booking-card .card-body {
-  padding: 1.5rem;
-  flex-grow: 1;  /* THIS IS KEY - makes body fill available space */
-  display: flex;
-  flex-direction: column;
-}
-
-.booking-card .card-footer {
-  background-color: #f8f9fa;
-  padding: 1rem 1.5rem;
-  border-top: 1px solid #dee2e6;
-  flex-shrink: 0;
-  margin-top: auto;  /* THIS IS KEY - pushes footer to bottom */
-}
-
-/* Special Requests Section - Add spacing */
-.booking-detail.special-requests {
-  margin-top: auto;  /* Pushes special requests to bottom of card body */
-  padding-top: 1rem;
 }
 
 .card-header {
@@ -776,22 +1773,5 @@ html {
   
   .dietary-key-item .fs-4 {
     font-size: 1.2rem !important;
-  }
-}
-
-/* Mobile menu improvements */
-@media (max-width: 991px) {
-  .navbar-light .navbar-nav .nav-link {
-    padding: 0.75rem 1rem;
-    margin: 0.25rem 0;
-  }
-  
-  .navbar-light .navbar-nav .nav-link.active {
-    border-left: 3px solid var(--terracotta-red);
-    border-radius: 0;
-  }
-  
-  .navbar-light .navbar-nav .nav-link.active::after {
-    display: none;
   }
 }
