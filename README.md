@@ -5053,20 +5053,6 @@ Test with: Google PageSpeed Insights, GTmetrix
 <img width="1230" height="444" alt="image" src="https://github.com/user-attachments/assets/5bed5ffb-8772-496c-ad0a-1d228f4a58a7" />
 <img width="1415" height="393" alt="image" src="https://github.com/user-attachments/assets/d04c8714-ad1c-4c86-9945-d9eded2b5501" />
 
-
-#### Critical User Journeys (Smoke Tests)
-
-Run before each deployment:
-
-
-| Journey | Steps | Expected Result | Status |
-|---------|-------|-----------------|--------|
-| Guest Booking | 1. Visit homepage<br>2. Click "Book a Table"<br>3. Fill form<br>4. Submit<br>5. View confirmation | Booking created successfully | ☐ |
-| User Registration & Booking | 1. Register account<br>2. Login<br>3. Make booking<br>4. View My Bookings | Account created, booking visible | ☐ |
-| Edit Booking | 1. Login<br>2. Go to My Bookings<br>3. Click Edit<br>4. Change date<br>5. Save | Booking updated | ☐ |
-| Cancel Booking | 1. Login<br>2. Go to My Bookings<br>3. Click Cancel<br>4. Confirm | Booking cancelled | ☐ |
-| Staff Dashboard | 1. Login as staff<br>2. View today's bookings<br>3. Search by name | Results display correctly | ☐ |
-
 #### 7. PYTHON/DJANGO TESTING
 [⬆ Back to Table of contents](#table-of-contents)
 
@@ -5076,32 +5062,24 @@ Run before each deployment:
 |---------|------|-----------|-----------------|--------|-------|
 | 141 | Flake8 | Run linter on all Python files | No errors | ☐ | Allow line length 88 |
 | 142 | Black | Check code formatting | All files formatted | ☐ | |
+<img width="922" height="535" alt="image" src="https://github.com/user-attachments/assets/f384ecd5-584c-452c-81be-e485f5414d1f" />
+<img width="935" height="244" alt="image" src="https://github.com/user-attachments/assets/b8f11642-f40b-4fbe-ac94-bf7d4228078e" />
+<img width="946" height="268" alt="image" src="https://github.com/user-attachments/assets/51ad88e1-16ab-4865-a30e-ee3658f8b588" />
+<img width="942" height="423" alt="image" src="https://github.com/user-attachments/assets/cc92a393-7444-4cbe-854b-ff551558e325" />
+<img width="947" height="235" alt="image" src="https://github.com/user-attachments/assets/3fb06cdd-d7f3-46cc-952e-80a8015cb438" />
+<img width="950" height="234" alt="image" src="https://github.com/user-attachments/assets/2aee33fd-68d5-4765-9f49-9b03a95051fd" />
+<img width="947" height="220" alt="image" src="https://github.com/user-attachments/assets/46317e48-0098-41ab-a22e-9b11e1378470" />
+<img width="944" height="240" alt="image" src="https://github.com/user-attachments/assets/2d48e5e0-68c9-414b-a13d-303ab2229807" />
+<img width="949" height="603" alt="image" src="https://github.com/user-attachments/assets/4cae9c68-e135-4134-ae6c-5a07ebbcabf8" />
+<img width="947" height="83" alt="image" src="https://github.com/user-attachments/assets/c9631900-ca47-4aa5-8b53-3b9ad40deedf" />
+<img width="933" height="232" alt="image" src="https://github.com/user-attachments/assets/89c713f0-e6a2-4b7c-ace6-f1b5d5569914" />
+<img width="936" height="234" alt="image" src="https://github.com/user-attachments/assets/dfca0729-6be6-4c98-8b71-1d14906fc063" />
+
+
+
 | 143 | Pylint | Check code quality | Score > 8.0/10 | ☐ | |
-| 144 | isort | Import statements ordered | Organized imports | ☐ | |
+| 144 | isort | Import statements ordered | Organised imports | ☐ | |
 
-#### 7.2 Django Unit Tests (Optional but Recommended)
-
-```python
-# Example test structure
-from django.test import TestCase
-from bookings.models import Booking, Table, TimeSlot
-
-class BookingModelTest(TestCase):
-    def test_booking_creation(self):
-        # Test booking can be created
-        pass
-    
-    def test_reference_number_unique(self):
-        # Test reference numbers are unique
-        pass
-```
-
-| Test Area | Tests Written | Tests Passing | Coverage | Status |
-|-----------|---------------|---------------|----------|--------|
-| Models | ☐ | ☐ | ☐ % | ☐ |
-| Views | ☐ | ☐ | ☐ % | ☐ |
-| Forms | ☐ | ☐ | ☐ % | ☐ |
-| Utils | ☐ | ☐ | ☐ % | ☐ |
 
 #### 8. CODE VALIDATION
 [⬆ Back to Table of contents](#table-of-contents)
