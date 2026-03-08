@@ -4997,6 +4997,18 @@ Test with: Google PageSpeed Insights, GTmetrix
 <img width="709" height="951" alt="image" src="https://github.com/user-attachments/assets/f96b1447-e242-485f-8ec9-0e9b2e25d50e" />
 <img width="979" height="926" alt="image" src="https://github.com/user-attachments/assets/1335fa8d-32aa-4ce9-9584-51d99582c7d5" />
 
+| Feature Area | Regression Tests | Frequency | Status |
+|--------------|------------------|-----------|--------|
+| Responsiven Testing | 096 | Booking confirmation | ☐ |
+
+| Test ID | Page | Mobile (375px) | Tablet (768px) | Desktop (1920px) | Notes |
+|---------|------|----------------|----------------|------------------|-------|
+| 096 | Booking Confirmation | PASS | PASS | PASS | Header section of content and image is visually appropriate |
+<img width="1879" height="826" alt="image" src="https://github.com/user-attachments/assets/33f868f3-57ed-4b00-8608-70770872c02a" />
+<img width="707" height="380" alt="image" src="https://github.com/user-attachments/assets/fd431afa-c452-4ed0-bc21-fe552ec4111f" />
+<img width="790" height="300" alt="image" src="https://github.com/user-attachments/assets/d2e4edf8-7053-4814-82c4-f4bfafb0774d" />
+<img width="645" height="588" alt="image" src="https://github.com/user-attachments/assets/78a2e093-662c-4b67-a37b-8c46faa9b206" />
+
 #### Critical User Journeys (Smoke Tests)
 
 Run before each deployment:
