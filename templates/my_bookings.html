@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="col-lg-8">
-        <h2 class="display-5 fw-bold mb-3">Your Reservations</h2>
+        <h1 class="display-5 fw-bold mb-3">Your Reservations</h1>
         <p class="lead mb-0">
           Manage your upcoming bookings and view your dining history
         </p>
@@ -38,7 +38,7 @@
     <div class="row mb-5">
       <div class="col-12">
         <div class="section-header d-flex justify-content-between align-items-center mb-4">
-          <h3 class="mb-0">
+          <h2 class="mb-0" style="font-size: 1.5rem;">
             <i class="bi bi-calendar-event me-2 text-primary"></i>
             Upcoming Bookings
           </h3>
@@ -57,7 +57,7 @@
                 <div class="card-header">
                   <div class="d-flex justify-content-between align-items-start">
                     <div>
-                      <h5 class="mb-1">{{ booking.booking_date|date:"D, M j" }}</h5>
+                      <h3 class="mb-1" style="font-size: 1.1rem;">{{ booking.booking_date|date:"D, M j" }}</h3>
                       <p class="mb-0 text-muted">{{ booking.booking_date|date:"Y" }}</p>
                     </div>
                     <span class="badge bg-status-{{ booking.status|lower }}">
@@ -130,7 +130,7 @@
           <!-- Empty State -->
           <div class="empty-state text-center py-5">
             <i class="bi bi-calendar-x display-1 text-muted mb-4"></i>
-            <h4 class="mb-3">No Upcoming Bookings</h4>
+            <h3 class="mb-3" style="font-size: 1.25rem;">No Upcoming Bookings</h3>
             <p class="text-muted mb-4">
               You don't have any upcoming reservations. Book a table to experience authentic Portuguese cuisine!
             </p>
@@ -148,7 +148,7 @@
     <div class="row">
       <div class="col-12">
         <div class="section-header mb-4">
-          <h3 class="mb-0">
+          <h2 class="mb-0" style="font-size: 1.5rem;">
             <i class="bi bi-clock-history me-2 text-primary"></i>
             Past Bookings
           </h3>
@@ -158,7 +158,7 @@
         <div class="accordion" id="pastBookingsAccordion">
           {% for booking in past_bookings %}
           <div class="accordion-item">
-            <h2 class="accordion-header" id="heading{{ forloop.counter }}">
+            <h3 class="accordion-header" style="font-size: 1rem;" id="heading{{ forloop.counter }}">
               <button class="accordion-button {% if forloop.counter > 1 %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="{% if forloop.counter == 1 %}true{% else %}false{% endif %}" aria-controls="collapse{{ forloop.counter }}">
                 <div class="w-100 d-flex justify-content-between align-items-center pe-3">
                   <div>
@@ -169,7 +169,7 @@
                   <span class="badge bg-secondary">{{ booking.status }}</span>
                 </div>
               </button>
-            </h2>
+            </h3>
             <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse {% if forloop.counter == 1 %}show{% endif %}" aria-labelledby="heading{{ forloop.counter }}" data-bs-parent="#pastBookingsAccordion">
               <div class="accordion-body">
                 <div class="row g-3">
@@ -227,10 +227,10 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header bg-danger text-white">
-        <h5 class="modal-title" id="cancelModalLabel">
+        <h3 class="modal-title" style="font-size: 1.25rem;" id="cancelModalLabel">
           <i class="bi bi-exclamation-triangle me-2"></i>
           Cancel Booking
-        </h5>
+        </h3>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
