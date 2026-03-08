@@ -4714,7 +4714,7 @@ Test on following viewport sizes:
 
 | Test ID | Criterion | Test Case | Expected Result | Status | Notes |
 |---------|-----------|-----------|-----------------|--------|-------|
-| 120 | 4.1.2 | ARIA labels used correctly | Screen reader friendly | ☐ | |
+| 120 | 4.1.2 | ARIA labels used correctly | Screen reader friendly | PASS | |
 <img width="374" height="184" alt="image" src="https://github.com/user-attachments/assets/d63a7883-4893-4fa7-bfb6-2fea40fe12d3" />
 <img width="314" height="150" alt="image" src="https://github.com/user-attachments/assets/57048635-1a2e-4814-b6f5-c49eb6282892" />
 <img width="298" height="164" alt="image" src="https://github.com/user-attachments/assets/acc9ea05-4c57-479f-b227-2cb5f0fef305" />
@@ -4738,7 +4738,7 @@ Test on following viewport sizes:
 
 | Test ID | Tool | Page | Test Case | Status | Notes |
 |---------|------|------|-----------|--------|-------|
-| 124 | WAVE | All pages | No errors reported | PARTIAL PASS | |
+| 124 | WAVE | All pages | No errors reported | PASS | |
 <img width="877" height="551" alt="image" src="https://github.com/user-attachments/assets/72743594-9908-4c23-aabb-6a0d4a6eb582" />
 <img width="896" height="486" alt="image" src="https://github.com/user-attachments/assets/0302f6a7-3bd2-4a6d-9461-6a70d8d4a3c7" />
 <img width="418" height="495" alt="image" src="https://github.com/user-attachments/assets/13ce7e71-1abc-4218-b269-af84947dd8cc" />
@@ -5039,6 +5039,18 @@ Test with: Google PageSpeed Insights, GTmetrix
 <img width="336" height="505" alt="image" src="https://github.com/user-attachments/assets/edf47735-f875-4b62-a18c-2041dcf4266e" />
 <img width="1163" height="559" alt="image" src="https://github.com/user-attachments/assets/210aa65c-f1b6-447c-88f2-8589a0761ead" />
 <img width="315" height="559" alt="image" src="https://github.com/user-attachments/assets/bc507c0f-883b-4b8f-8619-ca7679bdf5ce" />
+
+| Feature Area | Regression Tests | Frequency | Status |
+|--------------|------------------|-----------|--------|
+| Asset Optimisation Testing | 136 | Images Optimised - WebP format, <200KB | ☐ |
+
+| Test ID | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------------|--------|-------|
+| 136 | Images optimised | WebP format, < 200KB | PASS | |
+<img width="1222" height="505" alt="image" src="https://github.com/user-attachments/assets/1efd145e-b0e5-4207-b857-528243030501" />
+<img width="1271" height="465" alt="image" src="https://github.com/user-attachments/assets/22d0778b-08d8-4cfa-8cd5-868a327f898a" />
+<img width="1230" height="444" alt="image" src="https://github.com/user-attachments/assets/5bed5ffb-8772-496c-ad0a-1d228f4a58a7" />
+<img width="1415" height="393" alt="image" src="https://github.com/user-attachments/assets/d04c8714-ad1c-4c86-9945-d9eded2b5501" />
 
 
 #### Critical User Journeys (Smoke Tests)
