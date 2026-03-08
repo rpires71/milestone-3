@@ -5009,6 +5009,18 @@ Test with: Google PageSpeed Insights, GTmetrix
 <img width="790" height="300" alt="image" src="https://github.com/user-attachments/assets/d2e4edf8-7053-4814-82c4-f4bfafb0774d" />
 <img width="645" height="588" alt="image" src="https://github.com/user-attachments/assets/78a2e093-662c-4b67-a37b-8c46faa9b206" />
 
+| Feature Area | Regression Tests | Frequency | Status |
+|--------------|------------------|-----------|--------|
+| Responsiven Testing | 098 | Statistics - Whitespace | ☐ |
+
+| Test ID | Page | Mobile (375px) | Tablet (768px) | Desktop (1920px) | Notes |
+|---------|------|----------------|----------------|------------------|-------|
+| 098 | Statistics | PASS | PASS | PASS | Charts responsive |
+<img width="515" height="691" alt="image" src="https://github.com/user-attachments/assets/505a83b6-d3ac-4a71-a167-7f98f098b83f" />
+<img width="766" height="935" alt="image" src="https://github.com/user-attachments/assets/17e0f8fd-a00d-4852-8697-75e0734c05b2" />
+<img width="947" height="929" alt="image" src="https://github.com/user-attachments/assets/f74f6832-03b1-4bf4-8c33-381e8261f88e" />
+
+
 #### Critical User Journeys (Smoke Tests)
 
 Run before each deployment:
