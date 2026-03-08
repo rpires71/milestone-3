@@ -1,10 +1,11 @@
 # Milestone 3 Project - Data Centric Development Milestone Project - Restaurant Booking System
 
-<img width="1453" height="826" alt="am-i-responsive" src="https://github.com/user-attachments/assets/f673de24-b44c-431a-a633-aa8bacd21631" />
+<img width="1887" height="947" alt="image" src="https://github.com/user-attachments/assets/394947d9-9435-4cab-90b1-5a1bd19d1ff2" />
+
 
 ## Links
 
-- [Link to Live Website](https://rpires71.github.io/milestone-3/)
+- [Link to Live Website](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/)
 - [GitHub Project Repository](https://github.com/rpires71/milestone-3)
 
 ## Table of contents
