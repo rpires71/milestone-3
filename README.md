@@ -4983,7 +4983,7 @@ Test with: Google PageSpeed Insights, GTmetrix
 
 | Feature Area | Regression Tests | Frequency | Status |
 |--------------|------------------|-----------|--------|
-| Responsiven Testing | 095 | Tiles desaligned | ☐ |
+| Responsive Testing | 095 | Tiles desaligned | ☐ |
 
 | Test ID | Page | Mobile (375px) | Tablet (768px) | Desktop (1920px) | Notes |
 |---------|------|----------------|----------------|------------------|-------|
@@ -4999,7 +4999,7 @@ Test with: Google PageSpeed Insights, GTmetrix
 
 | Feature Area | Regression Tests | Frequency | Status |
 |--------------|------------------|-----------|--------|
-| Responsiven Testing | 096 | Booking confirmation | ☐ |
+| Responsive Testing | 096 | Booking confirmation | ☐ |
 
 | Test ID | Page | Mobile (375px) | Tablet (768px) | Desktop (1920px) | Notes |
 |---------|------|----------------|----------------|------------------|-------|
@@ -5011,7 +5011,7 @@ Test with: Google PageSpeed Insights, GTmetrix
 
 | Feature Area | Regression Tests | Frequency | Status |
 |--------------|------------------|-----------|--------|
-| Responsiven Testing | 098 | Statistics - Whitespace | ☐ |
+| Responsive Testing | 098 | Statistics - Whitespace | ☐ |
 
 | Test ID | Page | Mobile (375px) | Tablet (768px) | Desktop (1920px) | Notes |
 |---------|------|----------------|----------------|------------------|-------|
@@ -5019,6 +5019,26 @@ Test with: Google PageSpeed Insights, GTmetrix
 <img width="515" height="691" alt="image" src="https://github.com/user-attachments/assets/505a83b6-d3ac-4a71-a167-7f98f098b83f" />
 <img width="766" height="935" alt="image" src="https://github.com/user-attachments/assets/17e0f8fd-a00d-4852-8697-75e0734c05b2" />
 <img width="947" height="929" alt="image" src="https://github.com/user-attachments/assets/f74f6832-03b1-4bf4-8c33-381e8261f88e" />
+
+| Feature Area | Regression Tests | Frequency | Status |
+|--------------|------------------|-----------|--------|
+| Accessibility Testing | 107 | Proper heading hierarchy | ☐ |
+
+| Test ID | Criterion | Test Case | Expected Result | Status | Notes |
+|---------|-----------|-----------|-----------------|--------|-------|
+| 107 | 1.3.1 | Semantic HTML used | Proper heading hierarchy | PASS | |
+<img width="1132" height="544" alt="image" src="https://github.com/user-attachments/assets/aa0e0da2-c660-4223-99aa-1b50394eebe9" />
+<img width="331" height="445" alt="image" src="https://github.com/user-attachments/assets/f584e0ce-db0e-45ef-93a8-9eee2996de25" />
+<img width="1230" height="620" alt="image" src="https://github.com/user-attachments/assets/f0d28460-72f6-4d1e-b634-66d9793b70c7" />
+<img width="338" height="648" alt="image" src="https://github.com/user-attachments/assets/b9885797-f298-474a-b2f6-b7faa484bd62" />
+<img width="1407" height="573" alt="image" src="https://github.com/user-attachments/assets/1b817cfd-760b-4e33-afa1-8a23684f879a" />
+<img width="323" height="455" alt="image" src="https://github.com/user-attachments/assets/ab6adcf9-d862-4519-bd4d-2737cf090d93" />
+<img width="1490" height="603" alt="image" src="https://github.com/user-attachments/assets/aa58123a-7696-4911-99ee-8a56d48cdb4d" />
+<img width="313" height="574" alt="image" src="https://github.com/user-attachments/assets/25cd1aa6-9fad-45a8-a397-a86b4a34dfc8" />
+<img width="1174" height="491" alt="image" src="https://github.com/user-attachments/assets/2c1255a0-29a1-4191-9b75-52a95883ab2c" />
+<img width="336" height="505" alt="image" src="https://github.com/user-attachments/assets/edf47735-f875-4b62-a18c-2041dcf4266e" />
+<img width="1163" height="559" alt="image" src="https://github.com/user-attachments/assets/210aa65c-f1b6-447c-88f2-8589a0761ead" />
+<img width="315" height="559" alt="image" src="https://github.com/user-attachments/assets/bc507c0f-883b-4b8f-8619-ca7679bdf5ce" />
 
 
 #### Critical User Journeys (Smoke Tests)
