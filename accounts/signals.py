@@ -17,7 +17,7 @@ from .models import CustomerProfile
 def create_customer_profile(sender, instance, created, **kwargs):
     """
     Create CustomerProfile automatically when User is created.
-    
+
     Args:
         sender: User model
         instance: User instance
@@ -32,9 +32,9 @@ def create_customer_profile(sender, instance, created, **kwargs):
 def save_customer_profile(sender, instance, **kwargs):
     """
     Save CustomerProfile when User is saved.
-    
+
     Creates profile if it doesn't exist (safety check).
-    
+
     Args:
         sender: User model
         instance: User instance
@@ -42,7 +42,7 @@ def save_customer_profile(sender, instance, **kwargs):
     """
     # Use get_or_create to prevent duplicate errors
     profile, created = CustomerProfile.objects.get_or_create(user=instance)
-    
+
     # Only save if profile already existed (not just created)
     if not created:
         profile.save()

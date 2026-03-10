@@ -1,8 +1,8 @@
 """
 Django Admin Configuration for Accounts Application
 
-This module configures the Django admin interface for the CustomerProfile model,
-providing staff with tools to view and manage customer profiles.
+This module configures the Django admin interface for the CustomerProfile 
+model, providing staff with tools to view and manage customer profiles.
 
 References:
     Vincent, W. S. (2020) Django for beginners: Build websites with Python
