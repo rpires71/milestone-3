@@ -12,22 +12,23 @@ Date: January 2026
 Course: Code Institute - Milestone Project 3
 """
 
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.admin.views.decorators import staff_member_required
-from django.contrib.auth.decorators import login_required
-from django.contrib import messages
-from django.http import JsonResponse
-from django.utils import timezone
-from .models import Booking, TimeSlot, Table
-from .forms import BookingForm
-from django.http import HttpResponse
-from django.db.models import Count, Sum, Q
-from django.db.models.functions import TruncDate
-from datetime import datetime, timedelta, date
-from collections import Counter
-from .emails import send_booking_confirmation_email
 import csv
 import json
+from collections import Counter
+from datetime import date, datetime, timedelta
+
+from django.contrib import messages
+from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.decorators import login_required
+from django.db.models import Count, Q, Sum
+from django.db.models.functions import TruncDate
+from django.http import HttpResponse, JsonResponse
+from django.shortcuts import get_object_or_404, redirect, render
+from django.utils import timezone
+
+from .emails import send_booking_confirmation_email
+from .forms import BookingForm
+from .models import Booking, Table, TimeSlot
 
 
 def booking_page(request):

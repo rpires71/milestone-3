@@ -14,19 +14,20 @@ Course: Code Institute - Milestone Project 3
 Reference: Vincent, W. S. (2020) Django for beginners. Chapter 8.
 """
 
-# from urllib import request
-from django.shortcuts import render, redirect
-from django.contrib.auth import login, logout, authenticate
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib import messages
 from django.contrib.auth.models import User
-# from bookings.models import Booking
-from .forms import UserRegistrationForm, UserProfileForm
-from .models import CustomerProfile
 # from datetime import date, timezone
 # Helper function for checking if username exists (AJAX)
 from django.http import JsonResponse
+# from urllib import request
+from django.shortcuts import redirect, render
+
+# from bookings.models import Booking
+from .forms import UserProfileForm, UserRegistrationForm
+from .models import CustomerProfile
 
 
 def register_view(request):
@@ -210,8 +211,9 @@ def profile_view(request):
         form = UserProfileForm(instance=profile)
 
     # Get user's booking statistics
-    from bookings.models import Booking
     from datetime import date
+
+    from bookings.models import Booking
 
     today = date.today()
 

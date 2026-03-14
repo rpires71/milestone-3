@@ -5,9 +5,11 @@ Author: Roberto Pires
 Date: January 2026
 """
 
+from datetime import date
+
 from django import forms
 from django.core.exceptions import ValidationError
-from datetime import date
+
 from .models import Booking, TimeSlot
 
 

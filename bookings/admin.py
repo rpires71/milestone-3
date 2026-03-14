@@ -10,7 +10,8 @@ References:
 """
 
 from django.contrib import admin
-from .models import Table, TimeSlot, Booking
+
+from .models import Booking, Table, TimeSlot
 
 
 @admin.register(Table)

@@ -86,12 +86,16 @@ class MenuCategory(models.Model):
         Defines default ordering and human-readable names for the Django
         admin interface (Vincent, 2020, Chapter 5).
         """
-        # Primary sort by display_order (numerical), secondary sort by name (alphabetical)
-        # This ensures categories appear in intended order, with alphabetical fallback
-        # for categories with identical display_order values
+        # Primary sort by display_order (numerical), secondary sort by name 
+        # (alphabetical). This ensures categories appear in intended order, 
+        # with alphabetical fallback for categories with identical 
+        # display_order values
+
         ordering = ['display_order', 'name']
         
-        # Proper spacing in verbose names for improved readability in admin interface
+        # Proper spacing in verbose names for improved readability 
+        # in admin interface
+        
         verbose_name = "Menu Category"
         verbose_name_plural = "Menu Categories"
 

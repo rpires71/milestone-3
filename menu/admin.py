@@ -10,7 +10,8 @@ References:
 """
 
 from django.contrib import admin
-from .models import MenuCategory, MenuItem, DietaryTag
+
+from .models import DietaryTag, MenuCategory, MenuItem
 
 
 @admin.register(MenuCategory)

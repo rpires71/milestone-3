@@ -13,11 +13,12 @@ Course: Code Institute - Milestone Project 3
 Implements US8: Email confirmation for bookings
 """
 
-from django.core.mail import send_mail, EmailMultiAlternatives
+import logging
+
+from django.conf import settings
+from django.core.mail import EmailMultiAlternatives, send_mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
-from django.conf import settings
-import logging
 
 # Set up logging for email failures (AC5)
 logger = logging.getLogger(__name__)
@@ -58,7 +59,7 @@ def send_booking_confirmation_email(booking):
 
         # Email subject (AC2, AC3)
         subject = (
-            f"Booking Confirmation - {booking.reference_number} - Portuguese Kitchen"
+            f"Booking Confirmation - {booking.reference_number} - " "Portuguese Kitchen"
         )
 
         # Prepare context for email template (AC2, AC4)
@@ -80,7 +81,7 @@ def send_booking_confirmation_email(booking):
         # Alternative: Use custom plain text template for better formatting
         try:
             plain_message = render_to_string("emails/booking_confirmation.txt", context)
-        except:
+        except Exception:
             # Fallback to stripped HTML if plain text template doesn't exist
             plain_message = strip_tags(html_message)
 
@@ -100,7 +101,10 @@ def send_booking_confirmation_email(booking):
 
         # Log success
         logger.info(
-            f"Confirmation email sent successfully for booking {booking.reference_number} to {recipient_email}"
+            (
+                f"Confirmation email sent successfully for booking "
+                f"{booking.reference_number} to {recipient_email}"
+            )
         )
 
         return True
@@ -109,7 +113,10 @@ def send_booking_confirmation_email(booking):
         # AC5: Handle email delivery failure
         # Log error but don't break the booking process
         logger.error(
-            f"Failed to send confirmation email for booking {booking.reference_number}: {str(e)}",
+            (
+                f"Failed to send confirmation email for booking "
+                f"{booking.reference_number}: {str(e)}"
+            ),
             exc_info=True,
         )
         return False
@@ -139,7 +146,9 @@ def send_booking_update_email(booking, change_type="updated"):
             customer_name = booking.guest_name
 
         if not recipient_email:
-            logger.error(f"No email address for booking {booking.reference_number}")
+            logger.error(
+                f"No email address for booking {booking.reference_number}"
+            )
             return False
 
         # Email subject based on change type
@@ -172,7 +181,9 @@ def send_booking_update_email(booking, change_type="updated"):
             plain_message = render_to_string(template_txt, context)
         except:
             # Fallback if specific templates don't exist
-            html_message = render_to_string("emails/booking_confirmation.html", context)
+            html_message = render_to_string(
+                "emails/booking_confirmation.html", context
+                )
             plain_message = strip_tags(html_message)
 
         # Send email
