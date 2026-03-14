@@ -5062,6 +5062,13 @@ Test with: Google PageSpeed Insights, GTmetrix
 |---------|------|-----------|-----------------|--------|-------|
 | 141 | Flake8 | Run linter on all Python files | No errors | ☐ | Allow line length 88 |
 | 142 | Black | Check code formatting | All files formatted | ☐ | |
+
+##### Flake8: The "Linter"
+Flake8 is a tool that scans Python code and points out mistakes without modifying them.
+
+##### Black: The "Formatter" (Editor)
+Black is a code formatter. It suggest changes and takes the code and rewrites it to follow a strict, consistent style.
+
 <img width="922" height="535" alt="image" src="https://github.com/user-attachments/assets/f384ecd5-584c-452c-81be-e485f5414d1f" />
 <img width="935" height="244" alt="image" src="https://github.com/user-attachments/assets/b8f11642-f40b-4fbe-ac94-bf7d4228078e" />
 <img width="946" height="268" alt="image" src="https://github.com/user-attachments/assets/51ad88e1-16ab-4865-a30e-ee3658f8b588" />
@@ -5076,10 +5083,117 @@ Test with: Google PageSpeed Insights, GTmetrix
 <img width="936" height="234" alt="image" src="https://github.com/user-attachments/assets/dfca0729-6be6-4c98-8b71-1d14906fc063" />
 
 
+| Test ID | Tool | Test Case | Expected Result | Status | Notes |
+|---------|------|-----------|-----------------|--------|-------|
+| 143 | Pylint | Check code quality | Score > 8.0/10 | PASS | |
 
-| 143 | Pylint | Check code quality | Score > 8.0/10 | ☐ | |
+##### Pylint is a high-level static code analysis tool for Python. It is a very strict "proofreader" for code that checks for errors, enforces a the PEP 8 coding standard, and looks for complex or inefficient code.
+
+**pylint bookings/**
+------------------------------------------------------------------
+Your code has been rated at 8.91/10 (previous run: 0.00/10, +8.91)
+
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3>
+
+**pylint accounts/**
+-----------------------------------
+Your code has been rated at 9.36/10
+
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3> 
+
+**pylint menu/**
+------------------------------------------------------------------
+Your code has been rated at 8.92/10 (previous run: 7.16/10, +1.76)
+
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3> 
+
+**pylint portuguese_kitchen/**
+
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3> pylint portuguese_kitchen/
+************* Module portuguese_kitchen
+portuguese_kitchen\__init__.py:1:0: E5110: Django was not configured. For more information run pylint --load-plugins=pylint_django --help-msg=django-not-configured (django-not-configured)
+************* Module portuguese_kitchen.settings
+portuguese_kitchen\settings.py:27:0: C0301: Line too long (95/88) (line-too-long)
+portuguese_kitchen\settings.py:85:0: C0301: Line too long (91/88) (line-too-long)
+portuguese_kitchen\settings.py:94:0: C0301: Line too long (91/88) (line-too-long)
+************* Module portuguese_kitchen.urls
+portuguese_kitchen\urls.py:34:0: C0301: Line too long (90/88) (line-too-long)
+
+-----------------------------------
+Your code has been rated at 8.55/10
+
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3> 
+
+| Test ID | Tool | Test Case | Expected Result | Status | Notes |
+|---------|------|-----------|-----------------|--------|-------|
 | 144 | isort | Import statements ordered | Organised imports | ☐ | |
 
+##### isort is a Python utility that automatically sorts and organises your import statements according to PEP 8 standards.
+
+**isort bookings/**
+
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3> isort bookings/               
+Fixing C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\bookings\admin.py
+Fixing C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\bookings\emails.py
+Fixing C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\bookings\forms.py
+Fixing C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\bookings\models.py
+Fixing C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\bookings\urls.py
+Fixing C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\bookings\views.py
+Fixing C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\bookings\migrations\0001_initial.py
+Fixing C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\bookings\migrations\0003_alter_booking_user.py
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3> isort bookings/ --check       
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3> echo $LASTEXITCODE
+0
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3> 
+
+**isort accounts/**
+
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3> isort accounts/ --check -diff
+ERROR: C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\accounts\admin.py Imports are incorrectly sorted and/or formatted.
+ERROR: C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\accounts\forms.py Imports are incorrectly sorted and/or formatted.
+ERROR: C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\accounts\models.py Imports are incorrectly sorted and/or formatted.
+ERROR: C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\accounts\signals.py Imports are incorrectly sorted and/or formatted.
+ERROR: C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\accounts\urls.py Imports are incorrectly sorted and/or formatted.
+ERROR: C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\accounts\views.py Imports are incorrectly sorted and/or formatted.
+ERROR: C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\accounts\migrations\0001_initial.py Imports are incorrectly sorted and/or formatted.
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3> isort accounts/              
+Fixing C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\accounts\admin.py
+Fixing C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\accounts\forms.py
+Fixing C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\accounts\models.py
+Fixing C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\accounts\signals.py
+Fixing C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\accounts\urls.py
+Fixing C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\accounts\views.py
+Fixing C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\accounts\migrations\0001_initial.py
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3> isort accounts/ --check      
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3> echo $LASTEXITCODE
+0
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3> 
+
+**isort menu/**
+
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3> isort menu/ --check -diff    
+ERROR: C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\menu\admin.py Imports are incorrectly sorted and/or formatted.
+ERROR: C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\menu\migrations\0001_initial.py Imports are incorrectly sorted and/or formatted.
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3> isort menu/              
+Fixing C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\menu\admin.py
+Fixing C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\menu\migrations\0001_initial.py
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3> isort menu/ --check      
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3> echo $LASTEXITCODE       
+0
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3> 
+
+**isort portuguese_kitchen/**
+
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3> isort portuguese_kitchen/ --check -diff
+ERROR: C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\portuguese_kitchen\settings.py Imports are incorrectly sorted and/or formatted.
+ERROR: C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\portuguese_kitchen\urls.py Imports are incorrectly sorted and/or formatted.
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3> isort portuguese_kitchen/              
+Fixing C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\portuguese_kitchen\settings.py
+Fixing C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3\portuguese_kitchen\urls.py
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3> isort portuguese_kitchen/ --check
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3> echo $LASTEXITCODE
+0
+(venv) PS C:\Users\rober\OneDrive\Documents\vscode-projects\milestone-3> 
 
 #### 8. CODE VALIDATION
 [⬆ Back to Table of contents](#table-of-contents)
