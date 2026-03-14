@@ -2,7 +2,6 @@
 
 <img width="1887" height="947" alt="image" src="https://github.com/user-attachments/assets/394947d9-9435-4cab-90b1-5a1bd19d1ff2" />
 
-
 ## Links
 
 - [Link to Live Website](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/)
@@ -79,6 +78,8 @@
   - [Continuous Deployment](#continuous-deployment)
   - [Production Environment Validation](#production-environment-validation)
   - [Conclusion](#conclusion)
+- [Website Information Architecture: Page Purpose & Structure](#website-information-architecture-page-purpose--structure)
+  - [Homepage (index.html / Home View) — Purpose & Structure](#homepage-indexhtml--home-view--purpose--structure)
 - [References](README.md#references)
 
 # Milestone Project 3
@@ -6093,6 +6094,90 @@ The Portuguese Kitchen application is successfully deployed to Heroku and fully 
 **Release Version:** v35  
 **Deployment Method:** Git push to Heroku  
 **Status:** Active and Running
+
+---
+
+## Website Information Architecture: Page Purpose & Structure
+ 
+[⬆ Back to Table of contents](#table-of-contents)
+ 
+### Homepage (index.html / Home View) — Purpose & Structure
+[⬆ Back to Table of contents](#table-of-contents)
+
+<img width="509" height="683" alt="Image" src="https://github.com/user-attachments/assets/085b8e00-b54a-415a-837e-dadb21a8b20c" />
+
+#### Purpose
+The homepage acts as the main entry point to **Portuguese Kitchen**, introducing visitors to the restaurant's authentic Portuguese cuisine, cultural identity, and welcoming dining environment. Through engaging visual elements, it reinforces the brand image, highlights the restaurant's value proposition, and guides users towards key actions such as booking a table, exploring the menu, or contacting the restaurant.
+
+#### Structure
+
+##### Global Navigation & Sticky Navbar
+
+A responsive navigation bar built with **Bootstrap 5** displays the Portuguese Kitchen logo alongside primary navigation links:
+
+* Home, Menu, Book a Table, My Bookings, Profile/Login, Contact.
+* The bar dynamically reflects the user's authentication status. 
+* **Features:** Supports smooth scrolling for anchor links, highlights the active page, and collapses into a mobile-friendly hamburger menu. 
+* **Theme:** Dark visual theme complemented by the *Azulejo Blue* branding colour (`#1F4E79`).
+
+##### Hero Section
+
+A full-width hero banner presents a striking image representing the restaurant's cuisine. 
+* **Overlay Text:** "Portuguese Kitchen" 
+* **Tagline:** "Authentic Portuguese Cuisine in the Heart of [Location]"
+* **CTA:** A prominent "Book a Table" button directing users to the reservation page.
+
+##### Welcome Section
+
+This section provides an introduction to the restaurant's story, highlighting:
+
+* Culinary heritage and mission.
+* Dedication to traditional Portuguese cooking methods.
+* Emphasis on family-inspired recipes and high-quality ingredients.
+
+##### Restaurant Features Grid
+
+Four informational cards communicate the restaurant’s key strengths:
+
+1.  **Authentic Recipes:** Traditional Portuguese culinary techniques.
+2.  **Fresh Ingredients:** High-quality, locally sourced produce.
+3.  **Warm Atmosphere:** A welcoming and family-friendly setting.
+4.  **Expert Chefs:** Skilled chefs specialising in Portuguese cuisine.
+
+##### Contact Footer
+
+The footer provides essential information and navigation:
+
+* **Contact Info:** Address, phone, email, and opening hours.
+* **Quick Links:** Home, Menu, Booking, Privacy Policy, Terms of Service.
+* **Social Media Icons:** Links to platforms (where available).
+* **Newsletter Signup:** Email subscription form.
+* **Copyright Notice:** Business details and legal ownership statement.
+
+---
+
+## Notable Accessibility Touches
+* **Semantic HTML5:** Clear heading hierarchy (`<h1>` through `<h4>`).
+* **Media:** All images contain meaningful `alt` descriptions.
+* **Navigation:** Skip navigation link provided for keyboard users.
+* **ARIA:** Attributes added to interactive components and navigation elements.
+* **Contrast:** Colour contrast ratios meet **WCAG AA** standards.
+* **Focus:** Visible focus indicators on all interactive elements.
+* **UX:** Smooth scrolling with `scroll-padding-top` to offset the fixed navbar.
+
+---
+
+## Django Template Features
+* **Inheritance:** Inherits layout from `base.html` for consistency.
+* **Logic:** Conditional rendering based on status (`{% if user.is_authenticated %}`).
+* **Routing:** Dynamic URL routing via `{% url 'bookings:booking' %}`.
+* **Assets:** Static assets loaded using `{% load static %}`.
+* **Security:** CSRF protection included in all forms.
+
+---
+
+### Link
+* [Link to Live Website](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/)
 
 ---
 
