@@ -33,3 +33,7 @@ urlpatterns = [
 # Serve static files during development
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
+
+# Custom error handlers
+handler404 = 'portuguese_kitchen.views.custom_404'
+handler500 = 'portuguese_kitchen.views.custom_500'
