@@ -434,56 +434,6 @@ In the broader context, CSS3 plays a vital role in delivering a visually attract
 
 ---
 
-### JavaScript (ES6+)
-
-The **Portuguese Kitchen Booking System** utilises modern **JavaScript (ES6+)** to enhance client-side interactivity and support a responsive, user-focused booking experience. JavaScript is used to transform the application from a static website into a **dynamic, data-driven booking platform**, enabling real-time interaction between users and the reservation system.
-
-To ensure efficient, maintainable, and scalable code, contemporary language features such as **arrow functions**, **template literals**, **modular scripting**, and **event-driven programming** are implemented in line with **ECMAScript 6 (ES6)** and later standards. These features improve performance, readability, and long-term maintainability across modern browsers and devices.
-
-JavaScript plays a key role in managing **client-side form behaviour**, including **dynamic validation**, **date selection logic**, and **user feedback messaging** during the booking process. Immediate feedback is provided to users when submitting reservation forms, ensuring required fields are completed correctly before data is sent to the server for processing. This approach enhances usability while reducing invalid submissions and unnecessary server-side processing.
-
-In conjunction with the back-end framework, JavaScript supports **asynchronous user interactions** that enhance the booking journey without requiring unnecessary page reloads. Interactive elements such as confirmation messages, availability indicators, and form state updates are handled smoothly, contributing to a streamlined and intuitive user experience.
-
-To ensure accessibility and reliability across a range of devices and network conditions, the application follows **progressive enhancement principles**, allowing core booking functionality to remain usable even on lower-powered devices or slower connections (Mozilla Developer Network, 2024). All interactive features are designed to complement, rather than replace, server-side validation and processing.
-
-Code quality and compliance with modern JavaScript standards are maintained through validation and testing using tools such as **JSHint**, helping to identify syntax issues, enforce best practices, and reduce the likelihood of runtime errors (W3C, 2023).
-
-In summary, **JavaScript serves as a core component of the Portuguese Kitchen Booking System**, enabling responsive interactivity, enhanced form handling, and a smooth user experience. When combined with robust server-side logic and database-driven functionality, JavaScript supports the delivery of a **professional, user-centred, and fully operational restaurant booking application**, consistent with the expectations of **Level 5 Web Application Development** (Code Institute, 2025).
-
----
-
-### jQuery
-
-Within the **Portuguese Kitchen Booking System**, **jQuery** is used selectively to simplify client-side scripting tasks and enhance user interaction within the booking interface. The lightweight library supports **efficient DOM manipulation**, **event handling**, and **asynchronous requests**, contributing to a smoother and more responsive reservation experience.
-
-jQuery is primarily applied to manage **interactive form behaviour**, **UI feedback**, and **dynamic content updates**, such as displaying confirmation messages, handling date and guest selection changes, and improving the responsiveness of booking-related components. Its concise syntax reduces code repetition and improves readability, supporting maintainable and well-structured front-end development.
-
-To enhance usability without unnecessary page reloads, **jQuery AJAX** functionality is utilised to support asynchronous communication between the client and server where appropriate, such as submitting booking forms or updating availability-related feedback. This approach improves performance and ensures a more seamless booking journey for users by allowing real-time interaction while maintaining data integrity (jQuery Foundation, 2024).
-
-Cross-browser compatibility is also strengthened through jQuery’s abstraction layer, ensuring consistent behaviour across modern browsers including **Chrome**, **Firefox**, **Safari**, and **Edge**. This helps reduce rendering inconsistencies and supports reliable interaction across different platforms and devices (Mozilla Developer Network, 2024).
-
-In alignment with **progressive enhancement principles**, jQuery-based enhancements are designed to complement, rather than replace, core server-side functionality. Essential booking features remain accessible even on lower-powered devices or slower network connections, ensuring usability for a wide range of users.
-
-In summary, jQuery plays a **supporting but valuable role** within the Portuguese Kitchen Booking System by enhancing interactivity, improving user feedback, and streamlining front-end logic. When combined with robust server-side processing and database-driven functionality, it contributes to a **professional, accessible, and user-centred restaurant booking application**, consistent with **Level 5 Web Application Development** standards (Code Institute, 2025).
-
----
-
-### Jest
-
-Within the **Portuguese Kitchen Booking System**, **Jest** is used as a testing framework to support **functional validation** and **unit testing** of client-side JavaScript logic related to the booking interface. Its implementation helps ensure that interactive components behave consistently and reliably throughout the user journey.
-
-Jest is applied to test key front-end behaviours such as **form validation logic**, **date and guest input handling**, and **UI state changes** triggered by user interaction. By providing a structured and automated testing environment, Jest helps confirm that booking-related logic operates as intended across a range of scenarios, reducing the risk of runtime errors and unexpected behaviour (Meta Open Source, 2024).
-
-To avoid reliance on live server responses during testing, **mock functions** are used to simulate asynchronous operations, including form submissions and client-side data handling. This approach allows logic to be tested in isolation, improving reliability and enabling early detection of logical flaws during development (Mozilla Developer Network, 2024).
-
-Where applicable, **snapshot testing** is utilised to verify the stability of rendered UI components, ensuring that visual output and interactive elements remain consistent following code changes. This is particularly important in a booking system, where clarity, predictability, and user confidence are essential to a professional user experience.
-
-The use of Jest aligns with **maintainable development practices** and supports long-term code quality by helping prevent regressions as features evolve. Although the core application logic is driven by server-side processing and database interactions, Jest strengthens the front-end layer by reinforcing predictable behaviour and consistent execution of JavaScript components.
-
-Overall, the inclusion of Jest within the Portuguese Kitchen Booking System reflects a commitment to **quality assurance**, **code reliability**, and **professional development standards**, consistent with expectations for **Level 5 Web Application Development** projects (Code Institute, 2025).
-
----
-
 ### GitHub
 
 A cloud-based system which includes capabilities such as collaborative development using Git and offers a version control framework.
@@ -533,28 +483,6 @@ Owing to the fact that search engines favour websites with valid and well-struct
 In addition, this results in cleaner, more dependable code and an improved user experience.
 
 To apply best practices throughout the development of this portfolio website, such as ensuring accessibility compliance and upholding code quality, W3C Validator tools proved to be invaluable.
-
----
-
-### ESLint – Code Quality and Style Validation
-
-To support clean, consistent, and maintainable JavaScript code, the **Portuguese Kitchen Booking System** implements **ESLint**, a widely adopted static analysis tool used to identify code quality issues, stylistic inconsistencies, and potential runtime errors during development.
-
-Although the project is primarily **back-end driven**, JavaScript is still used to enhance the user experience through client-side form interaction, validation feedback, and interface behaviour. ESLint helps ensure that this supporting JavaScript remains reliable, readable, and aligned with professional coding standards.
-
-#### Purpose of ESLint in This Project
-
-ESLint was integrated to:
-
-- Detect problematic JavaScript patterns and unused variables  
-- Identify potential issues such as undefined variables and incorrect scope usage  
-- Enforce a consistent coding style across client-side scripts related to form handling and UI interaction  
-- Reduce bugs caused by syntax errors and poor code structure  
-- Support professional development practices and industry-aligned code quality standards  
-
-By applying ESLint alongside structured testing and manual validation, the project maintains a high level of **code quality**, **maintainability**, and **clarity**. This approach supports long-term scalability and aligns with expectations for **Level 5 Web Application Development**, where clean implementation and adherence to best practices are essential.
-
-Overall, the use of ESLint within the Portuguese Kitchen Booking System reinforces a disciplined development workflow, helping to ensure that all JavaScript components contribute positively to a stable, user-focused booking experience.
 
 ---
 
@@ -701,6 +629,204 @@ Layout inconsistencies, scripting errors, and accessibility issues can therefore
 Furthermore, these browsers enhance the development workflow through seamless integration with modern frameworks, version control tools, and support for developer extensions.
 
 Using these browsers throughout the project ensured that the website was thoroughly tested and optimised for a diverse range of target users, delivering a consistent and reliable cross-device user experience.
+
+---
+
+### Python 3.12
+
+Python is a widely used high-level interpreted programming language known for its clarity, flexibility, and vast ecosystem of frameworks and libraries. The Portuguese Kitchen project was implemented using Python 3.12, a modern version of the language that introduces improved performance, clearer error reporting, and several updated language features.
+
+Within this application, Python forms the core technological foundation, managing backend operations, database interactions, and the overall business logic of the booking system. Its straightforward syntax and comprehensive standard library supported efficient development while maintaining high standards of readability and maintainability.
+
+During development, Python was utilised to implement key functionality such as reservation validation, availability management, user authentication, and data handling processes. The language's support for object-oriented programming and structured design principles made it possible to organise the application into modular and maintainable components.
+
+The extensive Python package ecosystem was accessed through pip (Python Package Installer), enabling the integration of important third-party tools including the Django framework, database connectors, and development utilities. In addition, the use of virtual environments (venv) ensured that project dependencies remained isolated, preventing conflicts between package versions.
+
+Another advantage of Python is its cross-platform compatibility, which allowed the project to be developed locally on Windows while being deployed to Linux-based Heroku servers without requiring code changes. Python's powerful exception-handling mechanisms, detailed documentation, and strong developer community also proved valuable when diagnosing issues and implementing new features.
+
+In summary, Python 3.12 provided a dependable and efficient foundation for developing a production-ready web application. Its combination of readability, flexibility, and extensive tooling explains why it continues to be a leading choice for backend development and modern web applications.
+
+---
+
+### Django 4.2.7
+
+Django 4.2.7 was used as the primary web development framework for this project. Django is a powerful Python-based web framework that implements the Model–View–Template (MVT) architecture and promotes efficient development through principles such as clean code design and the “Don't Repeat Yourself” (DRY) philosophy.
+
+For the Portuguese Kitchen booking system, Django provided a comprehensive, "batteries-included" framework that significantly streamlined the development process. Many essential web development features are available by default, allowing developers to focus on application logic rather than building core components from scratch. One of Django's key features is its Object-Relational Mapping (ORM) system, which allows database operations to be performed using Python code instead of raw SQL queries. This approach improves maintainability, readability, and overall application security.
+
+User account management was simplified through Django's built-in authentication system, which includes functionality for registration, login, logout, and password handling. These features enabled secure account management without the need to create custom authentication mechanisms. Additionally, Django's administration interface automatically generated a management dashboard for database records, which was customised to meet the operational requirements of the restaurant booking system.
+
+The Django template engine supports the separation of application logic from presentation, allowing HTML templates to display dynamic content while keeping backend logic organised within the application code. Similarly, the forms framework facilitated the creation and validation of user input forms, automatically providing protection against CSRF attacks, managing validation rules, and displaying appropriate error messages to users.
+
+Django's URL routing system allows developers to map URL patterns directly to view functions in a structured and readable way, helping maintain a logical and REST-style application architecture. The framework also includes a middleware layer, which processes requests and responses globally and was used to support features such as session management, security handling, and static file delivery.
+
+Security is a central focus of the Django framework. It includes built-in safeguards against common web vulnerabilities including SQL injection, cross-site scripting (XSS), cross-site request forgery (CSRF), and clickjacking attacks. These protections are implemented through mechanisms such as automatic HTML escaping, parameterised database queries, and secure password hashing.
+
+Another important feature is Django's database migration system, which allows developers to track and apply schema changes in a controlled and version-managed manner. This capability ensures consistency between development and production environments and simplifies the deployment process.
+
+Overall, Django 4.2.7 provided a reliable and scalable framework for building the Portuguese Kitchen booking system. Its strong focus on security, structured development practices, extensive documentation, and active developer community makes it a widely adopted choice for creating production-ready web applications.
+
+---
+
+### PostgreSQL
+
+PostgreSQL is a powerful open-source relational database management system (RDBMS) recognised for its stability, reliability, and extensive feature set. It supports both traditional SQL-based relational queries and JSON-based non-relational data structures, making it a highly flexible solution for modern web applications.
+
+In this project, PostgreSQL was implemented as the production database hosted on Heroku, replacing the SQLite3 database used during local development. While SQLite is suitable for development and testing, PostgreSQL was selected for deployment due to its greater scalability, improved performance, and ability to manage multiple simultaneous users, which are essential requirements for production environments.
+
+A key advantage of PostgreSQL is its ACID-compliant architecture (Atomicity, Consistency, Isolation, and Durability). These properties ensure that database transactions are processed reliably and that data integrity is preserved. This level of reliability is particularly important in a booking system where reservations and associated records must remain accurate and consistent. Through transactional processing, PostgreSQL guarantees that booking operations either complete successfully or are fully rolled back, preventing inconsistent data states.
+
+Performance optimisation is further supported by PostgreSQL's advanced indexing mechanisms, which enhance the efficiency of queries involving searching, filtering, and data retrieval. These capabilities are particularly beneficial within the staff management dashboard and booking administration views. In addition, foreign key constraints enforce referential integrity between related database tables, ensuring that relationships among entities such as users, reservations, time slots, and restaurant tables remain valid.
+
+Heroku's PostgreSQL service also provides connection pooling, which improves performance by efficiently managing database connections and reducing unnecessary overhead. The platform's automated backup and recovery features add an additional layer of protection by safeguarding booking data and allowing restoration if required.
+
+PostgreSQL also offers advanced functionality for future expansion, including full-text search capabilities that could be used to locate booking records using guest names or reservation references. Its extensible architecture allows developers to implement custom data types, functions, and operators, providing flexibility for further feature development.
+
+Integration with the Django framework was straightforward through the psycopg2 database adapter, enabling Django's Object-Relational Mapper (ORM) to translate Python-based database queries into PostgreSQL-compatible SQL statements. Configuration was simplified through the dj-database-url package, which automatically interprets Heroku's DATABASE_URL environment variable.
+
+Overall, PostgreSQL proved to be a robust, scalable, and production-ready database solution, supporting the reliability, performance, and data integrity required for a professional web-based booking system.
+
+---
+
+### Heroku
+
+Heroku is a cloud-based Platform-as-a-Service (PaaS) that allows developers to build, deploy, and manage applications without the need to maintain or configure underlying server infrastructure. The platform supports a variety of programming languages and offers an efficient workflow for deploying web applications.
+
+For the Portuguese Kitchen project, Heroku functions as the production hosting environment, enabling the application to be accessed globally via the following live URL: https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/. The platform was chosen primarily for its developer-friendly deployment process, seamless PostgreSQL integration, and Git-based workflow.
+
+Heroku's Git-driven deployment system allows applications to be deployed directly from the project repository using simple commands such as git push heroku main. This automated process removes the need for manual server configuration or file transfers, allowing development efforts to focus on application functionality rather than infrastructure management.
+
+Applications on Heroku run inside lightweight containers known as dynos, which provide isolated runtime environments. These dynos can be scaled horizontally to support increased traffic and workload demands. Heroku automatically performs health checks, restarts failed processes, and maintains overall service availability. Within this project, a web dyno runs the Gunicorn WSGI server, which processes incoming HTTP requests from users.
+
+Additional services, such as Heroku Postgres, provide fully managed database solutions that include automated backups, monitoring tools, and connection pooling. By using this managed service, there was no need to maintain separate database infrastructure while still benefiting from enterprise-level data management capabilities.
+
+Sensitive configuration settings were managed through Heroku Config Vars, which securely store environment variables such as SECRET_KEY, database credentials, and API tokens. These variables are injected into the runtime environment, ensuring that confidential information remains outside the version-controlled codebase.
+
+The Heroku build process automatically identifies the required Python buildpack, installs project dependencies listed in requirements.txt, executes collectstatic to gather static assets, and launches the application. This automated pipeline reduces deployment complexity and ensures consistency between builds.
+
+Monitoring and debugging were facilitated through Heroku's dashboard and command-line tools, including the heroku logs --tail command, which provides real-time insight into application behaviour, performance metrics, and runtime errors within the production environment.
+
+Security is also handled efficiently, as SSL/TLS certificates are automatically generated and renewed by Heroku. This ensures that all communication with the application is encrypted via HTTPS without requiring manual certificate configuration.
+
+The platform also integrates with GitHub repositories, supporting features such as review applications, automated testing pipelines, and continuous deployment workflows. However, manual Git-based deployments were primarily used in this project to maintain greater control over release management.
+
+Overall, Heroku delivered a reliable and professional hosting environment, enabling the locally developed application to be deployed as a globally accessible production service with minimal infrastructure configuration.
+
+---
+
+### Flake8
+
+Flake8 is a widely used Python linting and code analysis tool designed to detect programming mistakes, stylistic inconsistencies, and potential bugs. It integrates several checking utilities, including PyFlakes, pycodestyle, and McCabe, to enforce coding standards and improve overall code quality.
+
+During the development of the Portuguese Kitchen project, Flake8 formed an important part of the code quality assurance process. The tool was used to verify that all Python files complied with PEP 8 coding conventions, helping maintain a consistent and professional coding style throughout the application. By executing the command flake8 bookings/, the tool scanned the project's Python modules and identified issues such as unused imports, undefined variables, incorrect indentation, and lines exceeding the permitted character limit.
+
+Using Flake8 helped ensure that the project's codebase remained clear, readable, and maintainable. It also assisted in detecting potential problems early in the development cycle, including unused variables or redundant code that might suggest incomplete functionality or logical mistakes.
+
+Linting behaviour was customised through the use of a .flake8 configuration file, which allowed the project to define specific rules tailored to its requirements. For instance, the maximum permitted line length was set to 88 characters, aligning with the formatting standards used by the Black code formatter rather than the traditional PEP 8 limit of 79 characters. Certain patterns commonly found in Django projects were also excluded from linting checks where appropriate.
+
+Integration with Visual Studio Code extensions enabled real-time linting feedback during development. As code was written, potential issues were immediately highlighted, allowing corrections to be made before committing changes. This continuous feedback loop significantly improved efficiency and reduced the need for extensive manual code reviews.
+
+By identifying syntax errors, import-related issues, and stylistic violations before deployment, Flake8 helped maintain a stable and professional codebase. After running the tool and resolving all warnings, the project achieved a zero-error status, demonstrating compliance with recognised coding standards.
+
+Overall, Flake8 played an essential role in ensuring that the Portuguese Kitchen project maintained high standards of readability, maintainability, and technical accuracy throughout its development lifecycle.
+
+---
+
+### Pylint
+
+Pylint is a comprehensive static code analysis tool for Python that evaluates source code for potential programming errors, adherence to coding standards, structural issues, and opportunities for refactoring. In addition to identifying problems, it also produces a numerical code quality score out of 10, offering a measurable indication of overall code quality.
+
+For the Portuguese Kitchen project, Pylint was configured alongside the pylint-django plugin, allowing the analyser to properly interpret Django-specific development patterns. This integration prevents incorrect warnings that might arise from Django's dynamic attributes, such as automatically generated model managers or querysets. As a result, the tool could perform a deeper and more accurate evaluation of the project's codebase.
+
+The analysis carried out by Pylint examined several important aspects of code quality:
+
+- Error detection: Identifying issues such as undefined variables, incorrect imports, and logical programming errors.
+
+- Code smell identification: Highlighting overly complex functions, excessive parameters, or duplicated code blocks.
+
+- Refactoring guidance: Suggesting ways to simplify or optimise sections of code to improve readability and maintainability.
+
+- Convention enforcement: Ensuring compliance with naming standards, documentation expectations, and general coding conventions.
+
+Pylint's scoring system provided a quantitative assessment of the project's code quality, with the application achieving a rating of 8.91/10, which exceeds the recommended benchmark of 8.0/10. This result reflects a well-structured and maintainable codebase developed according to recognised best practices.
+
+The tool's behaviour was customised using a .pylintrc configuration file, enabling adjustments suited to Django development workflows. Certain framework-related warnings—such as those reporting that model classes have "too few public methods"—were selectively disabled, while maintaining strict analysis for genuine code quality concerns.
+
+Detailed reports generated by Pylint highlighted areas where the code could be improved, including simplifying complex functions, refining documentation, and organising import statements more efficiently. These insights supported targeted refactoring efforts and contributed to a cleaner overall architecture.
+
+Integration of Pylint into the development workflow ensured that code quality was continuously monitored throughout the project lifecycle. By implementing the tool's recommendations, the project's codebase became more reliable, easier to maintain, and better prepared for future development.
+
+Overall, Pylint provided professional-level static analysis, helping elevate the Portuguese Kitchen project to a standard that reflects sound software engineering principles and industry-recognised coding practices.
+
+---
+
+### Black
+
+Black is a widely adopted automatic code formatter for Python designed to enforce a consistent and standardised coding style. Often referred to as the "uncompromising code formatter," Black applies a single deterministic formatting approach, ensuring that code is consistently structured regardless of the developer writing it.
+
+Within the Portuguese Kitchen project, Black was used to maintain uniform formatting across all Python source files. Executing the command black bookings/ automatically reformatted the project's codebase according to Black's strict styling rules. This process removed the need for developers to make manual formatting decisions and ensured that the entire project followed a consistent layout.
+
+By automating stylistic adjustments, Black allowed development efforts to focus on application logic and functionality rather than formatting concerns. This approach also streamlined code reviews, as discussions about indentation, spacing, or formatting preferences were eliminated, improving overall development efficiency.
+
+Several key characteristics define Black's formatting behaviour:
+
+- Deterministic formatting: identical input code always produces the same formatted output, guaranteeing consistency across the project.
+
+- Minimal configuration: the tool intentionally limits customisation options, encouraging a universal formatting standard.
+
+- Line length standard: Black uses a default limit of 88 characters per line, slightly longer than the traditional PEP 8 recommendation of 79 characters, which often improves readability.
+
+- Quote normalisation: the formatter standardises quotation marks to maintain consistency across the codebase.
+
+- Trailing comma insertion: commas are automatically added in multi-line structures, resulting in cleaner version control diffs.
+
+Compatibility with other code quality tools was ensured through proper configuration. The .flake8 configuration file was adjusted to use a maximum line length of 88 characters, aligning with Black's formatting rules. Additionally, the isort tool was configured using profile = black, ensuring that import statements were organised in a way that complements Black's formatting style.
+
+Integration with Visual Studio Code extensions allowed Black to automatically format code whenever files were saved. This feature ensured that all code remained consistently formatted throughout development without requiring manual intervention.
+
+By adopting Black, the Portuguese Kitchen project maintained a clean, professional, and readable codebase. Consistent formatting improved code clarity, reduced style-related merge conflicts, and reflected adherence to modern Python development standards.
+
+Overall, Black played an important role in maintaining code consistency, readability, and maintainability, supporting the creation of a well-structured and professional software project.
+
+---
+
+### isort
+
+isort is a Python tool designed to automatically organise and sort import statements in accordance with PEP 8 recommendations. It categorises imports into logical groups—such as standard library modules, third-party packages, and local project modules—and arranges them alphabetically within each category.
+
+In the Portuguese Kitchen project, isort was used to ensure that all Python files maintained a clear and structured import layout. By executing the command isort bookings/, the tool automatically reorganised import statements into a consistent format, improving both code readability and long-term maintainability.
+
+Automating the ordering of imports removed the need for manual organisation, which can be both time-consuming and prone to mistakes. The tool ensured that imports followed a predictable structure:
+
+- Standard library modules appear first (for example, import json or from datetime import date).
+
+- Third-party packages, such as Django libraries, follow in the next section.
+
+- Local project modules—for example from .models import Booking—are placed last.
+
+- Imports within each group are sorted alphabetically.
+
+- Blank lines are inserted between groups to improve clarity and readability.
+
+The behaviour of isort was customised using a .isort.cfg configuration file, allowing the tool to align with the specific requirements of a Django project. Key configuration settings included:
+
+- profile = black to ensure compatibility with the Black code formatter.
+
+- known_django = django to correctly categorise Django packages as third-party dependencies.
+
+- known_first_party = bookings, accounts, menu to identify the project's local Django applications.
+
+- line_length = 88, matching the formatting rules used by Black and Flake8.
+
+- skip = migrations to exclude automatically generated migration files from import sorting.
+
+As development progressed, isort was integrated into the regular workflow to keep import statements organised across the codebase. Running the tool before committing changes helped maintain consistency and reduced the likelihood of import-related comments during code reviews.
+
+The ability of isort to automatically identify and correct import ordering significantly improved development efficiency. Instead of manually restructuring numerous import statements, a single command ensured that all files followed established best practices.
+
+By incorporating isort, the Portuguese Kitchen project maintained well-structured, PEP 8-compliant imports, improving code navigation and making dependencies easier to understand. The consistent structure also helped developers quickly identify unused or redundant imports.
+
+Overall, isort contributed to a cleaner and more maintainable codebase by automating the organisation of imports and enforcing widely recognised Python development conventions.
 
 ---
 
