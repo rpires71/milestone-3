@@ -91,6 +91,7 @@
   - [Login Page (login.html / Login View) — Purpose & Structure](#login-page-loginhtml--login-view--purpose--structure)
   - [Registration Page (register.html / Register View) — Purpose & Structure](#registration-page-registerhtml--register-view--purpose--structure)
   - [Password Reset Page (password_reset.html / Password Reset View) — Purpose & Structure](#password-reset-page-password_resethtml--password-reset-view--purpose--structure)
+- [Reflection](#reflection)
 - [References](README.md#references)
 
 # Milestone Project 3
@@ -7025,6 +7026,8 @@ Required checkbox confirming acceptance of Terms and Privacy Policy
 ### Password Reset Page (password_reset.html / Password Reset View) — Purpose & Structure
 [⬆ Back to Table of contents](#table-of-contents)
 
+<img width="760" height="747" alt="Image" src="https://github.com/user-attachments/assets/155f79e1-fe8e-432f-853a-c232a501a432" />
+
 #### Purpose
 
 Enable users who have forgotten their passwords to securely request a password reset link via email, initiating Django's built-in password recovery workflow.
@@ -7108,6 +7111,27 @@ Standard footer with restaurant contact information, quick links, and copyright 
 ##### Link to Password Reset Page
 
 - [Link to Live Website](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/accounts/password-reset/)
+
+---
+
+## Reflection
+[⬆ Back to Table of contents](#table-of-contents)
+
+### Summary
+
+**Milestone 3** resulted in the development of a full-stack restaurant reservation platform for Portuguese Kitchen. The system was built using **Django 4.2.7**, **Python 3.12**, **PostgreSQL**, and **Bootstrap 5**, and is deployed on **Heroku**. The application enables customers to reserve tables online while providing a responsive and accessible interface styled with a Portuguese-inspired colour palette, including Azulejo Blue, Olive Green, Terracotta Red, Linen Cream, and Espresso Brown.
+
+The project follows Django's **Model-View-Template (MVT)** architectural pattern, incorporating structured backend logic, secure user authentication, and complete CRUD functionality for managing bookings. Staff administration tools and dashboards support operational tasks, while real-time availability checks help ensure accurate reservations. Additional functionality includes guest and registered user booking flows, profile management, reservation history tracking, staff-only analytics and reporting, email confirmation notifications (console backend during development), and comprehensive form validation.
+
+Extensive testing was conducted to ensure reliability and maintain high development standards. Code quality was verified using **Flake8, Pylint, isort, and Black**, while accessibility compliance was evaluated with **WAVE and WCAG 2.1 AA guidelines**. The application was also tested for **cross-browser compatibility** (Chrome, Firefox, and Edge), responsive layout behaviour, security considerations, and full user acceptance testing across all defined user stories. As a result, the project achieved **zero Flake8 errors**, a **Pylint rating of 8.91/10**, full **PEP 8 compliance**, and adherence to all required accessibility standards.
+
+The website supports clearly structured user journeys:
+
+- **Unauthenticated users:** Homepage -> Menu -> Guest Booking -> Confirmation  
+- **Authenticated users:** Login -> My Bookings -> Book Table -> Profile Management  
+- **Staff users:** Staff Dashboard -> Booking Management -> Statistics -> Customer Management  
+
+Throughout the application, a consistent visual identity and layout are maintained across all pages, including shared navigation components, footer elements, authentication state handling, and fully accessible keyboard navigation.
 
 ---
 
