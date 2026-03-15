@@ -85,6 +85,7 @@
   - [My Bookings Page (my_bookings.html / My Bookings View) — Purpose & Structure](#my-bookings-page-my_bookingshtml--my-bookings-view--purpose--structure)
   - [User Profile Page (profile.html / Profile View) — Purpose & Structure](#user-profile-page-profilehtml--profile-view--purpose--structure)
   - [Staff Dashboard Page (staff_dashboard.html / Staff Dashboard View) — Purpose & Structure](#staff-dashboard-page-staff_dashboardhtml--staff-dashboard-view--purpose--structure)
+  - [Booking Statistics Page (booking_statistics.html / Statistics View) — Purpose & Structure](#bookings-statistics-page-bookings_statistics.html--statistics-view--purpose--structure)
 - [References](README.md#references)
 
 # Milestone Project 3
@@ -6587,6 +6588,85 @@ A standard footer section providing navigation links and contact information.
 
 ##### Link to Staff Dashboard
 - [Link to Live Website (requires staff authentication)](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/bookings/staff/dashboard/)
+
+
+### Booking Statistics Page (booking_statistics.html / Statistics View) — Purpose & Structure
+[⬆ Back to Table of contents](#table-of-contents)
+
+<img width="740" height="729" alt="Image" src="https://github.com/user-attachments/assets/ba26898a-77fe-4f1f-9726-bfd5e419c219" />
+
+#### Purpose
+
+This page provides restaurant managers with detailed analytical insights into reservation trends, customer behaviour, and operational performance. By presenting visual data and metrics, it helps support informed decision-making and enables the restaurant to optimise its booking management and daily operations.
+ 
+#### Structure
+ 
+##### Global Navigation & Sticky Navbar
+
+A consistent navigation bar is displayed across the application with a **"Statistics"** link visible exclusively to authorised staff users.
+ 
+##### Page Header
+
+The page begins with the title **"Booking Statistics"**, accompanied by a date range selector allowing users to filter the data being displayed.
+ 
+##### Summary Metrics Cards
+
+A set of key performance indicators summarises important operational metrics, including:
+
+  - Total bookings within the selected period  
+  - Number of customers served  
+  - Average party size   
+  - Cancellation percentage
+ 
+##### Bookings Over Time Chart
+
+A line or bar chart visualises booking activity over time, showing:
+
+  - Daily booking totals  
+  - Weekly booking trends  
+  - Monthly performance comparisons  
+  - Optional year-over-year comparison
+ 
+##### Popular Time Slots Analysis
+
+A bar chart highlights:
+
+  - The most frequently requested reservation times  
+  - Peak dining hours  
+ 
+##### Day of Week Analysis
+ 
+A bar chart displays reservation patterns throughout the week, helping identify:
+
+  - The busiest booking days  
+  - Overall distribution of reservations by weekday
+ 
+##### Export and Reporting Tools
+
+  - Date range selector for generating customised reports  
+  - **Export to Excel/CSV** option  
+ 
+##### Contact Footer
+
+A standard footer section provides navigation links and restaurant contact details.
+ 
+##### Notable Accessibility Touches
+
+  - All visual charts include descriptive `<figcaption>` elements  
+  - Data tables are available as alternatives to graphical representations  
+  - Charts support keyboard interaction  
+  - Screen readers receive announcements when dynamic data updates occur
+ 
+##### Django Features
+
+  - Access restricted through the `@staff_member_required` decorator  
+  - Advanced database aggregation functions (Count, Sum, Avg)  
+  - Statistical queries implemented using `annotate()` and `aggregate()`  
+  - Date range filtering performed through Django ORM queries  
+  - Shared statistical values passed through template context processors
+ 
+### Link to Statistics Page
+- [Link to Live Website (requires staff authentication)](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/bookings/statistics/)
 
 
 ---
