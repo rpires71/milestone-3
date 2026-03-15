@@ -85,7 +85,8 @@
   - [My Bookings Page (my_bookings.html / My Bookings View) — Purpose & Structure](#my-bookings-page-my_bookingshtml--my-bookings-view--purpose--structure)
   - [User Profile Page (profile.html / Profile View) — Purpose & Structure](#user-profile-page-profilehtml--profile-view--purpose--structure)
   - [Staff Dashboard Page (staff_dashboard.html / Staff Dashboard View) — Purpose & Structure](#staff-dashboard-page-staff_dashboardhtml--staff-dashboard-view--purpose--structure)
-  - [Booking Statistics Page (booking_statistics.html / Statistics View) — Purpose & Structure](#bookings-statistics-page-bookings_statistics.html--statistics-view--purpose--structure)
+  - [Booking Statistics Page (booking_statistics.html / Statistics View) — Purpose & Structure](#booking-statistics-page-booking_statisticshtml--statistics-view--purpose--structure)
+  - [404 Error Page (404.html) — Purpose & Structure](#404-error-page-404html--purpose--structure)
 - [References](README.md#references)
 
 # Milestone Project 3
@@ -6366,6 +6367,7 @@ A consistent footer section providing contact information and additional navigat
   - Integration with the `Booking` model through Django ModelForm
 
 ##### Link to Booking Page
+
 - [Link to Live Website](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/bookings/)
 
 ### My Bookings Page (my_bookings.html / My Bookings View) — Purpose & Structure
@@ -6453,6 +6455,7 @@ A standard footer section containing contact details and navigation links.
   - Pagination implemented using Django’s `Paginator` class  
 
 ##### Link to My Bookings Page
+
 - [Link to Live Website (requires authentication)](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/bookings/my-bookings/)
 
 
@@ -6517,6 +6520,7 @@ A standard footer providing contact information and navigation links.
   - User feedback displayed using Django's **messages framework**
 
 ### Link to Profile Page
+
 - [Link to Live Website (requires authentication)](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/accounts/profile/)
 
 
@@ -6562,7 +6566,6 @@ A detailed table view lists all reservations.
    - Status Badge  
    - Actions (View / Edit)
 
-
 ##### Booking Details Modal
 
 A modal window allows staff to view expanded reservation details, including:
@@ -6587,6 +6590,7 @@ A standard footer section providing navigation links and contact information.
   - Pagination for handling large numbers of bookings  
 
 ##### Link to Staff Dashboard
+
 - [Link to Live Website (requires staff authentication)](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/bookings/staff/dashboard/)
 
 
@@ -6665,8 +6669,90 @@ A standard footer section provides navigation links and restaurant contact detai
   - Date range filtering performed through Django ORM queries  
   - Shared statistical values passed through template context processors
  
-### Link to Statistics Page
+##### Link to Statistics Page
+
 - [Link to Live Website (requires staff authentication)](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/bookings/statistics/)
+
+
+### 404 Error Page (404.html) — Purpose & Structure
+[⬆ Back to Table of contents](#table-of-contents)
+
+<img width="752" height="734" alt="Image" src="https://github.com/user-attachments/assets/8b781a63-a818-4e21-bd50-7bff8ab7cf2e" />
+
+#### Purpose
+
+This page presents a branded, user-friendly error screen whenever visitors attempt to access a URL that does not exist. It preserves the Portuguese Kitchen visual identity while guiding users back to useful areas of the website through clear navigation options.
+
+#### Structure
+
+##### Error Display Container
+
+A centred layout featuring Portuguese Kitchen branding, including:
+
+  - Prominent **"404"** heading styled in Azulejo Blue (#1F4E79)
+  - Subheading reading **"Oops! Page Not Found"**
+  - Friendly explanatory message:  *"We're sorry, but the page you're looking for seems to have wandered off the menu."*
+
+##### Helpful Navigation Options
+
+Three clearly visible call-to-action buttons help users continue browsing:
+
+  - **Return to Homepage:** Primary button featuring a home icon  
+  - **Book a Table:** Secondary button including a calendar icon  
+  - **View Menu:** Outline button with a utensils icon  
+
+##### Helpful Links Section
+
+A responsive three-column card layout (stacking vertically on mobile devices):
+
+  **Manage Bookings Card:**
+    - Description: "View or modify your reservations"  
+    - Link: "My Bookings" (for authenticated users) or "Sign In"
+
+   **Your Profile Card:**
+     - Description: "Update your account information"  
+     - Link: "View Profile" (for authenticated users) or "Register"
+
+   **Contact Us Card:**
+     - Description: "Get in touch with our team"  
+     - Link: "Contact Info" (scrolls to footer)
+
+##### Additional Help Text
+
+A short message offering further assistance: - *"If you believe this is an error or need assistance, please [contact us](#contact)."*
+
+##### Contact Footer
+
+The standard footer section containing full contact details and navigation links.
+
+##### Notable Accessibility Touches
+
+  - Semantic HTML structure with an appropriate heading hierarchy  
+  - The error code **404** is communicated clearly to screen readers  
+  - Navigation buttons include descriptive text alongside icons  
+  - Links maintain sufficient colour contrast for readability  
+  - Focus indicators are clearly visible on interactive elements  
+  - Multiple navigation options are provided rather than simply suggesting users go back
+
+##### Django Configuration
+
+  - Custom 404 handler defined in `urls.py`: `handler404 = 'portuguese_kitchen.views.custom_404'`
+  - Template inherits from `base.html` to ensure consistent page layout
+  - The custom error page appears only when `DEBUG = False` (production environment)
+  - Rendered using a dedicated view located in `portuguese_kitchen/views.py`
+
+##### Custom Styling
+
+  - Incorporates brand colours, including Azulejo Blue for the main heading
+  - Card elements include hover effects such as subtle transformations and shadow styling
+  - Fully responsive layout designed to adapt to all screen sizes
+  - Card-based design aligned with the site's overall visual system
+
+##### Link to 404 Page
+
+- [Link to Live Website](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/nonexistent-page-test)
+
+---
 
 
 ---
