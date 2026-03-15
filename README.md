@@ -84,6 +84,7 @@
   - [Booking Page (booking.html / Booking View) — Purpose & Structure](#booking-page-bookinghtml--booking-view--purpose--structure)
   - [My Bookings Page (my_bookings.html / My Bookings View) — Purpose & Structure](#my-bookings-page-my_bookingshtml--my-bookings-view--purpose--structure)
   - [User Profile Page (profile.html / Profile View) — Purpose & Structure](#user-profile-page-profilehtml--profile-view--purpose--structure)
+  - [Staff Dashboard Page (staff_dashboard.html / Staff Dashboard View) — Purpose & Structure](#staff-dashboard-page-staff_dashboardhtml--staff-dashboard-view--purpose--structure)
 - [References](README.md#references)
 
 # Milestone Project 3
@@ -6516,6 +6517,76 @@ A standard footer providing contact information and navigation links.
 
 ### Link to Profile Page
 - [Link to Live Website (requires authentication)](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/accounts/profile/)
+
+
+### Staff Dashboard Page (staff_dashboard.html / Staff Dashboard View) — Purpose & Structure
+[⬆ Back to Table of contents](#table-of-contents)
+
+<img width="1824" height="936" alt="Image" src="https://github.com/user-attachments/assets/7cc880d2-2aae-4ee7-a677-f31f70eb70b4" />
+
+#### Purpose
+
+The staff dashboard provides restaurant personnel with a centralised interface for overseeing reservations and managing daily operations. It enables staff members to review bookings, track restaurant capacity, access operational statistics, and efficiently administer customer reservations.
+
+#### Structure
+
+##### Global Navigation & Sticky Navbar
+
+A consistent navigation bar appears across the site with the **"Staff Dashboard"** link displayed only for authorised staff users.
+
+##### Page Header
+
+The page begins with the heading **"Staff Dashboard"**, accompanied by a display of the current date and time.
+
+##### Quick Stats Overview
+
+A four-card summary panel provides key operational metrics:
+
+  - **Pending:** Number of reservations pending for the current date  
+  - **Confirmed:** Total count of confirmed reservations  
+  - **Cancelled:** Total amount of cancelled reservations for the day  
+  - **Completed:** Completed reservations for the day
+
+##### Bookings Management Table
+
+A detailed table view lists all reservations.
+
+   **Table Columns:**
+   - Reference Number (sortable)  
+   - Customer Name (including guest or registered user indicator)  
+   - Date & Time (sortable)  
+   - Party Size  
+   - Contact Information (email)  
+   - Special Requests  
+   - Status Badge  
+   - Actions (View / Edit)
+
+
+##### Booking Details Modal
+
+A modal window allows staff to view expanded reservation details, including:
+
+  - Full booking information  
+  - Customer contact details  
+
+##### Contact Footer
+
+A standard footer section providing navigation links and contact information.
+
+##### Notable Accessibility Touches
+
+  - Tables include semantic headers with appropriate `scope` attributes  
+  - Sortable columns provide ARIA labels describing the current sort direction  
+  - Filter inputs are clearly labelled and associated with form controls  
+  - Modal dialogs maintain keyboard focus and include accessible close controls  
+
+##### Django Features
+
+  - Access restricted using the `@staff_member_required` decorator  
+  - Pagination for handling large numbers of bookings  
+
+##### Link to Staff Dashboard
+- [Link to Live Website (requires staff authentication)](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/bookings/staff/dashboard/)
 
 
 ---
