@@ -7230,6 +7230,190 @@ Throughout the application, a consistent visual identity and layout are maintain
 - **Browser compatibility testing:** All features were verified across major browsers.
 - **Accessibility testing:** WAVE analysis and manual keyboard testing confirmed compliance with WCAG standards.
 
+### Challenges (and how I resolved them)
+
+#### Flake8 Linting (Test 141)
+
+- **Challenge:** The project initially contained **PEP 8 violations** across various Python files. These included trailing whitespace (W293), overly long lines (E501), and unused imports (F401).
+- **Resolution:** All issues were addressed methodically, reviewing each file individually:
+  - Eliminated **trailing whitespace occurrences** (W293)
+  - Refactored **lines exceeding the 88-character limit** (E501)
+  - Removed **unused imports** (F401)
+  - Inserted missing blank lines between functions (E302/E303)
+  - Configured `.flake8` with `max-line-length = 88` and ignored E203 and W503 to align with Black formatting
+- **Result:** The codebase achieved **zero Flake8 warnings**, fully meeting **PEP 8 style standards**.
+
+#### Pylint Code Quality (Test 143)
+
+- **Challenge:** Pylint initially produced several warnings and errors, particularly related to Django-specific patterns such as the `objects` manager (E1101), limited public methods in models (R0903), and missing documentation.
+- **Resolution:**
+  - Installed the **pylint-django** plugin to support Django conventions
+  - Added a `.pylintrc` configuration file for project-specific settings
+  - Enabled `load-plugins=pylint_django` (excluding `django-settings-module` to prevent F5110 errors)
+  - Disabled Django-related warnings including **E1101, C0111, and R0903**
+  - Adjusted limits for `max-line-length`, `max-args`, and `max-locals`
+  - Removed problematic regex patterns from ignore rules
+- **Result:** The project achieved a **Pylint score of 8.91/10**, surpassing the **8.0/10 benchmark**.
+
+#### Import Organisation (Test 144)
+
+- **Challenge:** Import statements were inconsistently ordered across multiple files, with incorrect grouping and missing spacing between sections.
+- **Resolution:**
+  - Created an `.isort.cfg` configuration file with `profile=black`
+  - Defined `known_django` and `known_first_party` to match the project structure
+  - Added skip rules for directories such as migrations and virtual environments
+  - Executed `isort bookings/` to automatically reorder imports
+  - Verified compliance using `isort bookings/ --check`
+- **Result:** Import statements were standardised using the structure **FUTURE -> STDLIB -> DJANGO -> THIRDPARTY -> FIRSTPARTY -> LOCALFOLDER**.
+
+#### Heroku Deployment Warnings
+
+- **Challenge:** Heroku issued warnings because `runtime.txt` had been deprecated in favour of `.python-version`.
+- **Resolution:**
+  - Removed the outdated `runtime.txt`
+  - Added a `.python-version` file containing `3.12`
+  - Allowed Heroku to automatically detect Python **3.12.13**
+  - Updated deployment documentation accordingly
+- **Result:** Deployments completed without configuration warnings.
+
+#### Static File Serving in Production
+
+- **Challenge:** After initial deployment, CSS, JavaScript, and image assets were not loading correctly on Heroku.
+- **Resolution:**
+  - Added **WhiteNoise middleware** to the Django `MIDDLEWARE` configuration
+  - Set `STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'`
+  - Executed `collectstatic` prior to each deployment
+- **Result:** Static files loaded correctly with automatic compression in production.
+
+#### Database Migration: SQLite to PostgreSQL
+
+- **Challenge:** Development used SQLite while production required PostgreSQL, raising potential compatibility concerns.
+- **Resolution:**
+  - Implemented **dj-database-url** to parse Heroku's `DATABASE_URL`
+  - Configured environment-based database settings
+  - Tested migrations locally before deployment
+  - Used Django ORM exclusively to avoid database-specific SQL
+- **Result:** Smooth database transitions between development and production environments.
+
+#### Guest Booking Implementation
+
+- **Challenge:** Supporting both guest and registered user reservations while preserving data integrity.
+- **Resolution:**
+  - Implemented conditional booking forms depending on authentication status
+  - Stored guest details directly within the Booking model
+  - Added a nullable ForeignKey linking bookings to authenticated users
+  - Validated that either user credentials or guest information must be provided
+- **Result:** A flexible booking workflow accommodating both user types without compromising data quality.
+
+#### Real-Time Availability Checking
+
+- **Challenge:** Preventing overlapping bookings required accurate capacity calculations for time slots.
+- **Resolution:**
+  - Implemented server-side capacity validation
+  - Added model methods such as `check_capacity` and `get_available_capacity`
+  - Introduced database constraints where appropriate
+  - Created an AJAX endpoint for real-time availability updates
+- **Result:** Booking conflicts were eliminated and users received accurate capacity feedback.
+
+#### Form Validation Complexity
+
+- **Challenge:** Coordinating validation across multiple layers created complexity in user feedback.
+- **Resolution:**
+  - Added JavaScript validation for immediate client-side feedback
+  - Implemented Django form `clean()` methods for business logic validation
+  - Applied model-level validators for database constraints
+  - Standardised error message styling across the interface
+- **Result:** Users received clear, consistent validation guidance when entering data.
+
+#### WCAG Heading Hierarchy Issues
+
+- **Challenge:** Several templates skipped heading levels (for example, `<h1>` directly to `<h3>`), causing WCAG 1.3.1 accessibility violations.
+- **Resolution:**
+  - Reviewed heading structure across all templates
+  - Corrected six affected templates
+  - Implemented logical heading sequences (`h1 -> h2 -> h3`)
+  - Verified improvements using the WAVE accessibility tool
+- **Result:** All heading hierarchy errors were resolved, improving screen reader navigation.
+
+#### W3C Validation False Positives
+
+- **Challenge:** W3C validation tools flagged Django template syntax (e.g., `{% load static %}`) as HTML errors.
+- **Resolution:**
+  - Documented the correct validation workflow
+  - Validated **rendered HTML output** rather than template source files
+  - Added documentation explaining the process
+- **Result:** Accurate HTML validation based on final rendered pages.
+
+#### Contact Link Active State
+
+- **Challenge:** The Contact navigation item did not display an active state because it linked to a footer anchor rather than a dedicated page.
+- **Resolution:**
+  - Updated navigation logic in `base.html`
+  - Added JavaScript to detect `#contact` navigation
+  - Implemented smooth scrolling behaviour
+  - Highlighted the active state when the footer section entered the viewport
+- **Result:** Consistent navigation highlighting across both page links and anchor links.
+
+#### Image Optimisation Workflow
+
+- **Challenge:** Original image assets totaled **9,125KB**, resulting in slow page load times.
+- **Resolution:**
+  - Converted all images to **WebP format**
+  - Resized images to match display requirements
+  - Applied compression to balance quality and file size
+  - Ensured all images remained below **200KB**
+- **Result:** Image size reduced by **70.6%**, significantly improving loading performance.
+
+#### Email Configuration for Development vs Production
+
+- **Challenge:** Email functionality required different behaviour between development and production environments.
+- **Resolution:**
+  - Used the console email backend during development
+  - Configured environment-specific email settings via **python-decouple**
+  - Documented SMTP setup for production
+  - Tested confirmation emails in both environments
+- **Result:** Email notifications functioned correctly in development and were ready for production deployment.
+
+#### Bootstrap Grid Alignment Issues
+
+- **Challenge:** Layout elements became misaligned at certain responsive breakpoints (768px–991px).
+- **Resolution:**
+  - Added targeted media queries
+  - Applied Bootstrap responsive grid classes (`col-sm`, `col-md`, `col-lg`)
+  - Introduced custom CSS overrides where needed
+  - Tested layouts across multiple device widths
+- **Result:** Consistent alignment across all screen sizes.
+
+#### Booking Confirmation Page Layout
+
+- **Challenge:** Confirmation details required a clear layout for quick user comprehension.
+- **Resolution:**
+  - Designed a structured grid layout
+  - Used definition lists for key-value information
+  - Applied visual hierarchy through spacing, headings, and borders
+  - Added action buttons guiding users to next steps
+- **Result:** A clear and professional confirmation page improved user experience.
+
+#### Staff Dashboard Table Responsiveness
+
+- **Challenge:** The booking management table contained too many columns for mobile usability.
+- **Resolution:**
+  - Added horizontal scrolling containers
+  - Implemented sticky table headers
+  - Considered responsive card layouts for smaller screens
+  - Prioritised essential columns for narrow viewports
+- **Result:** The staff dashboard remained functional on all device sizes.
+
+#### User Story Acceptance Criteria Documentation
+
+- **Challenge:** Managing documentation for **144 test cases** required clear organisation.
+- **Resolution:**
+  - Developed a structured test plan using identifiers **Test ID 001–Test ID 144**
+  - Documented test descriptions, steps, expected outcomes, and results
+  - Grouped tests according to user stories and acceptance criteria
+  - Included screenshots as evidence where appropriate
+- **Result:** A detailed and professional testing report demonstrating comprehensive quality assurance.
+
 ---
 
 ## References
