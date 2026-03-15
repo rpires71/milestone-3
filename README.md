@@ -90,6 +90,7 @@
   - [500 Error Page (500.html) — Purpose & Structure](#500-error-page-500html--purpose--structure)
   - [Login Page (login.html / Login View) — Purpose & Structure](#login-page-loginhtml--login-view--purpose--structure)
   - [Registration Page (register.html / Register View) — Purpose & Structure](#registration-page-registerhtml--register-view--purpose--structure)
+  - [Password Reset Page (password_reset.html / Password Reset View) — Purpose & Structure](#password-reset-page-password_resethtml--password-reset-view--purpose--structure)
 - [References](README.md#references)
 
 # Milestone Project 3
@@ -7020,6 +7021,93 @@ Required checkbox confirming acceptance of Terms and Privacy Policy
 ##### Link to Login Page
 
 - [Link to Live Website](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/accounts/register/)
+
+### Password Reset Page (password_reset.html / Password Reset View) — Purpose & Structure
+[⬆ Back to Table of contents](#table-of-contents)
+
+#### Purpose
+
+Enable users who have forgotten their passwords to securely request a password reset link via email, initiating Django's built-in password recovery workflow.
+
+#### Structure
+
+##### Global Navigation & Sticky Navbar
+
+Consistent navbar with Portuguese Kitchen branding, navigation links (Home, Menu, Book a Table, Contact), and authentication links (Login, Register). Mobile-responsive with hamburger menu.
+
+##### Page Header
+
+Clear heading "Reset Your Password" with supportive subtitle "Enter your email address and we'll send you a link to reset your password."
+
+##### Password Reset Request Form
+
+Centered card-based layout containing:
+   
+   **Email Address Input:**
+   - Label: "Email Address"
+   - Input type: email
+   - Placeholder: "your@email.com"
+   - Required field with validation
+   - Email format validation
+   - Floating label styling
+   
+   **Submit Button:**
+   - Text: "Send Reset Link"
+   - Primary styling
+   - Full-width or centered
+   - Loading state during submission
+
+##### Helper Text
+
+Supportive messaging below the form:
+
+   - "We'll send you a link to reset your password"
+   - "The reset link will expire in 24 hours for security"
+   - "If you don't receive an email, check your spam folder"
+
+##### Django Messages Display
+
+Bootstrap alert components for feedback:
+
+   - Success message (green/info): "If an account exists with that email address, we've sent password reset instructions. Please check your inbox."
+   - Error message (red): Form validation errors
+   - Positioned above the form
+
+##### Contact Footer
+
+Standard footer with restaurant contact information, quick links, and copyright notice.
+
+##### Notable Accessibility Touches
+
+- Email input has associated `<label>` with `for` attribute
+- Required field indicated with `aria-required="true"` and visual asterisk
+- Error messages associated with field using `aria-describedby`
+- Submit button shows loading state with `aria-busy="true"`
+- Clear focus-visible states on input and button
+- Sufficient colour contrast (WCAG AA compliant)
+- Logical heading hierarchy (`<h1>` for page title)
+- Form is keyboard-navigable
+
+##### Django Password Reset Features
+
+- Uses Django's built-in `PasswordResetView`
+- CSRF protection via `{% csrf_token %}`
+- Generates secure password reset token
+- Generic success message prevents email enumeration (same message whether email exists or not)
+- Email sent via Django's email backend (console for development, SMTP for production)
+
+##### Django Template Features
+
+- Extends `base.html` for consistent layout
+- Uses `{% load static %}` for CSS/JavaScript
+- Django form rendering: `{{ form.email }}` or `{{ form.as_p }}`
+- Error display: `{{ form.email.errors }}`
+- URL routing: `{% url 'accounts:password_reset' %}`, `{% url 'accounts:login' %}`, `{% url 'accounts:register' %}`
+- CSRF token: `{% csrf_token %}`
+
+##### Link to Password Reset Page
+
+- [Link to Live Website](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/accounts/password-reset/)
 
 ---
 
