@@ -80,6 +80,7 @@
   - [Conclusion](#conclusion)
 - [Website Information Architecture: Page Purpose & Structure](#website-information-architecture-page-purpose--structure)
   - [Homepage (index.html / Home View) — Purpose & Structure](#homepage-indexhtml--home-view--purpose--structure)
+  - [Menu Page (menu.html / Menu View) — Purpose & Structure](#menu-page-indexhtml--menu-view--purpose--structure)
 - [References](README.md#references)
 
 # Milestone Project 3
@@ -6107,6 +6108,7 @@ The Portuguese Kitchen application is successfully deployed to Heroku and fully 
 <img width="509" height="683" alt="Image" src="https://github.com/user-attachments/assets/085b8e00-b54a-415a-837e-dadb21a8b20c" />
 
 #### Purpose
+
 The homepage acts as the main entry point to **Portuguese Kitchen**, introducing visitors to the restaurant's authentic Portuguese cuisine, cultural identity, and welcoming dining environment. Through engaging visual elements, it reinforces the brand image, highlights the restaurant's value proposition, and guides users towards key actions such as booking a table, exploring the menu, or contacting the restaurant.
 
 #### Structure
@@ -6154,9 +6156,8 @@ The footer provides essential information and navigation:
 * **Newsletter Signup:** Email subscription form.
 * **Copyright Notice:** Business details and legal ownership statement.
 
----
+##### Notable Accessibility Touches
 
-## Notable Accessibility Touches
 * **Semantic HTML5:** Clear heading hierarchy (`<h1>` through `<h4>`).
 * **Media:** All images contain meaningful `alt` descriptions.
 * **Navigation:** Skip navigation link provided for keyboard users.
@@ -6165,19 +6166,110 @@ The footer provides essential information and navigation:
 * **Focus:** Visible focus indicators on all interactive elements.
 * **UX:** Smooth scrolling with `scroll-padding-top` to offset the fixed navbar.
 
----
+##### Django Template Features
 
-## Django Template Features
 * **Inheritance:** Inherits layout from `base.html` for consistency.
 * **Logic:** Conditional rendering based on status (`{% if user.is_authenticated %}`).
 * **Routing:** Dynamic URL routing via `{% url 'bookings:booking' %}`.
 * **Assets:** Static assets loaded using `{% load static %}`.
 * **Security:** CSRF protection included in all forms.
 
----
+##### Link to Homepage
 
-### Link
 * [Link to Live Website](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/)
+
+### Menu Page (menu.html / Menu View) — Purpose & Structure 
+[⬆ Back to Table of contents](#table-of-contents)
+
+<img width="513" height="685" alt="Image" src="https://github.com/user-attachments/assets/50db14ac-f7cb-4b7f-90e8-6d803e8b2bdc" />
+ 
+#### Purpose
+
+The menu page displays the full Portuguese Kitchen food and drink offerings in a clear and attractive layout, allowing visitors to explore dishes organised by category. Customers can easily review meal descriptions, prices, and traditional ingredients while learning about the authenticity of each dish. The page acts both as an informational guide for potential diners considering a visit and as a browsing tool for guests planning what they would like to order.
+
+#### Structure
+
+##### Global Navigation & Sticky Navbar
+
+A consistent navigation bar appears across all pages, with the **Menu** link visually highlighted as the current page (`aria-current="page"`).
+
+##### Page Header
+
+A header banner introduces the section with the title **"Our Menu"**, optionally enhanced with a background image showcasing traditional Portuguese cuisine.
+
+##### Menu Categories Navigation
+
+A horizontal list of menu categories allows users to navigate directly to sections such as Lunch, Dinner, and Wines. Smooth scrolling functionality enables quick movement to the selected category.
+
+##### Menu Section: Starters (Entradas)
+
+Appetiser dishes are presented using a grid layout that includes:
+
+  - Portuguese dish name with English translation  
+  - Optimised WebP image suitable for web performance (<200KB)  
+  - Informative description emphasising authentic ingredients  
+  - Clearly displayed price  
+  - Optional dietary labels (vegetarian, gluten-free, spicy)
+
+##### Menu Section: Main Courses (Pratos Principais)
+
+Signature dishes are displayed using responsive cards featuring well-known Portuguese meals such as:
+
+  - Bacalhau à Brás (Codfish with potatoes and eggs)  
+  - Frango Piri-Piri (Piri-Piri Chicken)  
+  - Arroz de Marisco (Seafood Rice)  
+  - Costeletas de Borrego (Lamb Chops)  
+  - Polvo à Lagareiro (Octopus with potatoes)  
+
+Each card includes a description of the traditional recipe along with the corresponding price.
+
+##### Menu Section: Desserts (Sobremesas)
+
+Classic Portuguese desserts are showcased, including:
+
+  - Pastéis de Nata (Custard Tarts)  
+  - Arroz Doce (Rice Pudding)
+  - Mousse de Chololate (Chocolate Mousse)
+  - Bolo de Chocolate (Chocolate Cake)  
+
+Each item is accompanied by appealing images and descriptive text.
+
+##### Menu Section: Drinks (Bebidas)
+
+Beverages are grouped according to type, for example:
+
+  - Portuguese wines such as Vinho Verde and Alentejo Red  
+  - Traditional drinks including Port Wine and Ginjinha  
+  - Soft drinks and non-alcoholic alternatives
+
+##### Call-to-Action Footer Section
+
+A visually prominent section encourages reservations, featuring the heading **"Ready to Taste Portugal?"** and a **"Book Your Table"** button linking to the reservation system.
+
+##### Contact Footer
+
+A standard footer provides restaurant contact details along with additional navigation links
+
+##### Notable Accessibility Touches
+
+- Semantic HTML section elements with appropriate ARIA attributes  
+- Clear heading hierarchy for menu categories and dishes  
+- Price details linked with dish names for improved screen reader interpretation  
+- Category navigation accessible via keyboard controls  
+- Responsive images using `srcset` for multiple screen sizes  
+- High-contrast text for readability on all backgrounds  
+
+##### Django Template Features
+
+- Menu content dynamically retrieved from database models  
+- Template loops used to render dish categories (`{% for dish in dishes %}`)  
+- Conditional display depending on dish availability  
+- Image handling through Django static file management  
+- Currency formatting applied to price values  
+
+##### Link to Menu Page
+
+* [Link to Live Website](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/menu/)
 
 ---
 
