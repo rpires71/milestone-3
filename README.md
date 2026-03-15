@@ -83,6 +83,7 @@
   - [Menu Page (menu.html / Menu View) — Purpose & Structure](#menu-page-menuhtml--menu-view--purpose--structure)
   - [Booking Page (booking.html / Booking View) — Purpose & Structure](#booking-page-bookinghtml--booking-view--purpose--structure)
   - [My Bookings Page (my_bookings.html / My Bookings View) — Purpose & Structure](#my-bookings-page-my_bookingshtml--my-bookings-view--purpose--structure)
+  - [User Profile Page (profile.html / Profile View) — Purpose & Structure](#user-profile-page-profilehtml--profile-view--purpose--structure)
 - [References](README.md#references)
 
 # Milestone Project 3
@@ -6449,8 +6450,73 @@ A standard footer section containing contact details and navigation links.
   - Conditional rendering based on booking date and reservation status  
   - Pagination implemented using Django’s `Paginator` class  
 
-### Link to My Bookings Page
+##### Link to My Bookings Page
 - [Link to Live Website (requires authentication)](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/bookings/my-bookings/)
+
+
+### User Profile Page (profile.html / Profile View) — Purpose & Structure
+[⬆ Back to Table of contents](#table-of-contents)
+
+<img width="752" height="736" alt="Image" src="https://github.com/user-attachments/assets/59915228-9381-4925-a277-21fe6c5c257c" />
+
+#### Purpose
+
+The profile page enables logged-in users to access and view their personal account information, adjust account-related settings, and review a brief overview of their reservation activity.
+
+#### Structure
+
+##### Global Navigation & Sticky Navbar
+
+A consistent site navigation bar is displayed with the **"Profile"** link highlighted as the active section (or accessible via a username dropdown menu).
+
+##### Page Header
+
+The page begins with the heading **"Your Profile"**, accompanied by the user's name.
+
+##### Profile Information Card
+
+A card layout presents the user's details and allows updates where applicable.
+
+##### Account Information Section
+
+   - First Name
+   - Last Name
+   - Email Address 
+   - Phone Number
+   - Username 
+   - Member Since date
+
+##### Booking Summary Widget
+
+A compact dashboard summarises the user's reservation activity, showing:
+
+   - Total number of bookings made  
+   - Count of upcoming reservations  
+   - **"View All Bookings"** link leading to the My Bookings page
+
+##### Contact Footer
+
+A standard footer providing contact information and navigation links.
+
+##### Notable Accessibility Touches
+
+  - Form inputs are rendered using Django's form system with correctly associated labels  
+  - Validation messages are displayed close to the relevant fields  
+  - Buttons contain descriptive text rather than relying solely on icons  
+  - Password requirements are structured using a semantic `<ul>` list for screen reader compatibility  
+  - Success and error notifications are announced to assistive technologies
+
+##### Django Features
+
+  - Access restricted using the `@login_required` decorator  
+  - Integration with Django's built-in **User model**  
+  - Profile updates handled through Django's **UpdateView**  
+  - Password management implemented via **PasswordChangeView**  
+  - User feedback displayed using Django's **messages framework**
+
+### Link to Profile Page
+- [Link to Live Website (requires authentication)](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/accounts/profile/)
+
 
 ---
 
