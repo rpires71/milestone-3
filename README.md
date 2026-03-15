@@ -82,8 +82,7 @@
   - [Homepage (index.html / Home View) — Purpose & Structure](#homepage-indexhtml--home-view--purpose--structure)
   - [Menu Page (menu.html / Menu View) — Purpose & Structure](#menu-page-menuhtml--menu-view--purpose--structure)
   - [Booking Page (booking.html / Booking View) — Purpose & Structure](#booking-page-bookinghtml--booking-view--purpose--structure)
- 
-  - ### Booking Page (booking.html / Booking View) — Purpose & Structure
+  - [My Bookings Page (my_bookings.html / My Bookings View) — Purpose & Structure](#my-bookings-page-my_bookingshtml--my-bookings-view--purpose--structure)
 - [References](README.md#references)
 
 # Milestone Project 3
@@ -6365,6 +6364,93 @@ A consistent footer section providing contact information and additional navigat
 
 ##### Link to Booking Page
 - [Link to Live Website](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/bookings/)
+
+### My Bookings Page (my_bookings.html / My Bookings View) — Purpose & Structure
+[⬆ Back to Table of contents](#table-of-contents)
+
+<img width="830" height="846" alt="Image" src="https://github.com/user-attachments/assets/81b550b2-3243-4adb-930f-958e6bd4480d" />
+
+#### Purpose
+
+This page acts as a personal reservation dashboard for authenticated users, allowing them to review all existing and previous bookings, manage upcoming reservations, and view confirmation details. It provides convenient access for customers to modify or cancel future bookings while keeping a record of past dining visits.
+
+#### Structure
+
+##### Global Navigation & Sticky Navbar
+
+A consistent site-wide navigation bar is displayed with the **"My Bookings"** link highlighted as the active page. This navigation option is visible only to logged-in users.
+
+##### Page Header
+
+A heading **"Your Reservations"**, introducing the user's booking dashboard.
+
+##### Booking Status Tabs
+
+Tab-based navigation allows users to filter reservations by status:
+
+- **Upcoming Bookings:** Displays future reservations (default active tab)  
+- **Past Bookings:** Shows completed reservations  
+- **Cancelled Bookings:** Lists reservations that have been cancelled  
+
+##### Bookings List Display
+
+A responsive card-based layout presents each reservation.
+
+##### Booking Card Elements
+
+  - **Reference Number:** Unique six-character alphanumeric booking identifier  
+  - **Booking Date & Time:** Human-readable format (e.g., "Friday, March 15, 2026 at 7:30 PM")  
+  - **Party Size:** Number of guests included in the reservation  
+  - **Table Assignment:** Assigned table number (if allocated by staff)  
+  - **Special Requests:** Display of dietary notes or customer comments  
+  - **Booking Status Badge:** Colour-coded visual indicator (Confirmed / Pending / Cancelled)
+
+##### Action Buttons (for upcoming bookings only)
+
+  - **View Details:** Opens a modal window showing the complete reservation information  
+  - **Edit Booking:** Redirects to a form pre-filled with the current reservation details  
+  - **Cancel Booking:** Opens a confirmation dialog before cancelling the reservation  
+
+##### Empty State Display  
+
+When no reservations are available, the interface presents a friendly message:
+
+  - "You don't have any upcoming reservations"  
+  - **"Book a Table"** call-to-action button  
+  - Supporting icon or illustration for visual engagement  
+
+##### Booking Detail Modal
+
+A pop-up window provides expanded reservation information including:
+
+  - Full booking details  
+  - Options to print confirmation  
+  - Reminder of the cancellation policy  
+  - Restaurant contact information for modifications  
+
+##### Contact Footer
+
+A standard footer section containing contact details and navigation links.
+
+##### Notable Accessibility Touches
+
+  - Booking cards are structured using semantic `<article>` elements  
+  - Status indicators include additional screen-reader text explaining their meaning  
+  - Interactive buttons include descriptive ARIA labels  
+  - Tab navigation supports keyboard interaction using arrow keys  
+  - Modal windows correctly trap keyboard focus while active  
+  - Visual indicators clearly distinguish different booking statuses  
+
+##### Django Template Features
+
+  - Access restricted using Django's login protection decorator (`@login_required`)  
+  - User-specific queries retrieve bookings (`Booking.objects.filter(user=request.user)`)  
+  - Template filters format dates for readability (`{{ booking.booking_date|date:"l, F j, Y" }}`)  
+  - Conditional rendering based on booking date and reservation status  
+  - Pagination implemented using Django’s `Paginator` class  
+
+### Link to My Bookings Page
+- [Link to Live Website (requires authentication)](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/bookings/my-bookings/)
 
 ---
 
