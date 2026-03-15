@@ -80,7 +80,10 @@
   - [Conclusion](#conclusion)
 - [Website Information Architecture: Page Purpose & Structure](#website-information-architecture-page-purpose--structure)
   - [Homepage (index.html / Home View) — Purpose & Structure](#homepage-indexhtml--home-view--purpose--structure)
-  - [Menu Page (menu.html / Menu View) — Purpose & Structure](#menu-page-indexhtml--menu-view--purpose--structure)
+  - [Menu Page (menu.html / Menu View) — Purpose & Structure](#menu-page-menuhtml--menu-view--purpose--structure)
+  - [Booking Page (booking.html / Booking View) — Purpose & Structure](#booking-page-bookinghtml--booking-view--purpose--structure)
+ 
+  - ### Booking Page (booking.html / Booking View) — Purpose & Structure
 - [References](README.md#references)
 
 # Milestone Project 3
@@ -6270,6 +6273,98 @@ A standard footer provides restaurant contact details along with additional navi
 ##### Link to Menu Page
 
 * [Link to Live Website](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/menu/)
+
+
+### Booking Page (booking.html / Booking View) — Purpose & Structure
+[⬆ Back to Table of contents](#table-of-contents)
+
+<img width="511" height="684" alt="Image" src="https://github.com/user-attachments/assets/68121998-dbca-4466-9933-fe01c1d9e6b9" />
+
+#### Purpose
+
+The booking page allows customers to reserve a table by choosing a preferred date, time, and party size while submitting the necessary contact details. It combines real-time availability checks, validation rules, and clear form guidance to create a simple and efficient reservation process for both registered users and guest visitors.
+
+#### Structure
+
+##### Global Navigation & Sticky Navbar
+
+A consistent navigation bar appears across the website, with the **"Book a Table"** link highlighted to indicate the active page.
+
+##### Page Header
+
+A clear title, **"Reserve Your Table"**, introduces the page, accompanied by a short welcoming subtitle that explains the reservation process.
+
+##### Booking Form Container
+
+A structured reservation form with floating labels rendered using Django forms, including:
+
+**Guest Information Section (for non-authenticated users):**
+
+  - Full name input field with validation checks  
+  - Email address input with format validation  
+  - Phone number input with number format validation  
+  - Conditionally displayed using `{% if not user.is_authenticated %}`  
+
+**Reservation Details Section:**
+
+  - **Date Picker:** Calendar selector that restricts bookings to the current date or future dates  
+  - **Time Slot Selector:** Dropdown menu populated dynamically with available slots from the `TimeSlot` model  
+  - **Number of Guests:** Dropdown option allowing selection of 1–8 guests with validation rules  
+  - **Special Requests:** Optional text area for dietary requirements, allergies, or special occasions (maximum 500 characters)
+
+##### Real-Time Availability Display
+
+An AJAX-driven availability indicator provides:
+
+  - Remaining capacity for the selected date and time  
+  - Instant updates when users change the date or time without refreshing the page  
+  - Informative messages with alternative suggestions if the selected slot is unavailable  
+
+##### Form Actions
+
+A primary **"Confirm Booking"** button includes a loading state to indicate processing, alongside a secondary **"Cancel"** button.
+
+##### Booking Information Panel
+
+Displayed as a sidebar on desktop devices or as a lower section on mobile screens, this panel includes:
+   
+  - Restaurant contact details  
+  - Summary of the cancellation policy  
+  - Maximum party size information  
+
+##### Django Messages Display
+
+Bootstrap alert components are used to communicate system feedback:
+
+  - Success confirmations (green)  
+  - Validation errors (red)  
+  - Informational notices (blue)  
+
+##### Contact Footer
+
+A consistent footer section providing contact information and additional navigation links.
+
+##### Notable Accessibility Touches
+
+  - Each form input is paired with an associated `<label>` element using the correct `for` attribute  
+  - Floating labels remain visible even after fields are filled  
+  - Error messages are linked to form inputs through ARIA attributes  
+  - Required fields are identified with both an asterisk and `aria-required="true"`  
+  - The date picker supports full keyboard interaction  
+  - Validation messages provide clear and helpful guidance  
+  - Loading indicators communicate system processing to users
+
+##### Django Form Features
+
+  - CSRF protection included through `{% csrf_token %}`  
+  - Form validation handled by Django's `BookingForm` class  
+  - Custom clean methods enforcing business rules (preventing double bookings and checking capacity limits)  
+  - Conditional form fields displayed depending on user authentication status  
+  - Form errors styled using Bootstrap components  
+  - Integration with the `Booking` model through Django ModelForm
+
+##### Link to Booking Page
+- [Link to Live Website](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/bookings/)
 
 ---
 
