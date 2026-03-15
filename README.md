@@ -88,6 +88,8 @@
   - [Booking Statistics Page (booking_statistics.html / Statistics View) — Purpose & Structure](#booking-statistics-page-booking_statisticshtml--statistics-view--purpose--structure)
   - [404 Error Page (404.html) — Purpose & Structure](#404-error-page-404html--purpose--structure)
   - [500 Error Page (500.html) — Purpose & Structure](#500-error-page-500html--purpose--structure)
+  - [Login Page (login.html / Login View) — Purpose & Structure](#login-page-loginhtml--login-view--purpose--structure)
+  - [Registration Page (register.html / Register View) — Purpose & Structure](#registration-page-registerhtml--register-view--purpose--structure)
 - [References](README.md#references)
 
 # Milestone Project 3
@@ -6833,6 +6835,191 @@ Standard footer containing restaurant contact information and navigation links.
 ##### Link to 500 Page
 
 - [Server errors display this page automatically when they occur in production]
+
+### Login Page (login.html / Login View) — Purpose & Structure
+[⬆ Back to Table of contents](#table-of-contents)
+
+<img width="743" height="725" alt="Image" src="https://github.com/user-attachments/assets/a3c27201-fecc-4955-80f4-0f854a35dfca" />
+
+#### Purpose
+
+The login page allows existing users to securely sign in to their accounts and access personalised features such as reservation management, profile settings, and booking history. Acting as the entry point to authenticated functionality, it relies on Django's built-in authentication framework to ensure secure user verification.
+
+#### Structure
+
+##### Global Navigation & Sticky Navbar
+
+A consistent navigation bar featuring Portuguese Kitchen branding and links to Home, Menu, Book a Table, and Contact. The **Login** link appears highlighted as the active page, while a **Register** option remains visible for new users. A responsive hamburger menu is available on smaller screens.
+
+##### Page Header
+
+The page begins with the heading **"Login"**, optionally accompanied by a subtitle such as *"Access your bookings and profile"* to explain the benefits of logging in.
+
+##### Login Form Container
+
+A centred card-style layout with subtle shadow and branded accent styling.
+
+##### Form Fields
+
+  **Username or Email Input:**
+    - Label: "Username" or "Email Address"
+    - Input type: text
+    - Required with validation
+    - Floating or standard label above input
+    - Field-specific error messages displayed below
+
+  **Password Input:**
+     - Label: "Password"
+     - Input type: password
+     - Required field
+     - Optional password visibility toggle (eye icon)
+     - Error feedback area beneath input
+
+  **Remember Me Checkbox:**
+    - Optional persistent login option
+    - Label: "Remember me on this device"
+    - Positioned above the submit button
+
+  **Form Actions and Links.**
+  
+    - **Primary Button:** "Login" styled with the site's primary colour
+    - **Forgot Password Link:** directs users to the password recovery page
+    - **Register Link:** "Don't have an account? Register here" directing users to the registration page
+
+##### Django Messages Display
+
+Alert components display feedback messages such as:
+
+    - Login errors (invalid credentials or disabled account)
+    - Success messages (password reset confirmation)
+    - Informational notices (account creation or verification requirements)
+
+##### Security Information
+
+   - HTTPS security notice
+   - Privacy policy link
+   - Brief data protection message
+
+##### Guest Booking Option
+
+   - Informational section allowing users to book without creating an account
+   - Text example: *"Continue as a guest."*
+
+##### Contact Footer
+
+Standard footer containing restaurant contact information and navigation links.
+
+##### Notable Accessibility Touches
+
+- All inputs linked with `<label>` elements using correct `for` attributes
+- Error feedback linked to fields using `aria-describedby`
+- Screen readers announce validation messages
+- Keyboard-friendly focus navigation
+- Password toggle includes `aria-label` for assistive technologies
+- Required inputs marked visually and with `aria-required="true"`
+- Clear error explanations rather than generic messages
+- Loading indicator on submission using `aria-busy="true"`
+- Strong colour contrast for WCAG AA compliance
+
+##### Django Authentication Features
+
+- Uses Django's built-in `AuthenticationForm`
+- Authentication handled through `django.contrib.auth.views.LoginView`
+- CSRF protection via `{% csrf_token %}`
+- Login redirection using `next` parameter
+
+##### Django Template Features
+
+- Extends `base.html`
+- Static assets loaded via `{% load static %}`
+- Form rendering using `{{ form.username }}` and `{{ form.password }}`
+- Error display using `{{ form.non_field_errors }}`
+- URL routing via `{% url 'accounts:login' %}` etc.
+- Conditional display using `{% if not user.is_authenticated %}`
+- Message display loop `{% for message in messages %}`
+
+##### Link to Login Page
+
+- [Link to Live Website](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/accounts/login/)
+
+
+### Registration Page (register.html / Register View) — Purpose & Structure
+[⬆ Back to Table of contents](#table-of-contents)
+
+<img width="750" height="734" alt="Image" src="https://github.com/user-attachments/assets/2619ce70-5562-4403-ad73-90c920cc4c36" />
+
+#### Purpose
+
+The registration page enables new customers to create an account, unlocking personalised functionality such as reservation management, saved contact information, and booking history tracking.
+
+#### Structure
+
+##### Global Navigation & Sticky Navbar
+
+Consistent navigation layout with the **Register** link highlighted and a **Login** link available for existing users.
+
+##### Page Header
+
+Heading **"Create Your Account"** accompanied by a message encouraging users to join for improved booking convenience.
+
+##### Registration Form Container
+
+Structured form organised into logical sections.
+
+  **Personal Information Section:**
+  
+    - First Name input
+    - Last Name input
+
+  **Account Credentials Section:**
+   
+    - Username with uniqueness validation
+    - Email address with format validation
+
+  **Password Security Section:**
+    
+    - Password input with strength indicator
+    - Password requirements checklist
+    - Confirm password field with match validation
+
+##### Terms and Conditions Agreement
+
+Required checkbox confirming acceptance of Terms and Privacy Policy
+
+##### Form Actions and Links
+
+  - Primary **Create Account** button
+  - Login link for existing users
+
+##### Django Messages Display
+
+  - Displays validation errors or account creation success
+
+##### Contact Footer
+
+  - Standard footer with restaurant details.
+
+##### Notable Accessibility Touches
+
+- Semantic form layout
+- Labels linked to inputs
+- Password requirement list structured for screen readers
+- ARIA live regions for validation feedback
+- Accessible checkbox labels
+- Logical keyboard navigation
+- High contrast colour scheme
+
+##### Django User Registration Features
+
+- Uses Django `UserCreationForm` or custom form
+- CSRF protection
+- Unique username and email validation
+- Optional email verification workflow
+- Optional auto-login after registration
+
+##### Link to Login Page
+
+- [Link to Live Website](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/accounts/register/)
 
 ---
 
