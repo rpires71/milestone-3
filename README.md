@@ -87,6 +87,7 @@
   - [Staff Dashboard Page (staff_dashboard.html / Staff Dashboard View) — Purpose & Structure](#staff-dashboard-page-staff_dashboardhtml--staff-dashboard-view--purpose--structure)
   - [Booking Statistics Page (booking_statistics.html / Statistics View) — Purpose & Structure](#booking-statistics-page-booking_statisticshtml--statistics-view--purpose--structure)
   - [404 Error Page (404.html) — Purpose & Structure](#404-error-page-404html--purpose--structure)
+  - [500 Error Page (500.html) — Purpose & Structure](#500-error-page-500html--purpose--structure)
 - [References](README.md#references)
 
 # Milestone Project 3
@@ -6752,8 +6753,86 @@ The standard footer section containing full contact details and navigation links
 
 - [Link to Live Website](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/nonexistent-page-test)
 
----
 
+### 500 Error Page (500.html) — Purpose & Structure
+[⬆ Back to Table of contents](#table-of-contents)
+
+#### Purpose
+
+This page displays a reassuring and user-friendly message when a server-side error occurs. Its goal is to maintain user trust during temporary technical problems by presenting clear guidance while avoiding exposure of sensitive system details.
+
+#### Structure
+
+##### Error Display Container
+
+A centred layout communicates the issue with calm, apologetic messaging:
+
+  - Large **"500"** heading styled in Terracotta Red (#C44536)  
+  - Subheading **"Internal Server Error"**  
+  - Reassuring message: *"We're experiencing technical difficulties at the moment."*  
+  - Additional explanation:  *"Our team has been notified and is working to resolve the issue. Please try again shortly."*
+
+##### Primary Navigation Options
+
+Two prominent action buttons help users recover from the error:
+
+- **Return to Homepage:** Primary button directing users back to a stable page  
+- **Try Again:** Secondary button allowing users to reload the current page or retry their action  
+
+##### "What You Can Do" Section
+
+A two-column grid provides helpful suggestions for resolving the issue:
+
+   **Wait a Moment:**
+   
+     - "The issue may be temporary. Refresh the page after a short delay."
+
+   **Return to Homepage:**
+   
+     - "Navigate back to the homepage and continue browsing from there."
+
+   **Clear Your Cache:**
+     
+     - "Clearing your browser cache and cookies may resolve the issue."
+
+   **Contact Us:**
+     
+     - "If the issue continues, please contact our team for assistance."
+
+##### Apology Footer
+
+A brief message acknowledging the inconvenience: - *"We apologize for the inconvenience. Our team is working hard to restore normal service."*
+
+##### Contact Footer
+
+Standard footer containing restaurant contact information and navigation links.
+
+##### Notable Accessibility Touches
+
+  - Clear, non-technical wording that is easy for all users to understand  
+  - Multiple suggested actions to guide users forward  
+  - Logical heading hierarchy for screen readers  
+  - Calm tone to minimise user frustration or confusion  
+  - Contact details readily accessible for support
+
+##### Django Configuration
+
+  - Custom 500 handler defined in `urls.py`: `handler500 = 'portuguese_kitchen.views.custom_500'`
+  - Template inherits from `base.html` to maintain consistent layout
+  - Displayed only when `DEBUG = False` in production
+  - Minimal template logic to avoid rendering failures during server errors
+
+##### Design Considerations
+
+  - Red colour scheme appropriately signals an error condition  
+  - Messaging avoids technical jargon in favour of clear, user-friendly language  
+  - No reliance on database queries or complex logic (server state may be unstable)  
+  - Fallback styling considered in case external CSS fails to load  
+  - Template designed to remain functional even with limited resources
+
+##### Link to 500 Page
+
+- [Server errors display this page automatically when they occur in production]
 
 ---
 
