@@ -7133,6 +7133,103 @@ The website supports clearly structured user journeys:
 
 Throughout the application, a consistent visual identity and layout are maintained across all pages, including shared navigation components, footer elements, authentication state handling, and fully accessible keyboard navigation.
 
+### What worked well
+
+#### Full-Stack Architecture & Django Integration
+
+- **Django MVT architecture:** The clear separation of responsibilities between models (data structure), views (application logic), and templates (user interface) improved maintainability and overall code organisation.
+- **PostgreSQL database:** A robust, production-grade relational database ensured reliable data storage and integrity for reservations, user accounts, and related records through full ACID compliance.
+- **Django ORM:** The object-relational mapper allowed database interactions using Python rather than raw SQL, improving security and maintainability through parameterised queries.
+- **Built-in Django authentication:** Secure user management features such as password hashing, session handling, login management, and password reset functionality were provided out of the box.
+- **Class-based views:** Reusable class-based views simplified CRUD operations and reduced duplicated logic while aligning with recommended Django development practices.
+
+#### Database Design & Models
+
+- **Well-structured schema:** A normalised database design consisting of models such as User, Booking, TimeSlot, and Table ensured efficient data storage and eliminated redundancy.
+- **Model-level validation:** Business rules were enforced using Django validators (e.g., `MinValueValidator`, `MaxValueValidator`, and unique constraints), ensuring data consistency.
+- **Custom managers and querysets:** Specialised model managers simplified filtering operations for bookings by user, status, or date.
+- **Migration system:** Django's migration framework tracked schema changes over time, enabling consistent database updates across development and production environments.
+
+#### User Authentication & Authorisation
+
+- **Flexible booking access:** The application supported both guest reservations and authenticated user bookings, reducing friction for new visitors while offering enhanced features for registered users.
+- **Role-based access control:** Administrative views were secured using the `@staff_member_required` decorator, ensuring that only authorised staff could access management features.
+- **Strong password policies:** Django's built-in password validators enforced secure credentials through complexity and minimum length requirements.
+
+#### Form Handling & Validation
+
+- **Django Forms framework:** ModelForms for bookings and profiles provided built-in validation, error handling, and CSRF protection.
+- **Dual validation layers:** Client-side JavaScript validation delivered instant user feedback, while server-side Django validation ensured data integrity and security.
+- **Floating label design:** Bootstrap's form-floating classes enhanced usability while maintaining accessibility.
+- **Custom form widgets:** Inputs such as `DateInput` with `type="date"` enabled native date pickers across browsers and devices.
+
+#### Booking Logic & Business Rules
+
+- **Capacity control:** Real-time validation prevented overbooking by checking available seating for each time slot.
+- **Date restrictions:** Booking rules ensured reservations could only be made for valid future dates within operating constraints.
+- **Party size enforcement:** Both frontend and backend validation limited group sizes to between 1 and 8 guests.
+- **Unique booking references:** Each reservation generated a unique six-character alphanumeric code for easy identification.
+
+#### Staff Dashboard & Analytics
+
+- **Centralised booking management:** Staff tools allowed filtering, searching, and sorting reservations to support daily restaurant operations.
+- **Dynamic statistical insights:** Aggregation queries provided insights into booking trends, peak times, and capacity usage.
+- **Complete CRUD operations:** Staff users could create, update, view, and delete reservations when managing bookings.
+
+#### Code Quality & Standards
+
+- **PEP 8 compliance:** Achieved using Flake8 linting with zero reported errors across all project files.
+- **Pylint rating of 8.91/10:** Surpassed the 8.0 benchmark, demonstrating well-structured and maintainable code.
+- **Import organisation:** isort ensured a standardised import order (standard library -> Django -> third-party -> local modules).
+- **Consistent formatting:** Black formatter maintained uniform styling with an 88-character line length.
+- **Documentation and type hints:** Detailed docstrings and type annotations improved maintainability and development tooling support.
+
+#### Deployment & Production Configuration
+
+- **Heroku hosting:** The application was successfully deployed to Heroku with a 100% success rate, demonstrating a stable production configuration.
+- **Environment variable management:** python-decouple separated sensitive configuration values (DEBUG, SECRET_KEY, DATABASE_URL) from the source code.
+- **Static file handling:** WhiteNoise served static assets efficiently without requiring external CDN infrastructure.
+- **Database transition:** The application migrated smoothly from SQLite during development to PostgreSQL in production using `dj-database-url`.
+- **Gunicorn server:** The Gunicorn WSGI server handled concurrent requests in production, replacing Django's development server.
+
+#### Accessibility & WCAG Compliance
+
+- **WAVE validation:** All pages passed accessibility checks with zero detected errors, confirming WCAG 2.1 Level AA compliance.
+- **Semantic HTML structure:** Correct heading hierarchy, landmark regions, and ARIA attributes improved compatibility with assistive technologies.
+- **Keyboard accessibility:** All interactive components were usable via keyboard navigation with visible focus indicators.
+- **Colour contrast:** Text contrast met WCAG AA requirements (minimum 4.5:1 ratio).
+- **Accessible forms:** Form fields included proper labels, error messaging, and required-field indicators.
+- **Image descriptions:** Every image included meaningful alt text to describe visual content.
+
+#### Responsive Design & Cross-Browser Compatibility
+
+- **Mobile-first design:** Core styling targeted smaller screens first, with enhancements for larger displays.
+- **Bootstrap 5 grid system:** Responsive layouts supported devices from 375px mobile screens to large desktop displays.
+- **Browser compatibility testing:** Functionality verified across Chrome and Microsoft Edge.
+- **Touch-friendly interface:** Buttons and interactive elements followed recommended minimum touch target sizes (44×44px).
+- **Optimised images:** WebP images under 200KB ensured quick loading times across devices.
+
+#### Image Optimisation
+
+- **WebP image format:** All images were converted to WebP, reducing total file size by approximately 70.6%.
+- **Efficient image sizing:** Each image remained under 200KB to improve page load speed.
+- **Lazy loading:** Native browser lazy loading reduced initial page load time.
+- **Responsive delivery:** Images were scaled appropriately for different screen sizes to minimise unnecessary data usage.
+
+#### Version Control & Git Workflow
+
+- **Descriptive commit history:** Meaningful commit messages documented development progress and feature additions.
+- **GitHub repository management:** The entire project history was maintained through regular commits and pushes.
+- **Deployment workflow:** Git-based deployment to Heroku (`git push heroku main`) streamlined updates to production.
+
+#### Testing Coverage
+
+- **144 test cases:** A detailed test plan covered functionality, validation, performance, accessibility, and security.
+- **User story validation:** Each user story acceptance criterion was verified with documented results.
+- **Automated code checks:** Flake8, Pylint, isort, and Black ensured adherence to coding standards.
+- **Browser compatibility testing:** All features were verified across major browsers.
+- **Accessibility testing:** WAVE analysis and manual keyboard testing confirmed compliance with WCAG standards.
+
 ---
 
 ## References
