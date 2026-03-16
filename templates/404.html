@@ -1,161 +1,137 @@
-{% extends "base.html" %} {% load static %} {% block title %}Page Not Found -
-Portuguese Kitchen{% endblock %} {% block content %}
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Page Not Found - Portuguese Kitchen{% endblock %}
+
+{% block content %}
 <div class="container text-center py-5">
-  <div class="row justify-content-center">
-    <div class="col-lg-8 col-md-10">
-      <!-- 404 Error Message -->
-      <div class="error-404-content">
-        <h1 class="display-1 fw-bold text-primary mb-4">404</h1>
-        <h2 class="mb-4">Oops! Page Not Found</h2>
-        <p class="lead mb-4">
-          We're sorry, but the page you're looking for seems to have wandered
-          off the menu.
-        </p>
-        <p class="mb-5">
-          The page you requested could not be found. It may have been moved,
-          deleted, or perhaps never existed.
-        </p>
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <!-- 404 Error Message -->
+            <div class="error-404-content">
+                <h1 class="display-1 fw-bold text-primary mb-4">404</h1>
+                <h2 class="mb-4">Oops! Page Not Found</h2>
+                <p class="lead mb-4">
+                    We're sorry, but the page you're looking for seems to have wandered off the menu.
+                </p>
+                <p class="mb-5">
+                    The page you requested could not be found. It may have been moved, deleted, or perhaps never existed.
+                </p>
 
-        <!-- Navigation Options -->
-        <div
-          class="d-flex flex-column flex-md-row gap-3 justify-content-center mb-5"
-        >
-          <a href="{% url 'home' %}" class="btn btn-primary btn-lg">
-            <i class="fas fa-home me-2"></i>Return to Homepage
-          </a>
-          <a
-            href="{% url 'bookings:booking' %}"
-            class="btn btn-outline-primary btn-lg"
-          >
-            <i class="fas fa-calendar-alt me-2"></i>Book a Table
-          </a>
-          <a href="{% url 'menu' %}" class="btn btn-outline-primary btn-lg">
-            <i class="fas fa-utensils me-2"></i>View Menu
-          </a>
-        </div>
+                <!-- Navigation Options -->
+                <div class="d-flex flex-column flex-md-row gap-3 justify-content-center mb-5">
+                    <a href="{% url 'home' %}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-home me-2"></i>Return to Homepage
+                    </a>
+                    <a href="{% url 'bookings:booking' %}" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-calendar-alt me-2"></i>Book a Table
+                    </a>
+                    <a href="{% url 'menu' %}" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-utensils me-2"></i>View Menu
+                    </a>
+                </div>
 
-        <!-- Helpful Links -->
-        <div class="helpful-links mt-5 pt-4 border-top">
-          <h5 class="mb-3">Looking for something specific?</h5>
-          <div class="row g-3">
-            <div class="col-md-4">
-              <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                  <i class="fas fa-calendar-check fa-2x text-primary mb-3"></i>
-                  <h6 class="card-title">Manage Bookings</h6>
-                  <p class="card-text small">
-                    View or modify your reservations
-                  </p>
-                  {% if user.is_authenticated %}
-                  <a
-                    href="{% url 'bookings:my_bookings' %}"
-                    class="btn btn-sm btn-outline-primary"
-                  >
-                    My Bookings
-                  </a>
-                  {% else %}
-                  <a
-                    href="{% url 'accounts:login' %}"
-                    class="btn btn-sm btn-outline-primary"
-                  >
-                    Sign In
-                  </a>
-                  {% endif %}
+                <!-- Helpful Links -->
+                <div class="helpful-links mt-5 pt-4 border-top">
+                    <h5 class="mb-3">Looking for something specific?</h5>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <i class="fas fa-calendar-check fa-2x text-primary mb-3"></i>
+                                    <h6 class="card-title">Manage Bookings</h6>
+                                    <p class="card-text small">View or modify your reservations</p>
+                                    {% if user.is_authenticated %}
+                                        <a href="{% url 'bookings:my_bookings' %}" class="btn btn-sm btn-outline-primary">
+                                            My Bookings
+                                        </a>
+                                    {% else %}
+                                        <a href="{% url 'accounts:login' %}" class="btn btn-sm btn-outline-primary">
+                                            Sign In
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <i class="fas fa-user fa-2x text-primary mb-3"></i>
+                                    <h6 class="card-title">Your Profile</h6>
+                                    <p class="card-text small">Update your account information</p>
+                                    {% if user.is_authenticated %}
+                                        <a href="{% url 'accounts:profile' %}" class="btn btn-sm btn-outline-primary">
+                                            View Profile
+                                        </a>
+                                    {% else %}
+                                        <a href="{% url 'accounts:register' %}" class="btn btn-sm btn-outline-primary">
+                                            Register
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <i class="fas fa-info-circle fa-2x text-primary mb-3"></i>
+                                    <h6 class="card-title">Contact Us</h6>
+                                    <p class="card-text small">Get in touch with our team</p>
+                                    <a href="{% url 'home' %}#contact" class="btn btn-sm btn-outline-primary">
+                                        Contact Info
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                  <i class="fas fa-user fa-2x text-primary mb-3"></i>
-                  <h6 class="card-title">Your Profile</h6>
-                  <p class="card-text small">Update your account information</p>
-                  {% if user.is_authenticated %}
-                  <a
-                    href="{% url 'accounts:profile' %}"
-                    class="btn btn-sm btn-outline-primary"
-                  >
-                    View Profile
-                  </a>
-                  {% else %}
-                  <a
-                    href="{% url 'accounts:register' %}"
-                    class="btn btn-sm btn-outline-primary"
-                  >
-                    Register
-                  </a>
-                  {% endif %}
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                  <i class="fas fa-info-circle fa-2x text-primary mb-3"></i>
-                  <h6 class="card-title">Contact Us</h6>
-                  <p class="card-text small">Get in touch with our team</p>
-                  <a
-                    href="{% url 'home' %}#contact"
-                    class="btn btn-sm btn-outline-primary"
-                  >
-                    Contact Info
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- Additional Help -->
-        <div class="mt-5 pt-4">
-          <p class="text-muted small">
-            If you believe this is an error or need assistance, please
-            <a href="{% url 'home' %}#contact" class="text-decoration-none"
-              >contact us</a
-            >.
-          </p>
+                <!-- Additional Help -->
+                <div class="mt-5 pt-4">
+                    <p class="text-muted small">
+                        If you believe this is an error or need assistance, please 
+                        <a href="{% url 'home' %}#contact" class="text-decoration-none">contact us</a>.
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 
 <!-- Optional: Custom Styling -->
 <style>
-  .error-404-content h1 {
-    font-size: 8rem;
-    color: #1f4e79;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  .error-404-content h2 {
-    color: #3a2f2a;
-  }
-
-  .helpful-links .card {
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-    border: 1px solid #dee2e6;
-  }
-
-  .helpful-links .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-  }
-
-  .helpful-links .card-body {
-    padding: 1.5rem;
-  }
-
-  .helpful-links i {
-    display: block;
-  }
-
-  @media (max-width: 768px) {
     .error-404-content h1 {
-      font-size: 5rem;
+        font-size: 8rem;
+        color: #1F4E79;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     }
-  }
+
+    .error-404-content h2 {
+        color: #3A2F2A;
+    }
+
+    .helpful-links .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid #dee2e6;
+    }
+
+    .helpful-links .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .helpful-links .card-body {
+        padding: 1.5rem;
+    }
+
+    .helpful-links i {
+        display: block;
+    }
+
+    @media (max-width: 768px) {
+        .error-404-content h1 {
+            font-size: 5rem;
+        }
+    }
 </style>
 {% endblock %}

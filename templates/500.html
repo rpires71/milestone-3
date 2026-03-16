@@ -1,116 +1,103 @@
-{% extends "base.html" %} {% load static %} {% block title %}Server Error -
-Portuguese Kitchen{% endblock %} {% block content %}
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Server Error - Portuguese Kitchen{% endblock %}
+
+{% block content %}
 <div class="container text-center py-5">
-  <div class="row justify-content-center">
-    <div class="col-lg-8 col-md-10">
-      <!-- 500 Error Message -->
-      <div class="error-500-content">
-        <h1 class="display-1 fw-bold text-danger mb-4">500</h1>
-        <h2 class="mb-4">Internal Server Error</h2>
-        <p class="lead mb-4">
-          We're experiencing technical difficulties at the moment.
-        </p>
-        <p class="mb-5">
-          Our team has been notified and is working to resolve the issue. Please
-          try again in a few moments.
-        </p>
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <!-- 500 Error Message -->
+            <div class="error-500-content">
+                <h1 class="display-1 fw-bold text-danger mb-4">500</h1>
+                <h2 class="mb-4">Internal Server Error</h2>
+                <p class="lead mb-4">
+                    We're experiencing technical difficulties at the moment.
+                </p>
+                <p class="mb-5">
+                    Our team has been notified and is working to resolve the issue. Please try again in a few moments.
+                </p>
 
-        <!-- Navigation Options -->
-        <div
-          class="d-flex flex-column flex-md-row gap-3 justify-content-center mb-5"
-        >
-          <a href="{% url 'home' %}" class="btn btn-primary btn-lg">
-            <i class="fas fa-home me-2"></i>Return to Homepage
-          </a>
-          <a
-            href="javascript:location.reload()"
-            class="btn btn-outline-primary btn-lg"
-          >
-            <i class="fas fa-redo me-2"></i>Try Again
-          </a>
-        </div>
+                <!-- Navigation Options -->
+                <div class="d-flex flex-column flex-md-row gap-3 justify-content-center mb-5">
+                    <a href="{% url 'home' %}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-home me-2"></i>Return to Homepage
+                    </a>
+                    <a href="javascript:location.reload()" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-redo me-2"></i>Try Again
+                    </a>
+                </div>
 
-        <!-- What to do -->
-        <div class="mt-5 pt-4 border-top">
-          <h5 class="mb-4">What you can do:</h5>
-          <div class="row g-3 text-start">
-            <div class="col-md-6">
-              <div class="d-flex align-items-start">
-                <i class="fas fa-check-circle text-success me-3 mt-1"></i>
-                <div>
-                  <strong>Wait a moment</strong>
-                  <p class="mb-0 small text-muted">
-                    The issue may be temporary. Try refreshing the page in a
-                    minute.
-                  </p>
+                <!-- What to do -->
+                <div class="mt-5 pt-4 border-top">
+                    <h5 class="mb-4">What you can do:</h5>
+                    <div class="row g-3 text-start">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                                <div>
+                                    <strong>Wait a moment</strong>
+                                    <p class="mb-0 small text-muted">The issue may be temporary. Try refreshing the page in a minute.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                                <div>
+                                    <strong>Return to homepage</strong>
+                                    <p class="mb-0 small text-muted">Start fresh from our main page and try navigating again.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                                <div>
+                                    <strong>Clear your cache</strong>
+                                    <p class="mb-0 small text-muted">Try clearing your browser cache and cookies.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                                <div>
+                                    <strong>Contact us</strong>
+                                    <p class="mb-0 small text-muted">If the problem persists, please <a href="{% url 'home' %}#contact">let us know</a>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="d-flex align-items-start">
-                <i class="fas fa-check-circle text-success me-3 mt-1"></i>
-                <div>
-                  <strong>Return to homepage</strong>
-                  <p class="mb-0 small text-muted">
-                    Start fresh from our main page and try navigating again.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="d-flex align-items-start">
-                <i class="fas fa-check-circle text-success me-3 mt-1"></i>
-                <div>
-                  <strong>Clear your cache</strong>
-                  <p class="mb-0 small text-muted">
-                    Try clearing your browser cache and cookies.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="d-flex align-items-start">
-                <i class="fas fa-check-circle text-success me-3 mt-1"></i>
-                <div>
-                  <strong>Contact us</strong>
-                  <p class="mb-0 small text-muted">
-                    If the problem persists, please
-                    <a href="{% url 'home' %}#contact">let us know</a>.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- Additional Help -->
-        <div class="mt-5 pt-4">
-          <p class="text-muted small">
-            We apologize for the inconvenience. Our team is working hard to
-            restore normal service.
-          </p>
+                <!-- Additional Help -->
+                <div class="mt-5 pt-4">
+                    <p class="text-muted small">
+                        We apologize for the inconvenience. Our team is working hard to restore normal service.
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 
 <!-- Optional: Custom Styling -->
 <style>
-  .error-500-content h1 {
-    font-size: 8rem;
-    color: #c44536;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  .error-500-content h2 {
-    color: #3a2f2a;
-  }
-
-  @media (max-width: 768px) {
     .error-500-content h1 {
-      font-size: 5rem;
+        font-size: 8rem;
+        color: #C44536;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     }
-  }
+
+    .error-500-content h2 {
+        color: #3A2F2A;
+    }
+
+    @media (max-width: 768px) {
+        .error-500-content h1 {
+            font-size: 5rem;
+        }
+    }
 </style>
 {% endblock %}

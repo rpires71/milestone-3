@@ -15,24 +15,24 @@
    ========================================================= */
 :root {
   /* Brand Colours */
-  --azulejo-blue: #1f4e79; /* Primary brand colour */
-  --olive-green: #6b8e23; /* Secondary tone */
-  --terracotta-red: #c44536; /* Call-to-action colour */
-  --linen-cream: #faf7f2; /* Main background */
-  --espresso-brown: #3a2f2a; /* Text colour */
-  --porcelain-white: #ffffff; /* Card backgrounds */
-
+  --azulejo-blue: #1F4E79;      /* Primary brand colour */
+  --olive-green: #6B8E23;        /* Secondary tone */
+  --terracotta-red: #C44536;     /* Call-to-action colour */
+  --linen-cream: #FAF7F2;        /* Main background */
+  --espresso-brown: #3A2F2A;     /* Text colour */
+  --porcelain-white: #FFFFFF;    /* Card backgrounds */
+  
   /* Typography */
-  --font-heading: "Montserrat", sans-serif;
-  --font-body: "Lato", sans-serif;
-
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Lato', sans-serif;
+  
   /* Shadows */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
   --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
 
-  --hero-height: 250px; /* ONE height for all heroes */
-  --hero-logo-max: 300px; /* ONE logo size for all heroes */
+  --hero-height: 250px;          /* ONE height for all heroes */
+  --hero-logo-max: 300px;        /* ONE logo size for all heroes */
 }
 
 /* =========================================================
@@ -44,8 +44,7 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -65,36 +64,19 @@ body {
 /* =========================================================
    TYPOGRAPHY
    ========================================================= */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
   color: var(--espresso-brown);
   margin-bottom: 1rem;
 }
 
-h1 {
-  font-size: 2.5rem;
-}
-h2 {
-  font-size: 2rem;
-}
-h3 {
-  font-size: 1.75rem;
-}
-h4 {
-  font-size: 1.5rem;
-}
-h5 {
-  font-size: 1.25rem;
-}
-h6 {
-  font-size: 1rem;
-}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
 
 p {
   margin-bottom: 1rem;
@@ -198,7 +180,7 @@ a:hover {
 
 /* Underline effect for active link */
 .navbar-light .navbar-nav .nav-link.active::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 1rem;
@@ -217,24 +199,20 @@ a:hover {
 .bookings-hero,
 .profile-hero,
 .confirmation-hero {
-  background: linear-gradient(
-    135deg,
-    var(--azulejo-blue) 0%,
-    var(--olive-green) 100%
-  ) !important;
+  background: linear-gradient(135deg, var(--azulejo-blue) 0%, var(--olive-green) 100%) !important;
   color: var(--porcelain-white) !important;
   border-bottom: 3px solid var(--olive-green);
-
+  
   /* Heights and padding controlled by Nuclear Fix at end of file */
   margin: 0;
-
+  
   /* CENTER CONTENT VERTICALLY */
   display: flex !important;
   align-items: center !important;
-
+  
   /* PREVENT OVERFLOW */
   overflow: hidden !important;
-
+  
   /* FLEX CONTAINER SETTINGS */
   flex-shrink: 0;
 }
@@ -379,9 +357,7 @@ main {
   border: 1px solid #dee2e6;
   border-radius: 10px;
   overflow: hidden;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: var(--shadow-sm);
   transition: box-shadow 0.3s ease;
   display: flex;
@@ -396,11 +372,7 @@ main {
 }
 
 .booking-card .card-header {
-  background: linear-gradient(
-    135deg,
-    var(--azulejo-blue) 0%,
-    var(--olive-green) 100%
-  );
+  background: linear-gradient(135deg, var(--azulejo-blue) 0%, var(--olive-green) 100%);
   color: white;
   padding: 1.25rem;
   border-bottom: none;
@@ -409,7 +381,7 @@ main {
 
 .booking-card .card-body {
   padding: 1.5rem;
-  flex-grow: 1; /* THIS IS KEY - makes body fill available space */
+  flex-grow: 1;  /* THIS IS KEY - makes body fill available space */
   display: flex;
   flex-direction: column;
 }
@@ -419,12 +391,12 @@ main {
   padding: 1rem 1.5rem;
   border-top: 1px solid #dee2e6;
   flex-shrink: 0;
-  margin-top: auto; /* THIS IS KEY - pushes footer to bottom */
+  margin-top: auto;  /* THIS IS KEY - pushes footer to bottom */
 }
 
 /* Special Requests Section - Add spacing */
 .booking-detail.special-requests {
-  margin-top: auto; /* Pushes special requests to bottom of card body */
+  margin-top: auto;  /* Pushes special requests to bottom of card body */
   padding-top: 1rem;
 }
 
@@ -559,9 +531,7 @@ main {
 }
 
 .contact-tile {
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
@@ -580,11 +550,7 @@ main {
    MODALS
    ========================================================= */
 .modal-header {
-  background: linear-gradient(
-    135deg,
-    var(--azulejo-blue) 0%,
-    var(--olive-green) 100%
-  ) !important;
+  background: linear-gradient(135deg, var(--azulejo-blue) 0%, var(--olive-green) 100%) !important;
   color: var(--porcelain-white) !important;
 }
 
@@ -642,7 +608,7 @@ html {
 
 /* Menu Header Banner Image - REDUCED SIZE */
 .menu-header-image {
-  max-height: 500px;
+  max-height: 500px;  
   width: 100%;
   object-fit: cover;
   border-radius: 15px;
@@ -655,9 +621,7 @@ html {
   background: var(--porcelain-white);
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
 }
 
@@ -689,17 +653,13 @@ html {
 
 /* Optional Image Overlay for Better Text Contrast */
 .menu-item-image::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(0, 0, 0, 0.1) 100%
-  );
+  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.1) 100%);
   pointer-events: none;
 }
 
@@ -712,7 +672,7 @@ html {
 
 .dietary-key-item:hover {
   transform: translateY(-2px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .alert-info {
@@ -804,7 +764,7 @@ section:last-of-type {
     padding-top: 1.5rem !important;
     padding-bottom: 1rem !important;
   }
-
+  
   .booking-form-section,
   .bookings-content,
   .booking-details,
@@ -819,15 +779,9 @@ section:last-of-type {
    Responsive hero heights
    ========================================================= */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
-  }
-  h2 {
-    font-size: 1.75rem;
-  }
-  h3 {
-    font-size: 1.5rem;
-  }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
 
   /* Hero heights for tablet */
   .hero-section,
@@ -841,7 +795,7 @@ section:last-of-type {
     max-height: 220px !important;
     height: 220px !important;
   }
-
+  
   .hero-logo {
     max-height: 150px !important;
   }
@@ -851,6 +805,7 @@ section:last-of-type {
     height: 40px !important;
     max-height: 40px !important;
   }
+
 }
 
 @media (max-width: 576px) {
@@ -865,7 +820,7 @@ section:last-of-type {
     max-height: 180px !important;
     height: 180px !important;
   }
-
+  
   .hero-logo {
     max-height: 120px !important;
   }
@@ -885,7 +840,7 @@ section:last-of-type {
   .profile-content {
     padding: 2rem 0;
   }
-
+  
   .footer-section {
     padding: 2rem 0 1rem;
   }
@@ -896,7 +851,7 @@ section:last-of-type {
   .auth-hero {
     padding: 1.5rem 0 !important;
   }
-
+  
   .booking-form-section {
     padding: 1.5rem 0 !important;
   }
@@ -938,13 +893,14 @@ section:last-of-type {
   .btn {
     display: none !important;
   }
-
+  
   .hero-section,
   .auth-hero {
     background: white !important;
     color: black !important;
   }
 }
+
 
 /* =========================================================
    CSS for Dietary Key (add to {% block extra_css %})
@@ -954,7 +910,7 @@ section:last-of-type {
   .dietary-key-item {
     font-size: 0.85rem;
   }
-
+  
   .dietary-key-item .fs-4 {
     font-size: 1.2rem !important;
   }
@@ -966,12 +922,12 @@ section:last-of-type {
     padding: 0.75rem 1rem;
     margin: 0.25rem 0;
   }
-
+  
   .navbar-light .navbar-nav .nav-link.active {
     border-left: 3px solid var(--terracotta-red);
     border-radius: 0;
   }
-
+  
   .navbar-light .navbar-nav .nav-link.active::after {
     display: none;
   }
@@ -1066,7 +1022,7 @@ section:last-of-type {
     max-height: none !important;
     padding: 1.5rem 0 !important;
   }
-
+  
   .booking-form-section,
   .bookings-content,
   .booking-details,
@@ -1078,7 +1034,7 @@ section:last-of-type {
     min-height: auto !important;
     height: auto !important;
   }
-
+  
   section:last-of-type {
     padding-bottom: 2rem !important;
   }
@@ -1098,7 +1054,7 @@ section:last-of-type {
     max-height: none !important;
     padding: 1.25rem 0 !important;
   }
-
+  
   .booking-form-section,
   .bookings-content,
   .confirmation-section,
@@ -1113,7 +1069,7 @@ section:last-of-type {
 
 /* =========================================================
    END NUCLEAR FIX
-   ========================================================= */ /* =========================================================
+   ========================================================= *//* =========================================================
    PORTUGUESE KITCHEN - MAIN STYLESHEET
    
    This stylesheet implements the Portuguese Kitchen brand
@@ -1130,24 +1086,24 @@ section:last-of-type {
    ========================================================= */
 :root {
   /* Brand Colours */
-  --azulejo-blue: #1f4e79; /* Primary brand colour */
-  --olive-green: #6b8e23; /* Secondary tone */
-  --terracotta-red: #c44536; /* Call-to-action colour */
-  --linen-cream: #faf7f2; /* Main background */
-  --espresso-brown: #3a2f2a; /* Text colour */
-  --porcelain-white: #ffffff; /* Card backgrounds */
-
+  --azulejo-blue: #1F4E79;      /* Primary brand colour */
+  --olive-green: #6B8E23;        /* Secondary tone */
+  --terracotta-red: #C44536;     /* Call-to-action colour */
+  --linen-cream: #FAF7F2;        /* Main background */
+  --espresso-brown: #3A2F2A;     /* Text colour */
+  --porcelain-white: #FFFFFF;    /* Card backgrounds */
+  
   /* Typography */
-  --font-heading: "Montserrat", sans-serif;
-  --font-body: "Lato", sans-serif;
-
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Lato', sans-serif;
+  
   /* Shadows */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
   --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
 
-  --hero-height: 250px; /* ONE height for all heroes */
-  --hero-logo-max: 300px; /* ONE logo size for all heroes */
+  --hero-height: 250px;          /* ONE height for all heroes */
+  --hero-logo-max: 300px;        /* ONE logo size for all heroes */
 }
 
 /* =========================================================
@@ -1174,36 +1130,19 @@ html {
 /* =========================================================
    TYPOGRAPHY
    ========================================================= */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
   color: var(--espresso-brown);
   margin-bottom: 1rem;
 }
 
-h1 {
-  font-size: 2.5rem;
-}
-h2 {
-  font-size: 2rem;
-}
-h3 {
-  font-size: 1.75rem;
-}
-h4 {
-  font-size: 1.5rem;
-}
-h5 {
-  font-size: 1.25rem;
-}
-h6 {
-  font-size: 1rem;
-}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
 
 p {
   margin-bottom: 1rem;
@@ -1286,14 +1225,10 @@ a:hover {
 .bookings-hero,
 .profile-hero,
 .confirmation-hero {
-  background: linear-gradient(
-    135deg,
-    var(--azulejo-blue) 0%,
-    var(--olive-green) 100%
-  ) !important;
+  background: linear-gradient(135deg, var(--azulejo-blue) 0%, var(--olive-green) 100%) !important;
   color: var(--porcelain-white) !important;
   border-bottom: 3px solid var(--olive-green);
-  /* make height consistent */
+   /* make height consistent */
   /* CONSISTENT HEIGHT */
   min-height: 280px !important;
   max-height: 280px !important;
@@ -1307,6 +1242,8 @@ a:hover {
   /* PREVENT OVERFLOW */
   overflow: hidden !important;
 }
+
+
 
 .hero-section h1,
 .hero-section h2,
@@ -1354,6 +1291,7 @@ a:hover {
   display: block;
   margin: 0 auto;
 }
+
 
 /* =========================================================
    BUTTONS
@@ -1578,9 +1516,7 @@ a:hover {
 }
 
 .contact-tile {
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
@@ -1599,11 +1535,7 @@ a:hover {
    MODALS
    ========================================================= */
 .modal-header {
-  background: linear-gradient(
-    135deg,
-    var(--azulejo-blue) 0%,
-    var(--olive-green) 100%
-  ) !important;
+  background: linear-gradient(135deg, var(--azulejo-blue) 0%, var(--olive-green) 100%) !important;
   color: var(--porcelain-white) !important;
 }
 
@@ -1661,7 +1593,7 @@ html {
 
 /* Menu Header Banner Image - REDUCED SIZE */
 .menu-header-image {
-  max-height: 500px;
+  max-height: 500px;  
   width: 100%;
   object-fit: cover;
   border-radius: 15px;
@@ -1674,9 +1606,7 @@ html {
   background: var(--porcelain-white);
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
 }
 
@@ -1708,17 +1638,13 @@ html {
 
 /* Optional Image Overlay for Better Text Contrast */
 .menu-item-image::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(0, 0, 0, 0.1) 100%
-  );
+  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.1) 100%);
   pointer-events: none;
 }
 
@@ -1731,7 +1657,7 @@ html {
 
 .dietary-key-item:hover {
   transform: translateY(-2px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .alert-info {
@@ -1748,15 +1674,9 @@ html {
    Responsive hero heights
    ========================================================= */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
-  }
-  h2 {
-    font-size: 1.75rem;
-  }
-  h3 {
-    font-size: 1.5rem;
-  }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
 
   /* Hero heights for tablet */
   .hero-section,
@@ -1770,7 +1690,7 @@ html {
     max-height: 220px !important;
     height: 220px !important;
   }
-
+  
   .hero-logo {
     max-height: 150px !important;
   }
@@ -1780,6 +1700,7 @@ html {
     height: 40px !important;
     max-height: 40px !important;
   }
+
 }
 
 @media (max-width: 576px) {
@@ -1794,7 +1715,7 @@ html {
     max-height: 180px !important;
     height: 180px !important;
   }
-
+  
   .hero-logo {
     max-height: 120px !important;
   }
@@ -1832,7 +1753,7 @@ html {
   .btn {
     display: none !important;
   }
-
+  
   .hero-section,
   .auth-hero {
     background: white !important;
@@ -1848,7 +1769,7 @@ html {
   .dietary-key-item {
     font-size: 0.85rem;
   }
-
+  
   .dietary-key-item .fs-4 {
     font-size: 1.2rem !important;
   }

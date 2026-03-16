@@ -1,8 +1,10 @@
-{% extends 'base.html' %} {% load static %}
+{% extends 'base.html' %}
+{% load static %}
 
 <!-- Page title -->
-{% block title %}Booking Statistics - Portuguese Kitchen{% endblock %} {% block
-nav_statistics %}active{% endblock %}
+{% block title %}Booking Statistics - Portuguese Kitchen{% endblock %}
+
+{% block nav_statistics %}active{% endblock %}
 
 <!-- Statistics Dashboard content -->
 {% block content %}
@@ -16,22 +18,19 @@ nav_statistics %}active{% endblock %}
           <i class="bi bi-graph-up me-2"></i>
           Booking Statistics
         </h1>
-        <p class="lead mb-0 text-white-50">{{ range_label }}</p>
+        <p class="lead mb-0 text-white-50">
+          {{ range_label }}
+        </p>
       </div>
       <div class="col-lg-6 text-lg-end">
         <div class="d-flex flex-wrap justify-content-lg-end gap-2 mt-3 mt-lg-0">
-          <button
-            onclick="window.location.reload()"
-            class="btn btn-outline-light btn-sm"
-          >
+          <button onclick="window.location.reload()" class="btn btn-outline-light btn-sm">
             <i class="bi bi-arrow-clockwise me-1"></i>
             Refresh
           </button>
           {% if has_data %}
-          <a
-            href="?range={{ date_range }}&export=csv{% if date_range == 'custom' %}&start_date={{ start_date }}&end_date={{ end_date }}{% endif %}"
-            class="btn btn-success btn-sm"
-          >
+          <a href="?range={{ date_range }}&export=csv{% if date_range == 'custom' %}&start_date={{ start_date }}&end_date={{ end_date }}{% endif %}" 
+             class="btn btn-success btn-sm">
             <i class="bi bi-download me-1"></i>
             Export CSV
           </a>
@@ -48,70 +47,26 @@ nav_statistics %}active{% endblock %}
     <form method="GET" class="row g-3 align-items-end" id="dateRangeForm">
       <div class="col-md-3">
         <label for="range" class="form-label fw-semibold">Time Period</label>
-        <select
-          name="range"
-          id="range"
-          class="form-select"
-          onchange="toggleCustomDates()"
-        >
-          <option value="7" {% if date_range="" ="7" %}selected{% endif %}>
-            Last 7 Days
-          </option>
-          <option value="30" {% if date_range="" ="30" %}selected{% endif %}>
-            Last 30 Days
-          </option>
-          <option value="90" {% if date_range="" ="90" %}selected{% endif %}>
-            Last 90 Days
-          </option>
-          <option
-            value="custom"
-            {%
-            if
-            date_range=""
-            ="custom"
-            %}selected{%
-            endif
-            %}
-          >
-            Custom Range
-          </option>
+        <select name="range" id="range" class="form-select" onchange="toggleCustomDates()">
+          <option value="7" {% if date_range == '7' %}selected{% endif %}>Last 7 Days</option>
+          <option value="30" {% if date_range == '30' %}selected{% endif %}>Last 30 Days</option>
+          <option value="90" {% if date_range == '90' %}selected{% endif %}>Last 90 Days</option>
+          <option value="custom" {% if date_range == 'custom' %}selected{% endif %}>Custom Range</option>
         </select>
       </div>
-
-      <div
-        class="col-md-3"
-        id="startDateGroup"
-        style="display: {% if date_range == 'custom' %}block{% else %}none{% endif %};"
-      >
-        <label for="start_date" class="form-label fw-semibold"
-          >Start Date</label
-        >
-        <input
-          type="date"
-          name="start_date"
-          id="start_date"
-          class="form-control"
-          value="{{ start_date|date:'Y-m-d' }}"
-          max="{{ end_date|date:'Y-m-d' }}"
-        />
+      
+      <div class="col-md-3" id="startDateGroup" style="display: {% if date_range == 'custom' %}block{% else %}none{% endif %};">
+        <label for="start_date" class="form-label fw-semibold">Start Date</label>
+        <input type="date" name="start_date" id="start_date" class="form-control" 
+               value="{{ start_date|date:'Y-m-d' }}" max="{{ end_date|date:'Y-m-d' }}">
       </div>
-
-      <div
-        class="col-md-3"
-        id="endDateGroup"
-        style="display: {% if date_range == 'custom' %}block{% else %}none{% endif %};"
-      >
+      
+      <div class="col-md-3" id="endDateGroup" style="display: {% if date_range == 'custom' %}block{% else %}none{% endif %};">
         <label for="end_date" class="form-label fw-semibold">End Date</label>
-        <input
-          type="date"
-          name="end_date"
-          id="end_date"
-          class="form-control"
-          value="{{ end_date|date:'Y-m-d' }}"
-          max="{{ end_date|date:'Y-m-d' }}"
-        />
+        <input type="date" name="end_date" id="end_date" class="form-control" 
+               value="{{ end_date|date:'Y-m-d' }}" max="{{ end_date|date:'Y-m-d' }}">
       </div>
-
+      
       <div class="col-md-3">
         <button type="submit" class="btn btn-primary w-100">
           <i class="bi bi-funnel me-2"></i>
@@ -140,7 +95,7 @@ nav_statistics %}active{% endblock %}
           </div>
         </div>
       </div>
-
+      
       <!-- Total Guests -->
       <div class="col-sm-6 col-lg-3">
         <div class="metric-card">
@@ -153,7 +108,7 @@ nav_statistics %}active{% endblock %}
           </div>
         </div>
       </div>
-
+      
       <!-- Confirmed Bookings -->
       <div class="col-sm-6 col-lg-3">
         <div class="metric-card">
@@ -166,7 +121,7 @@ nav_statistics %}active{% endblock %}
           </div>
         </div>
       </div>
-
+      
       <!-- Cancelled Bookings -->
       <div class="col-sm-6 col-lg-3">
         <div class="metric-card">
@@ -180,7 +135,7 @@ nav_statistics %}active{% endblock %}
         </div>
       </div>
     </div>
-
+    
     <!-- Additional Metrics Row -->
     <div class="row g-3 mt-2">
       <!-- Average Party Size -->
@@ -195,7 +150,7 @@ nav_statistics %}active{% endblock %}
           </div>
         </div>
       </div>
-
+      
       <!-- Pending Bookings -->
       <div class="col-sm-6 col-lg-3">
         <div class="metric-card">
@@ -208,7 +163,7 @@ nav_statistics %}active{% endblock %}
           </div>
         </div>
       </div>
-
+      
       <!-- Completed Bookings -->
       <div class="col-sm-6 col-lg-3">
         <div class="metric-card">
@@ -221,7 +176,7 @@ nav_statistics %}active{% endblock %}
           </div>
         </div>
       </div>
-
+      
       <!-- Busiest Day -->
       <div class="col-sm-6 col-lg-3">
         <div class="metric-card">
@@ -242,54 +197,51 @@ nav_statistics %}active{% endblock %}
 <!-- Charts and Analytics (AC5, AC6) -->
 <section class="charts-section py-4">
   <div class="container">
+    
     <!-- Daily Trend Chart -->
     <div class="row mb-4">
       <div class="col-12">
         <div class="chart-card">
           <div class="chart-header">
-            <h2 class="mb-0" style="font-size: 1.25rem">
+            <h2 class="mb-0" style="font-size: 1.25rem;">
               <i class="bi bi-graph-up me-2"></i>
               Daily Booking Trend
             </h2>
             <p class="text-muted mb-0 small">Bookings per day over time</p>
           </div>
           <div class="chart-body">
-            <canvas
-              id="dailyTrendChart"
-              aria-label="Daily booking trend line chart"
-              role="img"
-            ></canvas>
+            <canvas id="dailyTrendChart" aria-label="Daily booking trend line chart" role="img"></canvas>
             <!-- Accessible text alternative (AC10) -->
             <div class="visually-hidden">
-              Daily trend: {% for day in daily_trend %} {{ day.date_display }}:
-              {{ day.count }} bookings. {% endfor %}
+              Daily trend: 
+              {% for day in daily_trend %}
+                {{ day.date_display }}: {{ day.count }} bookings. 
+              {% endfor %}
             </div>
           </div>
         </div>
       </div>
     </div>
-
+    
     <div class="row">
       <!-- Bookings by Day of Week (AC5) -->
       <div class="col-lg-6 mb-4">
         <div class="chart-card">
           <div class="chart-header">
-            <h2 class="mb-0" style="font-size: 1.25rem">
+            <h2 class="mb-0" style="font-size: 1.25rem;">
               <i class="bi bi-calendar-week me-2"></i>
               Bookings by Day of Week
             </h2>
             <p class="text-muted mb-0 small">Which days are busiest?</p>
           </div>
           <div class="chart-body">
-            <canvas
-              id="dayOfWeekChart"
-              aria-label="Bookings by day of week bar chart"
-              role="img"
-            ></canvas>
+            <canvas id="dayOfWeekChart" aria-label="Bookings by day of week bar chart" role="img"></canvas>
             <!-- Accessible text alternative (AC10) -->
             <div class="visually-hidden">
-              Day of week breakdown: {% for day in day_of_week_chart %} {{
-              day.day }}: {{ day.count }} bookings. {% endfor %}
+              Day of week breakdown:
+              {% for day in day_of_week_chart %}
+                {{ day.day }}: {{ day.count }} bookings. 
+              {% endfor %}
             </div>
           </div>
           <!-- Text table for accessibility (AC10) -->
@@ -313,27 +265,25 @@ nav_statistics %}active{% endblock %}
           </div>
         </div>
       </div>
-
+      
       <!-- Bookings by Time Slot (AC5) -->
       <div class="col-lg-6 mb-4">
         <div class="chart-card">
           <div class="chart-header">
-            <h2 class="mb-0" style="font-size: 1.25rem">
+            <h2 class="mb-0" style="font-size: 1.25rem;">
               <i class="bi bi-clock me-2"></i>
               Bookings by Time Slot
             </h2>
             <p class="text-muted mb-0 small">Most popular dining times</p>
           </div>
           <div class="chart-body">
-            <canvas
-              id="timeslotChart"
-              aria-label="Bookings by time slot bar chart"
-              role="img"
-            ></canvas>
+            <canvas id="timeslotChart" aria-label="Bookings by time slot bar chart" role="img"></canvas>
             <!-- Accessible text alternative (AC10) -->
             <div class="visually-hidden">
-              Time slot breakdown: {% for slot in timeslot_chart %} {{ slot.time
-              }}: {{ slot.count }} bookings. {% endfor %}
+              Time slot breakdown:
+              {% for slot in timeslot_chart %}
+                {{ slot.time }}: {{ slot.count }} bookings. 
+              {% endfor %}
             </div>
           </div>
           <!-- Text table for accessibility (AC10) -->
@@ -358,28 +308,26 @@ nav_statistics %}active{% endblock %}
         </div>
       </div>
     </div>
-
+    
     <!-- Status Breakdown (AC6) -->
     <div class="row">
       <div class="col-lg-6 mb-4">
         <div class="chart-card">
           <div class="chart-header">
-            <h2 class="mb-0" style="font-size: 1.25rem">
+            <h2 class="mb-0" style="font-size: 1.25rem;">
               <i class="bi bi-pie-chart me-2"></i>
               Status Breakdown
             </h2>
             <p class="text-muted mb-0 small">Bookings by status</p>
           </div>
           <div class="chart-body">
-            <canvas
-              id="statusChart"
-              aria-label="Booking status pie chart"
-              role="img"
-            ></canvas>
+            <canvas id="statusChart" aria-label="Booking status pie chart" role="img"></canvas>
             <!-- Accessible text alternative (AC10) -->
             <div class="visually-hidden">
-              Status breakdown: {% for status in status_breakdown %} {{
-              status.status }}: {{ status.count }} bookings. {% endfor %}
+              Status breakdown:
+              {% for status in status_breakdown %}
+                {{ status.status }}: {{ status.count }} bookings. 
+              {% endfor %}
             </div>
           </div>
           <!-- Text table for accessibility (AC10) -->
@@ -411,12 +359,12 @@ nav_statistics %}active{% endblock %}
           </div>
         </div>
       </div>
-
+      
       <!-- Top Time Slots -->
       <div class="col-lg-6 mb-4">
         <div class="chart-card">
           <div class="chart-header">
-            <h2 class="mb-0" style="font-size: 1.25rem">
+            <h2 class="mb-0" style="font-size: 1.25rem;">
               <i class="bi bi-trophy me-2"></i>
               Top 5 Time Slots
             </h2>
@@ -425,9 +373,7 @@ nav_statistics %}active{% endblock %}
           <div class="chart-body">
             <div class="list-group list-group-flush">
               {% for slot in top_timeslots %}
-              <div
-                class="list-group-item d-flex justify-content-between align-items-center"
-              >
+              <div class="list-group-item d-flex justify-content-between align-items-center">
                 <div>
                   <i class="bi bi-clock text-primary me-2"></i>
                   <strong>{{ slot.timeslot__time|time:"g:i A" }}</strong>
@@ -442,6 +388,7 @@ nav_statistics %}active{% endblock %}
         </div>
       </div>
     </div>
+    
   </div>
 </section>
 
@@ -477,245 +424,237 @@ nav_statistics %}active{% endblock %}
   </div>
 </section>
 
-{% endif %} {% endblock %}
+{% endif %}
+
+{% endblock %}
 
 <!-- Extra CSS -->
 {% block extra_css %}
 <style>
   /* Hero Section */
   .statistics-hero {
-    background: linear-gradient(
-      135deg,
-      var(--azulejo-blue) 0%,
-      var(--olive-green) 100%
-    );
+    background: linear-gradient(135deg, var(--azulejo-blue) 0%, var(--olive-green) 100%);
     border-bottom: 3px solid var(--terracotta-red);
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
+      padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
   }
-
+  
   /* Filter Section */
   .filter-section {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     padding-top: 0.75rem !important;
     padding-bottom: 0.75rem !important;
   }
-
+  
   .filter-section .form-label {
-    margin-bottom: 0.25rem !important;
-    font-size: 0.875rem !important;
-  }
+  margin-bottom: 0.25rem !important;
+  font-size: 0.875rem !important;
+}
 
   /* Metric Cards */
   .metric-card {
     background: white;
     border-radius: 12px;
-    padding: 0.75rem !important; /* Was 1.5rem (24px), now 12px */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 0.75rem !important;  /* Was 1.5rem (24px), now 12px */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     display: flex;
     align-items: center;
     gap: 1rem;
-    transition:
-      transform 0.2s,
-      box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
     height: 100%;
   }
-
+  
   .metric-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   }
-
+  
   .metric-icon {
-    width: 45px !important; /* Was 60px */
+    width: 45px !important;  /* Was 60px */
     height: 45px !important;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem !important; /* Was 1.75rem */
+    font-size: 1.5rem !important;  /* Was 1.75rem */
     color: white;
     flex-shrink: 0;
   }
-
+  
   .metric-content {
     flex: 1;
   }
-
+  
   .metric-value {
-    font-size: 1.5rem !important; /* Was 2rem */
+    font-size: 1.5rem !important;  /* Was 2rem */
     font-weight: 700;
     font-family: var(--font-heading);
     color: var(--espresso-brown);
     line-height: 1;
   }
-
+  
   .metric-value-small {
-    font-size: 1rem !important; /* Was 1.25rem */
+    font-size: 1rem !important;  /* Was 1.25rem */
     font-weight: 700;
     font-family: var(--font-heading);
     color: var(--espresso-brown);
   }
-
+  
   .metric-label {
-    font-size: 0.75rem !important; /* Was 0.875rem */
+    font-size: 0.75rem !important;  /* Was 0.875rem */
     color: #6c757d;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-top: 0.125rem !important; /* Was 0.25rem */
+    margin-top: 0.125rem !important;  /* Was 0.25rem */
   }
-
-  /* Section Spacing - Reduce */
-  .metrics-section {
-    padding-top: 1rem !important; /* Was 1.5rem */
-    padding-bottom: 1rem !important;
-  }
+  
+/* Section Spacing - Reduce */
+.metrics-section {
+  padding-top: 1rem !important;  /* Was 1.5rem */
+  padding-bottom: 1rem !important;
+}
 
   .bg-purple {
     background-color: #6f42c1;
   }
-
+  
   /* Chart Cards */
   .chart-card {
     background: white;
     border-radius: 12px;
-    padding: 0.75rem !important; /* Was 1.5rem (24px), now 12px */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 0.75rem !important;  /* Was 1.5rem (24px), now 12px */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     height: 100%;
   }
-
+  
   .chart-header {
-    margin-bottom: 0.5rem !important; /* Was 1.5rem (24px), now 8px */
-    padding-bottom: 0.5rem !important; /* Was 1rem (16px), now 8px */
+    margin-bottom: 0.5rem !important;  /* Was 1.5rem (24px), now 8px */
+    padding-bottom: 0.5rem !important;  /* Was 1rem (16px), now 8px */
     border-bottom: 2px solid #e9ecef;
   }
 
   .chart-header p {
     margin-bottom: 0 !important;
     font-size: 0.8rem !important;
-  }
+  } 
 
   .chart-header h4 {
     color: var(--azulejo-blue);
     font-family: var(--font-heading);
-    font-size: 1rem !important; /* Smaller heading */
+    font-size: 1rem !important;  /* Smaller heading */
     margin-bottom: 0 !important;
   }
-
+  
   .chart-body {
     position: relative;
-    min-height: 200px !important; /* Was 300px */
+    min-height: 200px !important;  /* Was 300px */
     padding: 0.5rem 0 !important;
   }
 
   .charts-section {
-    padding-top: 1rem !important; /* Was 1.5rem */
-    padding-bottom: 1rem !important;
-  }
+  padding-top: 1rem !important;  /* Was 1.5rem */
+  padding-bottom: 1rem !important;
+}
 
-  /* Row Spacing - Reduce */
-  .charts-section .row.mb-4 {
-    margin-bottom: 0.75rem !important; /* Was 1.5rem (24px), now 12px */
-  }
+/* Row Spacing - Reduce */
+.charts-section .row.mb-4 {
+  margin-bottom: 0.75rem !important;  /* Was 1.5rem (24px), now 12px */
+}
 
-  .charts-section .col-lg-6.mb-4 {
-    margin-bottom: 0.75rem !important; /* Was 1.5rem (24px), now 12px */
-  }
-
+.charts-section .col-lg-6.mb-4 {
+  margin-bottom: 0.75rem !important;  /* Was 1.5rem (24px), now 12px */
+}
+  
   /* Status Badges */
   .bg-status-pending {
     background-color: var(--olive-green) !important;
   }
-
+  
   .bg-status-confirmed {
     background-color: #28a745 !important;
   }
-
+  
   .bg-status-cancelled {
     background-color: var(--terracotta-red) !important;
   }
-
+  
   .bg-status-completed {
     background-color: #6c757d !important;
   }
-
+  
   .bg-status-seated {
     background-color: #17a2b8 !important;
   }
-
+  
   /* Empty State */
   .empty-state {
     background: white;
     border-radius: 12px;
     padding: 4rem 2rem;
   }
-
+  
   .empty-state i {
     opacity: 0.3;
   }
-
+  
   .metrics-row {
     display: flex;
     justify-content: center;
     gap: 3rem;
     margin-top: 2rem;
   }
-
+  
   .metric-zero {
     text-align: center;
   }
-
+  
   .metric-zero .display-4 {
     color: #6c757d;
   }
-
+  
   /* Responsive */
   @media (max-width: 768px) {
     .metric-card {
       padding: 0.5rem !important;
     }
-
+    
     .metric-icon {
       width: 50px;
       height: 50px;
       font-size: 1.5rem;
     }
-
+    
     .metric-value {
       font-size: 1.5rem;
     }
-
-    .chart-card {
-      padding: 0.5rem !important;
-    }
+    
+.chart-card {
+    padding: 0.5rem !important;
+  }
 
     .chart-body {
       min-height: 180px !important;
     }
-
+    
     .metrics-row {
       flex-direction: column;
       gap: 1.5rem;
     }
   }
-
+  
   /* Print Styles */
   @media print {
-    .btn,
-    nav,
-    footer,
-    .filter-section {
+    .btn, nav, footer, .filter-section {
       display: none !important;
     }
-
+    
     .statistics-hero {
       background: white !important;
       color: black !important;
       border-bottom: 2px solid #000;
     }
-
-    .chart-card,
-    .metric-card {
+    
+    .chart-card, .metric-card {
       box-shadow: none;
       border: 1px solid #dee2e6;
       page-break-inside: avoid;
@@ -723,18 +662,19 @@ nav_statistics %}active{% endblock %}
 
     /* Tables - Reduce margins and font size */
     .chart-card .table-responsive {
-      margin-top: 0.5rem !important; /* Was 1rem (16px), now 8px */
+      margin-top: 0.5rem !important;  /* Was 1rem (16px), now 8px */
     }
 
-    .chart-card .table {
-      font-size: 0.85rem !important;
-      margin-bottom: 0 !important;
-    }
+  .chart-card .table {
+    font-size: 0.85rem !important;
+    margin-bottom: 0 !important;
+  }
 
-    .chart-card .table td,
-    .chart-card .table th {
-      padding: 0.25rem 0.5rem !important; /* Tighter cell padding */
-    }
+  .chart-card .table td,
+  .chart-card .table th {
+    padding: 0.25rem 0.5rem !important;  /* Tighter cell padding */
+  }
+
   }
 </style>
 {% endblock %}
@@ -743,191 +683,191 @@ nav_statistics %}active{% endblock %}
 {% block extra_js %}
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script>
-  // Custom date range toggle
-  function toggleCustomDates() {
-    const range = document.getElementById('range').value;
-    const startGroup = document.getElementById('startDateGroup');
-    const endGroup = document.getElementById('endDateGroup');
+// Custom date range toggle
+function toggleCustomDates() {
+  const range = document.getElementById('range').value;
+  const startGroup = document.getElementById('startDateGroup');
+  const endGroup = document.getElementById('endDateGroup');
+  
+  if (range === 'custom') {
+    startGroup.style.display = 'block';
+    endGroup.style.display = 'block';
+  } else {
+    startGroup.style.display = 'none';
+    endGroup.style.display = 'none';
+    // Auto-submit for quick filters
+    document.getElementById('dateRangeForm').submit();
+  }
+}
 
-    if (range === 'custom') {
-      startGroup.style.display = 'block';
-      endGroup.style.display = 'block';
-    } else {
-      startGroup.style.display = 'none';
-      endGroup.style.display = 'none';
-      // Auto-submit for quick filters
-      document.getElementById('dateRangeForm').submit();
+{% if has_data %}
+// Chart.js configuration
+Chart.defaults.font.family = "'Lato', sans-serif";
+
+// Daily Trend Line Chart
+const dailyTrendCtx = document.getElementById('dailyTrendChart').getContext('2d');
+const dailyTrendData = {{ daily_trend_json|safe }};
+
+new Chart(dailyTrendCtx, {
+  type: 'line',
+  data: {
+    labels: dailyTrendData.map(d => d.date_display),
+    datasets: [{
+      label: 'Bookings',
+      data: dailyTrendData.map(d => d.count),
+      borderColor: 'rgb(31, 78, 121)',
+      backgroundColor: 'rgba(31, 78, 121, 0.1)',
+      tension: 0.4,
+      fill: true
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: {
+        display: false
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        padding: 12,
+        titleFont: { size: 14 },
+        bodyFont: { size: 13 }
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          stepSize: 1
+        }
+      }
     }
   }
+});
 
-  {% if has_data %}
-  // Chart.js configuration
-  Chart.defaults.font.family = "'Lato', sans-serif";
+// Day of Week Bar Chart
+const dayOfWeekCtx = document.getElementById('dayOfWeekChart').getContext('2d');
+const dayOfWeekData = {{ day_of_week_json|safe }};
 
-  // Daily Trend Line Chart
-  const dailyTrendCtx = document.getElementById('dailyTrendChart').getContext('2d');
-  const dailyTrendData = {{ daily_trend_json|safe }};
-
-  new Chart(dailyTrendCtx, {
-    type: 'line',
-    data: {
-      labels: dailyTrendData.map(d => d.date_display),
-      datasets: [{
-        label: 'Bookings',
-        data: dailyTrendData.map(d => d.count),
-        borderColor: 'rgb(31, 78, 121)',
-        backgroundColor: 'rgba(31, 78, 121, 0.1)',
-        tension: 0.4,
-        fill: true
-      }]
+new Chart(dayOfWeekCtx, {
+  type: 'bar',
+  data: {
+    labels: dayOfWeekData.map(d => d.day),
+    datasets: [{
+      label: 'Bookings',
+      data: dayOfWeekData.map(d => d.count),
+      backgroundColor: [
+        'rgba(31, 78, 121, 0.8)',
+        'rgba(107, 142, 35, 0.8)',
+        'rgba(196, 69, 54, 0.8)',
+        'rgba(23, 162, 184, 0.8)',
+        'rgba(255, 193, 7, 0.8)',
+        'rgba(111, 66, 193, 0.8)',
+        'rgba(108, 117, 125, 0.8)'
+      ],
+      borderWidth: 0
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: {
+        display: false
+      }
     },
-    options: {
-      responsive: true,
-      maintainAspectRatio: true,
-      plugins: {
-        legend: {
-          display: false
-        },
-        tooltip: {
-          backgroundColor: 'rgba(0, 0, 0, 0.8)',
-          padding: 12,
-          titleFont: { size: 14 },
-          bodyFont: { size: 13 }
-        }
-      },
-      scales: {
-        y: {
-          beginAtZero: true,
-          ticks: {
-            stepSize: 1
-          }
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          stepSize: 1
         }
       }
     }
-  });
+  }
+});
 
-  // Day of Week Bar Chart
-  const dayOfWeekCtx = document.getElementById('dayOfWeekChart').getContext('2d');
-  const dayOfWeekData = {{ day_of_week_json|safe }};
+// Timeslot Bar Chart
+const timeslotCtx = document.getElementById('timeslotChart').getContext('2d');
+const timeslotData = {{ timeslot_json|safe }};
 
-  new Chart(dayOfWeekCtx, {
-    type: 'bar',
-    data: {
-      labels: dayOfWeekData.map(d => d.day),
-      datasets: [{
-        label: 'Bookings',
-        data: dayOfWeekData.map(d => d.count),
-        backgroundColor: [
-          'rgba(31, 78, 121, 0.8)',
-          'rgba(107, 142, 35, 0.8)',
-          'rgba(196, 69, 54, 0.8)',
-          'rgba(23, 162, 184, 0.8)',
-          'rgba(255, 193, 7, 0.8)',
-          'rgba(111, 66, 193, 0.8)',
-          'rgba(108, 117, 125, 0.8)'
-        ],
-        borderWidth: 0
-      }]
+new Chart(timeslotCtx, {
+  type: 'bar',
+  data: {
+    labels: timeslotData.map(d => d.time),
+    datasets: [{
+      label: 'Bookings',
+      data: timeslotData.map(d => d.count),
+      backgroundColor: 'rgba(107, 142, 35, 0.8)',
+      borderWidth: 0
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    indexAxis: 'y',
+    plugins: {
+      legend: {
+        display: false
+      }
     },
-    options: {
-      responsive: true,
-      maintainAspectRatio: true,
-      plugins: {
-        legend: {
-          display: false
-        }
-      },
-      scales: {
-        y: {
-          beginAtZero: true,
-          ticks: {
-            stepSize: 1
-          }
+    scales: {
+      x: {
+        beginAtZero: true,
+        ticks: {
+          stepSize: 1
         }
       }
     }
-  });
+  }
+});
 
-  // Timeslot Bar Chart
-  const timeslotCtx = document.getElementById('timeslotChart').getContext('2d');
-  const timeslotData = {{ timeslot_json|safe }};
+// Status Pie Chart
+const statusCtx = document.getElementById('statusChart').getContext('2d');
+const statusData = {{ status_breakdown|safe }};
 
-  new Chart(timeslotCtx, {
-    type: 'bar',
-    data: {
-      labels: timeslotData.map(d => d.time),
-      datasets: [{
-        label: 'Bookings',
-        data: timeslotData.map(d => d.count),
-        backgroundColor: 'rgba(107, 142, 35, 0.8)',
-        borderWidth: 0
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: true,
-      indexAxis: 'y',
-      plugins: {
-        legend: {
-          display: false
-        }
-      },
-      scales: {
-        x: {
-          beginAtZero: true,
-          ticks: {
-            stepSize: 1
-          }
-        }
-      }
-    }
-  });
-
-  // Status Pie Chart
-  const statusCtx = document.getElementById('statusChart').getContext('2d');
-  const statusData = {{ status_breakdown|safe }};
-
-  new Chart(statusCtx, {
-    type: 'doughnut',
-    data: {
-      labels: [
+new Chart(statusCtx, {
+  type: 'doughnut',
+  data: {
+    labels: [
+      {% for status in status_breakdown %}
+        '{{ status.status }}'{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ],
+    datasets: [{
+      data: [
         {% for status in status_breakdown %}
-          '{{ status.status }}'{% if not forloop.last %},{% endif %}
+          {{ status.count }}{% if not forloop.last %},{% endif %}
         {% endfor %}
       ],
-      datasets: [{
-        data: [
-          {% for status in status_breakdown %}
-            {{ status.count }}{% if not forloop.last %},{% endif %}
-          {% endfor %}
-        ],
-        backgroundColor: [
-          'rgba(40, 167, 69, 0.8)',   // Confirmed
-          'rgba(107, 142, 35, 0.8)',  // Pending
-          'rgba(196, 69, 54, 0.8)',   // Cancelled
-          'rgba(108, 117, 125, 0.8)', // Completed
-          'rgba(23, 162, 184, 0.8)'   // Seated
-        ],
-        borderWidth: 2,
-        borderColor: '#fff'
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: true,
-      plugins: {
-        legend: {
-          position: 'bottom',
-          labels: {
-            padding: 15,
-            font: {
-              size: 12
-            }
+      backgroundColor: [
+        'rgba(40, 167, 69, 0.8)',   // Confirmed
+        'rgba(107, 142, 35, 0.8)',  // Pending
+        'rgba(196, 69, 54, 0.8)',   // Cancelled
+        'rgba(108, 117, 125, 0.8)', // Completed
+        'rgba(23, 162, 184, 0.8)'   // Seated
+      ],
+      borderWidth: 2,
+      borderColor: '#fff'
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          padding: 15,
+          font: {
+            size: 12
           }
         }
       }
     }
-  });
-  {% endif %}
+  }
+});
+{% endif %}
 </script>
 {% endblock %}
