@@ -7640,6 +7640,12 @@ Throughout the application, a consistent visual identity and layout are maintain
 - **Docstrings:** Python functions and classes fully documented  
 - **Configuration documentation:** Setup instructions provided for both development and production environments
 
+**Note on Development Timeline**
+
+This project was delivered within a constrained timeframe, with a submission deadline of **16 March 2026**. Although all essential functionality was successfully implemented and the required testing completed, several additional enhancements—such as automated email delivery, advanced analytics, and payment processing—were postponed. This decision ensured that effort remained focused on delivering a stable, well-tested **Minimum Viable Product (MVP)**. Importantly, the system architecture has been designed in a way that supports future feature expansion without requiring major structural changes.
+
+Throughout development, strong emphasis was placed on **code quality, accessibility, and comprehensive testing**. Tools such as **Flake8, Pylint, and isort** were used to maintain consistent coding standards, while accessibility compliance was validated against **WCAG 2.1 Level AA** guidelines. Combined with a thorough testing process, these practices reflect professional software engineering standards and provide a solid, maintainable foundation for continued development.
+
 ---
 
 ## References
