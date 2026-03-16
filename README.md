@@ -7495,6 +7495,85 @@ Throughout the application, a consistent visual identity and layout are maintain
 - **Customer review functionality:** Allow guests to leave feedback and rate their dining experience.
 - **Post-visit feedback surveys:** Send follow-up emails requesting feedback after a reservation to monitor service quality.
 
+### Key lessons learned
+
+#### Mastering the Django Framework
+
+- **Understanding the MVT architecture:** Maintaining a clear separation between models, views, and templates improved maintainability and ensured the application remained easier to test and extend.
+- **Strengths and limits of the ORM:** Django's ORM managed the majority of database interactions efficiently; however, particularly complex queries may still require custom managers or raw SQL.
+- **Value of built-in functionality:** Django's integrated tools—such as authentication, the admin interface, form handling, and migrations—provided robust enterprise-level features without the need for extensive custom development.
+- **Importance of organised migrations:** Well-structured and clearly named migrations with appropriate dependencies reduced the risk of deployment issues.
+
+#### Code Quality is Essential
+
+- **Linting tools prevent future issues:** Tools such as Flake8 helped identify unused imports and variables early, preventing potential bugs later in development.
+- **Consistent coding standards support collaboration:** Adhering to PEP 8 through automated formatting tools simplified code reviews and made the codebase easier to understand.
+- **Type hints enhance development:** Including type annotations in functions improved IDE support, strengthened auto-completion, and helped detect type-related errors.
+- **Good documentation saves time:** Clear docstrings and inline explanations made the code easier to maintain and reduced the need for additional clarification.
+
+#### Testing Philosophy
+
+- **Early and frequent testing:** Integrating tests alongside feature development reduced the likelihood of defects reaching production.
+- **Automation improves efficiency:** Manually verifying 144 test cases would be impractical; automated testing is essential for maintaining stability during future changes.
+- **User testing reveals hidden scenarios:** Real user interaction often exposes edge cases that automated tests alone may not capture.
+- **Accessibility testing is vital:** Ensuring compliance with WCAG standards made the application inclusive and reduced potential legal risks.
+
+#### Deployment and DevOps Practices
+
+- **Environment separation is crucial:** Maintaining distinct configurations for development, staging, and production environments helped avoid configuration conflicts and security issues.
+- **Adopting the 12-factor methodology:** Following Heroku's recommended practices—such as environment variables, stateless services, and structured logging—produced a scalable and portable application.
+- **Managing static assets effectively:** Implementing WhiteNoise allowed Django to handle static file delivery efficiently without complex infrastructure.
+- **Careful database migrations:** Production migrations must be handled cautiously—always back up data, test changes in staging, and prepare a rollback plan.
+
+#### Prioritising Security
+
+- **Protecting sensitive credentials:** Using python-decouple and `.gitignore` ensured that confidential information was never committed to version control.
+- **Layered security approach:** Validation across client-side scripts, Django forms, models, and database constraints reduced the risk of malicious input.
+- **Leveraging Django's security features:** Built-in protections against CSRF, SQL injection, and cross-site scripting significantly simplified secure development.
+- **Mandatory HTTPS:** Personal data such as login credentials must always be transmitted securely using HTTPS.
+
+#### User Experience Design
+
+- **Guest booking reduces friction:** Allowing reservations without requiring an account lowered the barrier for first-time users and improved conversions.
+- **Real-time feedback improves usability:** AJAX-based availability checks helped prevent booking errors and improved the overall user experience.
+- **Clear validation messages assist users:** Specific and actionable feedback—such as "Email already registered"—enabled users to correct mistakes quickly.
+- **Mobile-first design approach:** Designing for smaller screens first ensured the interface remained effective across all devices.
+
+#### Performance Optimisation
+
+- **Images are a common bottleneck:** Converting images to WebP reduced file sizes by 70.6%, significantly improving page loading times.
+- **Database queries scale quickly:** Each ORM call executes SQL; therefore `select_related()` and `prefetch_related()` are essential to avoid inefficient query patterns.
+- **Caching offers significant gains:** Storing frequently accessed data in cache delivers substantial performance improvements with minimal complexity.
+- **Perceived performance matters:** Loading indicators and progress states improve the user's perception of responsiveness.
+
+#### Accessibility as a Technical Requirement
+
+- **Accessibility should be planned early:** Implementing WCAG standards from the outset is far easier than attempting to retrofit accessibility later.
+- **Semantic HTML forms the foundation:** Correct heading structures, landmarks, and labelled form fields ensure compatibility with assistive technologies.
+- **Colour contrast often requires adjustment:** Design colour palettes frequently fail accessibility standards, so testing early helps avoid redesign work.
+- **Keyboard navigation is a key indicator:** If a feature cannot be used solely via keyboard input, it excludes a significant group of users.
+
+#### Git Workflow Discipline
+
+- **Meaningful commits improve traceability:** Clear commit messages explain the rationale behind changes rather than simply describing them.
+- **Small commits are easier to review:** Focused commits that address a single concern simplify code reviews and reduce mistakes.
+- **Branching protects the main codebase:** Using feature branches allows experimentation without destabilising the main branch.
+- **Commit history serves as documentation:** A well-maintained Git history provides valuable insight into the evolution of the project.
+
+#### Project Management Lessons
+
+- **User stories guide development:** Starting with clearly defined user stories ensured that implemented features addressed real user needs.
+- **Test-driven development clarifies requirements:** Writing tests first helped define expected behaviour and reduced feature scope creep.
+- **Documentation requires significant effort:** Preparing the README, testing documentation, and code comments took considerable time but proved essential.
+- **Prioritisation is necessary:** Focusing on a Minimum Viable Product (MVP) ensured that core functionality was delivered efficiently.
+
+#### Full-Stack Development Skills
+
+- **Frontend and backend are equally important:** A visually appealing interface must be supported by reliable backend logic, and vice versa.
+- **SQL knowledge complements the ORM:** Understanding SQL assists in diagnosing ORM issues and improving query performance.
+- **DevOps responsibilities are part of development:** A project is not complete until it is deployed, monitored, and maintained effectively.
+- **Broad technical awareness improves decisions:** Considering both technical and business requirements leads to stronger architectural choices.
+
 ---
 
 ## References
