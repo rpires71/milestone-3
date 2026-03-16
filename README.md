@@ -7414,6 +7414,87 @@ Throughout the application, a consistent visual identity and layout are maintain
   - Included screenshots as evidence where appropriate
 - **Result:** A detailed and professional testing report demonstrating comprehensive quality assurance.
 
+### What I would improve next
+
+#### Enhanced Email Functionality
+
+- **Live email delivery in production:** Replace the development console backend with a real SMTP provider such as SendGrid, Mailgun, or Gmail to enable actual email notifications.
+- **Branded email templates:** Develop polished HTML email layouts reflecting the Portuguese Kitchen branding for confirmations, cancellations, and reminders.
+- **Reservation reminder system:** Introduce scheduled background tasks (for example Celery or Django-cron) to automatically send reminder emails 24 hours before a booking.
+- **Account email verification:** Include an email confirmation step during the registration process to validate user email addresses.
+
+#### Advanced Booking Features
+
+- **Automatic table allocation:** Implement an algorithm capable of assigning the most suitable table based on party size and current availability.
+- **Waitlist capability:** Enable customers to join a waiting list when time slots are full, with automatic notifications when spaces become available.
+- **Special occasion indicators:** Add booking fields for events such as birthdays or anniversaries so staff can prepare personalised service.
+- **Dietary requirement options:** Introduce a structured list of dietary preferences with allergen tracking for better kitchen preparation.
+- **Booking edits:** Allow users to update reservation details (date, time, or party size) directly instead of cancelling and creating a new booking.
+
+#### Payment Integration
+
+- **Reservation deposits:** Integrate Stripe or another payment gateway to support booking deposits where required.
+- **No-show protection:** Allow card details to secure reservations with an enforceable cancellation policy.
+- **Automated refund handling:** Create a workflow to process refunds automatically when cancellations occur within the allowed policy window.
+
+#### Analytics & Reporting
+
+- **Extended analytics dashboard:** Expand the statistics page to include revenue forecasts, year-to-year comparisons, and customer retention analysis.
+- **Data export tools:** Provide export options such as CSV or Excel for booking records, customer databases, and financial summaries.
+- **Flexible report generation:** Allow staff to create reports using custom date ranges rather than fixed time periods.
+- **Predictive insights:** Introduce machine-learning-based predictions to forecast busy periods and improve staffing planning.
+
+#### Performance Optimisation
+
+- **Efficient database queries:** Use `select_related()` and `prefetch_related()` more extensively to avoid N+1 query problems.
+- **Caching strategy:** Integrate Redis or Memcached to cache sessions, templates, and frequently accessed data.
+- **Content Delivery Network:** Serve static assets through a CDN such as Cloudflare to improve global loading speeds.
+- **Database indexing:** Add indexes to commonly queried fields like `booking_date`, `timeslot`, and `user`.
+- **Improved pagination:** Replace offset-based pagination with cursor-based pagination for large datasets.
+
+#### Testing Improvements
+
+- **Comprehensive automated tests:** Develop unit tests for models, forms, and views using Django's `TestCase` framework.
+- **End-to-end integration testing:** Validate complete user workflows from account creation through reservation confirmation.
+- **Continuous integration pipeline:** Configure GitHub Actions to run automated tests for each commit or pull request.
+- **Performance stress testing:** Use tools such as Locust to evaluate system behavior under high user load.
+- **Automated security checks:** Incorporate security scanning tools like Bandit and Safety into the testing pipeline.
+
+#### Accessibility Enhancements
+
+- **Assistive technology testing:** Conduct extensive testing with screen readers such as NVDA (Windows) and VoiceOver (macOS).
+- **Skip navigation links:** Implement "skip to content" links to assist keyboard-only users.
+- **ARIA live regions:** Use live regions for dynamic updates such as form validation messages and availability checks.
+- **Improved focus control:** Ensure keyboard focus is handled correctly after modals close or forms are submitted.
+- **Reduced motion support:** Respect the `prefers-reduced-motion` media query to accommodate users with motion sensitivity.
+
+#### Security Hardening
+
+- **Login rate limiting:** Use tools like `django-ratelimit` to protect authentication endpoints from brute force attacks.
+- **Two-factor authentication:** Offer optional 2FA using libraries such as `django-otp`.
+- **Security headers configuration:** Implement headers such as Content Security Policy and X-Frame-Options.
+- **Query security review:** Confirm that all database interactions remain parameterised (already standard through Django ORM).
+- **Cross-site scripting protection:** Review template outputs to ensure proper escaping of user-generated content.
+
+#### Mobile App Development
+
+- **Progressive Web App (PWA):** Transform the website into a PWA with offline capabilities and home-screen installation.
+- **Native applications:** Build iOS and Android apps that interact with the backend via a Django REST Framework API.
+- **Push notifications:** Add web push notifications for reservation confirmations and reminders.
+
+#### Multi-Language Support
+
+- **Internationalisation (i18n):** Implement Django's translation framework to support both Portuguese and English.
+- **Localisation (l10n):** Display dates, times, and currency based on the user's regional settings.
+- **Translation management tools:** Use Django's `makemessages` and `compilemessages` workflow or external platforms such as Transifex.
+
+#### Customer Relationship Management
+
+- **Customer loyalty system:** Track repeat visits and reward returning customers through a loyalty program.
+- **Preference tracking:** Store customer preferences such as favorite tables or dietary needs.
+- **Customer review functionality:** Allow guests to leave feedback and rate their dining experience.
+- **Post-visit feedback surveys:** Send follow-up emails requesting feedback after a reservation to monitor service quality.
+
 ---
 
 ## References
