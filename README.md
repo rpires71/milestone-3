@@ -7857,5 +7857,256 @@ Self-published.
 Available at: https://www.food.gov.uk/business-guidance/allergen-guidance-for-food-businesses
   (Accessed: 18 January 2026).
 
+### Code, Comments & Media Attribution
 
+This project was developed as part of my **Milestone 3 Backend Development Project** for the Portuguese Kitchen restaurant booking system web application.
+
+All HTML, CSS, Python, and Django functionality within the project was **designed, implemented, and customised by me**. Certain design approaches, coding patterns, and technical explanations were informed through research, prior work, official documentation, and educational learning resources.
+
+---
+
+#### Code Sources & Influence
+
+**Adapted from My Own Previous Work**
+
+Elements of the design structure and styling were adapted and enhanced from my **Milestone 2 Project (Holiday Destination Finder)**. These included:
+
+- A shared **colour palette structure** using CSS custom properties  
+- Reusable interface components such as **navigation bars, buttons, cards, and footer layouts**  
+- **Responsive design techniques** implemented using the Bootstrap grid system  
+- Accessibility practices including **semantic HTML structure and ARIA labelling**
+
+All reused components were **refactored and redesigned** to align with the Portuguese Kitchen brand identity (Azulejo Blue, Olive Green, Terracotta Red, Linen Cream, Espresso Brown) and adapted to support Django template integration.
+
+---
+
+#### Django & Python Code
+
+**Django Framework Implementation**
+
+The backend architecture was developed in accordance with **official Django documentation and recommended best practices**:
+
+- **Django Project Structure:** [Django Official Tutorial](https://docs.djangoproject.com/en/4.2/intro/tutorial01/), [Django MVT Architecture](https://docs.djangoproject.com/en/4.2/faq/general/#django-appears-to-be-a-mvc-framework-but-you-call-the-controller-the-view-and-the-view-the-template-how-come-you-don-t-use-the-standard-names)
+- **Models & Database Design:** [Django Models](https://docs.djangoproject.com/en/4.2/topics/db/models/), [Model Field Reference](https://docs.djangoproject.com/en/4.2/ref/models/fields/)
+- **Views & URL Routing:** [Django Views](https://docs.djangoproject.com/en/4.2/topics/http/views/), [URL Dispatcher](https://docs.djangoproject.com/en/4.2/topics/http/urls/)
+- **Forms & Validation:** [Django Forms](https://docs.djangoproject.com/en/4.2/topics/forms/), [Form Validation](https://docs.djangoproject.com/en/4.2/ref/forms/validation/)
+- **User Authentication:** [Django Authentication System](https://docs.djangoproject.com/en/4.2/topics/auth/), [User Authentication in Django](https://docs.djangoproject.com/en/4.2/topics/auth/default/)
+- **Admin Interface:** [Django Admin](https://docs.djangoproject.com/en/4.2/ref/contrib/admin/), [ModelAdmin Objects](https://docs.djangoproject.com/en/4.2/ref/contrib/admin/#modeladmin-objects)
+- **Templates & Template Tags:** [Django Template Language](https://docs.djangoproject.com/en/4.2/ref/templates/language/), [Built-in Template Tags](https://docs.djangoproject.com/en/4.2/ref/templates/builtins/)
+
+---
+
+**Python Code Quality Tools**
+
+Industry-standard Python development tools were used to maintain high code quality:
+
+- **Flake8 Linting:** [Flake8 Documentation](https://flake8.pycqa.org/en/latest/), [PEP 8 Style Guide](https://peps.python.org/pep-0008/)
+- **Pylint Analysis:** [Pylint Documentation](https://pylint.pycqa.org/en/latest/), [Pylint Django Plugin](https://github.com/PyCQA/pylint-django)
+- **Import Organisation:** [isort Documentation](https://pycqa.github.io/isort/), [PEP 8 Import Guidelines](https://peps.python.org/pep-0008/#imports)
+- **Code Formatting:** [Black Documentation](https://black.readthedocs.io/en/stable/), [Black Code Style](https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html)
+
+---
+
+**Database & Deployment**
+
+Production deployment and configuration followed official platform documentation:
+
+- **PostgreSQL Integration:** [Django PostgreSQL](https://docs.djangoproject.com/en/4.2/ref/databases/#postgresql-notes), [dj-database-url](https://github.com/jazzband/dj-database-url)
+- **Heroku Deployment:** [Heroku Python Guide](https://devcenter.heroku.com/articles/getting-started-with-python), [Django on Heroku](https://devcenter.heroku.com/articles/django-app-configuration)
+- **Static Files Management:** [WhiteNoise Documentation](http://whitenoise.evans.io/en/stable/), [Django Static Files](https://docs.djangoproject.com/en/4.2/howto/static-files/)
+- **Environment Variables:** [python-decouple Documentation](https://github.com/HBNetwork/python-decouple), [The Twelve-Factor App](https://12factor.net/config)
+- **Production Server:** [Gunicorn Documentation](https://docs.gunicorn.org/en/stable/), [Deploying Django with Gunicorn](https://docs.djangoproject.com/en/4.2/howto/deployment/wsgi/gunicorn/)
+
+---
+
+#### Booking System Logic
+
+**Business Rules & Validation**
+
+The booking system incorporates custom business logic implemented with guidance from the following resources:
+
+- **Date & Time Handling:** [Python datetime](https://docs.python.org/3/library/datetime.html), [Django timezone](https://docs.djangoproject.com/en/4.2/topics/i18n/timezones/)
+- **Capacity Management:** [Django Aggregation](https://docs.djangoproject.com/en/4.2/topics/db/aggregation/), [QuerySet API](https://docs.djangoproject.com/en/4.2/ref/models/querysets/)
+- **Form Validation:** [Django Form Clean Methods](https://docs.djangoproject.com/en/4.2/ref/forms/validation/#cleaning-and-validating-fields-that-depend-on-each-other), [Model Validators](https://docs.djangoproject.com/en/4.2/ref/validators/)
+- **User Permissions:** [Django Permissions](https://docs.djangoproject.com/en/4.2/topics/auth/default/#permissions-and-authorization), [@staff_member_required](https://docs.djangoproject.com/en/4.2/ref/contrib/admin/#django.contrib.admin.decorators.staff_member_required)
+
+---
+
+#### Frontend Development
+
+**Bootstrap & Responsive Design**
+
+The user interface was built using **Bootstrap 5** combined with custom styling:
+
+- **Bootstrap Framework:** [Bootstrap 5 Documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/), [Bootstrap Components](https://getbootstrap.com/docs/5.3/components/)
+- **Grid System:** [Bootstrap Grid](https://getbootstrap.com/docs/5.3/layout/grid/), [Responsive Breakpoints](https://getbootstrap.com/docs/5.3/layout/breakpoints/)
+- **Form Styling:** [Bootstrap Forms](https://getbootstrap.com/docs/5.3/forms/overview/), [Floating Labels](https://getbootstrap.com/docs/5.3/forms/floating-labels/)
+- **Navigation Components:** [Bootstrap Navbar](https://getbootstrap.com/docs/5.3/components/navbar/), [Responsive Collapse](https://getbootstrap.com/docs/5.3/components/collapse/)
+
+---
+
+**CSS Custom Properties & Styling**
+
+The CSS architecture follows modern best practices:
+
+- **CSS Variables:** [MDN - CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
+- **Flexbox Layout:** [MDN - Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox), [CSS Tricks - Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- **Responsive Images:** [MDN - Responsive Images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images)
+- **Accessibility Styling:** [WebAIM - CSS and Accessibility](https://webaim.org/articles/css/), [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
+
+---
+
+**JavaScript Functionality**
+
+Interactive client-side behaviour was implemented using **vanilla JavaScript**:
+
+- **Form Validation:** [MDN - Form Validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation), [Constraint Validation API](https://developer.mozilla.org/en-US/docs/Web/API/Constraint_validation)
+- **DOM Manipulation:** [MDN - Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model), [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
+- **Event Handling:** [MDN - addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
+- **AJAX Requests:** [MDN - Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API), [Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+
+---
+
+#### Testing & Validation
+
+**Code Quality Assurance**
+
+The following tools were used to validate code quality and compliance:
+
+- **HTML Validation:** [W3C Markup Validation Service](https://validator.w3.org/), [Nu HTML Checker](https://validator.github.io/validator/)
+- **CSS Validation:** [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+- **Accessibility Testing:** [WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/), [WCAG 2.1 AA Compliance](https://www.w3.org/WAI/WCAG2AA-Conformance)
+- **Python Testing:** [Django Testing Tools](https://docs.djangoproject.com/en/4.2/topics/testing/), [Python unittest](https://docs.python.org/3/library/unittest.html)
+- **Cross-Browser Testing:** Manual testing in Chrome, Firefox, and Edge
+
+---
+
+**Performance Optimisation**
+
+- **Image Optimisation:** [WebP Format](https://developers.google.com/speed/webp), [Image Compression Techniques](https://web.dev/use-imagemin-to-compress-images/)
+- **Static File Compression:** [WhiteNoise Compression](http://whitenoise.evans.io/en/stable/django.html#add-compression-and-caching-support)
+
+---
+
+#### Online Documentation & Resources
+
+**Primary Learning Resources**
+
+The following resources were frequently referenced during development:
+
+- **Django Documentation** – the primary reference for Django framework implementation and best practices  
+- **Python Documentation** – guidance for the standard library and built-in functionality  
+- **MDN Web Docs** – authoritative reference for HTML, CSS, and JavaScript APIs  
+- **W3Schools** – quick reference material for web development concepts  
+- **Bootstrap Documentation** – component usage and responsive layout techniques  
+- **Stack Overflow** – troubleshooting and community-driven technical solutions  
+
+---
+
+#### AI Assistance — Code, Comments & Media
+
+AI tools including **ChatGPT, GitHub Copilot, and Claude AI** were used strictly as **supportive learning resources** to:
+
+- Clarify Django framework concepts and ORM usage  
+- Suggest improvements to code organisation and validation logic  
+- Assist with debugging template errors, routing issues, and form validation problems  
+- Help produce explanatory comments describing Django patterns and Python best practices  
+- Research deployment strategies, performance improvements, and security practices  
+- Generate test scenarios and example data for user acceptance testing  
+- Support documentation writing and structural clarity  
+
+All generated suggestions were **reviewed, adapted, and implemented manually**.
+
+---
+
+#### Images, Logos & Media Attribution
+
+The project incorporates a mixture of **AI-generated assets, manually edited graphics, and open-source resources**.
+
+**Restaurant Branding & Visual Assets**
+
+- The **Portuguese Kitchen logo and hero images** were generated using ChatGPT image tools (DALL·E) and edited using **GIMP (GNU Image Manipulation Program)** to:
+  - Resize and crop for optimal display
+  - Adjust colours to align with the project brand palette (Azulejo Blue #1F4E79, Olive Green #6B8E23, Terracotta Red #C44536)
+  - Convert images to **WebP format** for improved performance
+  - Optimise images for responsive display across devices
+
+**Menu and Food Imagery**
+
+- AI-generated imagery representing Portuguese cuisine  
+- Edited and optimised using GIMP  
+- Compressed into WebP format achieving **70.6% total size reduction**
+
+**Interface Icons**
+
+- **Font Awesome icons** used under the [Font Awesome Free License](https://fontawesome.com/license/free)  
+- **Bootstrap Icons** used under the [MIT License](https://github.com/twbs/icons/blob/main/LICENSE.md)
+
+**Image Editing Tools**
+
+- **GNU Image Manipulation Program (GIMP)** – primary tool used for image editing and optimisation  
+  https://www.gimp.org/
+
+- **Online WebP conversion tools** – used for batch image compression and format conversion
+
+**Typography**
+
+- A **system font stack** was used to maximise accessibility and performance.  
+- No external web fonts were included to reduce page load times and maintain cross-platform compatibility.
+
+---
+
+#### Previous Work Attribution
+
+**Pires, R. (2025).** *Reused and adapted components from the Milestone 2 Holiday Destination Finder Project.*
+
+Elements reused and further developed include:
+
+- CSS variable structure and design system organisation  
+- Responsive layout patterns and mobile-first design strategy  
+- Bootstrap component customisation  
+- Accessibility techniques including semantic HTML, ARIA attributes, and keyboard navigation  
+- Form styling and validation techniques  
+
+All reused components were **substantially modified** to support Django templates, backend integration, and Portuguese Kitchen branding.
+
+---
+
+#### Code Institute Learning Platform
+
+Course materials, tutorials, and guidance from the **Code Institute Full Stack Software Development programme** supported development in areas such as:
+
+- Django application architecture and project structure  
+- Database modelling and relational design  
+- User authentication and authorisation systems  
+- Form processing and validation workflows  
+- Template inheritance and Django Template Language  
+- Production deployment and hosting workflows  
+
+---
+
+#### Third-Party Python Packages
+
+Production dependencies (see `requirements.txt`):
+
+- **Django 4.2.7** – Web framework ([Django License](https://github.com/django/django/blob/main/LICENSE))  
+- **gunicorn 21.2.0** – Production WSGI server ([MIT License](https://github.com/benoitc/gunicorn/blob/master/LICENSE))  
+- **psycopg2-binary 2.9.9** – PostgreSQL adapter ([LGPL License](https://github.com/psycopg/psycopg2/blob/master/LICENSE))  
+- **dj-database-url 3.1.2** – Database URL configuration ([BSD License](https://github.com/jazzband/dj-database-url/blob/master/LICENSE))  
+- **whitenoise 6.12.0** – Static file serving ([MIT License](https://github.com/evansd/whitenoise/blob/master/LICENSE))  
+- **python-decouple 3.8** – Environment configuration ([MIT License](https://github.com/HBNetwork/python-decouple/blob/master/LICENSE))
+
+Development dependencies:
+
+- **flake8** – Python linting tool  
+- **pylint** – Static code analysis  
+- **pylint-django** – Django linting support  
+- **isort** – Import statement organisation  
+- **black** – Automated code formatting  
+
+All packages were used under their respective **open-source licences for educational purposes**.
+
+---
+
+[⬆ Back to Table of contents](#table-of-contents)
 
