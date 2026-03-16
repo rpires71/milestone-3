@@ -7574,6 +7574,72 @@ Throughout the application, a consistent visual identity and layout are maintain
 - **DevOps responsibilities are part of development:** A project is not complete until it is deployed, monitored, and maintained effectively.
 - **Broad technical awareness improves decisions:** Considering both technical and business requirements leads to stronger architectural choices.
 
+### Evidence pointers
+
+#### Code Quality
+
+- **Flake8 validation:** Zero errors across all eight Python files (admin.py, forms.py, models.py, views.py, urls.py, tests.py, `__init__.py`, apps.py) — Test 141 PASS  
+- **Pylint score:** 8.91/10 (requirement: >8.0/10) — Test 143 PASS  
+- **isort compliance:** Import ordering maintained (STDLIB -> DJANGO -> THIRDPARTY -> FIRSTPARTY) — Test 144 PASS  
+- **Configuration files:** `.flake8`, `.pylintrc`, and `.isort.cfg` correctly configured and documented  
+
+#### Deployment
+
+- **Heroku production environment:** Successful deployments with a 100% success rate  
+- **Live application:** https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/  
+- **Environment configuration:** `.python-version` (Python 3.12) and `.env` for sensitive variables  
+- **Static files:** 159 files collected, 126 post-processed via WhiteNoise  
+- **Database:** PostgreSQL Essential-0 instance with successful migrations  
+
+#### Accessibility
+
+- **WAVE accessibility validation:** Zero errors across all pages — Test 107 PASS  
+- **WCAG 2.1 Level AA:** Full compliance demonstrated  
+- **Heading hierarchy corrections:** Updated across six templates (booking.html, booking_statistics.html, index.html, menu.html, my_bookings.html, staff_dashboard.html)  
+- **Colour contrast:** All text meets the minimum 4.5:1 ratio requirement  
+- **Keyboard accessibility:** All features usable without a mouse  
+
+#### Performance
+
+- **Image optimisation:** 70.6% reduction in image size — Test 136 PASS  
+- **WebP format:** All images converted and maintained below 200KB  
+- **Database optimisation:** `select_related()` and `prefetch_related()` applied where appropriate  
+
+#### Testing Documentation
+
+- **Test plan:** 144 structured test cases organised by user story  
+- **Acceptance criteria validation:** All user story criteria tested and recorded  
+- **Cross-browser testing:** Compatibility confirmed across Chrome, Firefox, and Edge  
+- **Responsive testing:** Verified on mobile (375px), tablet (768px), and desktop (1920px) viewports  
+- **Security testing:** Authentication, authorisation, and CSRF protection validated  
+
+#### Functional Testing
+
+- **Authentication workflows:** Login, registration, and password reset fully tested  
+- **Booking functionality:** Both guest and authenticated user reservations verified  
+- **CRUD operations:** Create, read, update, and delete functionality confirmed for all models  
+- **Form validation:** Client-side and server-side validation confirmed working  
+- **Staff dashboard:** Booking management, statistics, and filtering features verified  
+
+#### Version Control
+
+- **Git repository:** Complete project history maintained with structured commits  
+- **Commit messages:** Clear descriptions documenting changes and reasoning  
+- **GitHub repository:** https://github.com/rpires71/milestone-3  
+- **Deployment workflow:** Git-based deployment to Heroku documented  
+
+#### Documentation
+
+- **README.md:** Comprehensive project documentation including:
+  - Feature descriptions  
+  - User stories with acceptance criteria  
+  - Testing results and supporting evidence  
+  - Deployment instructions  
+  - Technology stack overview  
+- **Inline code comments:** Clarify complex logic within the codebase  
+- **Docstrings:** Python functions and classes fully documented  
+- **Configuration documentation:** Setup instructions provided for both development and production environments
+
 ---
 
 ## References
