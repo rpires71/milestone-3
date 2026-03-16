@@ -91,6 +91,19 @@
   - [Login Page (login.html / Login View) — Purpose & Structure](#login-page-loginhtml--login-view--purpose--structure)
   - [Registration Page (register.html / Register View) — Purpose & Structure](#registration-page-registerhtml--register-view--purpose--structure)
   - [Password Reset Page (password_reset.html / Password Reset View) — Purpose & Structure](#password-reset-page-password_resethtml--password-reset-view--purpose--structure)
+- [Django Admin Interface](#django-admin-interface)
+  - [Overview](#overview)
+  - [Accessing the Admin Interface](#accessing-the-admin-interface)
+  - [Creating an Admin User](#creating-an-admin-user)
+  - [Admin Interface Features](#admin-interface-features)
+  - [Managing Bookings](#managing-bookings)
+  - [Managing Time Slots](#managing-time-slots)
+  - [Managing Tables](#managing-tables)
+  - [User Management](#user-management)
+  - [Admin Customisation](#admin-customisation)
+  - [Admin Security](#admin-security)
+  - [Common Admin Tasks](#common-admin-tasks)
+  - [Troubleshooting](#troubleshooting)
 - [Reflection](#reflection)
 - [Credits](#credits)
 - [References](README.md#references)
@@ -7113,6 +7126,604 @@ Standard footer with restaurant contact information, quick links, and copyright 
 
 - [Link to Live Website](https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/accounts/password-reset/)
 
+---
+
+## Django Admin Interface
+ 
+[⬆ Back to Table of contents](#table-of-contents)
+
+<img width="334" height="256" alt="Image" src="https://github.com/user-attachments/assets/d32b7601-e906-4c59-a67d-b3fe10e98e29" />
+
+### Overview
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+The Portuguese Kitchen reservation platform incorporates a comprehensive **Django Admin interface**, designed to support restaurant staff in efficiently managing the system's core data and operational processes. Through this administrative dashboard, authorised users can oversee bookings, manage customer accounts, configure time slots, and maintain other essential components of the application.
+
+Built upon Django's well-established **admin framework**, the interface has been customised to align with the operational requirements of restaurant management, providing staff with a practical and centralised tool for administering the system.
+
+### Accessing the Admin Interface
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+<img width="847" height="625" alt="Image" src="https://github.com/user-attachments/assets/9a007ead-5e10-4159-ad9a-52ea79ab6e8b" />
+
+#### Admin URL
+
+The Django Admin panel can be accessed through the following URLs, depending on the environment in which the application is running.
+
+**Production Environment (Heroku):**
+
+https://portuguese-kitchen-rp-a1a93004e977.herokuapp.com/admin/
+
+**Local Development Environment:**
+
+http://127.0.0.1:8000/admin/
+
+These endpoints allow authorised administrators to sign in and manage the application's operational data and configuration.
+
+#### Login Requirements
+ 
+Access to the admin interface requires:
+- A user account with **staff status** (`is_staff = True`)
+- Or a **superuser account** (`is_superuser = True`)
+ 
+Regular users without staff permissions cannot access the admin interface.
+ 
+ 
+### Creating an Admin User
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+#### Local Development
+ 
+**Create Superuser:**
+```bash
+python manage.py createsuperuser
+```
+ 
+You'll be prompted to enter:
+- Username
+- Email address (optional)
+- Password (entered twice for confirmation)
+ 
+**Example:**
+```
+Username: admin
+Email address: admin@portuguesekitchen.com
+Password: ********
+Password (again): ********
+Superuser created successfully.
+```
+
+#### Production (Heroku)
+ 
+**Create Superuser on Heroku:**
+```bash
+heroku run python manage.py createsuperuser
+```
+ 
+Follow the same prompts as local development.
+ 
+**Alternative - Make Existing User a Superuser:**
+```bash
+heroku run python manage.py shell
+ 
+# In the Python shell:
+from django.contrib.auth.models import User
+user = User.objects.get(username='your_username')
+user.is_staff = True
+user.is_superuser = True
+user.save()
+exit()
+```
+
+### Admin Interface Features
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+<img width="773" height="557" alt="Image" src="https://github.com/user-attachments/assets/77375dcb-9ccd-4cf0-9115-4517740bf398" />
+
+#### Dashboard Overview
+ 
+Upon logging in, administrators see the Django admin dashboard displaying all registered models organized by application:
+
+**Accounts App:**
+- Customer Profiles
+
+**Authentication and Authorization:**
+- Users
+- Groups
+ 
+**Bookings App:**
+- Bookings
+- Time Slots
+- Tables
+
+**Menu:**
+- Dietary Tags
+- Menu Categories
+- Menu Items
+
+### Managing Bookings
+
+[⬆ Back to Table of contents](#table-of-contents)
+ 
+#### Booking List View
+
+<img width="1863" height="520" alt="Image" src="https://github.com/user-attachments/assets/07f2b1a4-6ae7-46db-a0d5-a5759d6d0aac" />
+
+The bookings list provides a comprehensive overview of all reservations:
+ 
+**Displayed Columns:**
+- **Booking ID** - Unique identifier
+- **Reference Code** - 6-character alphanumeric code for customer reference
+- **Date** - Reservation date
+- **Time Slot** - Selected time slot
+- **Guest Name** - Customer name (user or guest)
+- **Number of Guests** - Party size
+- **Status** - Booking status (Confirmed/Pending/Cancelled)
+- **Created Date** - When booking was made
+ 
+**List Filters:**
+Available filters in the right sidebar:
+- **Booking Date** - Filter by reservation date
+- **Status** - Filter by booking status
+- **User** - Filter by registered user
+- **Created Date** - Filter by when booking was made
+ 
+**Search Functionality:**
+Search bookings by:
+- Reference code
+- Guest name
+- Guest email
+- User username
+ 
+**Bulk Actions:**
+- Delete selected bookings
+
+#### Viewing Booking Details
+
+<img width="836" height="887" alt="Image" src="https://github.com/user-attachments/assets/ddd1d33a-df1d-4cc0-b035-ad9aa426b971" />
+
+Click on any booking to view/edit complete details:
+ 
+**Guest Information Section:**
+- Guest Name
+- Guest Email
+- Guest Phone
+- User (if authenticated booking)
+ 
+**Booking Details Section:**
+- Booking Date (date picker)
+- Time Slot (dropdown)
+- Number of Guests (1-8)
+- Special Requests (text area)
+ 
+**Metadata:**
+- Reference Code (read-only, auto-generated)
+- Status (dropdown: Confirmed/Pending/Cancelled)
+- Created At (auto-timestamp)
+- Updated At (auto-timestamp)
+ 
+**Admin Actions:**
+- Save and continue editing
+- Save and add another
+- Save
+- Delete
+
+#### Creating a New Booking
+
+<img width="878" height="756" alt="Image" src="https://github.com/user-attachments/assets/f91c8ed0-edfd-4372-ac5b-7e7904a22257" />
+ 
+Administrators can create bookings on behalf of customers:
+ 
+1. Click **"Add Booking"** button
+2. Fill in required fields:
+   - Select User (or leave blank for guest booking)
+   - Enter Guest Name, Email, Phone (for guest bookings)
+   - Select Booking Date
+   - Choose Time Slot
+   - Enter Number of Guests
+   - Add Special Requests (optional)
+3. Click **"Save"**
+ 
+The system automatically:
+- Generates a unique reference code
+- Sets status to "Confirmed"
+- Validates capacity constraints
+- Prevents double bookings
+ 
+#### Editing Existing Bookings
+
+<img width="641" height="757" alt="Image" src="https://github.com/user-attachments/assets/193f0c4a-c4d3-4ea9-9562-db157ec4e884" />
+ 
+1. Find booking using search or filters
+2. Click on the booking to open detail view
+3. Modify any field as needed
+4. Click **"Save"**
+ 
+**Important Notes:**
+- Changing the date/time slot re-validates availability
+- System prevents overbooking through validation
+- Email notifications can be configured for changes
+ 
+#### Cancelling Bookings
+
+<img width="461" height="156" alt="Image" src="https://github.com/user-attachments/assets/a24e80df-9752-44bc-9847-5db759d5bab2" />
+ 
+**Option 1: Change Status**
+1. Open booking detail view
+2. Change Status dropdown to "Cancelled"
+3. Click **"Save"**
+
+<img width="313" height="232" alt="Image" src="https://github.com/user-attachments/assets/290155f6-4192-4fa8-95ac-adab17f7b82a" />
+
+**Option 2: Delete Booking**
+1. Open booking detail view
+2. Click **"Delete"** button at bottom
+3. Confirm deletion
+
+<img width="452" height="250" alt="Image" src="https://github.com/user-attachments/assets/d423c676-0e8b-49eb-9a94-23a78a453dd4" />
+ 
+**Bulk Cancellation:**
+1. In booking list view, select checkboxes
+2. Choose action: "Delete selected bookings"
+3. Click **"Go"**
+4. Confirm deletion
+
+### Managing Time Slots
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+<img width="1864" height="508" alt="Image" src="https://github.com/user-attachments/assets/3814a0cc-3c49-4a37-b67c-79fa10de463e" />
+
+#### Time Slot List View
+ 
+View all available booking time slots:
+ 
+**Displayed Columns:**
+- **Start Time** - Time slot start (e.g., "18:00")
+- **End Time** - Time slot end (e.g., "19:30")
+- **Max Capacity** - Maximum guests allowed
+- **Is Active** - Whether slot is available for booking
+ 
+**List Filters:**
+- Is Active (Yes/No)
+- Start Time
+ 
+#### Creating Time Slots
+
+<img width="351" height="240" alt="Image" src="https://github.com/user-attachments/assets/f8b2617f-c632-4248-8567-add8ff470657" />
+
+1. Click **"Add Time Slot"**
+2. Enter:
+   - Start Time (HH:MM format)
+   - End Time (HH:MM format)
+   - Max Capacity (total seats available)
+   - Is Active (checkbox - check to enable)
+3. Click **"Save"**
+ 
+**Example Time Slots:**
+```
+Lunch Service:
+- 12:00 - 13:30 (Capacity: 40)
+- 13:30 - 15:00 (Capacity: 40)
+ 
+Dinner Service:
+- 18:00 - 19:30 (Capacity: 60)
+- 19:30 - 21:00 (Capacity: 60)
+- 21:00 - 22:30 (Capacity: 40)
+```
+
+#### Disabling Time Slots
+
+<img width="1680" height="304" alt="Image" src="https://github.com/user-attachments/assets/bae9eaf5-3fc4-42e1-803a-b6d031d25cfd" />
+
+To temporarily disable a time slot (e.g., for special events):
+ 
+1. Open time slot detail view
+2. Uncheck **"Is Active"**
+3. Click **"Save"**
+ 
+The slot will no longer appear in the booking form but existing bookings remain valid.
+ 
+### Managing Tables
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+<img width="1875" height="455" alt="Image" src="https://github.com/user-attachments/assets/df7d0f33-805d-44b3-834f-dffcbadf69a6" />
+ 
+#### Table List View
+
+View all restaurant tables (if Table model is implemented):
+ 
+**Displayed Information:**
+- Table Number
+- Capacity (number of seats)
+- Location (e.g., Window, Patio, Main Dining)
+- Is Available
+ 
+#### Table Management
+
+<img width="812" height="500" alt="Image" src="https://github.com/user-attachments/assets/ea212cea-0a80-4972-89b1-0fbe9901bb30" />
+
+Create and manage physical restaurant tables for assignment to bookings:
+ 
+1. Click **"Add Table"**
+2. Enter:
+   - Table Number
+   - Capacity (seats)
+   - Location description
+3. Click **"Save"**
+ 
+**Note:** Table assignment to specific bookings can be managed through the booking detail view.
+
+### User Management
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+<img width="1881" height="457" alt="Image" src="https://github.com/user-attachments/assets/930d6969-b853-4097-8175-eead1dd3f006" />
+ 
+#### User List View
+ 
+Access comprehensive user management:
+ 
+**Displayed Columns:**
+- Username
+- Email address
+- First name
+- Last name
+- Staff status
+- Active status
+ 
+**Filters:**
+- Staff status
+- Superuser status
+- Active status
+- Groups
+ 
+#### User Permissions
+
+<img width="748" height="926" alt="Image" src="https://github.com/user-attachments/assets/a7e7d6a3-e24b-4068-a2a7-0b1041cc2100" />
+ 
+**Staff Status (`is_staff`):**
+- Grants access to admin interface
+- Does not grant permission to modify data without additional permissions
+ 
+**Superuser Status (`is_superuser`):**
+- Full access to all admin functions
+- Can create/modify/delete any data
+- Can manage other users and permissions
+ 
+**Active Status (`is_active`):**
+- Controls whether user can log in
+- Disabled users cannot access their accounts
+ 
+#### Creating Staff Users
+
+<img width="803" height="520" alt="Image" src="https://github.com/user-attachments/assets/3c884415-9d8e-4edb-b7d0-6cfade202cb1" />
+ 
+1. Click **"Add User"**
+2. Enter username and password
+3. Click **"Save and continue editing"**
+4. On the next page, check **"Staff status"**
+5. Optionally add to Groups for specific permissions
+6. Click **"Save"**
+ 
+#### Granting/Revoking Permissions
+
+<img width="901" height="918" alt="Image" src="https://github.com/user-attachments/assets/a3432905-f76a-4542-bad8-378232f64f5d" />
+ 
+**Individual Permissions:**
+1. Open user detail view
+2. Scroll to **"User permissions"** section
+3. Select specific permissions:
+   - Can add/change/delete/view bookings
+   - Can add/change/delete/view time slots
+   - etc.
+4. Click **"Save"**
+ 
+**Group Permissions:**
+1. Assign user to a Group (e.g., "Restaurant Managers")
+2. Groups have pre-defined permission sets
+3. All group members inherit those permissions
+
+### Admin Customisation
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+#### Customised List Displays
+ 
+The admin interface has been customised to show the most relevant information:
+ 
+**Bookings:**
+```python
+list_display = ['reference_code', 'booking_date', 'timeslot', 
+                'get_guest_name', 'number_of_guests', 'status']
+```
+ 
+**Time Slots:**
+```python
+list_display = ['start_time', 'end_time', 'max_capacity', 'is_active']
+```
+ 
+#### Custom Filters
+ 
+Strategic filters have been added for efficient data navigation:
+ 
+**Booking Filters:**
+- Booking date
+- Status
+- User
+- Created date
+ 
+**Time Slot Filters:**
+- Is active
+- Start time
+ 
+#### Search Fields
+ 
+Optimised search functionality across key fields:
+ 
+**Bookings:**
+- Reference code
+- Guest name
+- Guest email
+- User username
+ 
+#### Inline Editing
+ 
+Related objects can be edited inline where appropriate:
+ 
+**Example:** Editing bookings while viewing user details (if configured)
+ 
+#### Custom Actions
+ 
+Additional bulk actions beyond default delete:
+ 
+**Potential Custom Actions:**
+- Mark selected bookings as confirmed
+- Send confirmation emails
+- Export to CSV
+- Generate reports
+
+### Admin Security
+
+[⬆ Back to Table of contents](#table-of-contents)
+ 
+#### CSRF Protection
+ 
+All admin forms include CSRF tokens to prevent cross-site request forgery attacks.
+ 
+**Logout CSRF Issue Fix:**
+A custom logout template prevents 403 errors when logging out:
+ 
+```
+templates/admin/logged_out.html
+```
+ 
+#### Session Security
+ 
+**Session Settings:**
+```python
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SECURE = True  # In production (HTTPS)
+SESSION_COOKIE_AGE = 1209600  # 2 weeks
+```
+ 
+#### Password Security
+ 
+**Password Validators:**
+- Minimum length (8 characters)
+- User attribute similarity check
+- Common password check
+- Numeric-only password prevention
+ 
+All passwords are hashed using PBKDF2 algorithm before storage.
+ 
+#### Permission-Based Access
+ 
+The admin interface respects Django's permission system:
+- Users only see models they have permission to view
+- Actions (add/change/delete) are restricted based on permissions
+- Superusers bypass all permission checks
+ 
+### Common Admin Tasks
+
+[⬆ Back to Table of contents](#table-of-contents)
+ 
+#### Daily Operations
+ 
+**Morning Setup:**
+1. Log in to admin
+2. Review today's bookings (filter by booking date)
+3. Check for any special requests
+4. Verify capacity for popular time slots
+ 
+**During Service:**
+1. Monitor live bookings
+2. Handle walk-in reservations (create new bookings)
+3. Manage cancellations or no-shows
+4. Adjust table assignments as needed
+ 
+**End of Day:**
+1. Review completed reservations
+2. Check for tomorrow's bookings
+3. Plan staffing based on expected capacity
+ 
+#### Weekly Tasks
+ 
+1. Review booking trends
+2. Adjust time slot capacities if needed
+3. Enable/disable time slots for special events
+4. Clean up old cancelled bookings (optional)
+ 
+#### Monthly Tasks
+ 
+1. Generate booking statistics
+2. Review user account activity
+3. Update time slot offerings based on demand
+4. Archive or export historical data
+
+### Troubleshooting
+
+[⬆ Back to Table of contents](#table-of-contents)
+ 
+#### Cannot Access Admin
+ 
+**Symptoms:**
+- 404 error at `/admin/`
+- "You are not authorised" message
+ 
+**Solutions:**
+1. Verify user has `is_staff = True`
+2. Check user is active (`is_active = True`)
+3. Ensure admin URLs are configured in `urls.py`
+4. Verify `django.contrib.admin` in `INSTALLED_APPS`
+ 
+#### 403 Error on Logout
+ 
+**Symptom:**
+```
+Forbidden (403)
+CSRF verification failed. Request aborted.
+```
+ 
+**Solution:**
+Create custom logout template:
+```
+templates/admin/logged_out.html
+```
+ 
+See Django Admin Security section for template code.
+ 
+#### Changes Not Saving
+ 
+**Possible Causes:**
+1. Validation errors (check form for red error messages)
+2. Permission issues (user lacks change permission)
+3. Database connection issues
+4. Model constraints (e.g., capacity exceeded)
+ 
+**Solutions:**
+1. Read error messages carefully
+2. Verify user has correct permissions
+3. Check server logs for database errors
+4. Review model validation in `clean()` methods
+ 
+#### Bookings Disappearing
+ 
+**Possible Causes:**
+1. Filtered view (check active filters in sidebar)
+2. Incorrect date range
+3. Accidentally deleted
+ 
+**Solutions:**
+1. Clear all filters (click "Clear all filters" link)
+2. Expand date range filter
+3. Check database backups if deleted accidentally
+ 
 ---
 
 ## Reflection
