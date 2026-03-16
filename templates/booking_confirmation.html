@@ -1,5 +1,4 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} {% load static %}
 
 <!-- Page title -->
 {% block title %}Booking Confirmation - Portuguese Kitchen{% endblock %}
@@ -14,21 +13,29 @@
       <div class="col-lg-8 text-center">
         <!-- Success Icon -->
         <div class="success-icon mb-3">
-          <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+          <i
+            class="bi bi-check-circle-fill text-success"
+            style="font-size: 4rem"
+          ></i>
         </div>
-        
+
         <!-- Confirmation Message -->
         <h1 class="display-5 fw-bold mb-2">Booking Confirmed!</h1>
         <p class="lead mb-3">
-          Thank you for choosing Portuguese Kitchen. We look forward to serving you!
+          Thank you for choosing Portuguese Kitchen. We look forward to serving
+          you!
         </p>
-        
-       <!-- Reference Number -->
-<div class="reference-number p-3 rounded-3 shadow-sm mb-3">
-  <p class="mb-1 small text-secondary">Your Booking Reference:</p>
-  <h2 class="fw-bold text-primary mb-0">{{ booking.reference_number }}</h2>
-  <p class="small text-secondary mt-1 mb-0">Please save this number for your records</p>
-</div>
+
+        <!-- Reference Number -->
+        <div class="reference-number p-3 rounded-3 shadow-sm mb-3">
+          <p class="mb-1 small text-secondary">Your Booking Reference:</p>
+          <h2 class="fw-bold text-primary mb-0">
+            {{ booking.reference_number }}
+          </h2>
+          <p class="small text-secondary mt-1 mb-0">
+            Please save this number for your records
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -39,95 +46,106 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-8">
-        
         <!-- Booking Details Card (Alert Style) -->
         <div class="alert alert-primary mb-3" role="alert">
           <h5 class="alert-heading mb-2">
             <i class="bi bi-calendar-check me-2"></i>
             Booking Details
           </h5>
-          
+
           <div class="row g-2">
             <!-- Date -->
             <div class="col-md-6 mb-1">
               <i class="bi bi-calendar3 me-1"></i>
               <strong>Date:</strong>
-              <span class="d-block ms-4 text-muted small">{{ booking.booking_date|date:"l, F j, Y" }}</span>
+              <span class="d-block ms-4 text-muted small"
+                >{{ booking.booking_date|date:"l, F j, Y" }}</span
+              >
             </div>
-            
+
             <!-- Time -->
             <div class="col-md-6 mb-1">
               <i class="bi bi-clock me-1"></i>
               <strong>Time:</strong>
-              <span class="d-block ms-4 text-muted small">{{ booking.timeslot.time|time:"g:i A" }}</span>
+              <span class="d-block ms-4 text-muted small"
+                >{{ booking.timeslot.time|time:"g:i A" }}</span
+              >
             </div>
-            
+
             <!-- Guests -->
             <div class="col-md-6 mb-1">
               <i class="bi bi-people me-1"></i>
               <strong>Guests:</strong>
-              <span class="d-block ms-4 text-muted small">{{ booking.number_of_guests }} {{ booking.number_of_guests|pluralize:"Guest,Guests" }}</span>
+              <span class="d-block ms-4 text-muted small"
+                >{{ booking.number_of_guests }} {{
+                booking.number_of_guests|pluralize:"Guest,Guests" }}</span
+              >
             </div>
-            
+
             <!-- Status -->
             <div class="col-md-6 mb-1">
               <i class="bi bi-info-circle me-1"></i>
               <strong>Status:</strong>
               <span class="badge bg-warning ms-2">{{ booking.status }}</span>
             </div>
-            
+
             <!-- Special Requests (if any) -->
             {% if booking.special_requests %}
             <div class="col-12 mb-1">
               <i class="bi bi-chat-text me-1"></i>
               <strong>Special Requests:</strong>
-              <span class="d-block ms-4 text-muted small">{{ booking.special_requests }}</span>
+              <span class="d-block ms-4 text-muted small"
+                >{{ booking.special_requests }}</span
+              >
             </div>
             {% endif %}
           </div>
         </div>
-        
+
         <!-- Contact Details Card (Alert Style) -->
         <div class="alert alert-secondary mb-3" role="alert">
           <h5 class="alert-heading mb-2">
             <i class="bi bi-person-circle me-2"></i>
             Contact Information
           </h5>
-          
+
           <div class="row g-2">
             {% if booking.user %}
-              <!-- Authenticated User -->
-              <div class="col-12 mb-1">
-                <i class="bi bi-person me-1"></i>
-                <strong>Name:</strong>
-                <span class="ms-2">{{ booking.user.first_name }} {{ booking.user.last_name }}</span>
-              </div>
-              <div class="col-12 mb-1">
-                <i class="bi bi-envelope me-1"></i>
-                <strong>Email:</strong>
-                <span class="ms-2">{{ booking.user.email }}</span>
-              </div>
+            <!-- Authenticated User -->
+            <div class="col-12 mb-1">
+              <i class="bi bi-person me-1"></i>
+              <strong>Name:</strong>
+              <span class="ms-2"
+                >{{ booking.user.first_name }} {{ booking.user.last_name
+                }}</span
+              >
+            </div>
+            <div class="col-12 mb-1">
+              <i class="bi bi-envelope me-1"></i>
+              <strong>Email:</strong>
+              <span class="ms-2">{{ booking.user.email }}</span>
+            </div>
             {% else %}
-              <!-- Guest Booking -->
-              <div class="col-12 mb-1">
-                <i class="bi bi-person me-1"></i>
-                <strong>Name:</strong>
-                <span class="ms-2">{{ booking.guest_name }}</span>
-              </div>
-              <div class="col-12 mb-1">
-                <i class="bi bi-envelope me-1"></i>
-                <strong>Email:</strong>
-                <span class="ms-2">{{ booking.guest_email }}</span>
-              </div>
-              <div class="col-12 mb-1">
-                <i class="bi bi-telephone me-1"></i>
-                <strong>Phone:</strong>
-                <span class="ms-2">{{ booking.guest_phone }}</span>
-              </div>
+            <!-- Guest Booking -->
+            <div class="col-12 mb-1">
+              <i class="bi bi-person me-1"></i>
+              <strong>Name:</strong>
+              <span class="ms-2">{{ booking.guest_name }}</span>
+            </div>
+            <div class="col-12 mb-1">
+              <i class="bi bi-envelope me-1"></i>
+              <strong>Email:</strong>
+              <span class="ms-2">{{ booking.guest_email }}</span>
+            </div>
+            <div class="col-12 mb-1">
+              <i class="bi bi-telephone me-1"></i>
+              <strong>Phone:</strong>
+              <span class="ms-2">{{ booking.guest_phone }}</span>
+            </div>
             {% endif %}
           </div>
         </div>
-        
+
         <!-- Important Information -->
         <div class="alert alert-info mb-3">
           <h5 class="alert-heading mb-2">
@@ -136,14 +154,24 @@
           </h5>
           <ul class="mb-0 ps-3 small">
             <li>A confirmation email has been sent to your email address</li>
-            <li>Please arrive on time. We can hold your table for 15 minutes</li>
-            <li>If you need to modify or cancel, please contact us at least 24 hours in advance</li>
-            <li>For any questions, call us at <a href="tel:+442071234567">+44 (0) 207 123 4567</a></li>
+            <li>
+              Please arrive on time. We can hold your table for 15 minutes
+            </li>
+            <li>
+              If you need to modify or cancel, please contact us at least 24
+              hours in advance
+            </li>
+            <li>
+              For any questions, call us at
+              <a href="tel:+442071234567">+44 (0) 207 123 4567</a>
+            </li>
           </ul>
         </div>
-        
+
         <!-- Action Buttons -->
-        <div class="d-flex flex-column flex-sm-row gap-2 justify-content-center mt-3">
+        <div
+          class="d-flex flex-column flex-sm-row gap-2 justify-content-center mt-3"
+        >
           <a href="{% url 'home' %}" class="btn btn-outline-primary">
             <i class="bi bi-house me-2"></i>
             Back to Home
@@ -159,15 +187,17 @@
           </a>
           {% endif %}
         </div>
-        
+
         <!-- Print Button -->
         <div class="text-center mt-3">
-          <button onclick="window.print()" class="btn btn-sm btn-outline-secondary">
+          <button
+            onclick="window.print()"
+            class="btn btn-sm btn-outline-secondary"
+          >
             <i class="bi bi-printer me-2"></i>
             Print Confirmation
           </button>
         </div>
-        
       </div>
     </div>
   </div>
@@ -180,14 +210,18 @@
 <style>
   /* CRITICAL: Override style.css fixed heights */
   .confirmation-hero {
-    background: linear-gradient(135deg, var(--azulejo-blue) 0%, var(--olive-green) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--azulejo-blue) 0%,
+      var(--olive-green) 100%
+    );
     color: white;
-    
+
     /* FORCE override the 280px in style.css */
     min-height: auto !important;
     max-height: none !important;
     height: auto !important;
-    
+
     padding-top: 3rem !important;
     padding-bottom: 3rem !important;
   }
@@ -307,7 +341,9 @@
 
   /* Print Styles */
   @media print {
-    .btn, nav, footer {
+    .btn,
+    nav,
+    footer {
       display: none !important;
     }
 

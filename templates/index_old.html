@@ -1,5 +1,5 @@
 <!-- Declares this document as an HTML5. -->
-<!DOCTYPE html>
+<!doctype html>
 <!-- 
 Starts this HTML file and sets the language to English.
 All tags from this webpage (head, body, content) will sit inside this <html> element.
@@ -14,18 +14,21 @@ resources that describes this webpage. It sits at the top of the HTML document.
     Character encoding: UTF-8 supports most characters/symbols.
     Viewport: makes layout responsive on mobile (scales to device width). 
   -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- 
     Basic SEO metadata so search engines understand the page content.
     These don't affect layout but are good practice in web development.
   -->
-    <meta name="description" content="Portuguese Kitchen - Authentic Portuguese Restaurant & Table Booking System">
+    <meta
+      name="description"
+      content="Portuguese Kitchen - Authentic Portuguese Restaurant & Table Booking System"
+    />
     <meta
       name="keywords"
       content="Portuguese, restaurant, booking, reservation, cuisine, London"
-    >
-    <meta name="author" content="Roberto Pires">
+    />
+    <meta name="author" content="Roberto Pires" />
     <!-- 
     The <title> tag in HTML defines the title of the webpage. It's placed inside the 
      <head> section and serves several important purposes:
@@ -34,7 +37,9 @@ resources that describes this webpage. It sits at the top of the HTML document.
     3- Bookmarks/favorites: When someone bookmarks a page, the title is used as the default name.
     4- Accessibility: Screen readers announce the title first, helping users understand the page context.
   -->
-    <title>Portuguese Kitchen - Authentic Portuguese Cuisine & Reservations</title>
+    <title>
+      Portuguese Kitchen - Authentic Portuguese Cuisine & Reservations
+    </title>
     <!-- 
     Favicon links: small icons used in browser tabs and bookmarks.
     (Commented out until favicon images are added)
@@ -66,7 +71,7 @@ resources that describes this webpage. It sits at the top of the HTML document.
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
-    >
+    />
     <!-- 
     Bootstrap Icons (via CDN).
     I use these for decorative and informative icons (e.g. phone, email, checkmarks).
@@ -74,23 +79,23 @@ resources that describes this webpage. It sits at the top of the HTML document.
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    >
+    />
     <!-- 
     Google Fonts preconnect: performance optimisation for loading fonts.
     I use Montserrat for headings and Lato for body text in accordance with my design.
   -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Lato:wght@400;500;700&display=swap"
       rel="stylesheet"
-    >
+    />
     <!-- 
     Custom CSS.
     This file defines my colour palette, typography, layout tweaks
     and also overrides some default Bootstrap styles (e.g. navbar colours).
   -->
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css" />
   </head>
   <!-- 
     The <body> tag in HTML contains all the viewed content of the webpge aside of the title.
@@ -171,9 +176,7 @@ resources that describes this webpage. It sits at the top of the HTML document.
             The current page has .active for visual feedback.
           -->
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/"
-                >Home</a
-              >
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Menu</a>
@@ -199,7 +202,9 @@ resources that describes this webpage. It sits at the top of the HTML document.
     Hero section: Full-width banner with background image and centred text overlay.
     Uses custom .hero-section from CSS plus Bootstrap utilities.
   -->
-    <section class="hero-section text-white text-center d-flex align-items-center justify-content-center">
+    <section
+      class="hero-section text-white text-center d-flex align-items-center justify-content-center"
+    >
       <div class="hero-overlay"></div>
       <div class="hero-content position-relative">
         <h1 class="display-2 fw-bold mb-3">Portuguese Kitchen</h1>
@@ -207,7 +212,8 @@ resources that describes this webpage. It sits at the top of the HTML document.
           Authentic Portuguese Cuisine in the Heart of London
         </p>
         <p class="mb-4 fs-5">
-          Experience the rich flavours of Portugal with traditional recipes passed down through generations
+          Experience the rich flavours of Portugal with traditional recipes
+          passed down through generations
         </p>
         <a href="#" class="btn btn-primary btn-lg px-5 py-3">
           Book Your Table
@@ -222,7 +228,9 @@ resources that describes this webpage. It sits at the top of the HTML document.
       <!-- About Us Section -->
       <div class="row mb-5">
         <div class="col-12">
-          <h2 class="section-heading text-center mb-4">Welcome to Portuguese Kitchen</h2>
+          <h2 class="section-heading text-center mb-4">
+            Welcome to Portuguese Kitchen
+          </h2>
           <div class="section-divider mx-auto mb-5"></div>
         </div>
       </div>
@@ -232,10 +240,16 @@ resources that describes this webpage. It sits at the top of the HTML document.
           <div class="about-content">
             <h3 class="mb-3">Our Story</h3>
             <p class="lead">
-              Founded in 2020, Portuguese Kitchen brings the authentic taste of Portugal to London. Our family-run restaurant is dedicated to preserving traditional Portuguese cooking methods whilst creating a warm, welcoming atmosphere for all our guests.
+              Founded in 2020, Portuguese Kitchen brings the authentic taste of
+              Portugal to London. Our family-run restaurant is dedicated to
+              preserving traditional Portuguese cooking methods whilst creating
+              a warm, welcoming atmosphere for all our guests.
             </p>
             <p>
-              Every dish on our menu tells a story of Portugal's rich culinary heritage, from the coastal regions to the inland countryside. We source the finest ingredients, many imported directly from Portugal, to ensure an authentic dining experience.
+              Every dish on our menu tells a story of Portugal's rich culinary
+              heritage, from the coastal regions to the inland countryside. We
+              source the finest ingredients, many imported directly from
+              Portugal, to ensure an authentic dining experience.
             </p>
           </div>
         </div>
@@ -243,16 +257,33 @@ resources that describes this webpage. It sits at the top of the HTML document.
           <div class="about-content">
             <h3 class="mb-3">Our Philosophy</h3>
             <p>
-              At Portuguese Kitchen, we believe that food brings people together. Our chefs use time-honoured recipes and traditional techniques to create dishes that transport you straight to the heart of Portugal.
+              At Portuguese Kitchen, we believe that food brings people
+              together. Our chefs use time-honoured recipes and traditional
+              techniques to create dishes that transport you straight to the
+              heart of Portugal.
             </p>
             <p class="mb-3">
-              Whether you're celebrating a special occasion or simply enjoying a meal with loved ones, we're committed to providing an unforgettable dining experience.
+              Whether you're celebrating a special occasion or simply enjoying a
+              meal with loved ones, we're committed to providing an
+              unforgettable dining experience.
             </p>
             <ul class="list-unstyled">
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Authentic Portuguese Recipes</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Fresh, Quality Ingredients</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Warm, Family Atmosphere</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Dietary Options Available</li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill text-primary me-2"></i
+                >Authentic Portuguese Recipes
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill text-primary me-2"></i>Fresh,
+                Quality Ingredients
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill text-primary me-2"></i>Warm,
+                Family Atmosphere
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill text-primary me-2"></i>Dietary
+                Options Available
+              </li>
             </ul>
           </div>
         </div>
@@ -275,7 +306,8 @@ resources that describes this webpage. It sits at the top of the HTML document.
             </div>
             <h5 class="mb-3">Authentic Cuisine</h5>
             <p class="mb-0">
-              Traditional Portuguese recipes prepared by experienced chefs who learned their craft in Portugal
+              Traditional Portuguese recipes prepared by experienced chefs who
+              learned their craft in Portugal
             </p>
           </div>
         </div>
@@ -288,7 +320,8 @@ resources that describes this webpage. It sits at the top of the HTML document.
             </div>
             <h5 class="mb-3">Fresh Ingredients</h5>
             <p class="mb-0">
-              We source premium ingredients daily, many imported directly from Portugal
+              We source premium ingredients daily, many imported directly from
+              Portugal
             </p>
           </div>
         </div>
@@ -301,7 +334,8 @@ resources that describes this webpage. It sits at the top of the HTML document.
             </div>
             <h5 class="mb-3">Cosy Atmosphere</h5>
             <p class="mb-0">
-              Enjoy your meal in our warm, family-friendly environment with traditional Portuguese décor
+              Enjoy your meal in our warm, family-friendly environment with
+              traditional Portuguese décor
             </p>
           </div>
         </div>
@@ -314,7 +348,8 @@ resources that describes this webpage. It sits at the top of the HTML document.
             </div>
             <h5 class="mb-3">Easy Booking</h5>
             <p class="mb-0">
-              Reserve your table online in seconds with our simple booking system
+              Reserve your table online in seconds with our simple booking
+              system
             </p>
           </div>
         </div>
@@ -326,15 +361,14 @@ resources that describes this webpage. It sits at the top of the HTML document.
           <div class="cta-section text-center p-5 rounded-3">
             <h2 class="mb-4">Ready to Experience Portugal?</h2>
             <p class="lead mb-4">
-              Book your table today and discover the authentic taste of Portuguese cuisine
+              Book your table today and discover the authentic taste of
+              Portuguese cuisine
             </p>
-            <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-              <a href="#" class="btn btn-secondary btn-lg px-5">
-                View Menu
-              </a>
-              <a href="#" class="btn btn-primary btn-lg px-5">
-                Book a Table
-              </a>
+            <div
+              class="d-flex flex-column flex-sm-row gap-3 justify-content-center"
+            >
+              <a href="#" class="btn btn-secondary btn-lg px-5"> View Menu </a>
+              <a href="#" class="btn btn-primary btn-lg px-5"> Book a Table </a>
             </div>
           </div>
         </div>
@@ -435,9 +469,9 @@ resources that describes this webpage. It sits at the top of the HTML document.
               <i class="bi bi-geo-alt-fill fs-1 mb-3 text-primary"></i>
               <h5 class="mb-3">Address</h5>
               <p class="mb-0">
-                Portuguese Kitchen<br>
-                45 Brick Lane<br>
-                London, UK<br>
+                Portuguese Kitchen<br />
+                45 Brick Lane<br />
+                London, UK<br />
                 E1 6PU
               </p>
             </div>
@@ -479,14 +513,28 @@ resources that describes this webpage. It sits at the top of the HTML document.
               <i class="bi bi-envelope-fill fs-1 mb-3 text-primary"></i>
               <h5 class="mb-3">Email</h5>
               <p class="mb-1">
-                <a href="/cdn-cgi/l/email-protection#d8b1b6beb798a8b7aaacadbfadbdabbdb3b1acbbb0bdb6f6bbb7f6adb3" class="text-white text-decoration-none">
-                  <span class="__cf_email__" data-cfemail="c5acaba3aa85b5aab7b1b0a2b0a0b6a0aeacb1a6ada0abeba6aaebb0ae">[email&#160;protected]</span>
+                <a
+                  href="/cdn-cgi/l/email-protection#d8b1b6beb798a8b7aaacadbfadbdabbdb3b1acbbb0bdb6f6bbb7f6adb3"
+                  class="text-white text-decoration-none"
+                >
+                  <span
+                    class="__cf_email__"
+                    data-cfemail="c5acaba3aa85b5aab7b1b0a2b0a0b6a0aeacb1a6ada0abeba6aaebb0ae"
+                    >[email&#160;protected]</span
+                  >
                 </a>
               </p>
               <p class="mb-0">
                 <!-- mailto: links open the user's default email client. -->
-                <a href="/cdn-cgi/l/email-protection#51333e3e3a383f362211213e23252436243422343a38253239343f7f323e7f243a" class="text-white text-decoration-none">
-                  <span class="__cf_email__" data-cfemail="35575a5a5e5c5b524675455a47414052405046505e5c41565d505b1b565a1b405e">[email&#160;protected]</span>
+                <a
+                  href="/cdn-cgi/l/email-protection#51333e3e3a383f362211213e23252436243422343a38253239343f7f323e7f243a"
+                  class="text-white text-decoration-none"
+                >
+                  <span
+                    class="__cf_email__"
+                    data-cfemail="35575a5a5e5c5b524675455a47414052405046505e5c41565d505b1b565a1b405e"
+                    >[email&#160;protected]</span
+                  >
                 </a>
               </p>
             </div>
@@ -505,14 +553,15 @@ resources that describes this webpage. It sits at the top of the HTML document.
           </div>
         </div>
         <!-- Horizontal divider line between contact tiles and copyright -->
-        <hr class="my-4 bg-secondary">
+        <hr class="my-4 bg-secondary" />
         <!-- Simple centred copyright text -->
         <div class="copyright text-center">
           <p class="mb-1">
             &copy; 2026 Portuguese Kitchen. All Rights Reserved.
           </p>
           <p class="mb-0">
-            Developed by Roberto Pires | Milestone Project 3 - Full Stack Development
+            Developed by Roberto Pires | Milestone Project 3 - Full Stack
+            Development
           </p>
         </div>
       </div>

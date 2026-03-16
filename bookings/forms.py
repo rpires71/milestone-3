@@ -118,7 +118,7 @@ class BookingForm(forms.ModelForm):
     
     def __init__(self, *args, **kwargs):
         """
-        Initialize form and set dynamic attributes.
+        Initialise form and set dynamic attributes.
         
         Args:
             user: Current user (if authenticated)

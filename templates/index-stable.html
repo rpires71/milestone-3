@@ -1,8 +1,8 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} {% load static %}
 
 <!-- Page title -->
-{% block title %}Portuguese Kitchen - Authentic Portuguese Cuisine & Reservations{% endblock %}
+{% block title %}Portuguese Kitchen - Authentic Portuguese Cuisine &
+Reservations{% endblock %}
 
 <!-- Mark Home as active in navigation -->
 {% block nav_home %}active{% endblock %}
@@ -18,15 +18,20 @@
     <div class="row align-items-center">
       <div class="col-lg-4 text-center">
         <div class="portuguese-kitchen-logo">
-           <img src="{% static 'images/logo-v-3.webp' %}" 
-     alt="Portuguese Kitchen logo"
-     class="hero-logo">
+          <img
+            src="{% static 'images/logo-v-3.webp' %}"
+            alt="Portuguese Kitchen logo"
+            class="hero-logo"
+          />
         </div>
       </div>
       <div class="col-lg-8">
-        <h2 class="display-5 fw-bold mb-3">Authentic Portuguese Cuisine in London</h2>
+        <h2 class="display-5 fw-bold mb-3">
+          Authentic Portuguese Cuisine in London
+        </h2>
         <p class="lead mb-0">
-          Experience the rich flavours of Portugal with traditional recipes passed down through generations
+          Experience the rich flavours of Portugal with traditional recipes
+          passed down through generations
         </p>
       </div>
     </div>
@@ -39,7 +44,9 @@
   <!-- About Us Section -->
   <div class="row mb-5">
     <div class="col-12">
-      <h2 class="section-heading text-center mb-4">Welcome to Portuguese Kitchen</h2>
+      <h2 class="section-heading text-center mb-4">
+        Welcome to Portuguese Kitchen
+      </h2>
       <div class="section-divider mx-auto mb-5"></div>
     </div>
   </div>
@@ -49,10 +56,16 @@
       <div class="about-content">
         <h3 class="mb-3">Our Story</h3>
         <p class="lead">
-          Founded in 2020, Portuguese Kitchen brings the authentic taste of Portugal to London. Our family-run restaurant is dedicated to preserving traditional Portuguese cooking methods whilst creating a warm, welcoming atmosphere for all our guests.
+          Founded in 2020, Portuguese Kitchen brings the authentic taste of
+          Portugal to London. Our family-run restaurant is dedicated to
+          preserving traditional Portuguese cooking methods whilst creating a
+          warm, welcoming atmosphere for all our guests.
         </p>
         <p>
-          Every dish on our menu tells a story of Portugal's rich culinary heritage, from the coastal regions to the inland countryside. We source the finest ingredients, many imported directly from Portugal, to ensure an authentic dining experience.
+          Every dish on our menu tells a story of Portugal's rich culinary
+          heritage, from the coastal regions to the inland countryside. We
+          source the finest ingredients, many imported directly from Portugal,
+          to ensure an authentic dining experience.
         </p>
       </div>
     </div>
@@ -60,16 +73,32 @@
       <div class="about-content">
         <h3 class="mb-3">Our Philosophy</h3>
         <p>
-          At Portuguese Kitchen, we believe that food brings people together. Our chefs use time-honoured recipes and traditional techniques to create dishes that transport you straight to the heart of Portugal.
+          At Portuguese Kitchen, we believe that food brings people together.
+          Our chefs use time-honoured recipes and traditional techniques to
+          create dishes that transport you straight to the heart of Portugal.
         </p>
         <p class="mb-3">
-          Whether you're celebrating a special occasion or simply enjoying a meal with loved ones, we're committed to providing an unforgettable dining experience.
+          Whether you're celebrating a special occasion or simply enjoying a
+          meal with loved ones, we're committed to providing an unforgettable
+          dining experience.
         </p>
         <ul class="list-unstyled">
-          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Authentic Portuguese Recipes</li>
-          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Fresh, Quality Ingredients</li>
-          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Warm, Family Atmosphere</li>
-          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Dietary Options Available</li>
+          <li class="mb-2">
+            <i class="bi bi-check-circle-fill text-primary me-2"></i>Authentic
+            Portuguese Recipes
+          </li>
+          <li class="mb-2">
+            <i class="bi bi-check-circle-fill text-primary me-2"></i>Fresh,
+            Quality Ingredients
+          </li>
+          <li class="mb-2">
+            <i class="bi bi-check-circle-fill text-primary me-2"></i>Warm,
+            Family Atmosphere
+          </li>
+          <li class="mb-2">
+            <i class="bi bi-check-circle-fill text-primary me-2"></i>Dietary
+            Options Available
+          </li>
         </ul>
       </div>
     </div>
@@ -92,7 +121,8 @@
         </div>
         <h5 class="mb-3">Authentic Cuisine</h5>
         <p class="mb-0">
-          Traditional Portuguese recipes prepared by experienced chefs who learned their craft in Portugal
+          Traditional Portuguese recipes prepared by experienced chefs who
+          learned their craft in Portugal
         </p>
       </div>
     </div>
@@ -105,7 +135,8 @@
         </div>
         <h5 class="mb-3">Fresh Ingredients</h5>
         <p class="mb-0">
-          We source premium ingredients daily, many imported directly from Portugal
+          We source premium ingredients daily, many imported directly from
+          Portugal
         </p>
       </div>
     </div>
@@ -118,7 +149,8 @@
         </div>
         <h5 class="mb-3">Cosy Atmosphere</h5>
         <p class="mb-0">
-          Enjoy your meal in our warm, family-friendly environment with traditional Portuguese décor
+          Enjoy your meal in our warm, family-friendly environment with
+          traditional Portuguese décor
         </p>
       </div>
     </div>
@@ -143,13 +175,16 @@
       <div class="cta-section text-center p-5 rounded-3">
         <h2 class="mb-4">Ready to Experience Portugal?</h2>
         <p class="lead mb-4">
-          Book your table today and discover the authentic taste of Portuguese cuisine
+          Book your table today and discover the authentic taste of Portuguese
+          cuisine
         </p>
-        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-          <a href="#" class="btn btn-secondary btn-lg px-5">
-            View Menu
-          </a>
-          <a href="{% url 'bookings:booking' %}" class="btn btn-primary">Book a Table</a>
+        <div
+          class="d-flex flex-column flex-sm-row gap-3 justify-content-center"
+        >
+          <a href="#" class="btn btn-secondary btn-lg px-5"> View Menu </a>
+          <a href="{% url 'bookings:booking' %}" class="btn btn-primary"
+            >Book a Table</a
+          >
         </div>
       </div>
     </div>

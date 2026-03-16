@@ -14,8 +14,8 @@ Date: January 2026
     Character encoding: UTF-8 supports most characters/symbols.
     Viewport: makes layout responsive on mobile (scales to device width). 
   -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- 
     SEO metadata - default values, override in child templates if needed
@@ -23,12 +23,12 @@ Date: January 2026
     <meta
       name="description"
       content="Portuguese Kitchen - Authentic Portuguese Restaurant & Table Booking System in London"
-    >
+    />
     <meta
       name="keywords"
       content="Portuguese, restaurant, booking, reservation, cuisine, London"
-    >
-    <meta name="author" content="Roberto Pires">
+    />
+    <meta name="author" content="Roberto Pires" />
 
     <!-- 
     Page title - can be customized per page
@@ -42,8 +42,18 @@ Date: January 2026
     Favicon links: small icons used in browser tabs and bookmarks.
     (Commented out until favicon images are added)
   -->
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{% static 'images/favicon-32x32.png' %}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{% static 'images/favicon-16x16.png' %}"
+    />
 
     <!-- 
     Bootstrap CSS (via CDN).
@@ -52,7 +62,7 @@ Date: January 2026
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
-    >
+    />
 
     <!-- 
     Bootstrap Icons (via CDN).
@@ -61,29 +71,29 @@ Date: January 2026
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    >
+    />
 
     <!-- 
     Google Fonts preconnect: performance optimisation.
     Montserrat for headings and Lato for body text.
   -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Lato:wght@400;500;700&display=swap"
       rel="stylesheet"
-    >
+    />
 
     <!-- 
     Custom CSS - Portuguese Kitchen colour palette and typography
   -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 
     <!-- 
     Extra CSS block - allows child templates to add page-specific styles
   -->
     {% block extra_css %}{% endblock %}
-    
+
     <!-- Smooth scroll styles -->
     <style>
       html {
@@ -107,13 +117,12 @@ Date: January 2026
           href="{% url 'home' %}"
         >
           <picture>
-            <source
-  srcset="/static/images/logo-v-2.webp"
-  type="image/webp">
-<img
-  src="/static/images/logo-v-2-transparent.png"
-  alt="Portuguese Kitchen Logo"
-  class="logo-image me-2">
+            <source srcset="/static/images/logo-v-2.webp" type="image/webp" />
+            <img
+              src="/static/images/logo-v-2-transparent.png"
+              alt="Portuguese Kitchen Logo"
+              class="logo-image me-2"
+            />
           </picture>
           <span class="logo-text">Portuguese Kitchen</span>
         </a>
@@ -160,13 +169,10 @@ Date: January 2026
                 >Book a Table</a
               >
             </li>
-            
+
             <!-- Contact (Smooth scroll to footer with scroll-activated active state) -->
             <li class="nav-item">
-              <a
-                class="nav-link"
-                href="#contact"
-                id="contactNavLink"
+              <a class="nav-link" href="#contact" id="contactNavLink"
                 >Contact</a
               >
             </li>
@@ -273,10 +279,7 @@ Date: January 2026
     <!-- =========================================================
        MAIN CONTENT - Replaced by child templates
        ========================================================= -->
-    <main>
-  {% block content %}
-  {% endblock %}
-</main>
+    <main>{% block content %} {% endblock %}</main>
     <!-- =========================================================
        FOOTER - Appears on all pages
        ========================================================= -->
@@ -292,9 +295,9 @@ Date: January 2026
               <i class="bi bi-geo-alt-fill fs-1 mb-3 text-primary"></i>
               <h5 class="mb-3">Address</h5>
               <p class="mb-0">
-                Portuguese Kitchen<br>
-123 Brick Lane<br>
-London, UK<br>
+                Portuguese Kitchen<br />
+                123 Brick Lane<br />
+                London, UK<br />
                 E1 6PU
               </p>
             </div>
@@ -390,43 +393,46 @@ London, UK<br>
 
     <!-- Contact link active state and smooth scroll script -->
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const contactLink = document.getElementById('contactNavLink');
-        const contactSection = document.getElementById('contact');
-        const navbarCollapse = document.querySelector('.navbar-collapse');
-        
+      document.addEventListener("DOMContentLoaded", function () {
+        const contactLink = document.getElementById("contactNavLink");
+        const contactSection = document.getElementById("contact");
+        const navbarCollapse = document.querySelector(".navbar-collapse");
+
         if (!contactLink || !contactSection) return;
-        
+
         // Function to check if contact section is in view
         function updateContactActiveState() {
           const contactTop = contactSection.offsetTop;
           const contactHeight = contactSection.offsetHeight;
           const scrollPos = window.scrollY + window.innerHeight / 2; // Middle of viewport
-          
+
           // Add 'active' class if scrolled to contact section
-          if (scrollPos >= contactTop && scrollPos <= (contactTop + contactHeight)) {
-            contactLink.classList.add('active');
+          if (
+            scrollPos >= contactTop &&
+            scrollPos <= contactTop + contactHeight
+          ) {
+            contactLink.classList.add("active");
           } else {
-            contactLink.classList.remove('active');
+            contactLink.classList.remove("active");
           }
         }
-        
+
         // Update on scroll with throttling for performance
         let scrollTimeout;
-        window.addEventListener('scroll', function() {
+        window.addEventListener("scroll", function () {
           if (scrollTimeout) {
             window.cancelAnimationFrame(scrollTimeout);
           }
-          scrollTimeout = window.requestAnimationFrame(function() {
+          scrollTimeout = window.requestAnimationFrame(function () {
             updateContactActiveState();
           });
         });
-        
+
         // Update on page load
         updateContactActiveState();
-        
+
         // Close mobile navbar after clicking contact link
-        contactLink.addEventListener('click', function() {
+        contactLink.addEventListener("click", function () {
           // Close mobile menu if open
           if (navbarCollapse) {
             const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
@@ -434,9 +440,9 @@ London, UK<br>
               bsCollapse.hide();
             }
           }
-          
+
           // Add active class immediately on click
-          contactLink.classList.add('active');
+          contactLink.classList.add("active");
         });
       });
     </script>

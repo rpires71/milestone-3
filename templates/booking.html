@@ -1,5 +1,4 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} {% load static %}
 
 <!-- Page title -->
 {% block title %}Book a Table - Portuguese Kitchen{% endblock %}
@@ -16,9 +15,11 @@
     <div class="row align-items-center">
       <div class="col-lg-4 text-center">
         <div class="portuguese-kitchen-logo">
-       <img src="{% static 'images/logo-v-3.webp' %}" 
-     alt="Portuguese Kitchen logo"
-     class="hero-logo">
+          <img
+            src="{% static 'images/logo-v-3.webp' %}"
+            alt="Portuguese Kitchen logo"
+            class="hero-logo"
+          />
         </div>
       </div>
       <div class="col-lg-8">
@@ -36,151 +37,172 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-8">
-        
         <!-- Booking Form Card -->
         <div class="booking-card bg-white p-5 rounded-3 shadow-sm">
           <h2 class="text-center mb-4">Book Your Table</h2>
-          
+
           <!-- Display Form Errors -->
           {% if form.errors %}
-            <div class="alert alert-danger">
-              <h3 class="alert-heading" style="font-size: 1.25rem;">Please correct the following errors:</h3>
-              <ul class="mb-0">
-                {% for field in form %}
-                  {% for error in field.errors %}
-                    <li>{{ field.label }}: {{ error }}</li>
-                  {% endfor %}
-                {% endfor %}
-                {% for error in form.non_field_errors %}
-                  <li>{{ error }}</li>
-                {% endfor %}
-              </ul>
-            </div>
+          <div class="alert alert-danger">
+            <h3 class="alert-heading" style="font-size: 1.25rem">
+              Please correct the following errors:
+            </h3>
+            <ul class="mb-0">
+              {% for field in form %} {% for error in field.errors %}
+              <li>{{ field.label }}: {{ error }}</li>
+              {% endfor %} {% endfor %} {% for error in form.non_field_errors %}
+              <li>{{ error }}</li>
+              {% endfor %}
+            </ul>
+          </div>
           {% endif %}
 
           <form method="POST" action="{% url 'bookings:booking' %}" novalidate>
             {% csrf_token %}
-            
+
             <div class="row g-3">
-              
               <!-- Booking Date -->
               <div class="col-md-6">
-                <label for="{{ form.booking_date.id_for_label }}" class="form-label fw-semibold">
-                  {{ form.booking_date.label }} <span class="text-danger">*</span>
+                <label
+                  for="{{ form.booking_date.id_for_label }}"
+                  class="form-label fw-semibold"
+                >
+                  {{ form.booking_date.label }}
+                  <span class="text-danger">*</span>
                 </label>
-                {{ form.booking_date }}
-                {% if form.booking_date.help_text %}
-                  <div class="form-text">{{ form.booking_date.help_text }}</div>
-                {% endif %}
-                {% if form.booking_date.errors %}
-                  <div class="invalid-feedback d-block">
-                    {{ form.booking_date.errors.0 }}
-                  </div>
+                {{ form.booking_date }} {% if form.booking_date.help_text %}
+                <div class="form-text">{{ form.booking_date.help_text }}</div>
+                {% endif %} {% if form.booking_date.errors %}
+                <div class="invalid-feedback d-block">
+                  {{ form.booking_date.errors.0 }}
+                </div>
                 {% endif %}
               </div>
 
               <!-- Number of Guests -->
               <div class="col-md-6">
-                <label for="{{ form.number_of_guests.id_for_label }}" class="form-label fw-semibold">
-                  {{ form.number_of_guests.label }} <span class="text-danger">*</span>
+                <label
+                  for="{{ form.number_of_guests.id_for_label }}"
+                  class="form-label fw-semibold"
+                >
+                  {{ form.number_of_guests.label }}
+                  <span class="text-danger">*</span>
                 </label>
-                {{ form.number_of_guests }}
-                {% if form.number_of_guests.help_text %}
-                  <div class="form-text">{{ form.number_of_guests.help_text }}</div>
-                {% endif %}
-                {% if form.number_of_guests.errors %}
-                  <div class="invalid-feedback d-block">
-                    {{ form.number_of_guests.errors.0 }}
-                  </div>
+                {{ form.number_of_guests }} {% if
+                form.number_of_guests.help_text %}
+                <div class="form-text">
+                  {{ form.number_of_guests.help_text }}
+                </div>
+                {% endif %} {% if form.number_of_guests.errors %}
+                <div class="invalid-feedback d-block">
+                  {{ form.number_of_guests.errors.0 }}
+                </div>
                 {% endif %}
               </div>
 
               <!-- Time Slot -->
               <div class="col-12">
-                <label for="{{ form.timeslot.id_for_label }}" class="form-label fw-semibold">
+                <label
+                  for="{{ form.timeslot.id_for_label }}"
+                  class="form-label fw-semibold"
+                >
                   {{ form.timeslot.label }} <span class="text-danger">*</span>
                 </label>
-                {{ form.timeslot }}
-                {% if form.timeslot.help_text %}
-                  <div class="form-text">{{ form.timeslot.help_text }}</div>
-                {% endif %}
-                {% if form.timeslot.errors %}
-                  <div class="invalid-feedback d-block">
-                    {{ form.timeslot.errors.0 }}
-                  </div>
+                {{ form.timeslot }} {% if form.timeslot.help_text %}
+                <div class="form-text">{{ form.timeslot.help_text }}</div>
+                {% endif %} {% if form.timeslot.errors %}
+                <div class="invalid-feedback d-block">
+                  {{ form.timeslot.errors.0 }}
+                </div>
                 {% endif %}
               </div>
 
               <!-- Special Requests -->
               <div class="col-12">
-                <label for="{{ form.special_requests.id_for_label }}" class="form-label fw-semibold">
+                <label
+                  for="{{ form.special_requests.id_for_label }}"
+                  class="form-label fw-semibold"
+                >
                   {{ form.special_requests.label }}
                 </label>
-                {{ form.special_requests }}
-                {% if form.special_requests.help_text %}
-                  <div class="form-text">{{ form.special_requests.help_text }}</div>
-                {% endif %}
-                {% if form.special_requests.errors %}
-                  <div class="invalid-feedback d-block">
-                    {{ form.special_requests.errors.0 }}
-                  </div>
+                {{ form.special_requests }} {% if
+                form.special_requests.help_text %}
+                <div class="form-text">
+                  {{ form.special_requests.help_text }}
+                </div>
+                {% endif %} {% if form.special_requests.errors %}
+                <div class="invalid-feedback d-block">
+                  {{ form.special_requests.errors.0 }}
+                </div>
                 {% endif %}
               </div>
 
               <!-- Guest Information (only if not logged in) -->
               {% if not user.is_authenticated %}
-                <div class="col-12">
-                  <hr class="my-4">
-                  <h3 class="mb-3" style="font-size: 1.25rem;">Your Information</h3>
-                </div>
+              <div class="col-12">
+                <hr class="my-4" />
+                <h3 class="mb-3" style="font-size: 1.25rem">
+                  Your Information
+                </h3>
+              </div>
 
-                <!-- Guest Name -->
-                <div class="col-md-6">
-                  <label for="{{ form.guest_name.id_for_label }}" class="form-label fw-semibold">
-                    {{ form.guest_name.label }} <span class="text-danger">*</span>
-                  </label>
-                  {{ form.guest_name }}
-                  {% if form.guest_name.errors %}
-                    <div class="invalid-feedback d-block">
-                      {{ form.guest_name.errors.0 }}
-                    </div>
-                  {% endif %}
+              <!-- Guest Name -->
+              <div class="col-md-6">
+                <label
+                  for="{{ form.guest_name.id_for_label }}"
+                  class="form-label fw-semibold"
+                >
+                  {{ form.guest_name.label }} <span class="text-danger">*</span>
+                </label>
+                {{ form.guest_name }} {% if form.guest_name.errors %}
+                <div class="invalid-feedback d-block">
+                  {{ form.guest_name.errors.0 }}
                 </div>
+                {% endif %}
+              </div>
 
-                <!-- Guest Email -->
-                <div class="col-md-6">
-                  <label for="{{ form.guest_email.id_for_label }}" class="form-label fw-semibold">
-                    {{ form.guest_email.label }} <span class="text-danger">*</span>
-                  </label>
-                  {{ form.guest_email }}
-                  {% if form.guest_email.errors %}
-                    <div class="invalid-feedback d-block">
-                      {{ form.guest_email.errors.0 }}
-                    </div>
-                  {% endif %}
+              <!-- Guest Email -->
+              <div class="col-md-6">
+                <label
+                  for="{{ form.guest_email.id_for_label }}"
+                  class="form-label fw-semibold"
+                >
+                  {{ form.guest_email.label }}
+                  <span class="text-danger">*</span>
+                </label>
+                {{ form.guest_email }} {% if form.guest_email.errors %}
+                <div class="invalid-feedback d-block">
+                  {{ form.guest_email.errors.0 }}
                 </div>
+                {% endif %}
+              </div>
 
-                <!-- Guest Phone -->
-                <div class="col-12">
-                  <label for="{{ form.guest_phone.id_for_label }}" class="form-label fw-semibold">
-                    {{ form.guest_phone.label }} <span class="text-danger">*</span>
-                  </label>
-                  {{ form.guest_phone }}
-                  {% if form.guest_phone.help_text %}
-                    <div class="form-text">{{ form.guest_phone.help_text }}</div>
-                  {% endif %}
-                  {% if form.guest_phone.errors %}
-                    <div class="invalid-feedback d-block">
-                      {{ form.guest_phone.errors.0 }}
-                    </div>
-                  {% endif %}
+              <!-- Guest Phone -->
+              <div class="col-12">
+                <label
+                  for="{{ form.guest_phone.id_for_label }}"
+                  class="form-label fw-semibold"
+                >
+                  {{ form.guest_phone.label }}
+                  <span class="text-danger">*</span>
+                </label>
+                {{ form.guest_phone }} {% if form.guest_phone.help_text %}
+                <div class="form-text">{{ form.guest_phone.help_text }}</div>
+                {% endif %} {% if form.guest_phone.errors %}
+                <div class="invalid-feedback d-block">
+                  {{ form.guest_phone.errors.0 }}
                 </div>
+                {% endif %}
+              </div>
               {% endif %}
 
               <!-- Submit Button -->
               <div class="col-12">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
-                  <a href="{% url 'home' %}" class="btn btn-outline-secondary btn-lg">
+                  <a
+                    href="{% url 'home' %}"
+                    class="btn btn-outline-secondary btn-lg"
+                  >
                     Cancel
                   </a>
                   <button type="submit" class="btn btn-primary btn-lg">
@@ -189,25 +211,25 @@
                   </button>
                 </div>
               </div>
-
             </div>
           </form>
 
           <!-- Login Prompt for Guests -->
           {% if not user.is_authenticated %}
-            <div class="text-center mt-4 pt-4 border-top">
-              <p class="mb-0">
-                Already have an account? 
-                <a href="{% url 'accounts:login' %}?next={% url 'bookings:booking' %}" class="text-primary fw-semibold">
-                  Login here
-                </a>
-              </p>
-            </div>
+          <div class="text-center mt-4 pt-4 border-top">
+            <p class="mb-0">
+              Already have an account?
+              <a
+                href="{% url 'accounts:login' %}?next={% url 'bookings:booking' %}"
+                class="text-primary fw-semibold"
+              >
+                Login here
+              </a>
+            </p>
+          </div>
           {% endif %}
-
         </div>
         <!-- End Booking Card -->
-
       </div>
     </div>
   </div>
@@ -295,7 +317,7 @@
     background-color: #a83829;
     border-color: #a83829;
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
 
   .btn-outline-secondary {
@@ -350,131 +372,145 @@
     }
   }
 </style>
-{% endblock %}
-
-{% block extra_js %}
+{% endblock %} {% block extra_js %}
 <script>
-// ================================================================
-// DYNAMIC TIME SLOT LOADING - US1 Implementation
-// ================================================================
+  // ================================================================
+  // DYNAMIC TIME SLOT LOADING - US1 Implementation
+  // ================================================================
 
-document.addEventListener('DOMContentLoaded', function() {
-    const dateInput = document.getElementById('id_booking_date');
-    const guestsInput = document.getElementById('id_number_of_guests');
-    const timeslotSelect = document.getElementById('id_timeslot');
-    const timeslotContainer = timeslotSelect.closest('.col-12');
-    
+  document.addEventListener("DOMContentLoaded", function () {
+    const dateInput = document.getElementById("id_booking_date");
+    const guestsInput = document.getElementById("id_number_of_guests");
+    const timeslotSelect = document.getElementById("id_timeslot");
+    const timeslotContainer = timeslotSelect.closest(".col-12");
+
     // Create feedback message element
-    const feedbackDiv = document.createElement('div');
-    feedbackDiv.className = 'alert mt-2';
-    feedbackDiv.style.display = 'none';
+    const feedbackDiv = document.createElement("div");
+    feedbackDiv.className = "alert mt-2";
+    feedbackDiv.style.display = "none";
     timeslotContainer.appendChild(feedbackDiv);
-    
+
     // Create loading indicator
-    const loadingDiv = document.createElement('div');
-    loadingDiv.className = 'text-muted small mt-2';
-    loadingDiv.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Loading available time slots...';
-    loadingDiv.style.display = 'none';
+    const loadingDiv = document.createElement("div");
+    loadingDiv.className = "text-muted small mt-2";
+    loadingDiv.innerHTML =
+      '<span class="spinner-border spinner-border-sm me-2"></span>Loading available time slots...';
+    loadingDiv.style.display = "none";
     timeslotContainer.appendChild(loadingDiv);
-    
+
     /**
      * Fetch available time slots from server
      * Implements: US1-AC3, AC4, AC5, AC8
      */
     function loadAvailableTimeSlots() {
-        const selectedDate = dateInput.value;
-        const selectedGuests = guestsInput.value || 1;
-        
-        // AC8: Error handling - no date selected
-        if (!selectedDate) {
-            timeslotSelect.innerHTML = '<option value="">Please select a date first</option>';
-            timeslotSelect.disabled = true;
-            showFeedback('Please select a booking date to view available time slots', 'warning');
-            return;
-        }
-        
-        // Show loading indicator
-        loadingDiv.style.display = 'block';
-        feedbackDiv.style.display = 'none';
+      const selectedDate = dateInput.value;
+      const selectedGuests = guestsInput.value || 1;
+
+      // AC8: Error handling - no date selected
+      if (!selectedDate) {
+        timeslotSelect.innerHTML =
+          '<option value="">Please select a date first</option>';
         timeslotSelect.disabled = true;
-        
-        // Fetch available time slots via AJAX (AC4: Real-time data)
-        fetch(`/bookings/api/available-timeslots/?date=${selectedDate}&guests=${selectedGuests}`)
-            .then(response => response.json())
-            .then(data => {
-                loadingDiv.style.display = 'none';
-                
-                if (data.error) {
-                    // Handle errors
-                    timeslotSelect.innerHTML = '<option value="">No time slots available</option>';
-                    timeslotSelect.disabled = true;
-                    showFeedback(data.message, 'danger');
-                    return;
-                }
-                
-                // AC3: Fully booked time slots are not included in response
-                // AC5: User feedback for no slots
-                if (data.timeslots.length === 0) {
-                    timeslotSelect.innerHTML = '<option value="">No time slots available</option>';
-                    timeslotSelect.disabled = true;
-                    showFeedback(data.message, 'warning');
-                } else {
-                    // Populate time slots
-                    populateTimeSlots(data.timeslots);
-                    timeslotSelect.disabled = false;
-                    showFeedback(data.message, 'success');
-                }
-            })
-            .catch(error => {
-                console.error('Error loading time slots:', error);
-                loadingDiv.style.display = 'none';
-                timeslotSelect.innerHTML = '<option value="">Error loading time slots</option>';
-                timeslotSelect.disabled = true;
-                showFeedback('Unable to load time slots. Please refresh the page and try again.', 'danger');
-            });
+        showFeedback(
+          "Please select a booking date to view available time slots",
+          "warning",
+        );
+        return;
+      }
+
+      // Show loading indicator
+      loadingDiv.style.display = "block";
+      feedbackDiv.style.display = "none";
+      timeslotSelect.disabled = true;
+
+      // Fetch available time slots via AJAX (AC4: Real-time data)
+      fetch(
+        `/bookings/api/available-timeslots/?date=${selectedDate}&guests=${selectedGuests}`,
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          loadingDiv.style.display = "none";
+
+          if (data.error) {
+            // Handle errors
+            timeslotSelect.innerHTML =
+              '<option value="">No time slots available</option>';
+            timeslotSelect.disabled = true;
+            showFeedback(data.message, "danger");
+            return;
+          }
+
+          // AC3: Fully booked time slots are not included in response
+          // AC5: User feedback for no slots
+          if (data.timeslots.length === 0) {
+            timeslotSelect.innerHTML =
+              '<option value="">No time slots available</option>';
+            timeslotSelect.disabled = true;
+            showFeedback(data.message, "warning");
+          } else {
+            // Populate time slots
+            populateTimeSlots(data.timeslots);
+            timeslotSelect.disabled = false;
+            showFeedback(data.message, "success");
+          }
+        })
+        .catch((error) => {
+          console.error("Error loading time slots:", error);
+          loadingDiv.style.display = "none";
+          timeslotSelect.innerHTML =
+            '<option value="">Error loading time slots</option>';
+          timeslotSelect.disabled = true;
+          showFeedback(
+            "Unable to load time slots. Please refresh the page and try again.",
+            "danger",
+          );
+        });
     }
-    
+
     /**
      * Populate time slot dropdown with available options
      */
     function populateTimeSlots(timeslots) {
-        timeslotSelect.innerHTML = '<option value="">Select a time slot</option>';
-        
-        timeslots.forEach(slot => {
-            const option = document.createElement('option');
-            option.value = slot.id;
-            option.textContent = `${slot.display_time} (${slot.available_capacity} spots available)`;
-            // AC7: Accessibility - meaningful option text
-            option.setAttribute('aria-label', `${slot.display_time}, ${slot.available_capacity} spots available`);
-            timeslotSelect.appendChild(option);
-        });
+      timeslotSelect.innerHTML = '<option value="">Select a time slot</option>';
+
+      timeslots.forEach((slot) => {
+        const option = document.createElement("option");
+        option.value = slot.id;
+        option.textContent = `${slot.display_time} (${slot.available_capacity} spots available)`;
+        // AC7: Accessibility - meaningful option text
+        option.setAttribute(
+          "aria-label",
+          `${slot.display_time}, ${slot.available_capacity} spots available`,
+        );
+        timeslotSelect.appendChild(option);
+      });
     }
-    
+
     /**
      * Show feedback message to user
      * AC5: User feedback, AC8: Error handling
      */
     function showFeedback(message, type) {
-        feedbackDiv.className = `alert alert-${type} mt-2`;
-        feedbackDiv.textContent = message;
-        feedbackDiv.style.display = 'block';
-        
-        // AC7: Accessibility - announce to screen readers
-        feedbackDiv.setAttribute('role', 'alert');
-        feedbackDiv.setAttribute('aria-live', 'polite');
+      feedbackDiv.className = `alert alert-${type} mt-2`;
+      feedbackDiv.textContent = message;
+      feedbackDiv.style.display = "block";
+
+      // AC7: Accessibility - announce to screen readers
+      feedbackDiv.setAttribute("role", "alert");
+      feedbackDiv.setAttribute("aria-live", "polite");
     }
-    
+
     // Event listeners
-    dateInput.addEventListener('change', loadAvailableTimeSlots);
-    guestsInput.addEventListener('change', loadAvailableTimeSlots);
-    
+    dateInput.addEventListener("change", loadAvailableTimeSlots);
+    guestsInput.addEventListener("change", loadAvailableTimeSlots);
+
     // AC7: Accessibility - keyboard navigation
     // Time slots are already keyboard accessible via native select element
-    
+
     // Initial load if date is pre-filled
     if (dateInput.value) {
-        loadAvailableTimeSlots();
+      loadAvailableTimeSlots();
     }
-});
+  });
 </script>
 {% endblock %}

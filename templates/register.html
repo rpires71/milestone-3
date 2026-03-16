@@ -1,10 +1,8 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} {% load static %}
 
 <!-- Page title -->
-{% block title %}Register - Portuguese Kitchen{% endblock %}
-
-{% block nav_register %}active{% endblock %}
+{% block title %}Register - Portuguese Kitchen{% endblock %} {% block
+nav_register %}active{% endblock %}
 
 <!-- Registration page content -->
 {% block content %}
@@ -15,9 +13,11 @@
     <div class="row align-items-center">
       <div class="col-lg-4 text-center">
         <div class="portuguese-kitchen-logo">
-           <img src="{% static 'images/logo-v-3.webp' %}" 
-     alt="Portuguese Kitchen logo"
-     class="hero-logo">
+          <img
+            src="{% static 'images/logo-v-3.webp' %}"
+            alt="Portuguese Kitchen logo"
+            class="hero-logo"
+          />
         </div>
       </div>
       <div class="col-lg-8">
@@ -35,47 +35,49 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-6 col-md-8">
-        
         <!-- Registration Card -->
         <div class="auth-card bg-white p-5 rounded-3 shadow-sm">
           <h2 class="text-center mb-4">Register</h2>
-          
+
           <!-- Display Messages -->
-          {% if messages %}
-            {% for message in messages %}
-              <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                {{ message }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-              </div>
-            {% endfor %}
-          {% endif %}
+          {% if messages %} {% for message in messages %}
+          <div
+            class="alert alert-{{ message.tags }} alert-dismissible fade show"
+            role="alert"
+          >
+            {{ message }}
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+            ></button>
+          </div>
+          {% endfor %} {% endif %}
 
           <form method="POST" action="{% url 'accounts:register' %}" novalidate>
             {% csrf_token %}
-            
+
             <!-- Username -->
             <div class="mb-3">
               <label for="username" class="form-label fw-semibold">
                 Username <span class="text-danger">*</span>
               </label>
-              <input 
-                type="text" 
-                class="form-control {% if form.username.errors %}is-invalid{% endif %}" 
-                id="username" 
-                name="username" 
+              <input
+                type="text"
+                class="form-control {% if form.username.errors %}is-invalid{% endif %}"
+                id="username"
+                name="username"
                 value="{{ form.username.value|default:'' }}"
                 required
                 minlength="3"
                 maxlength="150"
-              >
+              />
               {% if form.username.errors %}
-                <div class="invalid-feedback">
-                  {{ form.username.errors.0 }}
-                </div>
+              <div class="invalid-feedback">{{ form.username.errors.0 }}</div>
               {% else %}
-                <div class="form-text">
-                  3-150 characters. Letters, digits and @/./+/-/_ only.
-                </div>
+              <div class="form-text">
+                3-150 characters. Letters, digits and @/./+/-/_ only.
+              </div>
               {% endif %}
             </div>
 
@@ -84,18 +86,16 @@
               <label for="email" class="form-label fw-semibold">
                 Email Address <span class="text-danger">*</span>
               </label>
-              <input 
-                type="email" 
-                class="form-control {% if form.email.errors %}is-invalid{% endif %}" 
-                id="email" 
-                name="email" 
+              <input
+                type="email"
+                class="form-control {% if form.email.errors %}is-invalid{% endif %}"
+                id="email"
+                name="email"
                 value="{{ form.email.value|default:'' }}"
                 required
-              >
+              />
               {% if form.email.errors %}
-                <div class="invalid-feedback">
-                  {{ form.email.errors.0 }}
-                </div>
+              <div class="invalid-feedback">{{ form.email.errors.0 }}</div>
               {% endif %}
             </div>
 
@@ -104,19 +104,17 @@
               <label for="first_name" class="form-label fw-semibold">
                 First Name <span class="text-danger">*</span>
               </label>
-              <input 
-                type="text" 
-                class="form-control {% if form.first_name.errors %}is-invalid{% endif %}" 
-                id="first_name" 
-                name="first_name" 
+              <input
+                type="text"
+                class="form-control {% if form.first_name.errors %}is-invalid{% endif %}"
+                id="first_name"
+                name="first_name"
                 value="{{ form.first_name.value|default:'' }}"
                 required
                 maxlength="150"
-              >
+              />
               {% if form.first_name.errors %}
-                <div class="invalid-feedback">
-                  {{ form.first_name.errors.0 }}
-                </div>
+              <div class="invalid-feedback">{{ form.first_name.errors.0 }}</div>
               {% endif %}
             </div>
 
@@ -125,19 +123,17 @@
               <label for="last_name" class="form-label fw-semibold">
                 Last Name <span class="text-danger">*</span>
               </label>
-              <input 
-                type="text" 
-                class="form-control {% if form.last_name.errors %}is-invalid{% endif %}" 
-                id="last_name" 
-                name="last_name" 
+              <input
+                type="text"
+                class="form-control {% if form.last_name.errors %}is-invalid{% endif %}"
+                id="last_name"
+                name="last_name"
                 value="{{ form.last_name.value|default:'' }}"
                 required
                 maxlength="150"
-              >
+              />
               {% if form.last_name.errors %}
-                <div class="invalid-feedback">
-                  {{ form.last_name.errors.0 }}
-                </div>
+              <div class="invalid-feedback">{{ form.last_name.errors.0 }}</div>
               {% endif %}
             </div>
 
@@ -147,21 +143,25 @@
                 Password <span class="text-danger">*</span>
               </label>
               <div class="input-group">
-                <input 
-                  type="password" 
-                  class="form-control {% if form.password1.errors %}is-invalid{% endif %}" 
-                  id="password1" 
+                <input
+                  type="password"
+                  class="form-control {% if form.password1.errors %}is-invalid{% endif %}"
+                  id="password1"
                   name="password1"
                   required
                   minlength="8"
+                />
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  id="togglePassword1"
                 >
-                <button class="btn btn-outline-secondary" type="button" id="togglePassword1">
                   <i class="bi bi-eye" id="eyeIcon1"></i>
                 </button>
                 {% if form.password1.errors %}
-                  <div class="invalid-feedback">
-                    {{ form.password1.errors.0 }}
-                  </div>
+                <div class="invalid-feedback">
+                  {{ form.password1.errors.0 }}
+                </div>
                 {% endif %}
               </div>
               <div class="form-text">
@@ -175,21 +175,25 @@
                 Confirm Password <span class="text-danger">*</span>
               </label>
               <div class="input-group">
-                <input 
-                  type="password" 
-                  class="form-control {% if form.password2.errors %}is-invalid{% endif %}" 
-                  id="password2" 
+                <input
+                  type="password"
+                  class="form-control {% if form.password2.errors %}is-invalid{% endif %}"
+                  id="password2"
                   name="password2"
                   required
                   minlength="8"
+                />
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  id="togglePassword2"
                 >
-                <button class="btn btn-outline-secondary" type="button" id="togglePassword2">
                   <i class="bi bi-eye" id="eyeIcon2"></i>
                 </button>
                 {% if form.password2.errors %}
-                  <div class="invalid-feedback">
-                    {{ form.password2.errors.0 }}
-                  </div>
+                <div class="invalid-feedback">
+                  {{ form.password2.errors.0 }}
+                </div>
                 {% endif %}
               </div>
             </div>
@@ -197,15 +201,17 @@
             <!-- Terms Agreement -->
             <div class="mb-4">
               <div class="form-check">
-                <input 
-                  class="form-check-input" 
-                  type="checkbox" 
-                  id="terms" 
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="terms"
                   name="terms"
                   required
-                >
+                />
                 <label class="form-check-label" for="terms">
-                  I agree to the <a href="#" class="text-primary">Terms of Service</a> and <a href="#" class="text-primary">Privacy Policy</a>
+                  I agree to the
+                  <a href="#" class="text-primary">Terms of Service</a> and
+                  <a href="#" class="text-primary">Privacy Policy</a>
                 </label>
               </div>
             </div>
@@ -220,15 +226,17 @@
             <!-- Login Link -->
             <div class="text-center">
               <p class="mb-0">
-                Already have an account? 
-                <a href="{% url 'accounts:login' %}" class="text-primary fw-semibold">Login here</a>
+                Already have an account?
+                <a
+                  href="{% url 'accounts:login' %}"
+                  class="text-primary fw-semibold"
+                  >Login here</a
+                >
               </p>
             </div>
           </form>
-
         </div>
         <!-- End Registration Card -->
-
       </div>
     </div>
   </div>
@@ -364,59 +372,62 @@
 <!-- Extra JavaScript -->
 {% block extra_js %}
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Password toggle functionality
-  const togglePassword1 = document.getElementById('togglePassword1');
-  const password1 = document.getElementById('password1');
-  const eyeIcon1 = document.getElementById('eyeIcon1');
+  document.addEventListener("DOMContentLoaded", function () {
+    // Password toggle functionality
+    const togglePassword1 = document.getElementById("togglePassword1");
+    const password1 = document.getElementById("password1");
+    const eyeIcon1 = document.getElementById("eyeIcon1");
 
-  const togglePassword2 = document.getElementById('togglePassword2');
-  const password2 = document.getElementById('password2');
-  const eyeIcon2 = document.getElementById('eyeIcon2');
+    const togglePassword2 = document.getElementById("togglePassword2");
+    const password2 = document.getElementById("password2");
+    const eyeIcon2 = document.getElementById("eyeIcon2");
 
-  togglePassword1.addEventListener('click', function() {
-    const type = password1.getAttribute('type') === 'password' ? 'text' : 'password';
-    password1.setAttribute('type', type);
-    eyeIcon1.classList.toggle('bi-eye');
-    eyeIcon1.classList.toggle('bi-eye-slash');
-  });
+    togglePassword1.addEventListener("click", function () {
+      const type =
+        password1.getAttribute("type") === "password" ? "text" : "password";
+      password1.setAttribute("type", type);
+      eyeIcon1.classList.toggle("bi-eye");
+      eyeIcon1.classList.toggle("bi-eye-slash");
+    });
 
-  togglePassword2.addEventListener('click', function() {
-    const type = password2.getAttribute('type') === 'password' ? 'text' : 'password';
-    password2.setAttribute('type', type);
-    eyeIcon2.classList.toggle('bi-eye');
-    eyeIcon2.classList.toggle('bi-eye-slash');
-  });
+    togglePassword2.addEventListener("click", function () {
+      const type =
+        password2.getAttribute("type") === "password" ? "text" : "password";
+      password2.setAttribute("type", type);
+      eyeIcon2.classList.toggle("bi-eye");
+      eyeIcon2.classList.toggle("bi-eye-slash");
+    });
 
-  // Password match validation
-  const form = document.querySelector('form');
-  form.addEventListener('submit', function(e) {
-    if (password1.value !== password2.value) {
-      e.preventDefault();
-      password2.classList.add('is-invalid');
-      
-      // Show error message
-      let feedback = password2.nextElementSibling;
-      if (!feedback || !feedback.classList.contains('invalid-feedback')) {
-        feedback = document.createElement('div');
-        feedback.className = 'invalid-feedback';
-        password2.parentNode.appendChild(feedback);
+    // Password match validation
+    const form = document.querySelector("form");
+    form.addEventListener("submit", function (e) {
+      if (password1.value !== password2.value) {
+        e.preventDefault();
+        password2.classList.add("is-invalid");
+
+        // Show error message
+        let feedback = password2.nextElementSibling;
+        if (!feedback || !feedback.classList.contains("invalid-feedback")) {
+          feedback = document.createElement("div");
+          feedback.className = "invalid-feedback";
+          password2.parentNode.appendChild(feedback);
+        }
+        feedback.textContent = "Passwords do not match.";
+        feedback.style.display = "block";
       }
-      feedback.textContent = 'Passwords do not match.';
-      feedback.style.display = 'block';
-    }
-  });
+    });
 
-  // Remove error on typing
-  password2.addEventListener('input', function() {
-    if (password1.value === password2.value) {
-      password2.classList.remove('is-invalid');
-      const feedback = password2.parentNode.querySelector('.invalid-feedback');
-      if (feedback) {
-        feedback.style.display = 'none';
+    // Remove error on typing
+    password2.addEventListener("input", function () {
+      if (password1.value === password2.value) {
+        password2.classList.remove("is-invalid");
+        const feedback =
+          password2.parentNode.querySelector(".invalid-feedback");
+        if (feedback) {
+          feedback.style.display = "none";
+        }
       }
-    }
+    });
   });
-});
 </script>
 {% endblock %}

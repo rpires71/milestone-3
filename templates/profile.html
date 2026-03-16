@@ -1,10 +1,8 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} {% load static %}
 
 <!-- Page title -->
-{% block title %}My Profile - Portuguese Kitchen{% endblock %}
-
-{% block nav_profile %}active{% endblock %}
+{% block title %}My Profile - Portuguese Kitchen{% endblock %} {% block
+nav_profile %}active{% endblock %}
 
 <!-- Profile page content -->
 {% block content %}
@@ -15,9 +13,11 @@
     <div class="row align-items-center">
       <div class="col-lg-3 text-center mb-3 mb-lg-0">
         <div class="portuguese-kitchen-logo">
-          <img src="{% static 'images/logo-v-3.webp' %}" 
-     alt="Portuguese Kitchen logo"
-     class="hero-logo">
+          <img
+            src="{% static 'images/logo-v-3.webp' %}"
+            alt="Portuguese Kitchen logo"
+            class="hero-logo"
+          />
         </div>
       </div>
       <div class="col-lg-9">
@@ -34,42 +34,53 @@
 <section class="profile-content">
   <div class="container">
     <div class="row g-3">
-      
       <!-- Left Column -->
       <div class="col-lg-8">
         <div class="profile-grid-left">
-          
           <!-- Account Information Card (Alert Style) -->
           <div class="alert alert-primary mb-3" role="alert">
             <h5 class="alert-heading mb-2">
               <i class="bi bi-person-badge me-2"></i>
               Account Information
             </h5>
-            
+
             <div class="row g-2">
               <div class="col-md-6 mb-1">
                 <strong class="small">Username:</strong>
-                <span class="d-block ms-3 text-muted small">{{ user.username }}</span>
+                <span class="d-block ms-3 text-muted small"
+                  >{{ user.username }}</span
+                >
               </div>
               <div class="col-md-6 mb-1">
                 <strong class="small">Email:</strong>
-                <span class="d-block ms-3 text-muted small">{{ user.email }}</span>
+                <span class="d-block ms-3 text-muted small"
+                  >{{ user.email }}</span
+                >
               </div>
               <div class="col-md-6 mb-1">
                 <strong class="small">First Name:</strong>
-                <span class="d-block ms-3 text-muted small">{{ user.first_name|default:"Not set" }}</span>
+                <span class="d-block ms-3 text-muted small"
+                  >{{ user.first_name|default:"Not set" }}</span
+                >
               </div>
               <div class="col-md-6 mb-1">
                 <strong class="small">Last Name:</strong>
-                <span class="d-block ms-3 text-muted small">{{ user.last_name|default:"Not set" }}</span>
+                <span class="d-block ms-3 text-muted small"
+                  >{{ user.last_name|default:"Not set" }}</span
+                >
               </div>
               <div class="col-md-6 mb-1">
                 <strong class="small">Member Since:</strong>
-                <span class="d-block ms-3 text-muted small">{{ user.date_joined|date:"F j, Y" }}</span>
+                <span class="d-block ms-3 text-muted small"
+                  >{{ user.date_joined|date:"F j, Y" }}</span
+                >
               </div>
               <div class="col-md-6 mb-1">
                 <strong class="small">Last Login:</strong>
-                <span class="d-block ms-3 text-muted small">{{ user.last_login|date:"M j, Y g:i A"|default:"Never" }}</span>
+                <span class="d-block ms-3 text-muted small"
+                  >{{ user.last_login|date:"M j, Y g:i A"|default:"Never"
+                  }}</span
+                >
               </div>
             </div>
           </div>
@@ -80,54 +91,64 @@
               <i class="bi bi-sliders me-2"></i>
               Dining Preferences
             </h5>
-            
+
             {% if user.customer_profile %}
-              <div class="row g-2">
-                <div class="col-12 mb-1">
-                  <strong class="small">Dietary Requirements:</strong>
-                  <span class="d-block ms-3 text-muted small">{{ user.customer_profile.dietary_requirements|default:"No dietary requirements specified" }}</span>
-                </div>
-                <div class="col-12 mb-1">
-                  <strong class="small">Special Requests:</strong>
-                  <span class="d-block ms-3 text-muted small">{{ user.customer_profile.special_requests|default:"No special requests" }}</span>
-                </div>
+            <div class="row g-2">
+              <div class="col-12 mb-1">
+                <strong class="small">Dietary Requirements:</strong>
+                <span class="d-block ms-3 text-muted small"
+                  >{{ user.customer_profile.dietary_requirements|default:"No
+                  dietary requirements specified" }}</span
+                >
               </div>
+              <div class="col-12 mb-1">
+                <strong class="small">Special Requests:</strong>
+                <span class="d-block ms-3 text-muted small"
+                  >{{ user.customer_profile.special_requests|default:"No special
+                  requests" }}</span
+                >
+              </div>
+            </div>
             {% else %}
-              <p class="text-muted mb-0 small">No preferences set</p>
+            <p class="text-muted mb-0 small">No preferences set</p>
             {% endif %}
           </div>
-          
         </div>
       </div>
 
       <!-- Right Column -->
       <div class="col-lg-4">
         <div class="profile-grid-right">
-          
           <!-- Stats Card (Alert Style) -->
           <div class="alert alert-success mb-3" role="alert">
             <h5 class="alert-heading mb-2">
               <i class="bi bi-graph-up me-2"></i>
               Statistics
             </h5>
-            
+
             <div class="row g-1">
               <div class="col-12 mb-1">
                 <div class="d-flex justify-content-between align-items-center">
                   <span class="small">Total Bookings</span>
-                  <span class="badge bg-primary">{{ total_bookings|default:0 }}</span>
+                  <span class="badge bg-primary"
+                    >{{ total_bookings|default:0 }}</span
+                  >
                 </div>
               </div>
               <div class="col-12 mb-1">
                 <div class="d-flex justify-content-between align-items-center">
                   <span class="small">Upcoming</span>
-                  <span class="badge bg-success">{{ upcoming_count|default:0 }}</span>
+                  <span class="badge bg-success"
+                    >{{ upcoming_count|default:0 }}</span
+                  >
                 </div>
               </div>
               <div class="col-12 mb-1">
                 <div class="d-flex justify-content-between align-items-center">
                   <span class="small">Completed</span>
-                  <span class="badge bg-secondary">{{ completed_count|default:0 }}</span>
+                  <span class="badge bg-secondary"
+                    >{{ completed_count|default:0 }}</span
+                  >
                 </div>
               </div>
             </div>
@@ -139,26 +160,33 @@
               <i class="bi bi-lightning me-2"></i>
               Quick Actions
             </h5>
-            
+
             <div class="d-grid gap-2">
-              <a href="{% url 'bookings:booking' %}" class="btn btn-primary btn-sm">
+              <a
+                href="{% url 'bookings:booking' %}"
+                class="btn btn-primary btn-sm"
+              >
                 <i class="bi bi-calendar-plus me-2"></i>
                 New Booking
               </a>
-              <a href="{% url 'bookings:my_bookings' %}" class="btn btn-outline-primary btn-sm">
+              <a
+                href="{% url 'bookings:my_bookings' %}"
+                class="btn btn-outline-primary btn-sm"
+              >
                 <i class="bi bi-calendar-range me-2"></i>
                 My Bookings
               </a>
-              <a href="{% url 'menu' %}" class="btn btn-outline-secondary btn-sm">
+              <a
+                href="{% url 'menu' %}"
+                class="btn btn-outline-secondary btn-sm"
+              >
                 <i class="bi bi-book me-2"></i>
                 View Menu
               </a>
             </div>
           </div>
-          
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -170,14 +198,18 @@
 <style>
   /* Profile Hero - TIGHT VERSION */
   .profile-hero {
-    background: linear-gradient(135deg, var(--azulejo-blue) 0%, var(--olive-green) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--azulejo-blue) 0%,
+      var(--olive-green) 100%
+    );
     color: white;
-    
+
     /* Override any fixed heights from style.css */
     min-height: auto !important;
     max-height: none !important;
     height: auto !important;
-    
+
     /* REDUCED PADDING - Much tighter! */
     padding-top: 1.5rem !important;
     padding-bottom: 1.5rem !important;
@@ -302,7 +334,7 @@
       padding-top: 1.25rem !important;
       padding-bottom: 1.25rem !important;
     }
-    
+
     .profile-hero h1 {
       font-size: 1.5rem;
     }
