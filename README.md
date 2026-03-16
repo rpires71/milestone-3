@@ -92,6 +92,7 @@
   - [Registration Page (register.html / Register View) — Purpose & Structure](#registration-page-registerhtml--register-view--purpose--structure)
   - [Password Reset Page (password_reset.html / Password Reset View) — Purpose & Structure](#password-reset-page-password_resethtml--password-reset-view--purpose--structure)
 - [Reflection](#reflection)
+- [Credits](#credits)
 - [References](README.md#references)
 
 # Milestone Project 3
@@ -7645,6 +7646,14 @@ Throughout the application, a consistent visual identity and layout are maintain
 This project was delivered within a constrained timeframe, with a submission deadline of **16 March 2026**. Although all essential functionality was successfully implemented and the required testing completed, several additional enhancements—such as automated email delivery, advanced analytics, and payment processing—were postponed. This decision ensured that effort remained focused on delivering a stable, well-tested **Minimum Viable Product (MVP)**. Importantly, the system architecture has been designed in a way that supports future feature expansion without requiring major structural changes.
 
 Throughout development, strong emphasis was placed on **code quality, accessibility, and comprehensive testing**. Tools such as **Flake8, Pylint, and isort** were used to maintain consistent coding standards, while accessibility compliance was validated against **WCAG 2.1 Level AA** guidelines. Combined with a thorough testing process, these practices reflect professional software engineering standards and provide a solid, maintainable foundation for continued development.
+
+## Credits
+
+[⬆ Back to Table of contents](#table-of-contents)
+
+### People
+
+#### Professor Raghav Kovvuri for advising and guiding throughout the project lifecycle.
 
 ---
 
