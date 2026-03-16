@@ -1110,36 +1110,36 @@ This page supports efficient booking management by enabling administrators to ed
 
 **AC1 – Time Slot Visibility**
 
-- [ ] When a customer accesses the booking page and selects a valid date, a clearly presented list of available time slots for that date is displayed.
+- [X] When a customer accesses the booking page and selects a valid date, a clearly presented list of available time slots for that date is displayed.
 
 **AC2 – Availability Accuracy**
 
-- [ ] Existing bookings are stored in the database, and when valid time slots are displayed, only those with remaining availability are shown as selectable.
+- [X] Existing bookings are stored in the database, and when valid time slots are displayed, only those with remaining availability are shown as selectable.
 
 **AC3 – Fully Booked Time Slots**
 
-- [ ] When availability is displayed, any time slot that has reached its maximum number of bookings is either hidden or shown as disabled.
+- [X] When availability is displayed, any time slot that has reached its maximum number of bookings is either hidden or shown as disabled.
 
 
 **AC4 – Real-Time Data Handling**
 
-- [ ] If another booking is made for the same date and time, the availability list is updated upon reload or refresh to ensure the information displayed remains accurate.
+- [X] If another booking is made for the same date and time, the availability list is updated upon reload or refresh to ensure the information displayed remains accurate.
 
 **AC5 – User Feedback**
 
-- [ ] If no time slots are available for the selected date, a message is displayed informing the user that no availability exists.
+- [X] If no time slots are available for the selected date, a message is displayed informing the user that no availability exists.
 
 **AC6 – Usability and Clarity**
 
-- [ ] When the availability list is displayed, the time slots are presented in a logical order with clear and readable formatting.
+- [X] When the availability list is displayed, the time slots are presented in a logical order with clear and readable formatting.
 
 **AC7 – Accessibility**
 
-- [ ] When a client is using assistive technologies, the available time slots are fully accessible via keyboard navigation and screen readers.
+- [X] When a client is using assistive technologies, the available time slots are fully accessible via keyboard navigation and screen readers.
 
 **AC8 – Error Handling**
 
-- [ ] If a client attempts to view available time slots without selecting a date, or after selecting an invalid one, a user‑friendly validation message is displayed.
+- [X] If a client attempts to view available time slots without selecting a date, or after selecting an invalid one, a user‑friendly validation message is displayed.
 
 ---
 
@@ -1152,35 +1152,35 @@ This page supports efficient booking management by enabling administrators to ed
 
 **AC1 – Guest Number Input Available**
 
-- [ ] When a client is using the booking form and viewing the reservation fields, a clearly labelled input for the number of guests is available.
+- [X] When a client is using the booking form and viewing the reservation fields, a clearly labelled input for the number of guests is available.
 
 **AC2 – Valid Guest Range**
 
-- [ ] When a client enters a guest number while using the form, the system accepts only values within the permitted range.
+- [X] When a client enters a guest number while using the form, the system accepts only values within the permitted range.
 
 **AC3 – Validation for Invalid Input**
 
-- [ ] When a client enters an invalid value while attempting to submit the booking, the system displays a validation message and prevents submission.
+- [X] When a client enters an invalid value while attempting to submit the booking, the system displays a validation message and prevents submission.
 
 **AC4 – Table Allocation Logic**
 
-- [ ] When a client selects a valid number of guests and availability is verified, the system allocates a table that meets or exceeds the required capacity.
+- [X] When a client selects a valid number of guests and availability is verified, the system allocates a table that meets or exceeds the required capacity.
 
 **AC5 – No Suitable Table Available**
 
-- [ ] If no table is available to accommodate the selected number of guests at the chosen date and time, the system displays a message explaining that no suitable table is available and prompts the user to adjust their selection.
+- [X] If no table is available to accommodate the selected number of guests at the chosen date and time, the system displays a message explaining that no suitable table is available and prompts the user to adjust their selection.
 
 **AC6 – Data Saved Correctly**
 
-- [ ] When a booking is successfully created and stored, the number of guests is saved in the database and displayed correctly in the booking confirmation and/or booking history.
+- [X] When a booking is successfully created and stored, the number of guests is saved in the database and displayed correctly in the booking confirmation and/or booking history.
 
 **AC7 – Accessibility and Usability**
 
-- [ ] When the booking form is used on various devices with assistive technologies, the guest‑number input is keyboard accessible, screen‑reader friendly, and functions reliably across mobile, tablet, laptop, and desktop.
+- [X] When the booking form is used on various devices with assistive technologies, the guest‑number input is keyboard accessible, screen‑reader friendly, and functions reliably across mobile, tablet, laptop, and desktop.
 
 **AC8 – Editing a Booking**
 
-- [ ] When a client edits the number of guests in an existing booking, the system re‑validates the value and checks table‑allocation rules before saving the changes.
+- [X] When a client edits the number of guests in an existing booking, the system re‑validates the value and checks table‑allocation rules before saving the changes.
 
 ---
 
@@ -1193,40 +1193,40 @@ This page supports efficient booking management by enabling administrators to ed
 
 **AC1 – Confirmation Displayed After Successful Booking**
 
-- [ ] When the customer submits a valid booking request and the booking is successfully created, the system displays a booking confirmation..
+- [X] When the customer submits a valid booking request and the booking is successfully created, the system displays a booking confirmation..
 
 **AC2 – Confirmation Contains Key Booking Details**
 
-- [ ] When the confirmation is displayed and the client reviews it, it includes the booking reference, date, time, number of guests, and customer name.
+- [X] When the confirmation is displayed and the client reviews it, it includes the booking reference, date, time, number of guests, and customer name.
 
 **AC3 – Clear Success Messaging**
 
-- [ ] When the booking confirmation is shown, the system provides a clear success message.
+- [X] When the booking confirmation is shown, the system provides a clear success message.
 
 
 **AC4 – Confirmation Is Accessible Later**
 
-- [ ] When the client has made a booking and visits My Bookings or Booking History, they can view the confirmation record for that reservation.
+- [X] When the client has made a booking and visits My Bookings or Booking History, they can view the confirmation record for that reservation.
 
 **AC5 – Only the Correct User Can View It**
 
-- [ ] When the client is logged in and attempts to view a booking confirmation, they can only access confirmations belonging to their own account.
+- [X] When the client is logged in and attempts to view a booking confirmation, they can only access confirmations belonging to their own account.
 
 **AC6 – Confirmation Still Works After Refresh / Revisit**
 
-- [ ] When the booking has been created and the client refreshes the confirmation page or returns to it later, the details are retrieved correctly from the database.
+- [X] When the booking has been created and the client refreshes the confirmation page or returns to it later, the details are retrieved correctly from the database.
 
 **AC7 – Print/Save Option Available**
 
-- [ ] When the client is viewing a booking confirmation and wishes to keep a copy, the page provides an option to print or save it (e.g., via a CTA button or link) without breaking the layout.
+- [X] When the client is viewing a booking confirmation and wishes to keep a copy, the page provides an option to print or save it (e.g., via a CTA button or link) without breaking the layout.
 
 **AC8 – Error Handling for Missing/Invalid Booking**
 
-- [ ] When a booking confirmation link is invalid or the booking does not exist, the system displays a user‑friendly error message and provides a link back to the homepage.
+- [X] When a booking confirmation link is invalid or the booking does not exist, the system displays a user‑friendly error message and provides a link back to the homepage.
 
 **AC9 – Accessible and Responsive Layout**
 
-- [ ] When the client views the confirmation on mobile, tablet, desktop, or using assistive technology, the content is responsive, keyboard‑navigable, and readable with clear heading structure.
+- [X] When the client views the confirmation on mobile, tablet, desktop, or using assistive technology, the content is responsive, keyboard‑navigable, and readable with clear heading structure.
 
 ---
 
@@ -1239,43 +1239,43 @@ This page supports efficient booking management by enabling administrators to ed
 
 **AC1 – Edit Option Available for Existing Bookings**
 
-- [ ] When a client is logged in and has an existing booking, they can see an option to modify the booking date and time when viewing their Booking History or Booking Details.
+- [X] When a client is logged in and has an existing booking, they can see an option to modify the booking date and time when viewing their Booking History or Booking Details.
 
 **AC2 – Only Own Bookings Can Be Modified**
 
-- [ ] When a logged‑in client attempts to edit a booking, they can only modify bookings that belong to their own account.
+- [X] When a logged‑in client attempts to edit a booking, they can only modify bookings that belong to their own account.
 
 **AC3 – Booking Eligibility Rules Enforced**
 
-- [ ] When the client selects **Edit** and the booking is outside the permitted modification window (e.g., too close to the booking time) or has a locked status, the system prevents editing and displays a clear message explaining why.
+- [X] When the client selects **Edit** and the booking is outside the permitted modification window (e.g., too close to the booking time) or has a locked status, the system prevents editing and displays a clear message explaining why.
 
 **AC4 – Available Time Slots Shown for the Selected Date**
 
-- [ ] When the client is editing their booking and chooses a different date, the system displays only the available time slots for that date, based on capacity rules.
+- [X] When the client is editing their booking and chooses a different date, the system displays only the available time slots for that date, based on capacity rules.
 
 **AC5 – Validation Prevents Invalid Date/Time**
 
-- [ ] When the client submits modifications and the new date or time is invalid (e.g., a past date, outside opening hours, or fully booked), the system blocks submission and displays a clear validation message.
+- [X] When the client submits modifications and the new date or time is invalid (e.g., a past date, outside opening hours, or fully booked), the system blocks submission and displays a clear validation message.
 
 **AC6 – Successful Update Persists in Database**
 
-- [ ] When the client submits a valid new date and time and the update is confirmed, the booking is updated in the database and the new details are reflected in Booking Details and Booking History.
+- [X] When the client submits a valid new date and time and the update is confirmed, the booking is updated in the database and the new details are reflected in Booking Details and Booking History.
 
 **AC7 – Confirmation of Changes Provided**
 
-- [ ] When the booking has been successfully updated, the system displays a confirmation message summarising the previous and updated date/time (or at minimum the updated details).
+- [X] When the booking has been successfully updated, the system displays a confirmation message summarising the previous and updated date/time (or at minimum the updated details).
 
 **AC8 – No Double Booking / Capacity Conflicts**
 
-- [ ] When the client submits a new time slot that becomes unavailable due to another booking being made at the same time, the system prevents the update and prompts the client to choose another available slot.
+- [X] When the client submits a new time slot that becomes unavailable due to another booking being made at the same time, the system prevents the update and prompts the client to choose another available slot.
 
 **AC9 – Cancel Option During Edit**
 
-- [ ] When the client is on the edit page or form and chooses **Cancel** or navigates away, no changes are saved and the original booking remains unchanged.
+- [X] When the client is on the edit page or form and chooses **Cancel** or navigates away, no changes are saved and the original booking remains unchanged.
 
 **AC10 – Accessible and Responsive Editing Flow**
 
-- [ ] When the client modifies a booking on mobile, tablet, desktop, or using assistive technology, the edit form is responsive, keyboard accessible, and provides meaningful labels and error feedback.
+- [X] When the client modifies a booking on mobile, tablet, desktop, or using assistive technology, the edit form is responsive, keyboard accessible, and provides meaningful labels and error feedback.
 
 ---
 
@@ -1288,43 +1288,43 @@ This page supports efficient booking management by enabling administrators to ed
 
 **AC1 – Cancel Option Available for Active Bookings**
 
-- [ ] When a client is logged in and has an active booking, they can see a clear **Cancel Booking** option when viewing their Booking History or Booking Details.
+- [X] When a client is logged in and has an active booking, they can see a clear **Cancel Booking** option when viewing their Booking History or Booking Details.
 
 **AC2 – Only Own Bookings Can Be Cancelled**
 
-- [ ] When a logged‑in client attempts to cancel a booking, they can only cancel bookings that belong to their own account.
+- [X] When a logged‑in client attempts to cancel a booking, they can only cancel bookings that belong to their own account.
 
 **AC3 – Cancellation Eligibility Rules Enforced**
 
-- [ ] When the client selects **Cancel Booking** and the booking is outside the permitted cancellation window (e.g., too close to the booking time) or is already completed or cancelled, the system prevents cancellation and displays a clear explanatory message.
+- [X] When the client selects **Cancel Booking** and the booking is outside the permitted cancellation window (e.g., too close to the booking time) or is already completed or cancelled, the system prevents cancellation and displays a clear explanatory message.
 
 **AC4 – Cancellation Confirmation Required**
 
-- [ ] When the client selects **Cancel Booking**, the system prompts for confirmation, and the client must explicitly confirm the cancellation before it is processed.
+- [X] When the client selects **Cancel Booking**, the system prompts for confirmation, and the client must explicitly confirm the cancellation before it is processed.
 
 **AC5 – Booking Status Updated Correctly**
 
-- [ ] When the client confirms the cancellation and it is processed, the booking status is updated to Cancelled in the database.
+- [X] When the client confirms the cancellation and it is processed, the booking status is updated to Cancelled in the database.
 
 **AC6 – Table Availability Released**
 
-- [ ] When a booking is successfully cancelled and availability is recalculated, the cancelled time slot becomes available again for other customers to book.
+- [X] When a booking is successfully cancelled and availability is recalculated, the cancelled time slot becomes available again for other customers to book.
 
 **AC7 – Cancellation Feedback Provided**
 
-- [ ] When the cancellation is successful, the system displays a confirmation message indicating that the booking has been cancelled.
+- [X] When the cancellation is successful, the system displays a confirmation message indicating that the booking has been cancelled.
 
 **AC8 – Booking History Reflects Cancellation**
 
-- [ ] When a booking has been cancelled and the client views their Booking History, the booking is clearly marked as Cancelled and can no longer be modified.
+- [X] When a booking has been cancelled and the client views their Booking History, the booking is clearly marked as Cancelled and can no longer be modified.
 
 **AC9 – No Changes Without Confirmation**
 
-- [ ] When the client opens the cancellation flow but chooses **Cancel** or closes the confirmation dialogue, no changes are made and the booking remains unchanged.
+- [X] When the client opens the cancellation flow but chooses **Cancel** or closes the confirmation dialogue, no changes are made and the booking remains unchanged.
 
 **AC10 – Accessible and Responsive Cancellation Flow**
 
-- [ ] When the client cancels a booking on mobile, tablet, or desktop, or when using assistive technology, the cancellation process is responsive, keyboard accessible, and provides clear labels and feedback messages.
+- [X] When the client cancels a booking on mobile, tablet, or desktop, or when using assistive technology, the cancellation process is responsive, keyboard accessible, and provides clear labels and feedback messages.
 
 ---
 
@@ -1337,35 +1337,35 @@ This page supports efficient booking management by enabling administrators to ed
 
 **AC1 – Menu Page Is Accessible From Main Navigation**
 
-- [ ] When a visitor is on any page of the website and uses the top navigation, they can access the Menu page in a single click.
+- [X] When a visitor is on any page of the website and uses the top navigation, they can access the Menu page in a single click.
 
 **AC2 – Menu Content Displays Correctly**
 
-- [ ] When a visitor opens the Menu page and it loads, the menu displays clearly organised sections (e.g., Starters, Mains, Desserts) with item names and prices.
+- [X] When a visitor opens the Menu page and it loads, the menu displays clearly organised sections (e.g., Starters, Mains, Desserts) with item names and prices.
 
 **AC3 – Menu Items Include Essential Information**
 
-- [ ] When the menu is displayed and the visitor views it, each item shows the dish name, price, and image. 
+- [X] When the menu is displayed and the visitor views it, each item shows the dish name, price, and image. 
 
 **AC4 – Menu Page Supports Booking Journey**
 
-- [ ] When a visitor is on the Menu page and decides to reserve a table, they can navigate to the Booking page using the top navigation or a call‑to‑action button. 
+- [X] When a visitor is on the Menu page and decides to reserve a table, they can navigate to the Booking page using the top navigation or a call‑to‑action button. 
 
 **AC5 – Menu Page Works for Logged-Out and Logged-In Users**
 
-- [ ] When a client opens the Menu page, whether logged in or not, the menu remains fully visible without restrictions. 
+- [X] When a client opens the Menu page, whether logged in or not, the menu remains fully visible without restrictions. 
 
 **AC6 – Responsive Layout Across Devices**
 
-- [ ] When a visitor views the Menu page on mobile, tablet, or desktop, the layout adapts to the screen, and all menu sections and prices remain readable, aligned, and usable without horizontal scrolling. 
+- [X] When a visitor views the Menu page on mobile, tablet, or desktop, the layout adapts to the screen, and all menu sections and prices remain readable, aligned, and usable without horizontal scrolling. 
 
 **AC7 – Accessibility Standards Followed**
 
-- [ ] When the Menu page includes images and headings and a screen reader is used, images have appropriate alt text, headings follow a logical structure, and text contrast supports readability.
+- [X] When the Menu page includes images and headings and a screen reader is used, images have appropriate alt text, headings follow a logical structure, and text contrast supports readability.
 
 **AC8 – Error Handling for Missing Menu Data**
 
-- [ ] When menu items are stored in the database (or rendered from templates) and the menu data is unavailable or empty, the user sees a friendly message such as “Menu currently unavailable — please check back soon” instead of a broken page. 
+- [X] When menu items are stored in the database (or rendered from templates) and the menu data is unavailable or empty, the user sees a friendly message such as “Menu currently unavailable — please check back soon” instead of a broken page. 
 
 ---
 
@@ -1378,27 +1378,27 @@ This page supports efficient booking management by enabling administrators to ed
 
 **AC1 – Dietary Information is Visible on the Menu**
 
-- [ ] When a client is viewing the Menu page and items are displayed, each item shows clear dietary information (e.g., V for vegetarian, GF for gluten‑free, DF for dairy‑free) presented as **icons, labels,** or **short tags**.
+- [X] When a client is viewing the Menu page and items are displayed, each item shows clear dietary information (e.g., V for vegetarian, GF for gluten‑free, DF for dairy‑free) presented as **icons, labels,** or **short tags**.
 
 **AC2 – Dietary Key/Legend is Provided**
 
-- [ ] When dietary tags or icons are used and the customer views the menu, a **legend or key** is available explaining what each dietary label means.
+- [X] When dietary tags or icons are used and the customer views the menu, a **legend or key** is available explaining what each dietary label means.
 
 **AC3 – Allergens are Clearly Identified**
 
-- [ ] When a customer has allergy concerns and views the menu, items display **relevant allergen information** (e.g., contains milk, eggs, fish, nuts) or include a **‘Contains allergens’ indicator** with details available.
+- [X] When a customer has allergy concerns and views the menu, items display **relevant allergen information** (e.g., contains milk, eggs, fish, nuts) or include a **‘Contains allergens’ indicator** with details available.
 
 **AC4 – Information is Accurate and Consistent**
 
-- [ ] When dietary information is displayed across the menu and the customer compares items, **labels are applied consistently** using the same rules (e.g., “GF” only used when the dish is genuinely gluten‑free, not “can be made GF” unless stated).
+- [X] When dietary information is displayed across the menu and the customer compares items, **labels are applied consistently** using the same rules (e.g., “GF” only used when the dish is genuinely gluten‑free, not “can be made GF” unless stated).
 
 **AC5 – Accessible Presentation**
 
-- [ ] When a client uses assistive technology to navigate the menu, dietary labels or icons are **readable**, include accessible text (not colour‑only), and can be interpreted by **screen readers** (e.g., via aria‑labels or visible text).
+- [X] When a client uses assistive technology to navigate the menu, dietary labels or icons are **readable**, include accessible text (not colour‑only), and can be interpreted by **screen readers** (e.g., via aria‑labels or visible text).
 
 **AC6 – Mobile Responsiveness**
 
-- [ ] When a customer views the menu on mobile or tablet and the layout adjusts, **dietary tags remain visible** and do not overlap prices, titles, or descriptions.
+- [X] When a customer views the menu on mobile or tablet and the layout adjusts, **dietary tags remain visible** and do not overlap prices, titles, or descriptions.
 
 ---
 
@@ -1415,7 +1415,7 @@ This page supports efficient booking management by enabling administrators to ed
 
 **AC2 – Email Contains Essential Booking Details**
 
-- [ ] When a confirmation email is sent and the client opens it, it includes:
+- [X] When a confirmation email is sent and the client opens it, it includes:
 
 - restaurant name
 
@@ -1431,12 +1431,12 @@ This page supports efficient booking management by enabling administrators to ed
 
 **AC3 – Clear and Professional Email Format**
 
-- [ ] When the confirmation email is sent and the client reads it, the message is clearly structured, professionally written, and easy to understand.
+- [X] When the confirmation email is sent and the client reads it, the message is clearly structured, professionally written, and easy to understand.
 
 
 **AC4 – Email Matches Stored Booking Data**
 
-- [ ] When the booking exists in the database and the confirmation email is generated, all details in the email match the saved booking record exactly.
+- [X] When the booking exists in the database and the confirmation email is generated, all details in the email match the saved booking record exactly.
 
 **AC5 – Email Delivery Failure Handling**
 
@@ -1465,15 +1465,15 @@ This page supports efficient booking management by enabling administrators to ed
 
 **AC1 – Booking History Is Available to Logged-In Users**
 
-- [ ] When the client is logged in and navigates to My Bookings or Booking History, they can view a list of their bookings.
+- [X] When the client is logged in and navigates to My Bookings or Booking History, they can view a list of their bookings.
 
 **AC2 – Booking History Shows Only the Customer's Own Bookings**
 
-- [ ] When the client is logged in and the booking history is displayed, it shows only bookings linked to that user account and not those of other users.
+- [X] When the client is logged in and the booking history is displayed, it shows only bookings linked to that user account and not those of other users.
 
 **AC3 – Bookings Are Displayed in a Clear, Structured Format**
 
-- [ ] When bookings exist for the client and the booking history page loads, each booking is shown with key details such as:
+- [X] When bookings exist for the client and the booking history page loads, each booking is shown with key details such as:
 - booking reference/ID
 - date and time
 - number of guests
@@ -1481,23 +1481,23 @@ This page supports efficient booking management by enabling administrators to ed
 
 **AC4 – Sorting Supports Tracking Past Visits**
 
-- [ ] When the booking history list is displayed, bookings are ordered in a logical way (e.g., most recent first) to help clients track past visits easily.
+- [X] When the booking history list is displayed, bookings are ordered in a logical way (e.g., most recent first) to help clients track past visits easily.
 
 **AC5 – Past vs Upcoming Bookings are Clearly Identified**
 
-- [ ] When the booking history contains a mix of dates, it is clear which bookings are upcoming and which are in the past (e.g., via labels, status, or sectioning).
+- [X] When the booking history contains a mix of dates, it is clear which bookings are upcoming and which are in the past (e.g., via labels, status, or sectioning).
 
 **AC6 – Empty State Messaging**
 
-- [ ] When the client has no bookings and opens the booking history page, a clear message is shown (e.g., "You have no bookings yet"), along with a link or button to make a new booking.
+- [X] When the client has no bookings and opens the booking history page, a clear message is shown (e.g., "You have no bookings yet"), along with a link or button to make a new booking.
 
 **AC7 – Access to Booking Details from History**
 
-- [ ] When the client views their list of bookings and selects one (e.g., "View details"), they are taken to a booking‑detail view showing full information for that reservation.
+- [X] When the client views their list of bookings and selects one (e.g., "View details"), they are taken to a booking‑detail view showing full information for that reservation.
 
 **AC8 – Responsive and Accessible Display**
 
-- [ ] When the client views their booking history on mobile, tablet, or desktop, the page remains readable and usable across screen sizes and follows accessibility best practice (keyboard navigation, readable contrast, semantic structure).
+- [X] When the client views their booking history on mobile, tablet, or desktop, the page remains readable and usable across screen sizes and follows accessibility best practice (keyboard navigation, readable contrast, semantic structure).
 
 ---
 
@@ -1511,39 +1511,39 @@ This page supports efficient booking management by enabling administrators to ed
 
 **AC1 – Special Requests Field is Available during Booking**
 
-- [ ] When the client is making a booking and viewing the booking form, they can see a **Special Requests** input field (e.g., a text area).
+- [X] When the client is making a booking and viewing the booking form, they can see a **Special Requests** input field (e.g., a text area).
 
 **AC2 – Special Requests Are Optional**
 
-- [ ] When the client completes the booking form and leaves the **Special Requests** field blank, the booking can still be submitted successfully.
+- [X] When the client completes the booking form and leaves the **Special Requests** field blank, the booking can still be submitted successfully.
 
 **AC3 – Special Requests are Saved with the Booking**
 
-- [ ] When the client enters a special request and submits the booking form, the request is stored and linked to that booking in the database.
+- [X] When the client enters a special request and submits the booking form, the request is stored and linked to that booking in the database.
 
 **AC4 – Input is Validated and Limited**
 
-- [ ] When the client enters text into the **Special Requests** field and submits the booking, the system validates the input (e.g., maximum character limit) and displays a clear error message if the limit is exceeded.
+- [X] When the client enters text into the **Special Requests** field and submits the booking, the system validates the input (e.g., maximum character limit) and displays a clear error message if the limit is exceeded.
 
 **AC5 – Special Requests are Visible in Booking Confirmation**
 
-- [ ] When the booking is successfully created and the customer views the confirmation page, their special request is displayed as part of the booking summary (or shown as "None" if not provided).
+- [X] When the booking is successfully created and the customer views the confirmation page, their special request is displayed as part of the booking summary (or shown as "None" if not provided).
 
 **AC6 – Special Requests are Visible in Booking History/Details**
 
-- [ ] When the customer views their booking history or booking details and opens a specific booking, the special request (if provided) is displayed.
+- [X] When the customer views their booking history or booking details and opens a specific booking, the special request (if provided) is displayed.
 
 **AC7 – Special Requests can be Updated when Editing a Booking**
 
-- [ ] When the client edits an existing booking (where editing is allowed) and updates the **Special Requests** field before saving changes, the updated request is stored and displayed in the booking details.
+- [X] When the client edits an existing booking (where editing is allowed) and updates the **Special Requests** field before saving changes, the updated request is stored and displayed in the booking details.
 
 **AC8 – Admin can View Special Requests**
 
-- [ ] When an administrator or staff member views a booking in the admin dashboard and opens the booking record, the **Special Requests** information is visible to support service preparation.
+- [X] When an administrator or staff member views a booking in the admin dashboard and opens the booking record, the **Special Requests** information is visible to support service preparation.
 
 **AC9 – Secure Handling of User Input**
 
-- [ ] When the client submits special‑request text and the system stores and displays it, the input is handled securely (e.g., sanitised or escaped) to prevent malicious content from being executed.
+- [X] When the client submits special‑request text and the system stores and displays it, the input is handled securely (e.g., sanitised or escaped) to prevent malicious content from being executed.
 
 ---
 
@@ -1556,15 +1556,15 @@ This page supports efficient booking management by enabling administrators to ed
 
 **AC1 – Staff-Only Access**
 
-- [ ] Access is restricted to staff or admin users when a logged‑in user attempts to view today’s bookings. 
+- [X] Access is restricted to staff or admin users when a logged‑in user attempts to view today’s bookings. 
 
 **AC2 – Display Today’s Bookings Automatically**
 
-- [ ] All bookings for the current date are shown by default when a staff member opens the bookings dashboard.
+- [X] All bookings for the current date are shown by default when a staff member opens the bookings dashboard.
 
 **AC3 – Relevant Booking Information Is Shown**
 
-- [ ] When today’s bookings are displayed, each entry includes:
+- [X] When today’s bookings are displayed, each entry includes:
 
 - booking time
 
@@ -1579,27 +1579,27 @@ This page supports efficient booking management by enabling administrators to ed
 
 **AC4 – Bookings Are Ordered by Time**
 
-- [ ] Bookings are listed in chronological order when multiple bookings exist for the day.
+- [X] Bookings are listed in chronological order when multiple bookings exist for the day.
 
 **AC5 – No Bookings Message**
 
-- [ ] A clear message is displayed when no bookings exist for today.
+- [X] A clear message is displayed when no bookings exist for today.
 
 **AC6 – Real-Time or Refreshed Data**
 
-- [ ] **The list reflects the latest booking data** when a booking is created, updated, or cancelled and the page is refreshed (or auto‑refreshed, if implemented).
+- [X] **The list reflects the latest booking data** when a booking is created, updated, or cancelled and the page is refreshed (or auto‑refreshed, if implemented).
 
 **AC7 – Visual Clarity for Preparation**
 
-- [ ] Bookings are presented in a clear, readable layout that supports quick staff preparation (e.g., spacing, labels, emphasis on time and guest count).
+- [X] Bookings are presented in a clear, readable layout that supports quick staff preparation (e.g., spacing, labels, emphasis on time and guest count).
 
 **AC8 – Time Zone Accuracy**
 
-- [ ] **Booking times reflect the restaurant’s local time** when today’s bookings are displayed.
+- [X] **Booking times reflect the restaurant’s local time** when today’s bookings are displayed.
 
 **AC9 – Secure Data Handling**
 
-- [ ] **Only necessary customer information is shown and handled securely** in accordance with data‑protection practices.
+- [X] **Only necessary customer information is shown and handled securely** in accordance with data‑protection practices.
 
 ---
 
@@ -1612,27 +1612,27 @@ This page supports efficient booking management by enabling administrators to ed
 
 **AC1 – Staff-Only Access**
 
-- [ ] When a user is logged in and attempts to access the booking search functionality, the feature is available only to staff or admin users.
+- [X] When a user is logged in and attempts to access the booking search functionality, the feature is available only to staff or admin users.
 
 **AC2 – Search Input Availability**
 
-- [ ] When a staff member is on the bookings management page and the page loads, a clearly visible search input field is available for entering a customer name.
+- [X] When a staff member is on the bookings management page and the page loads, a clearly visible search input field is available for entering a customer name.
 
 **AC3 – Case-Insensitive Name Search**
 
-- [ ] When a staff member enters a customer name (full or partial) and submits the search, the system returns bookings that match the name regardless of letter case.
+- [X] When a staff member enters a customer name (full or partial) and submits the search, the system returns bookings that match the name regardless of letter case.
 
 **AC4 – Partial Match Support**
 
-- [ ] When a staff member enters part of a customer’s name and performs a search, all bookings containing the matching text in the customer name are displayed.
+- [X] When a staff member enters part of a customer’s name and performs a search, all bookings containing the matching text in the customer name are displayed.
 
 **AC5 – Search Results Accuracy**
 
-- [ ] When a search query is submitted and results are displayed, only bookings that match the entered customer name are shown.
+- [X] When a search query is submitted and results are displayed, only bookings that match the entered customer name are shown.
 
 **AC6 – Clear Results Presentation**
 
-- [ ] When matching bookings are found and results are displayed, each booking includes key information such as:
+- [X] When matching bookings are found and results are displayed, each booking includes key information such as:
 
 - customer name
 
@@ -1646,19 +1646,19 @@ This page supports efficient booking management by enabling administrators to ed
 
 **AC7 – No Results Feedback**
 
-- [ ] When no bookings match the search criteria and the search is executed, a clear message is displayed indicating that no matching bookings were found.
+- [X] When no bookings match the search criteria and the search is executed, a clear message is displayed indicating that no matching bookings were found.
 
 **AC8 – Reset or Clear Search**
 
-- [ ] When a staff member has performed a search and then clears the search input or selects a reset option, the full bookings list is restored.
+- [X] When a staff member has performed a search and then clears the search input or selects a reset option, the full bookings list is restored.
 
 **AC9 – Performance and Responsiveness**
 
-- [ ] When a large number of bookings exist and a staff member performs a search, results are returned quickly without noticeable delay.
+- [X] When a large number of bookings exist and a staff member performs a search, results are returned quickly without noticeable delay.
 
 **AC10 – Secure Handling of Search Data**
 
-- [ ] When client data is searched and displayed, only authorised staff can view the information, and it is handled securely in line with data‑protection requirements.
+- [X] When client data is searched and displayed, only authorised staff can view the information, and it is handled securely in line with data‑protection requirements.
 
 ---
 
@@ -1834,15 +1834,15 @@ This page supports efficient booking management by enabling administrators to ed
 
 **AC1 – Admin-Only Access**
 
-- [ ] When a user is logged in and attempts to access time‑slot management, only users with admin privileges can view or edit time slots.
+- [X] When a user is logged in and attempts to access time‑slot management, only users with admin privileges can view or edit time slots.
 
 **AC2 – View Existing Time Slots**
 
-- [ ] When an admin opens the time‑slot management page and it loads, all configured time slots are displayed (e.g., start time, end time or duration, active/inactive status, applicable days).
+- [X] When an admin opens the time‑slot management page and it loads, all configured time slots are displayed (e.g., start time, end time or duration, active/inactive status, applicable days).
 
 **AC3 – Create New Time Slots**
 
-- [ ] When an admin is managing time slots and adds a new one, they must be able to set at minimum:
+- [X] When an admin is managing time slots and adds a new one, they must be able to set at minimum:
 
 - start time
 
@@ -1856,43 +1856,43 @@ This page supports efficient booking management by enabling administrators to ed
 
 **AC4 – Edit Time Slots**
 
-- [ ] When a time slot exists and the admin edits it (time, days, active status), the updated values are validated and saved successfully.
+- [X] When a time slot exists and the admin edits it (time, days, active status), the updated values are validated and saved successfully.
 
 **AC5 – Enable/Disable Time Slots**
 
-- [ ] When a time slot exists and the admin marks it as inactive, the slot is no longer available to customers when booking, while existing bookings for that slot remain unchanged.
+- [X] When a time slot exists and the admin marks it as inactive, the slot is no longer available to customers when booking, while existing bookings for that slot remain unchanged.
 
 **AC6 – Prevent Duplicate or Overlapping Slots**
 
-- [ ] When an admin creates or edits a slot and it overlaps with or duplicates another active slot for the same day(s), the system prevents saving and displays a clear error message.
+- [X] When an admin creates or edits a slot and it overlaps with or duplicates another active slot for the same day(s), the system prevents saving and displays a clear error message.
 
 **AC7 – Booking Form Uses Active Time Slots Only**
 
-- [ ] When customers make a booking and the booking form loads available times, only active time slots for the selected date or day are shown.
+- [X] When customers make a booking and the booking form loads available times, only active time slots for the selected date or day are shown.
 
 **AC8 – Respect Restaurant Opening Times**
 
-- [ ] When restaurant opening and closing hours are configured and an admin creates or edits a time slot, the system prevents slots outside opening hours and provides feedback.
+- [X] When restaurant opening and closing hours are configured and an admin creates or edits a time slot, the system prevents slots outside opening hours and provides feedback.
 
 **AC9 – Capacity Awareness per Slot**
 
-- [ ] When capacity rules (tables or seat limits) are configured and customers choose a time slot, the system offers the slot only if capacity is available for the selected party size.
+- [X] When capacity rules (tables or seat limits) are configured and customers choose a time slot, the system offers the slot only if capacity is available for the selected party size.
 
 **AC10 – Persist Changes**
 
-- [ ] When an admin saves changes to time slots and later revisits or refreshes the page, the saved time slots remain correct and consistent.
+- [X] When an admin saves changes to time slots and later revisits or refreshes the page, the saved time slots remain correct and consistent.
 
 **AC11 – Confirmation and Feedback**
 
-- [ ] When an admin successfully adds, updates, or disables a time slot and the action completes, a success message confirms the change.
+- [X] When an admin successfully adds, updates, or disables a time slot and the action completes, a success message confirms the change.
 
 **AC12 – Error Handling**
 
-- [ ] When a save operation fails (due to validation errors or system issues) and the admin submits changes, the system displays a clear error message and does not apply partial updates.
+- [X] When a save operation fails (due to validation errors or system issues) and the admin submits changes, the system displays a clear error message and does not apply partial updates.
 
 **AC12 – Audit Logging**
 
-- [ ] When an admin makes a change to time slots and the update is saved, the system records who made the change and when, for accountability.
+- [X] When an admin makes a change to time slots and the update is saved, the system records who made the change and when, for accountability.
 
 ---
 
@@ -1905,19 +1905,19 @@ This page supports efficient booking management by enabling administrators to ed
 
 **AC1 – Admin-Only Access**
 
-- [ ] When a user is logged in and attempts to access booking statistics, only users with admin privileges can view the statistics dashboard.
+- [X] When a user is logged in and attempts to access booking statistics, only users with admin privileges can view the statistics dashboard.
 
 **AC2 – Statistics Dashboard Availability**
 
-- [ ] When an admin opens the booking‑statistics page and it loads, the system displays an overview of statistics without errors and within a reasonable time.
+- [X] When an admin opens the booking‑statistics page and it loads, the system displays an overview of statistics without errors and within a reasonable time.
 
 **AC3 – Date Range Filtering**
 
-- [ ] When an admin views booking statistics and selects a date range (e.g., last 7 days, last 30 days, custom range), all displayed statistics update to reflect only bookings within that range.
+- [X] When an admin views booking statistics and selects a date range (e.g., last 7 days, last 30 days, custom range), all displayed statistics update to reflect only bookings within that range.
 
 **AC4 – Core Metrics Displayed**
 
-- [ ] When an admin views the dashboard and statistics are shown, the following metrics are displayed at minimum:
+- [X] When an admin views the dashboard and statistics are shown, the following metrics are displayed at minimum:
 
 - total bookings
 
@@ -1929,7 +1929,7 @@ This page supports efficient booking management by enabling administrators to ed
 
 **AC5 – Usage Pattern Insights**
 
-- [ ] When an admin views statistics for a date range, the dashboard displays at least one usage‑pattern view such as:
+- [X] When an admin views statistics for a date range, the dashboard displays at least one usage‑pattern view such as:
 
 - bookings by day of week
 
@@ -1941,27 +1941,27 @@ This page supports efficient booking management by enabling administrators to ed
 
 **AC7 – Data Accuracy and Consistency**
 
-- [ ] When bookings exist in the database and an admin compares statistics with the booking list for the same date range, totals and breakdowns match the underlying records.
+- [X] When bookings exist in the database and an admin compares statistics with the booking list for the same date range, totals and breakdowns match the underlying records.
 
 **AC8 – Handles No-Data Scenarios**
 
-- [ ] When there are no bookings in the selected date range and the admin views statistics, the dashboard displays “No data available for this period” (or equivalent) and shows zeros rather than errors.
+- [X] When there are no bookings in the selected date range and the admin views statistics, the dashboard displays “No data available for this period” (or equivalent) and shows zeros rather than errors.
 
 **AC9 – Real-Time / Recently Updated Data**
 
-- [ ] When an admin creates, updates, or cancels a booking and then revisits or refreshes the statistics page, the dashboard reflects the updated data.
+- [X] When an admin creates, updates, or cancels a booking and then revisits or refreshes the statistics page, the dashboard reflects the updated data.
 
 **AC10 – Accessible Presentation**
 
-- [ ] When an admin uses assistive technologies to view charts or tables, the statistics are readable and accessible (clear headings, meaningful labels, sufficient contrast), and key metrics are available in text form rather than charts alone.
+- [X] When an admin uses assistive technologies to view charts or tables, the statistics are readable and accessible (clear headings, meaningful labels, sufficient contrast), and key metrics are available in text form rather than charts alone.
 
 **AC11 – Performance for Large Data Sets**
 
-- [ ] When a large number of booking records exist and the admin loads statistics for a broad date range, the page remains responsive and loads within a reasonable time (e.g., caching or aggregation used where appropriate).
+- [X] When a large number of booking records exist and the admin loads statistics for a broad date range, the page remains responsive and loads within a reasonable time (e.g., caching or aggregation used where appropriate).
 
 **AC12 – Export/Download Option (Optional Enhancement)**
 
-- [ ] When an admin chooses to export records (if implemented), the system downloads the statistics in a usable format (e.g., CSV) matching the selected date range.
+- [X] When an admin chooses to export records (if implemented), the system downloads the statistics in a usable format (e.g., CSV) matching the selected date range.
 
 ---
 
